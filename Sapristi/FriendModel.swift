@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(FriendModel)
 class FriendModel: NSManagedObject {
 
     @NSManaged var availability: String

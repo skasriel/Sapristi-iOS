@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Contact {
+    var displayName: String = ""
+    var phoneNumbers: [String] = []
+    var emailAddresses: [String] = []
+}

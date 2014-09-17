@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02179A3019C7F04800D0C267 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02179A2F19C7F04800D0C267 /* FriendModel.swift */; };
 		0245659919C34A1D006F34D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659819C34A1D006F34D3 /* AppDelegate.swift */; };
 		0245659B19C34A1D006F34D3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659A19C34A1D006F34D3 /* FirstViewController.swift */; };
 		0245659D19C34A1D006F34D3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659C19C34A1D006F34D3 /* SecondViewController.swift */; };
 		024565A019C34A1D006F34D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0245659E19C34A1D006F34D3 /* Main.storyboard */; };
-		024565A219C34A1D006F34D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 024565A119C34A1D006F34D3 /* Images.xcassets */; };
 		024565AE19C34A1D006F34D3 /* SapristiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565AD19C34A1D006F34D3 /* SapristiTests.swift */; };
+		024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */; };
+		024565BA19C658E7006F34D3 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565B919C658E7006F34D3 /* FriendsCell.swift */; };
+		024565BD19C6607F006F34D3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565BC19C6607F006F34D3 /* Friend.swift */; };
+		025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025EF8C119C6A188008D30C6 /* Media.xcassets */; };
+		02F0A27C19C6A933003C77F7 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */; };
+		02F0A27E19C795DF003C77F7 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27D19C795DF003C77F7 /* InitialViewController.swift */; };
+		02F0A28019C79AAC003C77F7 /* ConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */; };
+		02F0A28219C7A458003C77F7 /* AccessContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */; };
+		02F0A28419C7BB96003C77F7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A28319C7BB96003C77F7 /* Contact.swift */; };
+		02F0A28619C7EA03003C77F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F0A28519C7EA02003C77F7 /* CoreData.framework */; };
+		02F0A28919C7EBAA003C77F7 /* SapristiModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A28719C7EBAA003C77F7 /* SapristiModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +37,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02179A2F19C7F04800D0C267 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		02179A3119C7F1FE00D0C267 /* SapristiModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SapristiModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		02179A3219C7F3E400D0C267 /* Sapristi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sapristi-Bridging-Header.h"; sourceTree = "<group>"; };
 		0245659319C34A1D006F34D3 /* Sapristi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sapristi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0245659719C34A1D006F34D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0245659819C34A1D006F34D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0245659A19C34A1D006F34D3 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		0245659C19C34A1D006F34D3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		0245659F19C34A1D006F34D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		024565A119C34A1D006F34D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		024565A719C34A1D006F34D3 /* SapristiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SapristiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		024565AC19C34A1D006F34D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		024565AD19C34A1D006F34D3 /* SapristiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapristiTests.swift; sourceTree = "<group>"; };
+		024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
+		024565B919C658E7006F34D3 /* FriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		024565BC19C6607F006F34D3 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		025EF8C119C6A188008D30C6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
+		02F0A27D19C795DF003C77F7 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeViewController.swift; sourceTree = "<group>"; };
+		02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessContactsViewController.swift; sourceTree = "<group>"; };
+		02F0A28319C7BB96003C77F7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		02F0A28519C7EA02003C77F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		02F0A28819C7EBAA003C77F7 /* SapristiModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SapristiModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F0A28619C7EA03003C77F7 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +84,7 @@
 		0245658A19C34A1D006F34D3 = {
 			isa = PBXGroup;
 			children = (
+				025EF8C119C6A188008D30C6 /* Media.xcassets */,
 				0245659519C34A1D006F34D3 /* Sapristi */,
 				024565AA19C34A1D006F34D3 /* SapristiTests */,
 				0245659419C34A1D006F34D3 /* Products */,
@@ -77,11 +103,17 @@
 		0245659519C34A1D006F34D3 /* Sapristi */ = {
 			isa = PBXGroup;
 			children = (
+				024565BB19C66072006F34D3 /* Models */,
 				0245659819C34A1D006F34D3 /* AppDelegate.swift */,
 				0245659A19C34A1D006F34D3 /* FirstViewController.swift */,
+				02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */,
+				024565B919C658E7006F34D3 /* FriendsCell.swift */,
+				024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */,
 				0245659C19C34A1D006F34D3 /* SecondViewController.swift */,
 				0245659E19C34A1D006F34D3 /* Main.storyboard */,
-				024565A119C34A1D006F34D3 /* Images.xcassets */,
+				02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */,
+				02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */,
+				02F0A27D19C795DF003C77F7 /* InitialViewController.swift */,
 				0245659619C34A1D006F34D3 /* Supporting Files */,
 			);
 			path = Sapristi;
@@ -90,6 +122,7 @@
 		0245659619C34A1D006F34D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02F0A28519C7EA02003C77F7 /* CoreData.framework */,
 				0245659719C34A1D006F34D3 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -110,6 +143,18 @@
 				024565AC19C34A1D006F34D3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		024565BB19C66072006F34D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02179A3219C7F3E400D0C267 /* Sapristi-Bridging-Header.h */,
+				02F0A28719C7EBAA003C77F7 /* SapristiModel.xcdatamodeld */,
+				02179A2F19C7F04800D0C267 /* FriendModel.swift */,
+				024565BC19C6607F006F34D3 /* Friend.swift */,
+				02F0A28319C7BB96003C77F7 /* Contact.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,9 +206,11 @@
 				TargetAttributes = {
 					0245659219C34A1D006F34D3 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 95Y84YC59A;
 					};
 					024565A619C34A1D006F34D3 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 95Y84YC59A;
 						TestTargetID = 0245659219C34A1D006F34D3;
 					};
 				};
@@ -192,8 +239,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */,
 				024565A019C34A1D006F34D3 /* Main.storyboard in Resources */,
-				024565A219C34A1D006F34D3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,9 +258,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */,
+				02F0A28219C7A458003C77F7 /* AccessContactsViewController.swift in Sources */,
+				02F0A28919C7EBAA003C77F7 /* SapristiModel.xcdatamodeld in Sources */,
+				02F0A28019C79AAC003C77F7 /* ConfirmationCodeViewController.swift in Sources */,
+				024565BA19C658E7006F34D3 /* FriendsCell.swift in Sources */,
 				0245659D19C34A1D006F34D3 /* SecondViewController.swift in Sources */,
+				024565BD19C6607F006F34D3 /* Friend.swift in Sources */,
+				02179A3019C7F04800D0C267 /* FriendModel.swift in Sources */,
+				02F0A28419C7BB96003C77F7 /* Contact.swift in Sources */,
 				0245659919C34A1D006F34D3 /* AppDelegate.swift in Sources */,
 				0245659B19C34A1D006F34D3 /* FirstViewController.swift in Sources */,
+				02F0A27C19C6A933003C77F7 /* FriendDetailViewController.swift in Sources */,
+				02F0A27E19C795DF003C77F7 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,9 +386,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sapristi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sapristi/Sapristi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -340,9 +401,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sapristi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sapristi/Sapristi-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -350,6 +414,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -361,6 +427,7 @@
 				INFOPLIST_FILE = SapristiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sapristi.app/Sapristi";
 			};
 			name = Debug;
@@ -369,6 +436,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -376,6 +445,7 @@
 				INFOPLIST_FILE = SapristiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sapristi.app/Sapristi";
 			};
 			name = Release;
@@ -399,6 +469,7 @@
 				024565B319C34A1D006F34D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		024565B419C34A1D006F34D3 /* Build configuration list for PBXNativeTarget "SapristiTests" */ = {
 			isa = XCConfigurationList;
@@ -407,8 +478,23 @@
 				024565B619C34A1D006F34D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		02F0A28719C7EBAA003C77F7 /* SapristiModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				02179A3119C7F1FE00D0C267 /* SapristiModel 2.xcdatamodel */,
+				02F0A28819C7EBAA003C77F7 /* SapristiModel.xcdatamodel */,
+			);
+			currentVersion = 02F0A28819C7EBAA003C77F7 /* SapristiModel.xcdatamodel */;
+			path = SapristiModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0245658B19C34A1D006F34D3 /* Project object */;
 }
