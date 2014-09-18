@@ -9,23 +9,29 @@
 import Foundation
 import UIKit
 
-class InitialViewController: UIViewController {
+class InitialViewController: UIViewController, HTTPControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        let isLoggedIn = false; // check whether CoreData says the user is logged in
-        
-        if (isLoggedIn) {
-            println("Do segue to main")
-            self.performSegueWithIdentifier("fromLoadingToMain", sender: self)
-        } else {
-            println("Do segue to registration")
+    func didReceiveAPIResults(err: NSError?, results: NSDictionary?) {
+        println("In InitialViewController.didReceiveAPIResults")
+        if (err != nil) {
+            println("Server error: ") //\(err!.localizedDescription)")
             self.performSegueWithIdentifier("fromLoadingToRegistration", sender: self)
-       }
+            return
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.performSegueWithIdentifier("fromLoadingToMain", sender: self)
+        })
+    }
+
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)        
+        HTTPController.getInstance().doLogin(self)
     }
     
     override func didReceiveMemoryWarning() {

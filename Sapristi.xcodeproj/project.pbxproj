@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02179A3019C7F04800D0C267 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02179A2F19C7F04800D0C267 /* FriendModel.swift */; };
+		022C139519CA4A7E00A9DB55 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; };
+		022C139619CA4A7E00A9DB55 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0245659919C34A1D006F34D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659819C34A1D006F34D3 /* AppDelegate.swift */; };
 		0245659B19C34A1D006F34D3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659A19C34A1D006F34D3 /* FirstViewController.swift */; };
 		0245659D19C34A1D006F34D3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659C19C34A1D006F34D3 /* SecondViewController.swift */; };
@@ -16,6 +18,9 @@
 		024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */; };
 		024565BA19C658E7006F34D3 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565B919C658E7006F34D3 /* FriendsCell.swift */; };
 		024565BD19C6607F006F34D3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565BC19C6607F006F34D3 /* Friend.swift */; };
+		0255CBB419CA343E00FD8D71 /* HTTPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0255CBB319CA343E00FD8D71 /* HTTPController.swift */; };
+		0255CBCA19CA44F100FD8D71 /* Alamofire.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 0255CBC519CA44F100FD8D71 /* Alamofire.xcworkspace */; };
+		0255CBD319CA497400FD8D71 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; };
 		025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025EF8C119C6A188008D30C6 /* Media.xcassets */; };
 		02F0A27C19C6A933003C77F7 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */; };
 		02F0A27E19C795DF003C77F7 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27D19C795DF003C77F7 /* InitialViewController.swift */; };
@@ -27,6 +32,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		022C139119CA4A5F00A9DB55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		022C139719CA4A7E00A9DB55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 		024565A819C34A1D006F34D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0245658B19C34A1D006F34D3 /* Project object */;
@@ -34,7 +53,35 @@
 			remoteGlobalIDString = 0245659219C34A1D006F34D3;
 			remoteInfo = Sapristi;
 		};
+		0255CBCF19CA44F100FD8D71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		0255CBD119CA44F100FD8D71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		022C139919CA4A7F00A9DB55 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				022C139619CA4A7E00A9DB55 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02179A2F19C7F04800D0C267 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
@@ -52,6 +99,9 @@
 		024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
 		024565B919C658E7006F34D3 /* FriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		024565BC19C6607F006F34D3 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		0255CBB319CA343E00FD8D71 /* HTTPController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPController.swift; sourceTree = "<group>"; };
+		0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
+		0255CBC519CA44F100FD8D71 /* Alamofire.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Alamofire.xcworkspace; sourceTree = "<group>"; };
 		025EF8C119C6A188008D30C6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
 		02F0A27D19C795DF003C77F7 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0255CBD319CA497400FD8D71 /* Alamofire.framework in Frameworks */,
+				022C139519CA4A7E00A9DB55 /* Alamofire.framework in Frameworks */,
 				02F0A28619C7EA03003C77F7 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +133,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022C139B19CA5FF600A9DB55 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				02F0A27D19C795DF003C77F7 /* InitialViewController.swift */,
+				024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */,
+				02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */,
+				0245659A19C34A1D006F34D3 /* FirstViewController.swift */,
+				02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */,
+				0245659C19C34A1D006F34D3 /* SecondViewController.swift */,
+				02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		0245658A19C34A1D006F34D3 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +154,7 @@
 				0245659519C34A1D006F34D3 /* Sapristi */,
 				024565AA19C34A1D006F34D3 /* SapristiTests */,
 				0245659419C34A1D006F34D3 /* Products */,
+				0255CBC119CA44F100FD8D71 /* Alamofire */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,17 +170,12 @@
 		0245659519C34A1D006F34D3 /* Sapristi */ = {
 			isa = PBXGroup;
 			children = (
+				022C139B19CA5FF600A9DB55 /* Controllers */,
 				024565BB19C66072006F34D3 /* Models */,
 				0245659819C34A1D006F34D3 /* AppDelegate.swift */,
-				0245659A19C34A1D006F34D3 /* FirstViewController.swift */,
-				02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */,
+				0255CBB319CA343E00FD8D71 /* HTTPController.swift */,
 				024565B919C658E7006F34D3 /* FriendsCell.swift */,
-				024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */,
-				0245659C19C34A1D006F34D3 /* SecondViewController.swift */,
 				0245659E19C34A1D006F34D3 /* Main.storyboard */,
-				02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */,
-				02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */,
-				02F0A27D19C795DF003C77F7 /* InitialViewController.swift */,
 				0245659619C34A1D006F34D3 /* Supporting Files */,
 			);
 			path = Sapristi;
@@ -157,6 +219,25 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		0255CBC119CA44F100FD8D71 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */,
+				0255CBC519CA44F100FD8D71 /* Alamofire.xcworkspace */,
+			);
+			name = Alamofire;
+			path = Sapristi/Alamofire;
+			sourceTree = "<group>";
+		};
+		0255CBC319CA44F100FD8D71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0255CBD019CA44F100FD8D71 /* Alamofire.framework */,
+				0255CBD219CA44F100FD8D71 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,10 +248,13 @@
 				0245658F19C34A1D006F34D3 /* Sources */,
 				0245659019C34A1D006F34D3 /* Frameworks */,
 				0245659119C34A1D006F34D3 /* Resources */,
+				022C139919CA4A7F00A9DB55 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				022C139219CA4A5F00A9DB55 /* PBXTargetDependency */,
+				022C139819CA4A7E00A9DB55 /* PBXTargetDependency */,
 			);
 			name = Sapristi;
 			productName = Sapristi;
@@ -226,6 +310,12 @@
 			mainGroup = 0245658A19C34A1D006F34D3;
 			productRefGroup = 0245659419C34A1D006F34D3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0255CBC319CA44F100FD8D71 /* Products */;
+					ProjectRef = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0245659219C34A1D006F34D3 /* Sapristi */,
@@ -234,6 +324,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0255CBD019CA44F100FD8D71 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 0255CBCF19CA44F100FD8D71 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0255CBD219CA44F100FD8D71 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 0255CBD119CA44F100FD8D71 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		0245659119C34A1D006F34D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -241,6 +348,7 @@
 			files = (
 				025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */,
 				024565A019C34A1D006F34D3 /* Main.storyboard in Resources */,
+				0255CBCA19CA44F100FD8D71 /* Alamofire.xcworkspace in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */,
+				0255CBB419CA343E00FD8D71 /* HTTPController.swift in Sources */,
 				02F0A28219C7A458003C77F7 /* AccessContactsViewController.swift in Sources */,
 				02F0A28919C7EBAA003C77F7 /* SapristiModel.xcdatamodeld in Sources */,
 				02F0A28019C79AAC003C77F7 /* ConfirmationCodeViewController.swift in Sources */,
@@ -285,6 +394,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		022C139219CA4A5F00A9DB55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 022C139119CA4A5F00A9DB55 /* PBXContainerItemProxy */;
+		};
+		022C139819CA4A7E00A9DB55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 022C139719CA4A7E00A9DB55 /* PBXContainerItemProxy */;
+		};
 		024565A919C34A1D006F34D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0245659219C34A1D006F34D3 /* Sapristi */;
@@ -388,7 +507,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sapristi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sapristi/Sapristi-Bridging-Header.h";
@@ -403,7 +522,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sapristi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sapristi/Sapristi-Bridging-Header.h";

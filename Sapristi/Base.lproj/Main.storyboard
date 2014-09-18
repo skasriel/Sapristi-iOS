@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2k9-d2-laD">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
@@ -670,10 +669,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+1 (US)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h0T-0h-IOP">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="213" width="75" height="30"/>
-                                </variation>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-JF-REp">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -683,21 +679,30 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="160" y="285" width="81" height="30"/>
+                                    <rect key="frame" x="223" y="251" width="81" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="Edy-Dv-coJ" eventType="touchUpInside" id="YcE-Se-BgE"/>
-                                    <segue destination="J9z-5Q-kRr" kind="showDetail" id="hN5-K4-uiH"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(xxx) xxx - xxxx" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3tP-EI-KCX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3tP-EI-KCX">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="99" y="213" width="285" height="30"/>
+                                    <rect key="frame" x="16" y="213" width="288" height="30"/>
                                 </variation>
                             </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsl-zM-wYU">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="289" width="288" height="68"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -706,25 +711,30 @@
                                 <exclude reference="h0T-0h-IOP"/>
                                 <exclude reference="YQ8-JF-REp"/>
                                 <exclude reference="3tP-EI-KCX"/>
+                                <exclude reference="gsl-zM-wYU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ZYy-Ug-sSx"/>
-                                <include reference="h0T-0h-IOP"/>
+                                <exclude reference="h0T-0h-IOP"/>
                                 <include reference="YQ8-JF-REp"/>
                                 <include reference="3tP-EI-KCX"/>
+                                <include reference="gsl-zM-wYU"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="countryCodeField" destination="h0T-0h-IOP" id="Dzj-Zl-Nir"/>
+                        <outlet property="errorMessageLabel" destination="gsl-zM-wYU" id="wRI-XF-a8g"/>
                         <outlet property="mobileNumberField" destination="3tP-EI-KCX" id="HPa-ty-tZJ"/>
+                        <outlet property="nextButton" destination="YQ8-JF-REp" id="tlK-f9-f5q"/>
+                        <segue destination="J9z-5Q-kRr" kind="showDetail" identifier="fromNumberToConfirmation" id="XpN-eM-354"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7I-Pn-t1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1128" y="-62"/>
+            <point key="canvasLocation" x="-1041" y="-71"/>
         </scene>
         <!--Confirmation Code View Controller-->
         <scene sceneID="GU0-8d-DIE">
@@ -750,9 +760,9 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="xxx xxx" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="njt-aj-mld">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="58" y="206" width="285" height="30"/>
+                                    <rect key="frame" x="8" y="211" width="285" height="30"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdJ-jH-h6k">
@@ -763,12 +773,22 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="160" y="285" width="81" height="30"/>
+                                    <rect key="frame" x="212" y="249" width="81" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="pOA-tr-24D" kind="showDetail" id="W51-HK-y6S"/>
+                                    <action selector="confirmButtonPressed:" destination="J9z-5Q-kRr" eventType="touchUpInside" id="c6z-5h-cyZ"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF1-UB-qWh">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="24" y="290" width="288" height="68"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -776,6 +796,7 @@
                                 <exclude reference="0KL-Le-fTF"/>
                                 <exclude reference="njt-aj-mld"/>
                                 <exclude reference="xdJ-jH-h6k"/>
+                                <exclude reference="KF1-UB-qWh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -783,9 +804,15 @@
                                 <include reference="0KL-Le-fTF"/>
                                 <include reference="njt-aj-mld"/>
                                 <include reference="xdJ-jH-h6k"/>
+                                <include reference="KF1-UB-qWh"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="confirmationCodeTextField" destination="njt-aj-mld" id="oTe-3E-xfR"/>
+                        <outlet property="errorMessageLabel" destination="KF1-UB-qWh" id="vqB-x0-far"/>
+                        <segue destination="pOA-tr-24D" kind="showDetail" identifier="fromConfirmToContacts" id="uGc-To-47b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mr6-km-3LP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

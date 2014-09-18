@@ -9,10 +9,16 @@
 import Foundation
 import UIKit
 
-class ConfirmationCodeViewController: UIViewController {
+class ConfirmationCodeViewController: UIViewController, HTTPControllerProtocol {
+    
+    @IBOutlet weak var confirmationCodeTextField: UITextField!
+    
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        confirmationCodeTextField.becomeFirstResponder()
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -21,6 +27,38 @@ class ConfirmationCodeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func showError(error: String) {
+        errorMessageLabel.text = error
+        errorMessageLabel.hidden = false
+        println("showError: \(error)")
+    }
+
+    func didReceiveAPIResults(err: NSError?, results: NSDictionary?) {
+        println("In didReceiveAPIResults")
+        if (err != nil) {
+            showError("Server error: \(err!.localizedDescription)")
+            return
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.performSegueWithIdentifier("fromConfirmToContacts", sender: self)
+            //self.tableData = resultsArr
+            //self.appsTableView!.reloadData()
+        })
+    }
+
+    
+    @IBAction func confirmButtonPressed(sender: UIButton) {
+        errorMessageLabel.hidden = true
+        var url = "http://lit-woodland-6706.herokuapp.com/api/auth/confirmation-code"
+        var formData: [String: AnyObject] = [
+            "confirmationCode":  confirmationCodeTextField.text,
+        ]
+        
+        HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self)
+
+    }
     
 }
 

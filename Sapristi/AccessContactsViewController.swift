@@ -93,9 +93,9 @@ class AccessContactsViewController: UIViewController {
         var request = NSFetchRequest(entityName: "FriendModel")
         var error: NSError? = nil
         var results: NSArray = managedObjectContext!.executeFetchRequest(request, error: &error)
-        for res in results {
-            println("res = \(res)")
-        }
+//        for res in results {
+//            println("res = \(res)")
+//        }
     }
     
     /*override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {

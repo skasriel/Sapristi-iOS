@@ -16,6 +16,12 @@ import Foundation
     
 }*/
 
+/*enum Availability: String {
+    case AVAILABLE = "AVAILABLE";
+    case BUSY = "BUSY";
+    case UNKNOWN = "UNKNOWN";
+}*/
+
 struct Availability {
     static let AVAILABLE = "AVAILABLE";
     static let BUSY = "BUSY";
