@@ -9,16 +9,25 @@
 import Foundation
 import UIKit
 
+class CCC : NSObject {
+    var displayName = "test"
+}
+
 class InitialViewController: UIViewController, HTTPControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        println(HTTPController.cleanPhone("(408) 506 - 0781"))
+//        println(HTTPController.cleanPhone("0033146245726"))
+//        println(HTTPController.cleanPhone("+33146245726"))
     }
     
-    func didReceiveAPIResults(err: NSError?, results: NSDictionary?) {
-        println("In InitialViewController.didReceiveAPIResults")
-        if (err != nil) {
-            println("Server error: ") //\(err!.localizedDescription)")
+    /* HTTPControllerProtocol implementation */
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
+        if (true || err != nil) {
+            //println("Server error: \(err!.localizedDescription)")
             self.performSegueWithIdentifier("fromLoadingToRegistration", sender: self)
             return
         }
@@ -40,12 +49,4 @@ class InitialViewController: UIViewController, HTTPControllerProtocol {
     }
     
     @IBOutlet weak var label: UILabel!
-    
-    @IBAction func buttonPressed(sender: AnyObject) {
-        if (true) {
-            println("Do segue to main")
-            self.performSegueWithIdentifier("fromLoadingToMain", sender: self)
-            println("Done segue to main")
-        }
-    }
 }

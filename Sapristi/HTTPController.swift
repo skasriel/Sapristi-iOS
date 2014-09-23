@@ -9,12 +9,16 @@
 import Foundation
 import Alamofire
 
+
+import Alamofire
+
+
 protocol HTTPControllerProtocol {
-    func didReceiveAPIResults(err: NSError?, results: NSDictionary?)
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/)
 }
 
 class HTTPController {
-    
+    let BASE_URL = "http://localhost:5000" //http://lit-woodland-6706.herokuapp.com"
     
     class func getInstance() -> HTTPController {
         return HTTPController() //for now just create a new instance, class variables not supported yet
@@ -27,28 +31,52 @@ class HTTPController {
         host = config.objectForKey("host") as String
         */
     }
+    
+    class func JSONStringify(jsonObj: AnyObject) -> String {
+        var e: NSError?
+        let jsonData: NSData! = NSJSONSerialization.dataWithJSONObject(
+            jsonObj,
+            options: NSJSONWritingOptions(0),
+            error: &e)
+        if e != nil {
+            println("Error parsing json \(jsonObj)")
+            return ""
+        } else {
+            return NSString(data: jsonData, encoding: NSUTF8StringEncoding)
+        }
+    }
 
    
-    
-    private func doRequest(urlPath: String, method: Alamofire.Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol) {
-        Alamofire.request(method, urlPath, parameters: parameters)
+    /*
+    * @queryID is a way for the delegate to know which response it's receiving (useful when a class is a delegate for multiple different HTTP requests
+    */
+    private func doRequest(urlPath: String, method: Alamofire.Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol, queryID: String?) {
+        let absoluteURL = BASE_URL + urlPath
+        Alamofire.request(method, absoluteURL, parameters: parameters)
             .responseJSON { (request, response, json, error) in
-                println("doGET: url=\(urlPath) params=\(parameters)")
-                println("doGET: req=\(request) res=\(response) json=\(json) err=\(error)")
+                //println("doRequest: url=\(urlPath) params=\(parameters)")
+                //println("doRequest: res=\(response) json=\(json) err=\(error)")
+                /*if let jsonNSArray = json as NSArray {
+                } else if let jsonNSDictionary = json as NSDictionary {
+                    
+                } else {
+                    println("Don't know how to deserialize \(json)");
+                    delegate.didReceiveAPIResults(error, queryID: queryID, results: )
+                }
                 var jsonDic: Dictionary<String, AnyObject>?
                 if (error == nil) {
                     jsonDic = json as Dictionary<String, AnyObject>!
-                }
-                delegate.didReceiveAPIResults(error, results: jsonDic)
+                }*/
+                delegate.didReceiveAPIResults(error, queryID: queryID, results: json)
         }
     }
     
-    func doGET(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol) {
-        doRequest(urlPath, method:.GET, parameters: parameters, delegate: delegate)
+    func doGET(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol, queryID: String?) {
+        doRequest(urlPath, method:.GET, parameters: parameters, delegate: delegate, queryID: queryID)
     }
     
-    func doPOST(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol) {
-        doRequest(urlPath, method:.POST, parameters: parameters, delegate: delegate)
+    func doPOST(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol, queryID: String?) {
+        doRequest(urlPath, method:.POST, parameters: parameters, delegate: delegate, queryID: queryID)
     }
     
     func doLogin(delegate: HTTPControllerProtocol) {
@@ -57,16 +85,16 @@ class HTTPController {
         let authToken: NSString? = userDefaults.objectForKey("authToken") as NSString?
         
         if username != nil && authToken != nil {
-            var url = "http://lit-woodland-6706.herokuapp.com/api/auth/login"
+            var url = "/api/auth/login"
             var formData: [String: AnyObject] = [
                 "username": username!,
                 "password": authToken!
             ]
-            doPOST(url, parameters: formData, delegate: delegate)
+            doPOST(url, parameters: formData, delegate: delegate, queryID: "LOGIN")
         } else {
             // no login data yet (first time use)
             let error: NSError = NSError()
-            delegate.didReceiveAPIResults(error, results: nil)
+            delegate.didReceiveAPIResults(error, queryID: "LOGIN", results: nil)
         }
     }
     
@@ -78,149 +106,22 @@ class HTTPController {
         print("Saved key: ") ; println(userDefaults.objectForKey("username") as? NSString)
     }
     
-
-}
-
-
-    /*
-    func old_doGET(urlPath: String, delegate: HTTPControllerProtocol) {
-        println("calling doGET on "+urlPath)
-        let url: NSURL = NSURL(string: urlPath)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
-            println("Task completed")
-            if(error != nil) {
-                // If there is an error in the web request, print it to the console
-                println("Error in doGET: "+error.localizedDescription)
-                return delegate.didReceiveAPIResults(error, results: nil)
+    class func cleanPhone(phone: String) -> String {
+        var cleaned: String = "";
+        for (index, character) in enumerate(phone) {
+            if index>0 && character=="+" { // + only allowed as first character
+                continue;
+            } else if character != "+" && (character<"0" || character>"9") {
+                continue; // skip all non numeric
             }
-            
-            var err: NSError?
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
-            if(err != nil) {
-                // If there is an error parsing JSON, print it to the console
-                println("JSON Error \(err!.localizedDescription)")
-                return delegate.didReceiveAPIResults(err, results: nil)
-            }
-            println("doGET result \(jsonResult)")
-            delegate.didReceiveAPIResults(nil, results: jsonResult)
-        })
-        
-        task.resume()
-    }
-    
-    func old_doPOST(urlPath: String, formData: Dictionary<String, String>, delegate: HTTPControllerProtocol) {
-        var formDataString = ""
-        for (key, value) in formData {
-            if (countElements(formDataString) > 0) {
-                formDataString += "&"
-            }
-            formDataString += key + "=" + value
+            cleaned.append(character);
         }
-        var url = urlPath + "?" + formDataString;
-        println("Warning: faking doPOST into doGET with params = "+formDataString)
-        
-    }*/
-        
-    /*
-let url: NSURL = NSURL(string: urlPath)
-let urlRequest: NSURLRequest = NSURLRequest(URL: url)
-let escapedFormDataString: String = formDataString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-let formDataObj: NSData = (formData as NSString).dataUsingEncoding(NSUTF8StringEncoding)!
-let session = NSURLSession.sharedSession()
-let task = session.uploadTaskWithRequest(urlRequest, fromData: formDataObj, completionHandler: {data, response, error -> Void in
-println("Task completed")
-if(error != nil) {
-If there is an error in the web request, print it to the console
-println(error.localizedDescription)
-return
+        if cleaned.startsWith("00") {
+            cleaned = "+" + cleaned.substr("00".length)
+        }
+        if (!cleaned.startsWith("+")) {
+            cleaned = "+1" + cleaned;  // hack, for now assume that local number = US number
+        }
+        return cleaned
+    }
 }
-
-var err: NSError?
-var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
-
-if(err != nil) {
-If there is an error parsing JSON, print it to the console
-println("JSON Error \(err!.localizedDescription)")
-}
-delegate.didReceiveAPIResults(jsonResult)
-})
-task.resume()*/
-
-
-    /*
-    func request(method:Int, url:String, params:Dictionary<String, AnyObject>, requestSuccessHandler: (Dictionary<String, NSObject>) -> (), requestFailureHandler: (Int) -> Bool) {
-
-    func localFailureHandler(statusCode:Int) {
-    let consumed = requestFailureHandler(statusCode)
-    if !consumed {
-    self.onRequestError(statusCode)
-    }
-    }
-    
-    let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
-    manager.requestSerializer = AFJSONRequestSerializer()
-    
-    
-    println("Request method: " + method.description + ", url: " + url + ", params: " + params.description)
-    
-    //TODO handle possible error response with html e.g. not found page
-    
-    //FIXME getting weird error messages when use NSDictionary or Dictionary<String, NSObject> as type of response
-    let successHandler = {(operation: AFHTTPRequestOperation!, response: AnyObject!) -> () in
-    
-    println("Request response: " + response.description)
-    
-    let responseDict = response as Dictionary<String, NSObject>
-    
-    let statusCode:Int =  (responseDict["status"] as NSNumber).integerValue
-    
-    if statusCode == 1 {
-    requestSuccessHandler(responseDict)
-    
-    } else {
-    localFailureHandler(statusCode)
-    }
-    }
-    
-    let failureHandler = {(operation: AFHTTPRequestOperation!, error: NSError!) -> () in
-    
-    println("Request error: " + error.description)
-    
-    let statusCode:Int =  9
-    localFailureHandler(statusCode)
-    }
-    
-    if (method == 1) {
-    manager.GET(url, parameters: params, success: successHandler, failure: failureHandler)
-    } else if (method == 2) {
-    manager.POST(url, parameters: params, success: successHandler, failure: failureHandler)
-    } else {
-    
-    }
-    }
-    
-    func onRequestError(statusCode:Int) {
-    var errorMsg = ""
-    
-    switch(statusCode) {
-    case 0, 2, 9 /* 9 is a local error -> wrong json format (TODO?) */:
-    errorMsg = "An unknown error ocurred. Please try again later."
-    case 4:
-    errorMsg = "Not found."
-    case 5:
-    errorMsg = "Validation error."
-    case 3:
-    errorMsg = "User already exists."
-    case 6:
-    errorMsg = "Login failed, check your data is correct."
-    case 7:
-    errorMsg = "Not authenticated, please register/login and try again."
-    case 8:
-    errorMsg = "Connection error."
-    default:
-    break;
-    }
-    DialogUtils.showAlert("Error", msg: errorMsg)
-    }
-    */

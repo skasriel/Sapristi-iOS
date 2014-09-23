@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.14" systemVersion="14A329r" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="FriendModel" representedClassName="FriendModel" syncable="YES">
+        <attribute name="allPhoneNumbers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="availability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasAccount" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -8,6 +9,6 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FriendModel" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="FriendModel" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

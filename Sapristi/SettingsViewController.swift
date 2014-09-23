@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SettingsViewController.swift
 //  Sapristi
 //
 //  Created by Stephane Kasriel on 9/12/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SettingsViewController: UIViewController {
                             
     override func viewDidLoad() {
         super.viewDidLoad()

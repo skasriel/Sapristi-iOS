@@ -26,29 +26,25 @@ class MobileNumberViewController: UIViewController, HTTPControllerProtocol {
         println("showError: \(error)")
     }
     
-    func didReceiveAPIResults(err: NSError?, results: NSDictionary?) {
-        println("In didReceiveAPIResults")
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
         if (err != nil) {
             showError("Server error: \(err!.localizedDescription)")
             return
         }
-        let usernameObj: AnyObject? = results!["username"]
-        let authTokenObj: AnyObject? = results!["authToken"]
+        var jsonDic: Dictionary<String, AnyObject> = results as Dictionary<String, AnyObject>!
+        let usernameObj: AnyObject? = jsonDic["username"]
+        let authTokenObj: AnyObject? = jsonDic["authToken"]
         if (usernameObj == nil || authTokenObj == nil) {
             showError("Error: no return values")
             return
         }
+            
         let username = usernameObj as String
         let authToken = authTokenObj as String
 
         dispatch_async(dispatch_get_main_queue(), {
-            println("Results = \(username) \(authToken)")
-
             HTTPController.getInstance().saveLogin(username, authToken: authToken)
-            
             self.performSegueWithIdentifier("fromNumberToConfirmation", sender: self)
-            //self.tableData = resultsArr
-            //self.appsTableView!.reloadData()
         })
     }
 
@@ -58,14 +54,14 @@ class MobileNumberViewController: UIViewController, HTTPControllerProtocol {
         let mobileNumber = countryCodeField.text + " " + mobileNumberField.text
         let username = mobileNumber
         let password = Int(arc4random_uniform(99999999))
-        var url = "http://lit-woodland-6706.herokuapp.com/api/auth/register"
+        var url = "/api/auth/register"
         var formData: [String: AnyObject] = [
             "username":  username,
             "password": password,
             "mobileNumber": mobileNumber
         ]
 
-        HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self)
+        HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self, queryID: "SEND_MOBILE_NUMBER")
     }
     
     

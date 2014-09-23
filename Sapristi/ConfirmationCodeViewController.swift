@@ -34,8 +34,7 @@ class ConfirmationCodeViewController: UIViewController, HTTPControllerProtocol {
         println("showError: \(error)")
     }
 
-    func didReceiveAPIResults(err: NSError?, results: NSDictionary?) {
-        println("In didReceiveAPIResults")
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
         if (err != nil) {
             showError("Server error: \(err!.localizedDescription)")
             return
@@ -51,12 +50,12 @@ class ConfirmationCodeViewController: UIViewController, HTTPControllerProtocol {
     
     @IBAction func confirmButtonPressed(sender: UIButton) {
         errorMessageLabel.hidden = true
-        var url = "http://lit-woodland-6706.herokuapp.com/api/auth/confirmation-code"
+        var url = "/api/auth/confirmation-code"
         var formData: [String: AnyObject] = [
             "confirmationCode":  confirmationCodeTextField.text,
         ]
         
-        HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self)
+        HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self, queryID: "CONFIRMATION_CODE")
 
     }
     

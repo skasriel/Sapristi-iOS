@@ -22,7 +22,6 @@ class FriendDetailViewController: UIViewController
         super.viewDidLoad()
         friendNameLabel.text = friend.displayName
         //friendImageView.image = UIImage(named:friend.imageName)
-        println("Showing details for \(friend.displayName)")
     }
     @IBAction func addToFavoritesButtonPressed(sender: UIButton) {
     }

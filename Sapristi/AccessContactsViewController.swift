@@ -11,7 +11,7 @@ import UIKit
 import AddressBook
 import CoreData
 
-class AccessContactsViewController: UIViewController {
+class AccessContactsViewController: UIViewController, HTTPControllerProtocol {
     
     var authDone = false
     var adbk: ABAddressBook?
@@ -47,7 +47,6 @@ class AccessContactsViewController: UIViewController {
         } else if (authorizationStatus == ABAuthorizationStatus.Denied || authorizationStatus == ABAuthorizationStatus.Restricted) {
             NSLog("access denied")
         } else if (authorizationStatus == ABAuthorizationStatus.Authorized) {
-            NSLog("access granted")
             processContacts()
         }
     }
@@ -58,59 +57,86 @@ class AccessContactsViewController: UIViewController {
         var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
         
         var contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
-        println("records in the contacts array \(contactList.count)")
         
         var allContacts: [Contact] = []
         for (index, record:ABRecordRef) in enumerate(contactList) {
-            println("Index # \(index) \(record)")
             var contact = getAddressbookRecord(record)
             allContacts.append(contact)
         }
         
         storeToCoreData(allContacts)
+        
+        sendToServer(allContacts)
 
         self.performSegueWithIdentifier("fromContactsToMain", sender: allContacts)
+    }
+    
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
+        println("TBD")
+    }
+    
+    func sendToServer(allContacts: [Contact]) {
+        var params: [Dictionary<String, AnyObject>] = [];
+        
+        for (i, contact) in enumerate(allContacts) {
+            var dictionary = Dictionary<String, AnyObject>()
+            dictionary["displayName"] = contact.displayName
+            dictionary["phoneNumbers"] = contact.phoneNumbers
+            dictionary["emailAddresses"] = contact.emailAddresses
+            params.append(dictionary)
+        }
+        let json = HTTPController.JSONStringify(params);
+        if (json == "") {
+            println("Unable to JSON contacts");
+            return;
+        }
+        let httpParams = ["json": json];
+        let url = "/api/me/contacts"
+        HTTPController.getInstance().doPOST(url, parameters: httpParams, delegate: self, queryID: "UPLOAD_CONTACTS")
     }
     
     func storeToCoreData(allContacts: [Contact]) {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        let entityDescription = NSEntityDescription.entityForName("FriendModel", inManagedObjectContext: managedObjectContext)
+        
+        // First delete all stored contacts (normally, there shouldn't be any, but better safe than sorry)
+        let fetchRequest = NSFetchRequest(entityName: "FriendModel")
+        let sortDescriptor = NSSortDescriptor(key: "displayName", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        var err: NSError?
+        let fetchStatus = fetchedResultsController.performFetch(&err)
+        var fetchArray = fetchedResultsController.fetchedObjects!
+        for entry in fetchArray {
+            managedObjectContext!.deleteObject(entry as NSManagedObject)
+        }
+        managedObjectContext!.save(nil)
+        
+        // Now store all new contacts
+        let entityDescription = NSEntityDescription.entityForName("FriendModel", inManagedObjectContext: managedObjectContext!)
         for (index, contact) in enumerate(allContacts) {
-            let friend = FriendModel(entity: entityDescription, insertIntoManagedObjectContext: managedObjectContext)
-            friend.displayName = contact.displayName
-            if contact.phoneNumbers.count>0 {
-                friend.phoneNumber = contact.phoneNumbers[0]
-            } else {
-                friend.phoneNumber = "xxx"
+            if contact.phoneNumbers.count==0 {
+                continue; // don't save contacts who don't have a phone number
             }
+            let friend = FriendModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+            friend.displayName = contact.displayName
+            friend.phoneNumber = contact.phoneNumbers[0] as String
             friend.hasAccount = false // TBD
             friend.availability = Availability.UNKNOWN // TBD
-            //friend.allPhoneNumbers = nil
+            var allPhoneNumbers = "";
+            for (i, number) in enumerate(contact.phoneNumbers) {
+                if (i>0) {
+                    allPhoneNumbers += ">" // separate all phone numbers with a special character... (a small hack)
+                }
+                allPhoneNumbers += number as String
+            }
+            //friend.allPhoneNumbers = allPhoneNumbers
         }
         appDelegate.saveContext()
-        
-        var request = NSFetchRequest(entityName: "FriendModel")
-        var error: NSError? = nil
-        var results: NSArray = managedObjectContext!.executeFetchRequest(request, error: &error)
-//        for res in results {
-//            println("res = \(res)")
-//        }
     }
-    
-    /*override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if segue!.identifier == "fromContactsToMain" {
-            println("destination = \(segue!.destinationViewController)")
-            let destinationTabContainer: UITabBarController = segue!.destinationViewController as UITabBarController
-            let destinationNavigationContainer: UINavigationController = destinationTabContainer.viewControllers[0] as UINavigationController
-            let destinationVC: FirstViewController = destinationNavigationContainer.viewControllers[0] as FirstViewController
-            destinationVC.allContacts = sender as [Contact]
-        }
-    }*/
     
     func getFromNative(s: Unmanaged<CFString>?) -> String? {
         if (s != nil) {
-            println("Native = \(s)")
             var cfs:CFString = s!.takeRetainedValue()
             var nfs: NSString = cfs as NSString
             if nfs.length == 0 {
@@ -131,7 +157,6 @@ class AccessContactsViewController: UIViewController {
         //var contactName: String = ABRecordCopyCompositeName(addressBookRecord).takeRetainedValue() as NSString
         var contactName: String? = getFromNative(ABRecordCopyCompositeName(addressBookRecord))
         
-        NSLog("contactName: \(contactName)")
         var contact = Contact()
         contact.displayName = contactName!
         var emails = getEmailAddresses(addressBookRecord)

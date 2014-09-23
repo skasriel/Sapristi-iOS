@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Contact {
-    var displayName: String = ""
-    var phoneNumbers: [String] = []
-    var emailAddresses: [String] = []
+class Contact : NSObject {
+    var displayName: NSString = ""
+    var phoneNumbers: NSArray = NSArray()
+    var emailAddresses: NSArray = NSArray()
 }

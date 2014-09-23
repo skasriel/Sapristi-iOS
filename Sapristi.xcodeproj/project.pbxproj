@@ -10,9 +10,10 @@
 		02179A3019C7F04800D0C267 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02179A2F19C7F04800D0C267 /* FriendModel.swift */; };
 		022C139519CA4A7E00A9DB55 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; };
 		022C139619CA4A7E00A9DB55 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		022C139E19CBC35300A9DB55 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C139D19CBC35300A9DB55 /* SwiftyJSON.swift */; };
 		0245659919C34A1D006F34D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659819C34A1D006F34D3 /* AppDelegate.swift */; };
-		0245659B19C34A1D006F34D3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659A19C34A1D006F34D3 /* FirstViewController.swift */; };
-		0245659D19C34A1D006F34D3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659C19C34A1D006F34D3 /* SecondViewController.swift */; };
+		0245659B19C34A1D006F34D3 /* AllFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659A19C34A1D006F34D3 /* AllFriendsViewController.swift */; };
+		0245659D19C34A1D006F34D3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659C19C34A1D006F34D3 /* SettingsViewController.swift */; };
 		024565A019C34A1D006F34D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0245659E19C34A1D006F34D3 /* Main.storyboard */; };
 		024565AE19C34A1D006F34D3 /* SapristiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565AD19C34A1D006F34D3 /* SapristiTests.swift */; };
 		024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */; };
@@ -22,6 +23,7 @@
 		0255CBCA19CA44F100FD8D71 /* Alamofire.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 0255CBC519CA44F100FD8D71 /* Alamofire.xcworkspace */; };
 		0255CBD319CA497400FD8D71 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; };
 		025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025EF8C119C6A188008D30C6 /* Media.xcassets */; };
+		02BC6B0019D0EF4700EC56C5 /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC6AFF19D0EF4700EC56C5 /* StringJS.swift */; };
 		02F0A27C19C6A933003C77F7 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */; };
 		02F0A27E19C795DF003C77F7 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27D19C795DF003C77F7 /* InitialViewController.swift */; };
 		02F0A28019C79AAC003C77F7 /* ConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */; };
@@ -87,11 +89,12 @@
 		02179A2F19C7F04800D0C267 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		02179A3119C7F1FE00D0C267 /* SapristiModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SapristiModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		02179A3219C7F3E400D0C267 /* Sapristi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sapristi-Bridging-Header.h"; sourceTree = "<group>"; };
+		022C139D19CBC35300A9DB55 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		0245659319C34A1D006F34D3 /* Sapristi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sapristi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0245659719C34A1D006F34D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0245659819C34A1D006F34D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0245659A19C34A1D006F34D3 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0245659C19C34A1D006F34D3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		0245659A19C34A1D006F34D3 /* AllFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFriendsViewController.swift; sourceTree = "<group>"; };
+		0245659C19C34A1D006F34D3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0245659F19C34A1D006F34D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		024565A719C34A1D006F34D3 /* SapristiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SapristiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		024565AC19C34A1D006F34D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 		0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
 		0255CBC519CA44F100FD8D71 /* Alamofire.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Alamofire.xcworkspace; sourceTree = "<group>"; };
 		025EF8C119C6A188008D30C6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		02BC6AFF19D0EF4700EC56C5 /* StringJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringJS.swift; sourceTree = "<group>"; };
 		02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
 		02F0A27D19C795DF003C77F7 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeViewController.swift; sourceTree = "<group>"; };
@@ -139,12 +143,22 @@
 				02F0A27D19C795DF003C77F7 /* InitialViewController.swift */,
 				024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */,
 				02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */,
-				0245659A19C34A1D006F34D3 /* FirstViewController.swift */,
-				02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */,
-				0245659C19C34A1D006F34D3 /* SecondViewController.swift */,
 				02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */,
+				0245659A19C34A1D006F34D3 /* AllFriendsViewController.swift */,
+				02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */,
+				0245659C19C34A1D006F34D3 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		022C139C19CBC33400A9DB55 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				02BC6AFF19D0EF4700EC56C5 /* StringJS.swift */,
+				0255CBB319CA343E00FD8D71 /* HTTPController.swift */,
+				022C139D19CBC35300A9DB55 /* SwiftyJSON.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		0245658A19C34A1D006F34D3 = {
@@ -170,10 +184,10 @@
 		0245659519C34A1D006F34D3 /* Sapristi */ = {
 			isa = PBXGroup;
 			children = (
+				022C139C19CBC33400A9DB55 /* Helpers */,
 				022C139B19CA5FF600A9DB55 /* Controllers */,
 				024565BB19C66072006F34D3 /* Models */,
 				0245659819C34A1D006F34D3 /* AppDelegate.swift */,
-				0255CBB319CA343E00FD8D71 /* HTTPController.swift */,
 				024565B919C658E7006F34D3 /* FriendsCell.swift */,
 				0245659E19C34A1D006F34D3 /* Main.storyboard */,
 				0245659619C34A1D006F34D3 /* Supporting Files */,
@@ -369,15 +383,17 @@
 				024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */,
 				0255CBB419CA343E00FD8D71 /* HTTPController.swift in Sources */,
 				02F0A28219C7A458003C77F7 /* AccessContactsViewController.swift in Sources */,
+				022C139E19CBC35300A9DB55 /* SwiftyJSON.swift in Sources */,
 				02F0A28919C7EBAA003C77F7 /* SapristiModel.xcdatamodeld in Sources */,
 				02F0A28019C79AAC003C77F7 /* ConfirmationCodeViewController.swift in Sources */,
 				024565BA19C658E7006F34D3 /* FriendsCell.swift in Sources */,
-				0245659D19C34A1D006F34D3 /* SecondViewController.swift in Sources */,
+				0245659D19C34A1D006F34D3 /* SettingsViewController.swift in Sources */,
 				024565BD19C6607F006F34D3 /* Friend.swift in Sources */,
 				02179A3019C7F04800D0C267 /* FriendModel.swift in Sources */,
 				02F0A28419C7BB96003C77F7 /* Contact.swift in Sources */,
 				0245659919C34A1D006F34D3 /* AppDelegate.swift in Sources */,
-				0245659B19C34A1D006F34D3 /* FirstViewController.swift in Sources */,
+				0245659B19C34A1D006F34D3 /* AllFriendsViewController.swift in Sources */,
+				02BC6B0019D0EF4700EC56C5 /* StringJS.swift in Sources */,
 				02F0A27C19C6A933003C77F7 /* FriendDetailViewController.swift in Sources */,
 				02F0A27E19C795DF003C77F7 /* InitialViewController.swift in Sources */,
 			);
