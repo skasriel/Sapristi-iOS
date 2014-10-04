@@ -13,9 +13,7 @@ import UIKit
 class FriendCell: UITableViewCell {
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendStatusLabel: UILabel!
-    @IBOutlet weak var friendImageView: UIImageView!
     @IBOutlet weak var friendPhoneButton: UIButton!
-    
     
     var phoneNumber : String = ""
     

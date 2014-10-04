@@ -21,6 +21,7 @@ class FriendDetailViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         friendNameLabel.text = friend.displayName
+        friendUpdateLabel.text = "Status updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate())
         //friendImageView.image = UIImage(named:friend.imageName)
     }
     @IBAction func addToFavoritesButtonPressed(sender: UIButton) {

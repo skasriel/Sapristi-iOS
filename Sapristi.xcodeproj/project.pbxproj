@@ -7,47 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02179A3019C7F04800D0C267 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02179A2F19C7F04800D0C267 /* FriendModel.swift */; };
 		022C139519CA4A7E00A9DB55 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; };
 		022C139619CA4A7E00A9DB55 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		022C139E19CBC35300A9DB55 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C139D19CBC35300A9DB55 /* SwiftyJSON.swift */; };
-		0245659919C34A1D006F34D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659819C34A1D006F34D3 /* AppDelegate.swift */; };
-		0245659B19C34A1D006F34D3 /* AllFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659A19C34A1D006F34D3 /* AllFriendsViewController.swift */; };
-		0245659D19C34A1D006F34D3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245659C19C34A1D006F34D3 /* SettingsViewController.swift */; };
-		024565A019C34A1D006F34D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0245659E19C34A1D006F34D3 /* Main.storyboard */; };
+		0237179919DD05E700A44A2B /* SyncContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237179819DD05E700A44A2B /* SyncContactsViewController.swift */; };
+		0237179C19DD0D2F00A44A2B /* AccessCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237179B19DD0D2F00A44A2B /* AccessCalendarViewController.swift */; };
 		024565AE19C34A1D006F34D3 /* SapristiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565AD19C34A1D006F34D3 /* SapristiTests.swift */; };
-		024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */; };
-		024565BA19C658E7006F34D3 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565B919C658E7006F34D3 /* FriendsCell.swift */; };
-		024565BD19C6607F006F34D3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565BC19C6607F006F34D3 /* Friend.swift */; };
-		0255CBB419CA343E00FD8D71 /* HTTPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0255CBB319CA343E00FD8D71 /* HTTPController.swift */; };
 		0255CBCA19CA44F100FD8D71 /* Alamofire.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 0255CBC519CA44F100FD8D71 /* Alamofire.xcworkspace */; };
 		0255CBD319CA497400FD8D71 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0255CBD019CA44F100FD8D71 /* Alamofire.framework */; };
 		025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025EF8C119C6A188008D30C6 /* Media.xcassets */; };
-		02BC6B0019D0EF4700EC56C5 /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC6AFF19D0EF4700EC56C5 /* StringJS.swift */; };
-		02F0A27C19C6A933003C77F7 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */; };
-		02F0A27E19C795DF003C77F7 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27D19C795DF003C77F7 /* InitialViewController.swift */; };
-		02F0A28019C79AAC003C77F7 /* ConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */; };
-		02F0A28219C7A458003C77F7 /* AccessContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */; };
-		02F0A28419C7BB96003C77F7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A28319C7BB96003C77F7 /* Contact.swift */; };
-		02F0A28619C7EA03003C77F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F0A28519C7EA02003C77F7 /* CoreData.framework */; };
-		02F0A28919C7EBAA003C77F7 /* SapristiModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A28719C7EBAA003C77F7 /* SapristiModel.xcdatamodeld */; };
+		02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */; };
+		02B3B24119D53865006ED6EE /* AccessContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */; };
+		02B3B24219D53865006ED6EE /* Alamofire.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B22C19D53865006ED6EE /* Alamofire.xcworkspace */; };
+		02B3B24419D53865006ED6EE /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23019D53865006ED6EE /* Alamofire.swift */; };
+		02B3B24519D53865006ED6EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B23119D53865006ED6EE /* Info.plist */; };
+		02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23219D53865006ED6EE /* AllFriendsViewController.swift */; };
+		02B3B24719D53865006ED6EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23319D53865006ED6EE /* AppDelegate.swift */; };
+		02B3B24819D53865006ED6EE /* #Main.storyboard# in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B23519D53865006ED6EE /* #Main.storyboard# */; };
+		02B3B24919D53865006ED6EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B23719D53865006ED6EE /* Main.storyboard */; };
+		02B3B24A19D53865006ED6EE /* CarDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23919D53865006ED6EE /* CarDetector.swift */; };
+		02B3B24B19D53865006ED6EE /* ConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23A19D53865006ED6EE /* ConfirmationCodeViewController.swift */; };
+		02B3B24C19D53865006ED6EE /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23B19D53865006ED6EE /* Contact.swift */; };
+		02B3B24D19D53865006ED6EE /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23C19D53865006ED6EE /* Friend.swift */; };
+		02B3B24E19D53865006ED6EE /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23D19D53865006ED6EE /* FriendDetailViewController.swift */; };
+		02B3B24F19D53865006ED6EE /* FriendLocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23E19D53865006ED6EE /* FriendLocalDatabase.swift */; };
+		02B3B25019D53865006ED6EE /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23F19D53865006ED6EE /* FriendsCell.swift */; };
+		02B3B25119D53865006ED6EE /* HTTPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B24019D53865006ED6EE /* HTTPController.swift */; };
+		02B3B26A19D53880006ED6EE /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B25919D53880006ED6EE /* InitialViewController.swift */; };
+		02B3B26B19D53880006ED6EE /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B25A19D53880006ED6EE /* InviteFriendsViewController.swift */; };
+		02B3B26C19D53880006ED6EE /* InviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B25B19D53880006ED6EE /* InviteTableViewCell.swift */; };
+		02B3B26D19D53880006ED6EE /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B25C19D53880006ED6EE /* MobileNumberViewController.swift */; };
+		02B3B26E19D53880006ED6EE /* SapristiModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B25E19D53880006ED6EE /* SapristiModel.xcdatamodeld */; };
+		02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26119D53880006ED6EE /* SettingsViewController.swift */; };
+		02B3B27019D53880006ED6EE /* SOLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26319D53880006ED6EE /* SOLocationManager.m */; };
+		02B3B27119D53880006ED6EE /* SOMotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26619D53880006ED6EE /* SOMotionDetector.m */; };
+		02B3B27219D53880006ED6EE /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26719D53880006ED6EE /* StringJS.swift */; };
+		02B3B27319D53880006ED6EE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26819D53880006ED6EE /* SwiftyJSON.swift */; };
+		02B3B27B19D64FCF006ED6EE /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B27A19D64FCF006ED6EE /* FriendModel.swift */; };
+		02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762619D664FC007E6A04 /* DatePickerCell.swift */; };
+		02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */; };
+		02BF762B19DB07AC007E6A04 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762A19DB07AC007E6A04 /* CalendarManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		022C139119CA4A5F00A9DB55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = Alamofire;
-		};
-		022C139719CA4A7E00A9DB55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = Alamofire;
-		};
 		024565A819C34A1D006F34D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0245658B19C34A1D006F34D3 /* Project object */;
@@ -69,6 +70,20 @@
 			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
 			remoteInfo = AlamofireTests;
 		};
+		02B3B25419D53866006ED6EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B3B22919D53865006ED6EE /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		02B3B25619D53866006ED6EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B3B22919D53865006ED6EE /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -86,34 +101,53 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02179A2F19C7F04800D0C267 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
-		02179A3119C7F1FE00D0C267 /* SapristiModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SapristiModel 2.xcdatamodel"; sourceTree = "<group>"; };
-		02179A3219C7F3E400D0C267 /* Sapristi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sapristi-Bridging-Header.h"; sourceTree = "<group>"; };
-		022C139D19CBC35300A9DB55 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		0237179819DD05E700A44A2B /* SyncContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncContactsViewController.swift; sourceTree = "<group>"; };
+		0237179B19DD0D2F00A44A2B /* AccessCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessCalendarViewController.swift; sourceTree = "<group>"; };
 		0245659319C34A1D006F34D3 /* Sapristi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sapristi.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0245659719C34A1D006F34D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0245659819C34A1D006F34D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0245659A19C34A1D006F34D3 /* AllFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFriendsViewController.swift; sourceTree = "<group>"; };
-		0245659C19C34A1D006F34D3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		0245659F19C34A1D006F34D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		024565A719C34A1D006F34D3 /* SapristiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SapristiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		024565AC19C34A1D006F34D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		024565AD19C34A1D006F34D3 /* SapristiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapristiTests.swift; sourceTree = "<group>"; };
-		024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
-		024565B919C658E7006F34D3 /* FriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
-		024565BC19C6607F006F34D3 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		0255CBB319CA343E00FD8D71 /* HTTPController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPController.swift; sourceTree = "<group>"; };
 		0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
 		0255CBC519CA44F100FD8D71 /* Alamofire.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Alamofire.xcworkspace; sourceTree = "<group>"; };
 		025EF8C119C6A188008D30C6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		02BC6AFF19D0EF4700EC56C5 /* StringJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringJS.swift; sourceTree = "<group>"; };
-		02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
-		02F0A27D19C795DF003C77F7 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeViewController.swift; sourceTree = "<group>"; };
-		02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessContactsViewController.swift; sourceTree = "<group>"; };
-		02F0A28319C7BB96003C77F7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		02F0A28519C7EA02003C77F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		02F0A28819C7EBAA003C77F7 /* SapristiModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SapristiModel.xcdatamodel; sourceTree = "<group>"; };
+		02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../LaunchScreen.storyboard; sourceTree = "<group>"; };
+		02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessContactsViewController.swift; path = Sapristi/AccessContactsViewController.swift; sourceTree = "<group>"; };
+		02B3B22919D53865006ED6EE /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
+		02B3B22C19D53865006ED6EE /* Alamofire.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Alamofire.xcworkspace; sourceTree = "<group>"; };
+		02B3B22F19D53865006ED6EE /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
+		02B3B23019D53865006ED6EE /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		02B3B23119D53865006ED6EE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02B3B23219D53865006ED6EE /* AllFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllFriendsViewController.swift; path = Sapristi/AllFriendsViewController.swift; sourceTree = "<group>"; };
+		02B3B23319D53865006ED6EE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sapristi/AppDelegate.swift; sourceTree = "<group>"; };
+		02B3B23619D53865006ED6EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = "#Main.storyboard#"; sourceTree = "<group>"; };
+		02B3B23819D53865006ED6EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		02B3B23919D53865006ED6EE /* CarDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarDetector.swift; path = Sapristi/CarDetector.swift; sourceTree = "<group>"; };
+		02B3B23A19D53865006ED6EE /* ConfirmationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmationCodeViewController.swift; path = Sapristi/ConfirmationCodeViewController.swift; sourceTree = "<group>"; };
+		02B3B23B19D53865006ED6EE /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = Sapristi/Contact.swift; sourceTree = "<group>"; };
+		02B3B23C19D53865006ED6EE /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Friend.swift; path = Sapristi/Friend.swift; sourceTree = "<group>"; };
+		02B3B23D19D53865006ED6EE /* FriendDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendDetailViewController.swift; path = Sapristi/FriendDetailViewController.swift; sourceTree = "<group>"; };
+		02B3B23E19D53865006ED6EE /* FriendLocalDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendLocalDatabase.swift; path = Sapristi/FriendLocalDatabase.swift; sourceTree = "<group>"; };
+		02B3B23F19D53865006ED6EE /* FriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsCell.swift; path = Sapristi/FriendsCell.swift; sourceTree = "<group>"; };
+		02B3B24019D53865006ED6EE /* HTTPController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPController.swift; path = Sapristi/HTTPController.swift; sourceTree = "<group>"; };
+		02B3B25919D53880006ED6EE /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = Sapristi/InitialViewController.swift; sourceTree = "<group>"; };
+		02B3B25A19D53880006ED6EE /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteFriendsViewController.swift; path = Sapristi/InviteFriendsViewController.swift; sourceTree = "<group>"; };
+		02B3B25B19D53880006ED6EE /* InviteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InviteTableViewCell.swift; path = Sapristi/InviteTableViewCell.swift; sourceTree = "<group>"; };
+		02B3B25C19D53880006ED6EE /* MobileNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MobileNumberViewController.swift; path = Sapristi/MobileNumberViewController.swift; sourceTree = "<group>"; };
+		02B3B25D19D53880006ED6EE /* Sapristi-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Sapristi-Bridging-Header.h"; path = "../Sapristi-Bridging-Header.h"; sourceTree = "<group>"; };
+		02B3B25F19D53880006ED6EE /* SapristiModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SapristiModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		02B3B26019D53880006ED6EE /* SapristiModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SapristiModel.xcdatamodel; sourceTree = "<group>"; };
+		02B3B26119D53880006ED6EE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Sapristi/SettingsViewController.swift; sourceTree = "<group>"; };
+		02B3B26219D53880006ED6EE /* SOLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SOLocationManager.h; path = Sapristi/SOLocationManager.h; sourceTree = "<group>"; };
+		02B3B26319D53880006ED6EE /* SOLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SOLocationManager.m; path = Sapristi/SOLocationManager.m; sourceTree = "<group>"; };
+		02B3B26419D53880006ED6EE /* SOMotionDetector-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SOMotionDetector-Bridging-Header.h"; path = "Sapristi/SOMotionDetector-Bridging-Header.h"; sourceTree = "<group>"; };
+		02B3B26519D53880006ED6EE /* SOMotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SOMotionDetector.h; path = Sapristi/SOMotionDetector.h; sourceTree = "<group>"; };
+		02B3B26619D53880006ED6EE /* SOMotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SOMotionDetector.m; path = Sapristi/SOMotionDetector.m; sourceTree = "<group>"; };
+		02B3B26719D53880006ED6EE /* StringJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringJS.swift; path = Sapristi/StringJS.swift; sourceTree = "<group>"; };
+		02B3B26819D53880006ED6EE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Sapristi/SwiftyJSON.swift; sourceTree = "<group>"; };
+		02B3B27A19D64FCF006ED6EE /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		02BF762619D664FC007E6A04 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSettingsViewController.swift; path = Sapristi/DateSettingsViewController.swift; sourceTree = "<group>"; };
+		02BF762A19DB07AC007E6A04 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +157,6 @@
 			files = (
 				0255CBD319CA497400FD8D71 /* Alamofire.framework in Frameworks */,
 				022C139519CA4A7E00A9DB55 /* Alamofire.framework in Frameworks */,
-				02F0A28619C7EA03003C77F7 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,35 +170,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		022C139B19CA5FF600A9DB55 /* Controllers */ = {
+		0237179A19DD0B7500A44A2B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				02F0A27D19C795DF003C77F7 /* InitialViewController.swift */,
-				024565B719C34DF3006F34D3 /* MobileNumberViewController.swift */,
-				02F0A27F19C79AAC003C77F7 /* ConfirmationCodeViewController.swift */,
-				02F0A28119C7A458003C77F7 /* AccessContactsViewController.swift */,
-				0245659A19C34A1D006F34D3 /* AllFriendsViewController.swift */,
-				02F0A27B19C6A933003C77F7 /* FriendDetailViewController.swift */,
-				0245659C19C34A1D006F34D3 /* SettingsViewController.swift */,
+				0237179B19DD0D2F00A44A2B /* AccessCalendarViewController.swift */,
+				02B3B26119D53880006ED6EE /* SettingsViewController.swift */,
+				02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */,
+				0237179819DD05E700A44A2B /* SyncContactsViewController.swift */,
 			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		022C139C19CBC33400A9DB55 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				02BC6AFF19D0EF4700EC56C5 /* StringJS.swift */,
-				0255CBB319CA343E00FD8D71 /* HTTPController.swift */,
-				022C139D19CBC35300A9DB55 /* SwiftyJSON.swift */,
-			);
-			name = Helpers;
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		0245658A19C34A1D006F34D3 = {
 			isa = PBXGroup;
 			children = (
+				02B3B22319D5383E006ED6EE /* Sapristi */,
 				025EF8C119C6A188008D30C6 /* Media.xcassets */,
-				0245659519C34A1D006F34D3 /* Sapristi */,
 				024565AA19C34A1D006F34D3 /* SapristiTests */,
 				0245659419C34A1D006F34D3 /* Products */,
 				0255CBC119CA44F100FD8D71 /* Alamofire */,
@@ -179,29 +199,6 @@
 				024565A719C34A1D006F34D3 /* SapristiTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0245659519C34A1D006F34D3 /* Sapristi */ = {
-			isa = PBXGroup;
-			children = (
-				022C139C19CBC33400A9DB55 /* Helpers */,
-				022C139B19CA5FF600A9DB55 /* Controllers */,
-				024565BB19C66072006F34D3 /* Models */,
-				0245659819C34A1D006F34D3 /* AppDelegate.swift */,
-				024565B919C658E7006F34D3 /* FriendsCell.swift */,
-				0245659E19C34A1D006F34D3 /* Main.storyboard */,
-				0245659619C34A1D006F34D3 /* Supporting Files */,
-			);
-			path = Sapristi;
-			sourceTree = "<group>";
-		};
-		0245659619C34A1D006F34D3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				02F0A28519C7EA02003C77F7 /* CoreData.framework */,
-				0245659719C34A1D006F34D3 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		024565AA19C34A1D006F34D3 /* SapristiTests */ = {
@@ -219,18 +216,6 @@
 				024565AC19C34A1D006F34D3 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		024565BB19C66072006F34D3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				02179A3219C7F3E400D0C267 /* Sapristi-Bridging-Header.h */,
-				02F0A28719C7EBAA003C77F7 /* SapristiModel.xcdatamodeld */,
-				02179A2F19C7F04800D0C267 /* FriendModel.swift */,
-				024565BC19C6607F006F34D3 /* Friend.swift */,
-				02F0A28319C7BB96003C77F7 /* Contact.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		0255CBC119CA44F100FD8D71 /* Alamofire */ = {
@@ -252,6 +237,116 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		02B3B22319D5383E006ED6EE /* Sapristi */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B27719D53936006ED6EE /* SOMotionDetector */,
+				02B3B27619D5390F006ED6EE /* Controllers */,
+				02B3B27519D53905006ED6EE /* Models */,
+				02B3B23419D53865006ED6EE /* Base.lproj */,
+				02B3B27419D538A6006ED6EE /* Helpers */,
+				02B3B25B19D53880006ED6EE /* InviteTableViewCell.swift */,
+				02B3B22819D53865006ED6EE /* Alamofire */,
+				02B3B23319D53865006ED6EE /* AppDelegate.swift */,
+				02B3B23B19D53865006ED6EE /* Contact.swift */,
+				02B3B23F19D53865006ED6EE /* FriendsCell.swift */,
+				02BF762619D664FC007E6A04 /* DatePickerCell.swift */,
+			);
+			name = Sapristi;
+			sourceTree = "<group>";
+		};
+		02B3B22819D53865006ED6EE /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B22919D53865006ED6EE /* Alamofire.xcodeproj */,
+				02B3B22C19D53865006ED6EE /* Alamofire.xcworkspace */,
+				02B3B22E19D53865006ED6EE /* Source */,
+			);
+			name = Alamofire;
+			path = Sapristi/Alamofire;
+			sourceTree = "<group>";
+		};
+		02B3B22A19D53865006ED6EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B25519D53866006ED6EE /* Alamofire.framework */,
+				02B3B25719D53866006ED6EE /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02B3B22E19D53865006ED6EE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B22F19D53865006ED6EE /* Alamofire.h */,
+				02B3B23019D53865006ED6EE /* Alamofire.swift */,
+				02B3B23119D53865006ED6EE /* Info.plist */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		02B3B23419D53865006ED6EE /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B25D19D53880006ED6EE /* Sapristi-Bridging-Header.h */,
+				02B3B23519D53865006ED6EE /* #Main.storyboard# */,
+				02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */,
+				02B3B23719D53865006ED6EE /* Main.storyboard */,
+			);
+			name = Base.lproj;
+			path = Sapristi/Base.lproj;
+			sourceTree = "<group>";
+		};
+		02B3B27419D538A6006ED6EE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B23E19D53865006ED6EE /* FriendLocalDatabase.swift */,
+				02B3B24019D53865006ED6EE /* HTTPController.swift */,
+				02BF762A19DB07AC007E6A04 /* CalendarManager.swift */,
+				02B3B23919D53865006ED6EE /* CarDetector.swift */,
+				02B3B26719D53880006ED6EE /* StringJS.swift */,
+				02B3B26819D53880006ED6EE /* SwiftyJSON.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		02B3B27519D53905006ED6EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B27A19D64FCF006ED6EE /* FriendModel.swift */,
+				02B3B23C19D53865006ED6EE /* Friend.swift */,
+				02B3B25E19D53880006ED6EE /* SapristiModel.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		02B3B27619D5390F006ED6EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0237179A19DD0B7500A44A2B /* Settings */,
+				02B3B25919D53880006ED6EE /* InitialViewController.swift */,
+				02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */,
+				02B3B23A19D53865006ED6EE /* ConfirmationCodeViewController.swift */,
+				02B3B23219D53865006ED6EE /* AllFriendsViewController.swift */,
+				02B3B25C19D53880006ED6EE /* MobileNumberViewController.swift */,
+				02B3B23D19D53865006ED6EE /* FriendDetailViewController.swift */,
+				02B3B25A19D53880006ED6EE /* InviteFriendsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		02B3B27719D53936006ED6EE /* SOMotionDetector */ = {
+			isa = PBXGroup;
+			children = (
+				02B3B26219D53880006ED6EE /* SOLocationManager.h */,
+				02B3B26319D53880006ED6EE /* SOLocationManager.m */,
+				02B3B26419D53880006ED6EE /* SOMotionDetector-Bridging-Header.h */,
+				02B3B26519D53880006ED6EE /* SOMotionDetector.h */,
+				02B3B26619D53880006ED6EE /* SOMotionDetector.m */,
+			);
+			name = SOMotionDetector;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,8 +362,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				022C139219CA4A5F00A9DB55 /* PBXTargetDependency */,
-				022C139819CA4A7E00A9DB55 /* PBXTargetDependency */,
 			);
 			name = Sapristi;
 			productName = Sapristi;
@@ -326,6 +419,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 02B3B22A19D53865006ED6EE /* Products */;
+					ProjectRef = 02B3B22919D53865006ED6EE /* Alamofire.xcodeproj */;
+				},
+				{
 					ProductGroup = 0255CBC319CA44F100FD8D71 /* Products */;
 					ProjectRef = 0255CBC219CA44F100FD8D71 /* Alamofire.xcodeproj */;
 				},
@@ -353,6 +450,20 @@
 			remoteRef = 0255CBD119CA44F100FD8D71 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		02B3B25519D53866006ED6EE /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 02B3B25419D53866006ED6EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02B3B25719D53866006ED6EE /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 02B3B25619D53866006ED6EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -360,8 +471,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B3B24919D53865006ED6EE /* Main.storyboard in Resources */,
+				02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */,
+				02B3B24819D53865006ED6EE /* #Main.storyboard# in Resources */,
+				02B3B24219D53865006ED6EE /* Alamofire.xcworkspace in Resources */,
 				025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */,
-				024565A019C34A1D006F34D3 /* Main.storyboard in Resources */,
+				02B3B24519D53865006ED6EE /* Info.plist in Resources */,
 				0255CBCA19CA44F100FD8D71 /* Alamofire.xcworkspace in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,22 +495,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				024565B819C34DF3006F34D3 /* MobileNumberViewController.swift in Sources */,
-				0255CBB419CA343E00FD8D71 /* HTTPController.swift in Sources */,
-				02F0A28219C7A458003C77F7 /* AccessContactsViewController.swift in Sources */,
-				022C139E19CBC35300A9DB55 /* SwiftyJSON.swift in Sources */,
-				02F0A28919C7EBAA003C77F7 /* SapristiModel.xcdatamodeld in Sources */,
-				02F0A28019C79AAC003C77F7 /* ConfirmationCodeViewController.swift in Sources */,
-				024565BA19C658E7006F34D3 /* FriendsCell.swift in Sources */,
-				0245659D19C34A1D006F34D3 /* SettingsViewController.swift in Sources */,
-				024565BD19C6607F006F34D3 /* Friend.swift in Sources */,
-				02179A3019C7F04800D0C267 /* FriendModel.swift in Sources */,
-				02F0A28419C7BB96003C77F7 /* Contact.swift in Sources */,
-				0245659919C34A1D006F34D3 /* AppDelegate.swift in Sources */,
-				0245659B19C34A1D006F34D3 /* AllFriendsViewController.swift in Sources */,
-				02BC6B0019D0EF4700EC56C5 /* StringJS.swift in Sources */,
-				02F0A27C19C6A933003C77F7 /* FriendDetailViewController.swift in Sources */,
-				02F0A27E19C795DF003C77F7 /* InitialViewController.swift in Sources */,
+				02B3B26D19D53880006ED6EE /* MobileNumberViewController.swift in Sources */,
+				02B3B24A19D53865006ED6EE /* CarDetector.swift in Sources */,
+				0237179919DD05E700A44A2B /* SyncContactsViewController.swift in Sources */,
+				02B3B26B19D53880006ED6EE /* InviteFriendsViewController.swift in Sources */,
+				02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */,
+				02B3B26A19D53880006ED6EE /* InitialViewController.swift in Sources */,
+				02B3B27019D53880006ED6EE /* SOLocationManager.m in Sources */,
+				02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */,
+				02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */,
+				02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */,
+				02B3B24B19D53865006ED6EE /* ConfirmationCodeViewController.swift in Sources */,
+				02B3B27319D53880006ED6EE /* SwiftyJSON.swift in Sources */,
+				02B3B24419D53865006ED6EE /* Alamofire.swift in Sources */,
+				02B3B26C19D53880006ED6EE /* InviteTableViewCell.swift in Sources */,
+				02B3B24C19D53865006ED6EE /* Contact.swift in Sources */,
+				02B3B24119D53865006ED6EE /* AccessContactsViewController.swift in Sources */,
+				0237179C19DD0D2F00A44A2B /* AccessCalendarViewController.swift in Sources */,
+				02B3B24D19D53865006ED6EE /* Friend.swift in Sources */,
+				02B3B25019D53865006ED6EE /* FriendsCell.swift in Sources */,
+				02B3B24F19D53865006ED6EE /* FriendLocalDatabase.swift in Sources */,
+				02B3B24719D53865006ED6EE /* AppDelegate.swift in Sources */,
+				02B3B26E19D53880006ED6EE /* SapristiModel.xcdatamodeld in Sources */,
+				02B3B27219D53880006ED6EE /* StringJS.swift in Sources */,
+				02B3B27B19D64FCF006ED6EE /* FriendModel.swift in Sources */,
+				02B3B24E19D53865006ED6EE /* FriendDetailViewController.swift in Sources */,
+				02B3B25119D53865006ED6EE /* HTTPController.swift in Sources */,
+				02B3B27119D53880006ED6EE /* SOMotionDetector.m in Sources */,
+				02BF762B19DB07AC007E6A04 /* CalendarManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,16 +537,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		022C139219CA4A5F00A9DB55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			targetProxy = 022C139119CA4A5F00A9DB55 /* PBXContainerItemProxy */;
-		};
-		022C139819CA4A7E00A9DB55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			targetProxy = 022C139719CA4A7E00A9DB55 /* PBXContainerItemProxy */;
-		};
 		024565A919C34A1D006F34D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0245659219C34A1D006F34D3 /* Sapristi */;
@@ -428,10 +545,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0245659E19C34A1D006F34D3 /* Main.storyboard */ = {
+		02B3B23519D53865006ED6EE /* #Main.storyboard# */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0245659F19C34A1D006F34D3 /* Base */,
+				02B3B23619D53865006ED6EE /* Base */,
+			);
+			name = "#Main.storyboard#";
+			sourceTree = "<group>";
+		};
+		02B3B23719D53865006ED6EE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02B3B23819D53865006ED6EE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -522,6 +647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: stephane Kasriel (WX83LXYZ99)";
 				INFOPLIST_FILE = Sapristi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -537,6 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: stephane Kasriel (WX83LXYZ99)";
 				INFOPLIST_FILE = Sapristi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -618,14 +745,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		02F0A28719C7EBAA003C77F7 /* SapristiModel.xcdatamodeld */ = {
+		02B3B25E19D53880006ED6EE /* SapristiModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				02179A3119C7F1FE00D0C267 /* SapristiModel 2.xcdatamodel */,
-				02F0A28819C7EBAA003C77F7 /* SapristiModel.xcdatamodel */,
+				02B3B25F19D53880006ED6EE /* SapristiModel 2.xcdatamodel */,
+				02B3B26019D53880006ED6EE /* SapristiModel.xcdatamodel */,
 			);
-			currentVersion = 02F0A28819C7EBAA003C77F7 /* SapristiModel.xcdatamodel */;
-			path = SapristiModel.xcdatamodeld;
+			currentVersion = 02B3B25F19D53880006ED6EE /* SapristiModel 2.xcdatamodel */;
+			name = SapristiModel.xcdatamodeld;
+			path = Sapristi/SapristiModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

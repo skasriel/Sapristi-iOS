@@ -160,3 +160,49 @@ extension String {
     }
     
 }
+
+
+
+
+//
+//  NSDateISO8601.swift
+//
+//  Created by Justin Makaila on 8/11/14.
+//  Copyright (c) 2014 Present, Inc. All rights reserved.
+// https://github.com/justinmakaila/NSDate-ISO-8601/
+
+public extension NSDate {
+    public class func ISOStringFromDate(date: NSDate) -> String {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        
+        return dateFormatter.stringFromDate(date).stringByAppendingString("Z")
+    }
+    
+    public class func dateFromISOString(string: String) -> NSDate? {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        return dateFormatter.dateFromString(string)
+    }
+    
+    public class func formatElapsedTime(start: NSDate, end: NSDate) -> String {
+        let elapsed: Double = end.timeIntervalSinceDate(start) // in seconds
+        if (elapsed < 60) {
+            return "\(Int(elapsed))secs ago"
+        } else if (elapsed < 3600) {
+            return "\(Int(elapsed/60))mins ago"
+        } else if (elapsed < 3600*24) {
+            return "\(Int(elapsed/3600))hours ago"
+        } else if (elapsed < 3600*24*31) {
+            return "\(Int(elapsed/3600/24))days ago"
+        } else {
+            return "over a month ago"
+        }
+    }
+
+}

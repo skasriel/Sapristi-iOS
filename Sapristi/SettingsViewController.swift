@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UITableViewController {
+    @IBOutlet weak var logoutTableViewCell: UITableViewCell!
                             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,19 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (sender as NSObject! == logoutTableViewCell) {
+            println("Logout here...")
+            let userDefaults = NSUserDefaults.standardUserDefaults();
+            userDefaults.removeObjectForKey("username")
+            userDefaults.removeObjectForKey("authToken")
+            userDefaults.synchronize()
+            // TODO: Other values to delete here? Clear CoreData?
+            HTTPController.getInstance().doGET("/api/auth/logout", delegate: nil, queryID: nil)
+        }
+        println("prepareForSegue: \(sender) \(segue)")
     }
 
 

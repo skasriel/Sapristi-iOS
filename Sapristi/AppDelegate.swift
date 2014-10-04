@@ -14,9 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
+    /*
+    //http://stackoverflow.com/questions/5099483/how-to-respond-to-push-notification-view-if-app-is-already-running-in-the-backgr
+ - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+ {
+ if ( application.applicationState == UIApplicationStateActive )
+ // app was already in the foreground
+ else
+ // app was just brought from background to foreground
+ ...
+ }*/
+    
+    var carDetector: CarDetector?
+    var calendarManager: CalendarManager?
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 

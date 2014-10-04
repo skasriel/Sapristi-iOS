@@ -2,7 +2,7 @@
 //  FriendModel.swift
 //  Sapristi
 //
-//  Created by Stephane Kasriel on 9/15/14.
+//  Created by Stephane Kasriel on 9/26/14.
 //  Copyright (c) 2014 Stephane Kasriel. All rights reserved.
 //
 
@@ -17,5 +17,7 @@ class FriendModel: NSManagedObject {
     @NSManaged var hasAccount: NSNumber
     @NSManaged var imageName: String
     @NSManaged var phoneNumber: String
+    @NSManaged var allPhoneNumbers: String
+    @NSManaged var updatedAt: NSDate
 
 }

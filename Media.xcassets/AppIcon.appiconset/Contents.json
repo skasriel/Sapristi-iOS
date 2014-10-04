@@ -1,8 +1,9 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "appicon29pt.png",
       "scale" : "1x"
     },
     {
@@ -11,13 +12,15 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "appicon57pt.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "appicon40pt-1.png",
       "scale" : "1x"
     },
     {
@@ -26,9 +29,16 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "appicon60pt.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "appicon60pt3x.png",
+      "scale" : "3x"
     },
     {
       "idiom" : "ipad",

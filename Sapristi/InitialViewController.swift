@@ -9,16 +9,17 @@
 import Foundation
 import UIKit
 
-class CCC : NSObject {
-    var displayName = "test"
-}
-
 class InitialViewController: UIViewController, HTTPControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate! as AppDelegate
+        appDelegate.carDetector = CarDetector()  // Start the car motion detector
+        appDelegate.calendarManager = CalendarManager(requestPermissions: false) // start the calendar manager
+
+        runTests()
+    }
+    func runTests() {
 //        println(HTTPController.cleanPhone("(408) 506 - 0781"))
 //        println(HTTPController.cleanPhone("0033146245726"))
 //        println(HTTPController.cleanPhone("+33146245726"))
@@ -26,8 +27,8 @@ class InitialViewController: UIViewController, HTTPControllerProtocol {
     
     /* HTTPControllerProtocol implementation */
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
-        if (true || err != nil) {
-            //println("Server error: \(err!.localizedDescription)")
+        if let desc = err?.localizedDescription {
+            println("Server error: \(desc)")
             self.performSegueWithIdentifier("fromLoadingToRegistration", sender: self)
             return
         }

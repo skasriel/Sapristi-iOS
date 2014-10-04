@@ -9,16 +9,12 @@
 import Foundation
 import Alamofire
 
-
-import Alamofire
-
-
 protocol HTTPControllerProtocol {
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/)
 }
 
 class HTTPController {
-    let BASE_URL = "http://localhost:5000" //http://lit-woodland-6706.herokuapp.com"
+    let BASE_URL = "http://lit-woodland-6706.herokuapp.com" //"http://localhost:5000" // 
     
     class func getInstance() -> HTTPController {
         return HTTPController() //for now just create a new instance, class variables not supported yet
@@ -50,12 +46,12 @@ class HTTPController {
     /*
     * @queryID is a way for the delegate to know which response it's receiving (useful when a class is a delegate for multiple different HTTP requests
     */
-    private func doRequest(urlPath: String, method: Alamofire.Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol, queryID: String?) {
+    private func doRequest(urlPath: String, method: Alamofire.Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol?, queryID: String?) {
         let absoluteURL = BASE_URL + urlPath
         Alamofire.request(method, absoluteURL, parameters: parameters)
             .responseJSON { (request, response, json, error) in
-                //println("doRequest: url=\(urlPath) params=\(parameters)")
-                //println("doRequest: res=\(response) json=\(json) err=\(error)")
+                println("doRequest: url=\(urlPath) params=\(parameters)")
+                println("doRequest: res=\(response) json=\(json) err=\(error)")
                 /*if let jsonNSArray = json as NSArray {
                 } else if let jsonNSDictionary = json as NSDictionary {
                     
@@ -67,33 +63,40 @@ class HTTPController {
                 if (error == nil) {
                     jsonDic = json as Dictionary<String, AnyObject>!
                 }*/
-                delegate.didReceiveAPIResults(error, queryID: queryID, results: json)
+                if (delegate != nil) {
+                    delegate!.didReceiveAPIResults(error, queryID: queryID, results: json)
+                }
         }
     }
     
-    func doGET(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol, queryID: String?) {
+    func doGET(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol?, queryID: String?) {
         doRequest(urlPath, method:.GET, parameters: parameters, delegate: delegate, queryID: queryID)
     }
     
-    func doPOST(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol, queryID: String?) {
+    func doPOST(urlPath: String, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol?, queryID: String?) {
         doRequest(urlPath, method:.POST, parameters: parameters, delegate: delegate, queryID: queryID)
     }
     
     func doLogin(delegate: HTTPControllerProtocol) {
         let userDefaults = NSUserDefaults.standardUserDefaults();
-        let username: NSString? = userDefaults.objectForKey("username") as NSString?
+        var username: NSString? = userDefaults.objectForKey("username") as NSString?
         let authToken: NSString? = userDefaults.objectForKey("authToken") as NSString?
         
         if username != nil && authToken != nil {
             var url = "/api/auth/login"
+            if ((username! as String).indexOf("+")==0) { // hack until I upgrade to latest version of Alamofire, which properly encodes POST bodies
+                username = "%2B" + username!.substringFromIndex(1)
+            }
             var formData: [String: AnyObject] = [
                 "username": username!,
                 "password": authToken!
             ]
+            println("Trying to log in as: \(username)");
             doPOST(url, parameters: formData, delegate: delegate, queryID: "LOGIN")
         } else {
             // no login data yet (first time use)
-            let error: NSError = NSError()
+            let userInfo: [NSObject: AnyObject] = [NSLocalizedDescriptionKey: "no login"]
+            let error: NSError = NSError(domain: "sapristi", code: -1, userInfo: userInfo)
             delegate.didReceiveAPIResults(error, queryID: "LOGIN", results: nil)
         }
     }
