@@ -14,30 +14,49 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     let delegate: UITableView?
+    var localFriends = [FriendModel]()
 
     init(delegate: UITableView?) {
         self.delegate = delegate
     }
+    
     func fetchFromDatabase() {
         fetchedResultsController = NSFetchedResultsController(fetchRequest: friendFetchRequest(), managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
+        localFriends = []
+        for var i=0; i < fetchedResultsController.sections![0].numberOfObjects; i++ {
+            var indexPath = NSIndexPath(forRow: i, inSection: 0)
+            let friend = fetchedResultsController.objectAtIndexPath(indexPath) as FriendModel
+            localFriends.append(friend)
+        }
     }
     
     func objectAtIndexPath(indexPath: NSIndexPath) -> FriendModel {
-        return fetchedResultsController.objectAtIndexPath(indexPath) as FriendModel // friends[indexPath.row]
+        return localFriends[indexPath.row]
+        //return fetchedResultsController.objectAtIndexPath(indexPath) as FriendModel // friends[indexPath.row]
     }
     
     func numberOfRowsInSection(section: Int) -> Int {
-        return fetchedResultsController.sections![section].numberOfObjects //friends.count        
+        return countElements(localFriends)
+        //return fetchedResultsController.sections![section].numberOfObjects //friends.count
+    }
+    
+    func sort() {
+        println("Sorting local friend database by availability \(countElements(localFriends))")
+        localFriends.sort({ $0.availability < $1.availability })
     }
 
     func getDictionary() -> Dictionary<String, FriendModel> {
         let fetchedArray: [FriendModel] = fetchedResultsController.fetchedObjects as [FriendModel]
         var map: Dictionary<String, FriendModel> = Dictionary()
         for (index, friend) in enumerate(fetchedArray) {
-            var normalizedFriendPhoneNumber = HTTPController.cleanPhone(friend.phoneNumber) // the server returns e164 phone numbers, so need to clean up my local numbers in order to use them as keys for the dictionary
-            map[normalizedFriendPhoneNumber] = friend
+            if let phoneNumber = friend.phoneNumber? {
+                var normalizedFriendPhoneNumber = HTTPController.cleanPhone(friend.phoneNumber) // the server returns e164 phone numbers, so need to clean up my local numbers in order to use them as keys for the dictionary
+                map[normalizedFriendPhoneNumber] = friend
+            } else {
+                println("Error? no phone number")
+            }
         }
         return map
     }
@@ -98,6 +117,7 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     }
     /* NSFetchedResultsControllerDelegate implementation */
     func controllerDidChangeContent(controller: NSFetchedResultsController!) {
+        sort()
         if delegate != nil {
             delegate!.reloadData()
         } else {

@@ -11,14 +11,30 @@ import CoreMotion
 import CoreLocation
 import ObjectiveC
 
+var carDetectorInstance: CarDetector?
+
 class CarDetector : NSObject, SOMotionDetectorDelegate { //CMMotionManager {
     lazy var motionDetector = SOMotionDetector.sharedInstance()
     
-    override init() {
+    init(requestPermissions: Bool) {
         super.init()
         motionDetector.delegate = self
         motionDetector.useM7IfAvailable = true
         motionDetector.startDetection()
+    }
+    
+    class func start(requestPermissions: Bool) -> CarDetector {
+        if carDetectorInstance == nil {
+            carDetectorInstance = CarDetector(requestPermissions: requestPermissions)
+        }
+        return carDetectorInstance!
+    }
+    
+    class func stop() {
+        if carDetectorInstance == nil {
+            return
+        }
+        carDetectorInstance!.motionDetector.stopDetection()
     }
     
     /*func motionDetector(motionDetector: SOMotionDetector!, accelerationChanged acceleration: CMAcceleration) {

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--All Friends View Controller-->
+        <!--All Friends-->
         <scene sceneID="Or5-U6-aUM">
             <objects>
                 <viewController id="Gah-wd-4nk" customClass="AllFriendsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="z88-b2-PJ3"/>
+                    <navigationItem key="navigationItem" title="All Friends" id="27k-EG-bvX"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -169,48 +169,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOB-XP-l2E">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Add to Favorites">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="346" width="113" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="addToFavoritesButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="h44-D0-BUc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-ZR-Z4c">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Call More Often">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="374" width="108" height="30"/>
-                                </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-ob-UNz">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Call Less Often">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="406" width="105" height="30"/>
-                                </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4j2-Xa-alv">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Unfriend">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="436" width="59" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="unfriendButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="xhd-Ni-2P6"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HxT-aQ-xNK">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -244,36 +202,121 @@
                                     <rect key="frame" x="16" y="149" width="296" height="21"/>
                                 </variation>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-C0-oxg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="phoneNumberCell" textLabel="5k1-fU-9fU" detailTextLabel="mzR-kw-w8e" style="IBUITableViewCellStyleValue1" id="yt2-TX-i6L">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yt2-TX-i6L" id="GrQ-Jh-P1l">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Phone Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5k1-fU-9fU">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mzR-kw-w8e">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="178" width="288" height="221"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="frj-8W-lGs" id="vGE-nB-ooy"/>
+                                    <outlet property="delegate" destination="frj-8W-lGs" id="Vd7-yz-UKc"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOB-XP-l2E">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Add to Favorites">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="399" width="113" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="addToFavoritesButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="h44-D0-BUc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-ZR-Z4c">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Call More Often">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="427" width="108" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-ob-UNz">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Call Less Often">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="459" width="105" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4j2-Xa-alv">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Unfriend">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="489" width="59" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="unfriendButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="xhd-Ni-2P6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="WOB-XP-l2E"/>
-                                <exclude reference="1R7-ZR-Z4c"/>
-                                <exclude reference="ZO5-ob-UNz"/>
-                                <exclude reference="4j2-Xa-alv"/>
                                 <exclude reference="HxT-aQ-xNK"/>
                                 <exclude reference="y6f-J3-Nyv"/>
                                 <exclude reference="Ocs-JY-Uj9"/>
                                 <exclude reference="J1v-cp-Fxl"/>
+                                <exclude reference="Y5i-C0-oxg"/>
+                                <exclude reference="WOB-XP-l2E"/>
+                                <exclude reference="1R7-ZR-Z4c"/>
+                                <exclude reference="ZO5-ob-UNz"/>
+                                <exclude reference="4j2-Xa-alv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="WOB-XP-l2E"/>
-                                <include reference="1R7-ZR-Z4c"/>
-                                <include reference="ZO5-ob-UNz"/>
-                                <include reference="4j2-Xa-alv"/>
                                 <include reference="HxT-aQ-xNK"/>
                                 <include reference="y6f-J3-Nyv"/>
                                 <include reference="Ocs-JY-Uj9"/>
                                 <include reference="J1v-cp-Fxl"/>
+                                <include reference="Y5i-C0-oxg"/>
+                                <include reference="WOB-XP-l2E"/>
+                                <include reference="1R7-ZR-Z4c"/>
+                                <include reference="ZO5-ob-UNz"/>
+                                <include reference="4j2-Xa-alv"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="friendImageView" destination="HxT-aQ-xNK" id="WeT-qA-Y3d"/>
                         <outlet property="friendNameLabel" destination="y6f-J3-Nyv" id="CoI-li-E3C"/>
+                        <outlet property="friendPhoneTableView" destination="Y5i-C0-oxg" id="pQ3-dh-kc9"/>
                         <outlet property="friendUpdateLabel" destination="Ocs-JY-Uj9" id="d9C-xu-tmB"/>
                     </connections>
                 </viewController>
@@ -433,7 +476,7 @@
                                                 <!--2014-09-27 02:16:16 +0000-->
                                             </date>
                                             <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                <rect key="frame" x="8" y="34" width="275" height="162"/>
+                                                <rect key="frame" x="23" y="26" width="275" height="162"/>
                                             </variation>
                                             <connections>
                                                 <action selector="datePickerValueChanged:" destination="pTB-lI-bzl" eventType="valueChanged" id="Afa-GL-AAe"/>
@@ -441,14 +484,18 @@
                                         </datePicker>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="3wS-bb-nR6" secondAttribute="trailing" constant="37" id="6pB-Ke-EkE"/>
+                                        <constraint firstAttribute="centerY" secondItem="3wS-bb-nR6" secondAttribute="centerY" id="CQI-eg-2vw"/>
+                                        <constraint firstItem="3wS-bb-nR6" firstAttribute="top" secondItem="oPK-n7-D4P" secondAttribute="topMargin" constant="26" id="Q55-ct-NVk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3wS-bb-nR6" secondAttribute="bottom" constant="9" id="nwF-vo-jVV"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="3wS-bb-nR6"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="6pB-Ke-EkE"/>
+                                            <exclude reference="CQI-eg-2vw"/>
+                                            <exclude reference="Q55-ct-NVk"/>
+                                            <exclude reference="nwF-vo-jVV"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -456,7 +503,9 @@
                                             <include reference="3wS-bb-nR6"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="6pB-Ke-EkE"/>
+                                            <include reference="CQI-eg-2vw"/>
+                                            <include reference="Q55-ct-NVk"/>
+                                            <include reference="nwF-vo-jVV"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -511,9 +560,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oq5-uf-KDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4419" y="206"/>
+            <point key="canvasLocation" x="4536" y="200"/>
         </scene>
-        <!--Access Calendar View Controller-->
+        <!--Updating Calendar-->
         <scene sceneID="NtW-z4-1u4">
             <objects>
                 <viewController id="lUz-2S-iOZ" customClass="AccessCalendarViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
@@ -522,6 +571,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Pj4-36-ZIJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1NN-Y8-tif">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading your calendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQB-TE-dn5">
@@ -568,13 +618,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Updating Calendar" id="FyK-Il-Eyb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8M-6e-Oor" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3723" y="944"/>
         </scene>
-        <!--Sync Contacts View Controller-->
+        <!--Updating Contacts-->
         <scene sceneID="i7D-Xv-iBb">
             <objects>
                 <viewController id="SjG-8G-Dgk" customClass="SyncContactsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
@@ -583,6 +634,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JXI-Ee-lyv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dhw-fW-q2Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sapristi is updating from your contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50a-uG-4Ig">
@@ -618,11 +670,96 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Updating Contacts" id="j3f-b1-cWk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wQ-Fg-zNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4419" y="926"/>
+            <point key="canvasLocation" x="4419" y="944"/>
+        </scene>
+        <!--About Sapristi-->
+        <scene sceneID="CFa-qj-aXD">
+            <objects>
+                <viewController id="LYc-Yr-dPc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H83-cK-xbY"/>
+                        <viewControllerLayoutGuide type="bottom" id="AUD-XA-jLq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y7b-Oo-bZZ">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 0.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="er7-hF-n6B">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="118" y="258" width="85" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOd-rG-C75">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Help / FAQ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="33" y="404" width="75" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ1-qC-9Ch">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Contact Us">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="33" y="430" width="78" height="30"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fancy Logo Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPA-Qa-bdI">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="94" y="179" width="132" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2014. All rights reserved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itF-oZ-jsy">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="33" y="527" width="265" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="er7-hF-n6B"/>
+                                <exclude reference="sOd-rG-C75"/>
+                                <exclude reference="JJ1-qC-9Ch"/>
+                                <exclude reference="EPA-Qa-bdI"/>
+                                <exclude reference="itF-oZ-jsy"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="er7-hF-n6B"/>
+                                <include reference="sOd-rG-C75"/>
+                                <include reference="JJ1-qC-9Ch"/>
+                                <include reference="EPA-Qa-bdI"/>
+                                <include reference="itF-oZ-jsy"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="About Sapristi" id="bht-Jg-6e6"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dR7-rw-VyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5025" y="940"/>
         </scene>
         <!--MobileNumber-->
         <scene sceneID="E3q-5z-I7P">
@@ -1024,6 +1161,9 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LYc-Yr-dPc" kind="show" id="xrd-tC-qoX"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="3A7-Df-15T">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1164,16 +1304,31 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Automatically set my availability" id="LhV-4u-nmq">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="1xP-US-wiL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="1xP-US-wiL">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xP-US-wiL" id="ynl-Cv-HM4">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-hj-bXy">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <state key="normal" title="Button" image="Checkbox_unchecked">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="281" y="7" width="30" height="30"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="timeslotButtonPressed:" destination="erw-CT-wD5" eventType="touchUpInside" id="zaB-a7-Wc8"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on Time of Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKX-ZO-JRl">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="17" y="11" width="170" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1184,6 +1339,7 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
+                                                    <exclude reference="eVv-hj-bXy"/>
                                                     <exclude reference="RKX-ZO-JRl"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -1195,6 +1351,7 @@
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
+                                                    <include reference="eVv-hj-bXy"/>
                                                     <include reference="RKX-ZO-JRl"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -1205,20 +1362,32 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Sdq-K2-4Bx" kind="show" id="Gg3-NX-k0w"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="db8-Qd-7fB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="db8-Qd-7fB">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="db8-Qd-7fB" id="Iwb-C4-wNP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aS4-No-eOq">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <state key="normal" title="Button" image="Checkbox_unchecked">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="281" y="7" width="30" height="30"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="carMotionButtonPressed:" destination="erw-CT-wD5" eventType="touchUpInside" id="yn6-ma-9Xb"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By detecting when I'm in my car" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJo-Fn-Bdj">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="16" y="11" width="247" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1229,6 +1398,7 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
+                                                    <exclude reference="aS4-No-eOq"/>
                                                     <exclude reference="aJo-Fn-Bdj"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -1240,6 +1410,7 @@
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
+                                                    <include reference="aS4-No-eOq"/>
                                                     <include reference="aJo-Fn-Bdj"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -1251,16 +1422,31 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="3wg-RD-hXe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="3wg-RD-hXe">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3wg-RD-hXe" id="kwO-K4-PgZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-hf-bKz">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <state key="normal" title="Button" image="Checkbox_unchecked">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="281" y="7" width="30" height="30"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="calendarButoonPressed:" destination="erw-CT-wD5" eventType="touchUpInside" id="sfo-zi-yNQ"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using my calendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRj-gV-rSt">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="17" y="11" width="143" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1271,6 +1457,7 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
+                                                    <exclude reference="ZDp-hf-bKz"/>
                                                     <exclude reference="bRj-gV-rSt"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -1282,6 +1469,7 @@
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
+                                                    <include reference="ZDp-hf-bKz"/>
                                                     <include reference="bRj-gV-rSt"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -1292,9 +1480,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="lUz-2S-iOZ" kind="show" id="KPT-fa-akE"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1307,12 +1492,70 @@
                     <navigationItem key="navigationItem" title="Sapristi Settings" id="unS-ik-WlW"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="calendarButton" destination="ZDp-hf-bKz" id="IGZ-Hm-JGm"/>
+                        <outlet property="carMotionButton" destination="aS4-No-eOq" id="7nr-kP-KOZ"/>
                         <outlet property="logoutTableViewCell" destination="jho-Ve-1Zr" id="O12-2N-S3D"/>
+                        <outlet property="timeslotButton" destination="eVv-hj-bXy" id="QMf-KU-PBl"/>
+                        <segue destination="lUz-2S-iOZ" kind="show" identifier="fromSettingsToCalendar" id="iBs-BH-Yci"/>
+                        <segue destination="aiH-hz-2g6" kind="show" identifier="fromSettingsToCarMotion" id="RrU-bw-hWw"/>
+                        <segue destination="Sdq-K2-4Bx" kind="show" identifier="fromSettingsToTimeslot" id="I3o-me-P7U"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkI-RS-jMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3708" y="209"/>
+        </scene>
+        <!--Car Motion Detection-->
+        <scene sceneID="yJa-3Y-aOC">
+            <objects>
+                <viewController id="aiH-hz-2g6" customClass="CarMotionViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wFq-Rf-S7R"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Q9-NV-JVy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6U3-Hd-Duz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCM-Vi-0Ka">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="113" y="190" width="102" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enabling Car Motion Detection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpg-6G-654">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="161" width="235" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="oCM-Vi-0Ka"/>
+                                <exclude reference="tpg-6G-654"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="oCM-Vi-0Ka"/>
+                                <include reference="tpg-6G-654"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Car Motion Detection" id="If2-aS-gtg"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="38U-rj-36d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3114" y="940"/>
         </scene>
     </scenes>
     <resources>

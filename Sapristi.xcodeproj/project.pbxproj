@@ -46,6 +46,8 @@
 		02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762619D664FC007E6A04 /* DatePickerCell.swift */; };
 		02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */; };
 		02BF762B19DB07AC007E6A04 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762A19DB07AC007E6A04 /* CalendarManager.swift */; };
+		02CFCB5E19E5128900EDA122 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFCB5D19E5128900EDA122 /* ConfigManager.swift */; };
+		02CFCB6019E5174000EDA122 /* CarMotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		02BF762619D664FC007E6A04 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSettingsViewController.swift; path = Sapristi/DateSettingsViewController.swift; sourceTree = "<group>"; };
 		02BF762A19DB07AC007E6A04 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		02CFCB5D19E5128900EDA122 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarMotionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,7 @@
 		0237179A19DD0B7500A44A2B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */,
 				0237179B19DD0D2F00A44A2B /* AccessCalendarViewController.swift */,
 				02B3B26119D53880006ED6EE /* SettingsViewController.swift */,
 				02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */,
@@ -245,12 +250,8 @@
 				02B3B27519D53905006ED6EE /* Models */,
 				02B3B23419D53865006ED6EE /* Base.lproj */,
 				02B3B27419D538A6006ED6EE /* Helpers */,
-				02B3B25B19D53880006ED6EE /* InviteTableViewCell.swift */,
 				02B3B22819D53865006ED6EE /* Alamofire */,
 				02B3B23319D53865006ED6EE /* AppDelegate.swift */,
-				02B3B23B19D53865006ED6EE /* Contact.swift */,
-				02B3B23F19D53865006ED6EE /* FriendsCell.swift */,
-				02BF762619D664FC007E6A04 /* DatePickerCell.swift */,
 			);
 			name = Sapristi;
 			sourceTree = "<group>";
@@ -300,12 +301,17 @@
 		02B3B27419D538A6006ED6EE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				02CFCB5D19E5128900EDA122 /* ConfigManager.swift */,
 				02B3B23E19D53865006ED6EE /* FriendLocalDatabase.swift */,
 				02B3B24019D53865006ED6EE /* HTTPController.swift */,
 				02BF762A19DB07AC007E6A04 /* CalendarManager.swift */,
 				02B3B23919D53865006ED6EE /* CarDetector.swift */,
 				02B3B26719D53880006ED6EE /* StringJS.swift */,
 				02B3B26819D53880006ED6EE /* SwiftyJSON.swift */,
+				02B3B23B19D53865006ED6EE /* Contact.swift */,
+				02BF762619D664FC007E6A04 /* DatePickerCell.swift */,
+				02B3B25B19D53880006ED6EE /* InviteTableViewCell.swift */,
+				02B3B23F19D53865006ED6EE /* FriendsCell.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 				0237179919DD05E700A44A2B /* SyncContactsViewController.swift in Sources */,
 				02B3B26B19D53880006ED6EE /* InviteFriendsViewController.swift in Sources */,
 				02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */,
+				02CFCB5E19E5128900EDA122 /* ConfigManager.swift in Sources */,
 				02B3B26A19D53880006ED6EE /* InitialViewController.swift in Sources */,
 				02B3B27019D53880006ED6EE /* SOLocationManager.m in Sources */,
 				02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */,
@@ -521,6 +528,7 @@
 				02B3B27B19D64FCF006ED6EE /* FriendModel.swift in Sources */,
 				02B3B24E19D53865006ED6EE /* FriendDetailViewController.swift in Sources */,
 				02B3B25119D53865006ED6EE /* HTTPController.swift in Sources */,
+				02CFCB6019E5174000EDA122 /* CarMotionViewController.swift in Sources */,
 				02B3B27119D53880006ED6EE /* SOMotionDetector.m in Sources */,
 				02BF762B19DB07AC007E6A04 /* CalendarManager.swift in Sources */,
 			);

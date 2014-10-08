@@ -18,9 +18,10 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var allFriendsTableView: UITableView!
     @IBOutlet weak var inviteFriendsButton: UIButton!
     
-    var friendLocalDatabase: FriendLocalDatabase = FriendLocalDatabase(delegate: nil)
-        
+    var refreshControl:UIRefreshControl?
+    var friendLocalDatabase: FriendLocalDatabase?
     var currentAvailability = Availability.AVAILABLE
+    var refreshTimer: NSTimer?
     
     override init() {
         super.init()
@@ -32,14 +33,50 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        getFriendAvailability()
         getMyAvailability()
+        //refresh()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let timer = refreshTimer {
+            timer.invalidate()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
-        friendLocalDatabase.fetchFromDatabase();
+        friendLocalDatabase!.fetchFromDatabase();
+        
+        refresh()
+        
+        // allow user to pull to refresh
+        refreshControl = UIRefreshControl()
+        refreshControl!.attributedTitle = NSAttributedString(string: "Pull To Refresh...")
+        refreshControl!.addTarget(self, action: Selector("refreshInvoked"), forControlEvents: UIControlEvents.ValueChanged)
+        allFriendsTableView.addSubview(refreshControl!)
+        
+        // Also refresh periodically (at least until I build push notifications)
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("doRefresh"), userInfo: nil, repeats: true)
+    }
+    
+    @objc func refreshInvoked()
+    {
+        refresh(viaPullToRefresh: true)
+    }
+    
+    @objc func doRefresh() {
+        refresh()
+    }
+    
+    func refresh(viaPullToRefresh: Bool = false) {
+        println("Do Refresh")
+        getFriendAvailability()
+        if (viaPullToRefresh) {
+            self.refreshControl!.endRefreshing()
+        }
+        println("Done refreshing")
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +91,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         if "showFriendDetail" == segue.identifier  {
             let detailVC:FriendDetailViewController = segue.destinationViewController as FriendDetailViewController
             let indexPath = self.allFriendsTableView.indexPathForSelectedRow()
-            let selectedFriend = friendLocalDatabase.objectAtIndexPath(indexPath!)
+            let selectedFriend = friendLocalDatabase!.objectAtIndexPath(indexPath!)
             detailVC.friend = selectedFriend
         }
     }
@@ -63,11 +100,11 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     * UITableViewDataSource implementation
     */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendLocalDatabase.numberOfRowsInSection(section)
+        return friendLocalDatabase!.numberOfRowsInSection(section)
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: FriendCell = allFriendsTableView.dequeueReusableCellWithIdentifier("myCell") as FriendCell
-        var friend: FriendModel = friendLocalDatabase.objectAtIndexPath(indexPath)
+        var friend: FriendModel = friendLocalDatabase!.objectAtIndexPath(indexPath)
         //print("row: \(indexPath)")
         //print(" friend: \(friend.availability)")
         //print(" cell: \(cell.friendStatusLabel)")
@@ -159,7 +196,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     
     func callbackFriendAvailability(err: NSError?, results: AnyObject?) {
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * 60 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), getFriendAvailability) // Call this regularly in the background, at least until we figure out push notifications
+        //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * 60 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), doRefresh) // Call this regularly in the background, at least until we figure out push notifications
 
         
         if err != nil {
@@ -170,7 +207,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         let jsonArray: Array<Dictionary<String, AnyObject>> = results! as Array<Dictionary<String, AnyObject>>
         
         // to be able to properly locate the results from server in the list of FriendModels stored locally, create a dictionary
-        let map: Dictionary<String, FriendModel> = friendLocalDatabase.getDictionary()
+        let map: Dictionary<String, FriendModel> = friendLocalDatabase!.getDictionary()
         
         // now update the availability of my friends
         for (index, friendServerData: Dictionary<String, AnyObject>) in enumerate(jsonArray) {
@@ -194,14 +231,14 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
                 println("Unable to find local friend for \(username)");
             } else {
                 friendLocalData!.availability = availability
-                println("converting: \(updatedAt)")
                 if let updatedAtDate = NSDate.dateFromISOString(updatedAt) {
                     friendLocalData!.updatedAt = updatedAtDate
-                    println("converted: \(updatedAtDate)")
                 }
             }
         }
-        allFriendsTableView.reloadData()
+        
+        friendLocalDatabase!.sort() // Show available friends, then busy friends, then unknown friends
+        allFriendsTableView.reloadData() // refresh the view
     }
     
     

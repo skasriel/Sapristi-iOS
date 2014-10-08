@@ -52,12 +52,25 @@ class Timeslot : NSObject {
 let RECURRENCE_WEEKDAYS = "12345"
 let RECURRENCE_WEEKENDS = "60"
 
+var calendarManagerInstance: CalendarManager?
 
 class CalendarManager : HTTPControllerProtocol {
     var estore: EKEventStore!
     
     init(requestPermissions: Bool) {
         loadFromCalendar(requestPermissions)
+    }
+    
+    
+    class func start(requestPermissions: Bool) -> CalendarManager {
+        if calendarManagerInstance == nil {
+            calendarManagerInstance = CalendarManager(requestPermissions: requestPermissions)
+        }
+        return calendarManagerInstance!
+    }
+    
+    class func stop() {
+        // TBD
     }
     
     func get_estore(requestPermissions: Bool, completed: (EKEventStore) -> ()) {
@@ -144,15 +157,20 @@ class CalendarManager : HTTPControllerProtocol {
                 timeslots.append(timeslot)
             }
             
-            let json = HTTPController.JSONStringify(Timeslot.serialize(timeslots))
-            if (json == "") {
-                println("Unable to JSON timeslots")
-                return
-            }
-            let httpParams = ["json": json]
-            let url = "/api/settings/calendar"
-            HTTPController.getInstance().doPOST(url, parameters: httpParams, delegate: self, queryID: "UPLOAD_CALENDAR")
+            CalendarManager.submitTimeSlotsToServer(timeslots, delegate: self)
         }
+    }
+    
+    class func submitTimeSlotsToServer(timeslots: [Timeslot], delegate: HTTPControllerProtocol) {
+        let json = HTTPController.JSONStringify(Timeslot.serialize(timeslots))
+        if (json == "") {
+            println("Unable to JSON timeslots")
+            return
+        }
+        let httpParams = ["json": json]
+        let url = "/api/settings/timeslots"
+        //let url = "/api/settings/calendar"
+        HTTPController.getInstance().doPOST(url, parameters: httpParams, delegate: delegate, queryID: "UPLOAD_CALENDAR")
     }
     
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/) {

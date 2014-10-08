@@ -86,9 +86,6 @@ class AccessContactsViewController: UIViewController, HTTPControllerProtocol {
         var params: [Dictionary<String, AnyObject>] = [];
         
         for (i, contact) in enumerate(allContacts) {
-//            if (i % 2 != 0) {
-//                continue; // asskip every other for now...
-//            }
             if contact.phoneNumbers.count == 0 {
                 continue // only send to server contacts with at least one phone number (otherwise, can't match so no point)
             }

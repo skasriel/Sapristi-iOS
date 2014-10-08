@@ -1,22 +1,19 @@
 //
-//  AccessCalendarViewController.swift
+//  CarMotionViewController.swift
 //  Sapristi
 //
-//  Created by Stephane Kasriel on 10/1/14.
+//  Created by Stephane Kasriel on 10/8/14.
 //  Copyright (c) 2014 Stephane Kasriel. All rights reserved.
 //
 
 import UIKit
 
-class AccessCalendarViewController: UIViewController {
+class CarMotionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CalendarManager.start(true)
-
-        //calendarManager = CalendarManager(requestPermissions: true)
-        
+        CarDetector.start(true)
         self.navigationController!.popViewControllerAnimated(true)
     }
 

@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  ...
  }*/
     
-    var carDetector: CarDetector?
-    var calendarManager: CalendarManager?
+    //var carDetector: CarDetector?
+    //var calendarManager: CalendarManager?
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.

@@ -16,7 +16,7 @@ class FriendModel: NSManagedObject {
     @NSManaged var displayName: String
     @NSManaged var hasAccount: NSNumber
     @NSManaged var imageName: String
-    @NSManaged var phoneNumber: String
+    @NSManaged var phoneNumber: String!
     @NSManaged var allPhoneNumbers: String
     @NSManaged var updatedAt: NSDate
 

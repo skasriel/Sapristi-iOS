@@ -13,10 +13,17 @@ class InitialViewController: UIViewController, HTTPControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate! as AppDelegate
-        appDelegate.carDetector = CarDetector()  // Start the car motion detector
-        appDelegate.calendarManager = CalendarManager(requestPermissions: false) // start the calendar manager
+        
+        let carMotionEnabled = ConfigManager.getBoolConfigValue(CONFIG_CAR_MOTION)
+        if carMotionEnabled == true {
+            CarDetector.start(false)
+        }
 
+        let calendarEnabled = ConfigManager.getBoolConfigValue(CONFIG_CALENDAR)
+        if calendarEnabled == true {
+            CalendarManager.start(false)
+        }
+        
         runTests()
     }
     func runTests() {

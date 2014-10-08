@@ -109,7 +109,7 @@ class DateSettingsViewController: UITableViewController, UITableViewDataSource, 
     
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/) {
         println("TBD")
-        self.navigationController!.popViewControllerAnimated(true)
+        //self.navigationController!.popViewControllerAnimated(true)
     }
     
    
@@ -144,16 +144,9 @@ class DateSettingsViewController: UITableViewController, UITableViewDataSource, 
             }
         }
         
-        let json = HTTPController.JSONStringify(Timeslot.serialize(timeslots))
-        if (json == "") {
-            println("Unable to JSON timeslots")
-            self.navigationController!.popViewControllerAnimated(true)
-            return
-        }
-        let httpParams = ["json": json]
-
-        let url = "/api/settings/timeslots"
-        HTTPController.getInstance().doPOST(url, parameters: httpParams, delegate: self, queryID: "UPLOAD_TIMESLOTS")
+        
+        CalendarManager.submitTimeSlotsToServer(timeslots, delegate: self)
+        self.navigationController!.popViewControllerAnimated(true)
     }
     
     
