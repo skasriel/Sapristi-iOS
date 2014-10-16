@@ -16,7 +16,7 @@ protocol HTTPControllerProtocol {
 let httpControllerInstance = HTTPController()
 
 class HTTPController {
-    let BASE_URL = "http://localhost:5000" //"http://169.254.124.168:5000" //  "http://lit-woodland-6706.herokuapp.com" //
+    let BASE_URL = "http://lit-woodland-6706.herokuapp.com" //"http://localhost:5000" //"http://169.254.124.168:5000" //  
     
     class func getInstance() -> HTTPController {
         return httpControllerInstance
