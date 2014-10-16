@@ -12,10 +12,13 @@ import UIKit
 class FriendDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     var friend: FriendModel!
+    var friendLocalDatabase: FriendLocalDatabase!
     
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendUpdateLabel: UILabel!
     @IBOutlet weak var friendImageView: UIImageView!
+    @IBOutlet weak var addToFavoritesButton: UIButton!
+    @IBOutlet weak var currentFrequencyLabel: UILabel!
     
     var defaultPhoneNumber: String?
     var allPhoneNumbers: [String]?
@@ -26,20 +29,37 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         friendNameLabel.text = friend.displayName
-        friendUpdateLabel.text = "Status updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate())
-        
+        if (friend.updatedAt != nil) {
+            friendUpdateLabel.text = "Status updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate())
+        } else {
+            friendUpdateLabel.text = ""
+        }
+        showFavoriteButton()
+        updateFrequencyLabel()
+
         defaultPhoneNumber = friend.phoneNumber
-        allPhoneNumbers = friend.allPhoneNumbers.split(">") as? [String]
+        allPhoneNumbers = FriendLocalDatabase.getPhoneNumbers(friend)
         //friendImageView.image = UIImage(named:friend.imageName)
     }
-    @IBAction func addToFavoritesButtonPressed(sender: UIButton) {
-    }
+
     
     @IBAction func unfriendButtonPressed(sender: AnyObject) {
     }
     
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         self.navigationController!.popViewControllerAnimated(true)
+    }
+    
+    func showFavoriteButton() {
+        if friend.isFavorite == nil {
+            friend.isFavorite = false
+        }
+        if friend.isFavorite! == true {
+            addToFavoritesButton.setTitle("Remove from Favorites", forState: UIControlState.Normal)
+        } else {
+            addToFavoritesButton.setTitle("Add to Favorites", forState: UIControlState.Normal)
+        }
+
     }
     
     /**
@@ -68,13 +88,72 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
         let phoneNumber = allPhoneNumbers![row]
         
         println("Calling: "+phoneNumber)
-        let url:NSURL? = NSURL.URLWithString("tel://"+phoneNumber);
-        if (url != nil) {
-            println("Url = \(url)")
-            UIApplication.sharedApplication().openURL(url!);
-        } else {
-            println("Invalid phone #: \(phoneNumber)")
+        PhoneController.makePhoneCall(phoneNumber)
+    }
+    
+    @IBAction func addToFavoritesButtonPressed(sender: AnyObject) {
+        friend.isFavorite! = !friend.isFavorite!
+        showFavoriteButton()
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        var err: NSError? = nil
+        managedObjectContext?.save(&err)
+        if let error = err {
+            println("Error saving favorite: \(error)")
         }
+        friendLocalDatabase.needsRefresh = true
     }
 
+    func updateFrequency(change: Int) {
+        var newFrequency: Int
+        if let currentFrequency = friend.desiredCallFrequency {
+            newFrequency = friend.desiredCallFrequency + change
+        } else {
+            newFrequency = change
+        }
+        friend.desiredCallFrequency = newFrequency
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        var err: NSError? = nil
+        managedObjectContext?.save(&err)
+        if let error = err {
+            println("Error saving frequency: \(error)")
+        } else {
+            updateFrequencyLabel()
+            friendLocalDatabase.needsRefresh = true
+        }
+    }
+    func updateFrequencyLabel() {
+        var frequencyName: String;
+        let frequency: Int = friend.desiredCallFrequency as Int
+        switch frequency {
+        case 2...10000:
+            frequencyName = "Very Frequently"
+        case 1:
+            frequencyName = "Frequently"
+        case 0:
+            frequencyName = ""
+        case -1:
+            frequencyName = "Infrequently"
+        case -2:
+            frequencyName = "Rarely"
+        case (-100000)...(-3):
+            frequencyName = "Never"
+        default:
+            frequencyName = "Unknown"
+        }
+        currentFrequencyLabel.text = frequencyName
+    }
+    @IBAction func callMoreOftenButtonPressed(sender: AnyObject) {
+        updateFrequency(1)
+    }
+    
+    @IBAction func callLessOftenButtonPressed(sender: AnyObject) {
+        updateFrequency(-1)
+    }
+
+    @IBAction func callButtonPressed(sender: AnyObject) {
+        PhoneController.makePhoneCall(defaultPhoneNumber!)
+    }
+    
 }

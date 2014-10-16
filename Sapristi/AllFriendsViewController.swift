@@ -11,17 +11,18 @@ import UIKit
 class AllFriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HTTPControllerProtocol {
     
     let FRIEND_AVAILABILITY : String = "FRIEND_AVAILABILITY"
-    let SET_AVAILABILITY: String = "SET_AVAILABILITY"
     let MY_AVAILABILITY: String = "GET_AVAILABILITY"
     
     @IBOutlet weak var changeAvailabilityButton: UIButton!
     @IBOutlet weak var allFriendsTableView: UITableView!
     @IBOutlet weak var inviteFriendsButton: UIButton!
     
+    
     var refreshControl:UIRefreshControl?
     var friendLocalDatabase: FriendLocalDatabase?
-    var currentAvailability = Availability.AVAILABLE
     var refreshTimer: NSTimer?
+    
+    let availabilityManager = AvailabilityManager.getInstance()
     
     override init() {
         super.init()
@@ -33,8 +34,13 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        ConfigManager.setIntConfigValue(CONFIG_SELECTED_TAB, newValue: 1)
         getMyAvailability()
-        //refresh()
+        if let friends = friendLocalDatabase {
+            if friends.needsRefresh {
+                refresh()
+            }
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -46,8 +52,8 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
-        friendLocalDatabase!.fetchFromDatabase();
+        
+        fetchFromDatabase()
         
         refresh()
         
@@ -59,8 +65,21 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         
         // Also refresh periodically (at least until I build push notifications)
         refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("doRefresh"), userInfo: nil, repeats: true)
+        
+        // Register for push notifications
+        //TODO: This isn't the right place to do this, need to rethink the UI here
+        let application = UIApplication.sharedApplication()
+        var types: UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: types, categories: nil )
+        application.registerUserNotificationSettings( settings )
+        application.registerForRemoteNotifications()
     }
     
+    func fetchFromDatabase() {
+        friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
+        friendLocalDatabase!.fetchFromAllDatabase();
+    }
+
     @objc func refreshInvoked()
     {
         refresh(viaPullToRefresh: true)
@@ -68,6 +87,9 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     
     @objc func doRefresh() {
         refresh()
+        
+        // refresh the button value periodically, a bit of a hack - server will change my availability automatically and this needs to be reflected in UI
+        updateAvailabilityUI();
     }
     
     func refresh(viaPullToRefresh: Bool = false) {
@@ -85,7 +107,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (sender as NSObject! == inviteFriendsButton) {
+        if (inviteFriendsButton != nil && sender as NSObject! == inviteFriendsButton) {
             return
         }
         if "showFriendDetail" == segue.identifier  {
@@ -93,6 +115,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             let indexPath = self.allFriendsTableView.indexPathForSelectedRow()
             let selectedFriend = friendLocalDatabase!.objectAtIndexPath(indexPath!)
             detailVC.friend = selectedFriend
+            detailVC.friendLocalDatabase = friendLocalDatabase!
         }
     }
 
@@ -108,9 +131,23 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         //print("row: \(indexPath)")
         //print(" friend: \(friend.availability)")
         //print(" cell: \(cell.friendStatusLabel)")
-            
+        
         cell.friendNameLabel.text = friend.displayName
+        
         var status: String = friend.availability
+        var imageName: String
+        switch status {
+        case Availability.BUSY:
+            imageName = "busy_dot_icon"
+        case Availability.UNKNOWN:
+            imageName = "icon_unknown" // TODO: another icon
+        case Availability.AVAILABLE:
+            imageName = "available_dot_icon"
+        default:
+            imageName = "icon_unknown" // shouldn't happen...
+        }
+        cell.availabilityImageView.image = UIImage(named: imageName)
+            
         if (friend.availability != Availability.UNKNOWN) {
             status += " (updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate()) + ")"
         }
@@ -137,7 +174,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func changeAvailabilityButtonPressed(sender: UIButton) {
         var newAvailability : String;
         
-        switch(currentAvailability) {
+        switch(availabilityManager.currentAvailability) {
         case Availability.AVAILABLE:
             newAvailability = Availability.UNKNOWN
         case Availability.UNKNOWN:
@@ -145,15 +182,14 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         default:
             newAvailability = Availability.AVAILABLE
         }
-        setAvailability(newAvailability)
-        
-        var params = ["availability": newAvailability]
-        HTTPController.getInstance().doPOST("/api/me/availability", parameters: params, delegate: self, queryID: SET_AVAILABILITY)
+        availabilityManager.setAvailability(newAvailability, updateServer: true, reason: Availability.USER, delegate: self)
+        updateAvailabilityUI()
     }
     
-    func setAvailability(newAvailability: String) {
-        currentAvailability = newAvailability
-        switch(currentAvailability) {
+    func updateAvailabilityUI() {
+        let availability = availabilityManager.currentAvailability
+        
+        switch(availability) {
         case Availability.AVAILABLE:
             changeAvailabilityButton.setTitle("AVAILABLE", forState: UIControlState.Normal)
             changeAvailabilityButton.backgroundColor = UIColor(red: 0.1, green: 0.8, blue: 0.1, alpha: 1.0)
@@ -164,11 +200,18 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             changeAvailabilityButton.setTitle("BUSY", forState: UIControlState.Normal)
             changeAvailabilityButton.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1.0)
         }
+        
+        let reason = availabilityManager.currentReason
+        if reason == nil {
+            
+        } else {
+            
+        }
     }
     
     /** HTTPControllerProtocol implementation */
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
-        if (queryID == SET_AVAILABILITY) {
+        if (queryID == Availability.SET_AVAILABILITY) {
             return callbackChangeAvailability(err, results: results);
         } else if (queryID == FRIEND_AVAILABILITY) {
             return callbackFriendAvailability(err, results: results);
@@ -191,14 +234,11 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         }
         let json = results! as Dictionary<String, AnyObject>
         let availability = json["availability"]! as String
-        setAvailability(availability);
+        availabilityManager.setAvailability(availability)
+        updateAvailabilityUI();
     }
     
     func callbackFriendAvailability(err: NSError?, results: AnyObject?) {
-        
-        //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * 60 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), doRefresh) // Call this regularly in the background, at least until we figure out push notifications
-
-        
         if err != nil {
             println("Unable to get friends' availability \(err!.localizedDescription)")
             return
@@ -236,7 +276,6 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
         }
-        
         friendLocalDatabase!.sort() // Show available friends, then busy friends, then unknown friends
         allFriendsTableView.reloadData() // refresh the view
     }

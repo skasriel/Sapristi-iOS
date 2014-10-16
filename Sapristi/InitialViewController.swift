@@ -16,7 +16,7 @@ class InitialViewController: UIViewController, HTTPControllerProtocol {
         
         let carMotionEnabled = ConfigManager.getBoolConfigValue(CONFIG_CAR_MOTION)
         if carMotionEnabled == true {
-            CarDetector.start(false)
+            CarManager.start(false)
         }
 
         let calendarEnabled = ConfigManager.getBoolConfigValue(CONFIG_CALENDAR)
@@ -27,9 +27,6 @@ class InitialViewController: UIViewController, HTTPControllerProtocol {
         runTests()
     }
     func runTests() {
-//        println(HTTPController.cleanPhone("(408) 506 - 0781"))
-//        println(HTTPController.cleanPhone("0033146245726"))
-//        println(HTTPController.cleanPhone("+33146245726"))
     }
     
     /* HTTPControllerProtocol implementation */
@@ -43,6 +40,15 @@ class InitialViewController: UIViewController, HTTPControllerProtocol {
         dispatch_async(dispatch_get_main_queue(), {
             self.performSegueWithIdentifier("fromLoadingToMain", sender: self)
         })
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if "fromLoadingToMain" == segue.identifier  {
+            let tabVC = segue.destinationViewController as UITabBarController
+            let selectedTab = ConfigManager.getIntConfigValue(CONFIG_SELECTED_TAB, defaultValue: 1)
+            tabVC.selectedIndex = selectedTab
+        }
     }
 
     

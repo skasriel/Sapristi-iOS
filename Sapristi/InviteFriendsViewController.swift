@@ -22,7 +22,7 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
-        friendLocalDatabase.fetchFromDatabase();
+        friendLocalDatabase.fetchFromAllDatabase();
     }
     
     override func viewDidAppear(animated: Bool) {

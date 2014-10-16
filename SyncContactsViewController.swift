@@ -8,15 +8,22 @@
 
 import UIKit
 
-class SyncContactsViewController: AccessContactsViewController {
+class SyncContactsViewController: AccessContactsViewController, AddressBookManagerCallbackProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.getAllContacts()
-        println("Done, now redirect")
-        self.navigationController!.popViewControllerAnimated(true)
-        // Do any additional setup after loading the view.
+        AddressBookManager.getInstance().syncAdressBook(self)
     }
+
+    /** 
+    * Implementation of AddressBookManagerCallbackProtocol
+    */
+    override func contactManagerCallback(contacts: [Contact]) {
+        // need to do this from main thread through dispatch_async?
+        println("Done updating all contacts, now redirect back to Settings")
+        self.navigationController!.popViewControllerAnimated(true)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

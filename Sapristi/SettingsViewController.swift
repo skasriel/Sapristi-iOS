@@ -29,11 +29,16 @@ class SettingsViewController: UITableViewController {
         timeslotEnabled = ConfigManager.getBoolConfigValue(CONFIG_TIMESLOT)
         ConfigManager.showButton(timeslotButton, isChecked: timeslotEnabled)
 
-        carMotionEnabled = ConfigManager.getBoolConfigValue(CONFIG_CALENDAR)
+        carMotionEnabled = ConfigManager.getBoolConfigValue(CONFIG_CAR_MOTION)
         ConfigManager.showButton(carMotionButton, isChecked: carMotionEnabled)
 
-        calendarEnabled = ConfigManager.getBoolConfigValue(CONFIG_CAR_MOTION)
+        calendarEnabled = ConfigManager.getBoolConfigValue(CONFIG_CALENDAR)
         ConfigManager.showButton(calendarButton, isChecked: calendarEnabled)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        ConfigManager.setIntConfigValue(CONFIG_SELECTED_TAB, newValue: 2)
     }
     
     

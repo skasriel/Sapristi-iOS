@@ -15,13 +15,14 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     let delegate: UITableView?
     var localFriends = [FriendModel]()
+    var needsRefresh: Bool = false
 
     init(delegate: UITableView?) {
         self.delegate = delegate
     }
     
-    func fetchFromDatabase() {
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: friendFetchRequest(), managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+    func fetch(fetchRequest: NSFetchRequest) {
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
         localFriends = []
@@ -30,6 +31,27 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
             let friend = fetchedResultsController.objectAtIndexPath(indexPath) as FriendModel
             localFriends.append(friend)
         }
+    }
+    
+    func fetchFromAllDatabase() {
+        println("fetchFromAllDatabase")
+        let allFriendFetchRequest = NSFetchRequest(entityName: "FriendModel")
+        let sortDescriptorAvail = NSSortDescriptor(key: "availability", ascending: true)
+        let sortDescriptorFavorite = NSSortDescriptor(key: "isFavorite", ascending: true)
+        let sortDescriptorName = NSSortDescriptor(key: "displayName", ascending: true)
+        allFriendFetchRequest.sortDescriptors = [sortDescriptorAvail, sortDescriptorFavorite, sortDescriptorName]
+        fetch(allFriendFetchRequest)
+    }
+    
+    func fetchFavoritesFromDatabase() {
+        println("fetchFavoritesFromDatabase")
+        let favoritesFetchRequest = NSFetchRequest(entityName: "FriendModel")
+        let predicate = NSPredicate(format: "isFavorite == TRUE", argumentArray: nil)
+        let sortDescriptorAvail = NSSortDescriptor(key: "availability", ascending: true)
+        let sortDescriptorName = NSSortDescriptor(key: "displayName", ascending: true)
+        favoritesFetchRequest.predicate = predicate
+        favoritesFetchRequest.sortDescriptors = [sortDescriptorAvail, sortDescriptorName]
+        fetch(favoritesFetchRequest)
     }
     
     func objectAtIndexPath(indexPath: NSIndexPath) -> FriendModel {
@@ -44,21 +66,44 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     
     func sort() {
         println("Sorting local friend database by availability \(countElements(localFriends))")
-        localFriends.sort({ $0.availability < $1.availability })
+        localFriends.sort({ (friend0: FriendModel, friend1: FriendModel) -> Bool in
+            //$0.availability < $1.availability 
+            // Sort by availability first, then by DesiredFrequency and then by name
+            if friend0.availability != friend1.availability {
+                return friend0.availability < friend1.availability // low availability (by alphabetical order...) at top
+            } else if self.getCallFrequency(friend0) != self.getCallFrequency(friend1) {
+                return self.getCallFrequency(friend0) > self.getCallFrequency(friend1) // high frequency at top
+            } else {
+                return friend0.displayName < friend1.displayName
+            }
+        })
+    }
+    
+    func getCallFrequency(friend: FriendModel) -> Int {
+        if let frequenty = friend.desiredCallFrequency {
+            return friend.desiredCallFrequency as Int
+        } else {
+            return 0
+        }
     }
 
     func getDictionary() -> Dictionary<String, FriendModel> {
-        let fetchedArray: [FriendModel] = fetchedResultsController.fetchedObjects as [FriendModel]
+        //let fetchedArray: [FriendModel] = fetchedResultsController.fetchedObjects as [FriendModel]
+        let fetchedArray = localFriends
         var map: Dictionary<String, FriendModel> = Dictionary()
         for (index, friend) in enumerate(fetchedArray) {
-            if let phoneNumber = friend.phoneNumber? {
-                var normalizedFriendPhoneNumber = HTTPController.cleanPhone(friend.phoneNumber) // the server returns e164 phone numbers, so need to clean up my local numbers in order to use them as keys for the dictionary
+            let phoneNumbers = FriendLocalDatabase.getPhoneNumbers(friend)
+            for phoneNumber in phoneNumbers {
+                var normalizedFriendPhoneNumber = PhoneController.cleanPhoneNumber(phoneNumber) // the server returns e164 phone numbers, so need to clean up my local numbers in order to use them as keys for the dictionary
                 map[normalizedFriendPhoneNumber] = friend
-            } else {
-                println("Error? no phone number")
             }
         }
         return map
+    }
+    
+    class func getPhoneNumbers(friend: FriendModel) -> [String] {
+        let phoneNumbers: [String] = friend.allPhoneNumbers.split(">") as [String]
+        return phoneNumbers
     }
     
     
@@ -67,7 +112,7 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         
-        // First delete all stored contacts (normally, there shouldn't be any, but better safe than sorry)
+        // First delete all stored contacts
         let fetchRequest = NSFetchRequest(entityName: "FriendModel")
         let sortDescriptor = NSSortDescriptor(key: "displayName", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -83,22 +128,7 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         // Now store all new contacts
         let entityDescription = NSEntityDescription.entityForName("FriendModel", inManagedObjectContext: managedObjectContext!)
         for (index, contact) in enumerate(allContacts) {
-            if contact.phoneNumbers.count==0 {
-                continue; // don't save contacts who don't have a phone number
-            }
-            let friend = FriendModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-            friend.displayName = contact.displayName
-            friend.phoneNumber = contact.phoneNumbers[0] as String
-            friend.hasAccount = false // TBD
-            friend.availability = Availability.UNKNOWN // TBD
-            var allPhoneNumbers = "";
-            for (i, number) in enumerate(contact.phoneNumbers) {
-                if (i>0) {
-                    allPhoneNumbers += ">" // separate all phone numbers with a special character... (a small hack)
-                }
-                allPhoneNumbers += number as String
-            }
-            friend.allPhoneNumbers = allPhoneNumbers
+            let friend: FriendModel = contact.serializeForCoreData(entityDescription, managedObjectContext: managedObjectContext)
         }
         appDelegate.saveContext()
         println("storeToCoreData: end")
@@ -108,13 +138,7 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     /**
     * CoreData Methods for retrieving friend list from local database
     */
-    func friendFetchRequest() -> NSFetchRequest {
-        let fetchRequest = NSFetchRequest(entityName: "FriendModel")
-        let sortDescriptorAvail = NSSortDescriptor(key: "availability", ascending: true)
-        let sortDescriptorName = NSSortDescriptor(key: "displayName", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptorAvail, sortDescriptorName]
-        return fetchRequest
-    }
+    
     /* NSFetchedResultsControllerDelegate implementation */
     func controllerDidChangeContent(controller: NSFetchedResultsController!) {
         sort()

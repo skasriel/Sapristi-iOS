@@ -92,7 +92,7 @@ class CalendarManager : HTTPControllerProtocol {
                     completed(self.estore)
                 } else {
                     self.estore = nil
-                    self.send_user_to_settings()
+                    HTTPController.sendUserToSettings()
                 }
             }
         case .Authorized:
@@ -102,24 +102,7 @@ class CalendarManager : HTTPControllerProtocol {
             if (!requestPermissions) {
                 return;
             }
-            send_user_to_settings()
-        }
-    }
-    
-    func send_user_to_settings() {
-        let alert = UIAlertController(title: "Calendar Access",
-            message: "Please update calendar access in the privacy section of this app’s settings.",
-            preferredStyle: .Alert)
-        
-        let default_action = UIAlertAction(title: "Open Settings", style: .Default) { action in
-            UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString))
-            return
-        }
-        
-        alert.addAction(default_action)
-        dispatch_async(dispatch_get_main_queue()) {
-            UIApplication.sharedApplication().keyWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-            return
+            HTTPController.sendUserToSettings()
         }
     }
     

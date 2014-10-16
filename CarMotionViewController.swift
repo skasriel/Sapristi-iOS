@@ -13,7 +13,7 @@ class CarMotionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CarDetector.start(true)
+        CarManager.start(true)
         self.navigationController!.popViewControllerAnimated(true)
     }
 

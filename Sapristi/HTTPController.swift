@@ -13,11 +13,13 @@ protocol HTTPControllerProtocol {
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/)
 }
 
+let httpControllerInstance = HTTPController()
+
 class HTTPController {
-    let BASE_URL = "http://lit-woodland-6706.herokuapp.com" //"http://localhost:5000" // 
+    let BASE_URL = "http://localhost:5000" //"http://169.254.124.168:5000" //  "http://lit-woodland-6706.herokuapp.com" //
     
     class func getInstance() -> HTTPController {
-        return HTTPController() //for now just create a new instance, class variables not supported yet
+        return httpControllerInstance
     }
     
     private init() {
@@ -50,8 +52,8 @@ class HTTPController {
         let absoluteURL = BASE_URL + urlPath
         Alamofire.request(method, absoluteURL, parameters: parameters)
             .responseJSON { (request, response, json, error) in
-                println("doRequest: url=\(urlPath) params=\(parameters)")
-                println("doRequest: res=\(response) json=\(json) err=\(error)")
+                //println("doRequest: url=\(urlPath) params=\(parameters)")
+                //println("doRequest: res=\(response) json=\(json) err=\(error)")
                 /*if let jsonNSArray = json as NSArray {
                 } else if let jsonNSDictionary = json as NSDictionary {
                     
@@ -106,25 +108,23 @@ class HTTPController {
         userDefaults.setObject(username as NSString, forKey: "username")
         userDefaults.setObject(authToken as NSString, forKey: "authToken")
         userDefaults.synchronize()
-        print("Saved key: ") ; println(userDefaults.objectForKey("username") as? NSString)
+        //print("Saved key: ") ; println(userDefaults.objectForKey("username") as? NSString)
     }
     
-    class func cleanPhone(phone: String) -> String {
-        var cleaned: String = "";
-        for (index, character) in enumerate(phone) {
-            if index>0 && character=="+" { // + only allowed as first character
-                continue;
-            } else if character != "+" && (character<"0" || character>"9") {
-                continue; // skip all non numeric
-            }
-            cleaned.append(character);
+    class func sendUserToSettings() {
+        let alert = UIAlertController(title: "Permissions",
+            message: "Please update permissions in the privacy section of this app’s settings.",
+            preferredStyle: .Alert)
+        
+        let default_action = UIAlertAction(title: "Open Settings", style: .Default) { action in
+            UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString))
+            return
         }
-        if cleaned.startsWith("00") {
-            cleaned = "+" + cleaned.substr("00".length)
+        
+        alert.addAction(default_action)
+        dispatch_async(dispatch_get_main_queue()) {
+            UIApplication.sharedApplication().keyWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            return
         }
-        if (!cleaned.startsWith("+")) {
-            cleaned = "+1" + cleaned;  // hack, for now assume that local number = US number
-        }
-        return cleaned
     }
 }

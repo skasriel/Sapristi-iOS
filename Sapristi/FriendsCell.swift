@@ -14,17 +14,11 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendStatusLabel: UILabel!
     @IBOutlet weak var friendPhoneButton: UIButton!
+    @IBOutlet weak var availabilityImageView: UIImageView!
     
     var phoneNumber : String = ""
     
     @IBAction func callButtonPressed(sender: UIButton) {
-        println("Calling: "+phoneNumber)
-        let url:NSURL? = NSURL.URLWithString("tel://"+phoneNumber);
-        if (url != nil) {
-            println("Url = \(url)")
-            UIApplication.sharedApplication().openURL(url!);
-        } else {
-            println("Invalid phone #!!!")
-        }
+        PhoneController.makePhoneCall(phoneNumber)
     }
 }

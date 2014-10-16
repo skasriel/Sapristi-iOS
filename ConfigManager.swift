@@ -14,9 +14,25 @@ let CONFIG_CALENDAR = "calendarEnabled"
 let CONFIG_CAR_MOTION = "carMotionEnabled"
 let CONFIG_USERNAME = "username"
 let CONFIG_PWD = "authToken"
+let CONFIG_SELECTED_TAB = "selectedTab"
 
 
 class ConfigManager {
+    
+    class func getIntConfigValue(key: String, defaultValue: Int) -> Int {
+        let userDefaults = NSUserDefaults.standardUserDefaults();
+        let value = userDefaults.objectForKey(key) as Int?
+        if (value == nil) {
+            return defaultValue
+        }
+        return value! as Int
+    }
+    class func setIntConfigValue(key: String, newValue: Int) {
+        let userDefaults = NSUserDefaults.standardUserDefaults();
+        userDefaults.setObject(newValue, forKey: key)
+        userDefaults.synchronize()
+    }
+    
     class func getBoolConfigValue(key: String) -> Bool {
         let userDefaults = NSUserDefaults.standardUserDefaults();
         let value = userDefaults.objectForKey(key) as Bool?
