@@ -77,7 +77,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = friendPhoneTableView.dequeueReusableCellWithIdentifier("phoneNumberCell") as UITableViewCell
         let row = indexPath.row
-        cell.textLabel!.text = "mobile"
+        cell.textLabel.text = "mobile"
         cell.detailTextLabel!.text = allPhoneNumbers![row]
         return cell
     }
@@ -92,7 +92,11 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func addToFavoritesButtonPressed(sender: AnyObject) {
-        friend.isFavorite! = !friend.isFavorite!
+        if friend.isFavorite==nil || friend.isFavorite!.boolValue==false {
+            friend.isFavorite = true
+        } else {
+            friend.isFavorite = false
+        }
         showFavoriteButton()
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
@@ -107,7 +111,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     func updateFrequency(change: Int) {
         var newFrequency: Int
         if let currentFrequency = friend.desiredCallFrequency {
-            newFrequency = friend.desiredCallFrequency + change
+            newFrequency = friend.desiredCallFrequency.integerValue + change
         } else {
             newFrequency = change
         }

@@ -16,7 +16,7 @@ protocol HTTPControllerProtocol {
 let httpControllerInstance = HTTPController()
 
 class HTTPController {
-    let BASE_URL = "http://lit-woodland-6706.herokuapp.com" //"http://localhost:5000" //"http://169.254.124.168:5000" //  
+    let BASE_URL = "http://lit-woodland-6706.herokuapp.com"// "http://169.254.244.85:5000"  //  "http://localhost:5000" //
     
     class func getInstance() -> HTTPController {
         return httpControllerInstance
@@ -40,7 +40,7 @@ class HTTPController {
             println("Error parsing json \(jsonObj)")
             return ""
         } else {
-            return NSString(data: jsonData, encoding: NSUTF8StringEncoding)
+            return NSString(data: jsonData, encoding: NSUTF8StringEncoding)!
         }
     }
 
@@ -117,13 +117,13 @@ class HTTPController {
             preferredStyle: .Alert)
         
         let default_action = UIAlertAction(title: "Open Settings", style: .Default) { action in
-            UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString))
+            UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
             return
         }
         
         alert.addAction(default_action)
         dispatch_async(dispatch_get_main_queue()) {
-            UIApplication.sharedApplication().keyWindow.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            UIApplication.sharedApplication().keyWindow!.rootViewController?.presentViewController(alert, animated: true, completion: nil)
             return
         }
     }

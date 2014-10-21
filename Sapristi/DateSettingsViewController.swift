@@ -235,7 +235,7 @@ class DateSettingsViewController: UITableViewController, UITableViewDataSource, 
         let cell = tableView.dequeueReusableCellWithIdentifier(regularCellID, forIndexPath: cellForRowAtIndexPath) as UITableViewCell
         
         
-        cell.textLabel!.text = title
+        cell.textLabel.text = title
         let valueOfRow = dates[dataSection][dataRow]
         cell.detailTextLabel!.text = dateFormatter!.stringFromDate(valueOfRow as NSDate)
         return cell

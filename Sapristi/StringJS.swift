@@ -69,7 +69,7 @@ extension String {
     }
     
     public func match(pattern:String) -> Array<String>? {
-        var regex = NSRegularExpression(pattern: pattern, options: nil, error: nil)
+        var regex = NSRegularExpression(pattern: pattern, options: nil, error: nil)!
         var matches:[AnyObject] = regex.matchesInString(self, options: nil, range: NSRange(location: 0, length: self.length))
         if matches.count > 0 {
             var result:[String] = []
@@ -83,12 +83,12 @@ extension String {
     }
     
     public func replace(what:String, with:String) -> String {
-        var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
+        var exp = NSRegularExpression(pattern: what, options: nil, error: nil)!
         return exp.stringByReplacingMatchesInString(self, options: nil, range: NSMakeRange(0, self.length), withTemplate: with)
     }
     
     public func search(what:String) -> Int? {
-        var exp = NSRegularExpression(pattern: what, options: nil, error: nil)
+        var exp = NSRegularExpression(pattern: what, options: nil, error: nil)!
         var match = exp.firstMatchInString(self, options: nil, range: NSMakeRange(0, self.length))
         return match!.range.location
     }

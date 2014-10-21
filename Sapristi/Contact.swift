@@ -21,6 +21,7 @@ class Contact : NSObject {
         var dictionary = Dictionary<String, AnyObject>()
         dictionary["displayName"] = displayName
         dictionary["phoneNumbers"] = phoneNumbers
+        dictionary["desiredCallFrequency"] = desiredCallFrequency
         //dictionary["emailAddresses"] = contact.emailAddresses
         return dictionary
     }

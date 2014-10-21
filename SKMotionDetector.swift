@@ -123,7 +123,6 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
     
     func calculateMotionType() {
         if (useM7IfAvailable && CMMotionActivityManager.isActivityAvailable()) {
-            println("All calculations will come from CMM")
             return
         }
     

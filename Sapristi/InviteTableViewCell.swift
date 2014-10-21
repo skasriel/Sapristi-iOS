@@ -50,8 +50,9 @@ class InviteTableViewCell: UITableViewCell {
             grayView!.backgroundColor = UIColor(white: 0.4, alpha: 0.6)
             delegate!.view.addSubview(grayView!)
 
-            let menuHeight = (countElements(allPhoneNumbers!) * 52) + 150
-            var startY = Int(screenHeight) - menuHeight
+            let numRows: Int = countElements(allPhoneNumbers!)
+            let menuHeight: Int = Int(numRows * 52) + 150
+            let startY: Int = Int(screenHeight) - menuHeight
             
             let label = UILabel(frame: CGRectMake(15, CGFloat(startY), screenWidth-30, 45))
             label.text = "Pick a number: "
@@ -62,7 +63,7 @@ class InviteTableViewCell: UITableViewCell {
             
             for (index, phoneNumber) in enumerate(allPhoneNumbers!) {
                 let button   = UIButton.buttonWithType(UIButtonType.System) as UIButton
-                let y: CGFloat = CGFloat( startY + 50 + 52.0*index )
+                let y: CGFloat = CGFloat( startY + 50 + 52*index )
                 button.frame = CGRectMake(15, y, screenWidth-30, 50)
                 button.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
                 button.setTitle(phoneNumber, forState: UIControlState.Normal)
@@ -73,7 +74,7 @@ class InviteTableViewCell: UITableViewCell {
             }
             
             let button = UIButton.buttonWithType(UIButtonType.System) as UIButton
-            let y: CGFloat = CGFloat( startY + 45 + 55.0 * countElements(allPhoneNumbers!) )
+            let y: CGFloat = CGFloat(startY + 45 + 55 * numRows )
             button.frame = CGRectMake(15, y, screenWidth-30, 50)
             button.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
             button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 15)
