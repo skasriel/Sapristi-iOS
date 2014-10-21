@@ -78,7 +78,7 @@ class AddressBookManager: HTTPControllerProtocol {
         var allContacts: [Contact] = []
         for (index, nativeContact: APContact) in enumerate(nativeContacts) {
             var contact: Contact = getContact(nativeContact) //getAddressbookRecord(record)
-            println("#\(index) \(contact.displayName) \(contact.phoneNumbers)")
+            //println("#\(index) \(contact.displayName) \(contact.phoneNumbers)")
             allContacts.append(contact)
         }
         

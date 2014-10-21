@@ -38,6 +38,7 @@
 		02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26119D53880006ED6EE /* SettingsViewController.swift */; };
 		02B3B27219D53880006ED6EE /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26719D53880006ED6EE /* StringJS.swift */; };
 		02B3B27319D53880006ED6EE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26819D53880006ED6EE /* SwiftyJSON.swift */; };
+		02B4EA1019F5E16C0048A2B6 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4EA0A19F5CF430048A2B6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762619D664FC007E6A04 /* DatePickerCell.swift */; };
 		02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */; };
 		02BF762B19DB07AC007E6A04 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762A19DB07AC007E6A04 /* CalendarManager.swift */; };
@@ -87,6 +88,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02B4EA0F19F5E1490048A2B6 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02B4EA1019F5E16C0048A2B6 /* Alamofire.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -330,6 +342,7 @@
 				0245659119C34A1D006F34D3 /* Resources */,
 				022C139919CA4A7F00A9DB55 /* Embed Frameworks */,
 				D420B0ADDFD2B9BF53EB183E /* Copy Pods Resources */,
+				02B4EA0F19F5E1490048A2B6 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);

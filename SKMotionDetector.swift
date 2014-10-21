@@ -97,10 +97,10 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
                     } else if activity.stationary || activity.unknown {
                         self.motionType = MotionTypeNotMoving;
                     }
-                    println("Motion Type = \(self.motionType)")
             
                     // If type was changed, then call delegate method
                     if (self.motionType != self.previousMotionType) {
+                        println("Motion Type changed to \(self.motionType), from \(self.previousMotionType)")
                         self.previousMotionType = self.motionType
                         if let delegate = self.delegate {
                             println("Calling motionDetector callback because of CMM with \(self.motionType!)")

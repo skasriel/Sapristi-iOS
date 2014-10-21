@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
                             
     var window: UIWindow?
 
@@ -57,6 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     * Support for Push Notifications
     */
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        /* TODO: found this code, not sure what it does: http://stackoverflow.com/questions/24816847/not-able-to-set-interactive-push-notifications-on-ios8
+        let currentInstallation:PFInstallation = PFInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.saveInBackground()
+        */
+        
         // send token to server
         println("Push token = \(deviceToken)")
         var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
@@ -64,9 +70,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var deviceTokenString: String = ( deviceToken.description as NSString )
             .stringByTrimmingCharactersInSet( characterSet )
             .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
-        
         println( deviceTokenString )
+
+        var url = "/api/me/apn-token"
+        var formData: [String: AnyObject] = [
+            "apnToken":  deviceTokenString
+        ]
+        
+        HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self, queryID: nil)
     }
+    
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
+        if let error = err {
+            println("Error sending APN Token: \(error.localizedDescription)")
+        }
+    }
+
     
     // error in registering push notification
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

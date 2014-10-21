@@ -48,7 +48,7 @@ class HTTPController {
     /*
     * @queryID is a way for the delegate to know which response it's receiving (useful when a class is a delegate for multiple different HTTP requests
     */
-    private func doRequest(urlPath: String, method: Alamofire.Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol?, queryID: String?) {
+    private func doRequest(urlPath: String, method: Alamofire.Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol? = nil, queryID: String? = nil) {
         let absoluteURL = BASE_URL + urlPath
         Alamofire.request(method, absoluteURL, parameters: parameters)
             .responseJSON { (request, response, json, error) in
@@ -86,9 +86,9 @@ class HTTPController {
         
         if username != nil && authToken != nil {
             var url = "/api/auth/login"
-            if ((username! as String).indexOf("+")==0) { // hack until I upgrade to latest version of Alamofire, which properly encodes POST bodies
+            /*if ((username! as String).indexOf("+")==0) { // hack until I upgrade to latest version of Alamofire, which properly encodes POST bodies
                 username = "%2B" + username!.substringFromIndex(1)
-            }
+            }*/
             var formData: [String: AnyObject] = [
                 "username": username!,
                 "password": authToken!
