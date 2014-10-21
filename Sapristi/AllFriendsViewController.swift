@@ -145,6 +145,10 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendLocalDatabase!.numberOfRowsInSection(section)
     }
+
+    let imageBusy = UIImage(named: "busy_dot_icon")
+    let imageAvailable = UIImage(named: "available_dot_icon")
+    let imageUnknown = UIImage(named: "icon_unknown")
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: FriendCell = allFriendsTableView.dequeueReusableCellWithIdentifier("myCell") as FriendCell
         var friend: FriendModel = friendLocalDatabase!.objectAtIndexPath(indexPath)
@@ -154,22 +158,28 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.friendNameLabel.text = friend.displayName
         
-        var status: String = friend.availability
+        var status: String = ""
         var imageName: String
-        switch status {
+        var image: UIImage?
+        
+        switch friend.availability {
         case Availability.BUSY:
             imageName = "busy_dot_icon"
+            image = imageBusy
         case Availability.UNKNOWN:
             imageName = "icon_unknown" // TODO: another icon
+            image = imageUnknown
         case Availability.AVAILABLE:
             imageName = "available_dot_icon"
+            image = imageAvailable
         default:
             imageName = "icon_unknown" // shouldn't happen...
+            image = imageUnknown
         }
-        cell.availabilityImageView.image = UIImage(named: imageName)
+        cell.availabilityImageView.image = image // UIImage(named: imageName)
             
         if (friend.availability != Availability.UNKNOWN) {
-            status += " (updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate()) + ")"
+            status += " Updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate())
         }
         cell.friendStatusLabel.text = status
         /*if friend.imageName {

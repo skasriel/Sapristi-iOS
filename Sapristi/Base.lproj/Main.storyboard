@@ -32,18 +32,6 @@
                                     <action selector="changeAvailabilityButtonPressed:" destination="Gah-wd-4nk" eventType="touchUpInside" id="azD-vm-Cjb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-VK-0Dc">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Invite Contacts to Sapristi &gt;">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="105" y="521" width="191" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="MyD-BK-oO4" kind="show" id="RRe-D9-SUM"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRD-Oj-ENa">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -69,7 +57,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="54" y="0.0" width="99" height="21"/>
+                                                        <rect key="frame" x="54" y="1" width="240" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPT-OK-STk">
@@ -78,7 +66,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="54" y="14" width="99" height="21"/>
+                                                        <rect key="frame" x="54" y="15" width="224" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-ZT-4eK">
@@ -93,7 +81,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="355" y="7" width="30" height="30"/>
+                                                        <rect key="frame" x="280" y="7" width="30" height="30"/>
                                                     </variation>
                                                     <connections>
                                                         <action selector="callButtonPressed:" destination="5se-IL-VcF" eventType="touchUpInside" id="jXZ-Ji-GwB"/>
@@ -126,29 +114,41 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="133" width="320" height="348"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="Gah-wd-4nk" id="YMD-LK-FMl"/>
                                     <outlet property="delegate" destination="Gah-wd-4nk" id="riQ-ol-z2g"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-VK-0Dc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Invite Contacts to Sapristi &gt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="65" y="489" width="191" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="MyD-BK-oO4" kind="show" id="RRe-D9-SUM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="NEm-6I-AMV"/>
-                                <exclude reference="kTt-VK-0Dc"/>
                                 <exclude reference="vRD-Oj-ENa"/>
                                 <exclude reference="Zn7-wn-Aid"/>
+                                <exclude reference="kTt-VK-0Dc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="NEm-6I-AMV"/>
-                                <include reference="kTt-VK-0Dc"/>
                                 <include reference="vRD-Oj-ENa"/>
                                 <include reference="Zn7-wn-Aid"/>
+                                <include reference="kTt-VK-0Dc"/>
                             </mask>
                         </variation>
                     </view>
@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNl-Q9-y6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3834" y="-448"/>
+            <point key="canvasLocation" x="3834" y="-450"/>
         </scene>
         <!--Friend Detail View Controller-->
         <scene sceneID="nFb-sP-Ojm">
@@ -472,7 +472,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="101" width="320" height="423"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="MyD-BK-oO4" id="6FO-gf-2Rf"/>
@@ -509,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Omv-ZU-9BR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4536" y="-448"/>
+            <point key="canvasLocation" x="4542" y="-445"/>
         </scene>
         <!--My Available Times-->
         <scene sceneID="UGu-HL-yhl">

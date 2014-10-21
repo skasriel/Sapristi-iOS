@@ -55,7 +55,7 @@ let RECURRENCE_WEEKENDS = "60"
 var calendarManagerInstance: CalendarManager?
 
 class CalendarManager : HTTPControllerProtocol {
-    var estore: EKEventStore!
+    var eventStore: EKEventStore!
     
     init(requestPermissions: Bool) {
         loadFromCalendar(requestPermissions)
@@ -73,32 +73,32 @@ class CalendarManager : HTTPControllerProtocol {
         // TBD
     }
     
-    func get_estore(requestPermissions: Bool, completed: (EKEventStore) -> ()) {
-        if estore != nil {
-            completed(estore)
+    func getEventStore(requestPermissions: Bool, completed: (EKEventStore) -> ()) {
+        if eventStore != nil {
+            completed(eventStore)
             return
         }
         
-        estore = EKEventStore()
+        eventStore = EKEventStore()
         
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
         case .NotDetermined:
             if (!requestPermissions) {
                 return
             }
-            estore.requestAccessToEntityType(EKEntityTypeEvent) {
+            eventStore.requestAccessToEntityType(EKEntityTypeEvent) {
                 (granted: Bool, err: NSError?) in
                 if granted && (err == nil) {
-                    completed(self.estore)
+                    completed(self.eventStore)
                 } else {
-                    self.estore = nil
+                    self.eventStore = nil
                     HTTPController.sendUserToSettings()
                 }
             }
         case .Authorized:
-            completed(estore)
+            completed(eventStore)
         default:
-            estore = nil
+            eventStore = nil
             if (!requestPermissions) {
                 return;
             }
@@ -108,19 +108,19 @@ class CalendarManager : HTTPControllerProtocol {
     
     
     func loadFromCalendar(requestPermissions: Bool) {
-        get_estore(requestPermissions) { estore in
+        getEventStore(requestPermissions) { eventStore in // horrible swift closure syntax...
             var startDate = NSDate().dateByAddingTimeInterval(60*60*24*(-1))
             var endDate = NSDate().dateByAddingTimeInterval(60*60*24*7) // 7 days in the future
-            var calPredicate: NSPredicate = estore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
-            //println("look at dates between \(startDate) and \(endDate)")
-            var events = estore.eventsMatchingPredicate(calPredicate)
+            var calPredicate: NSPredicate = eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
+            println("Searching for calendar events with dates between \(startDate) and \(endDate)")
+            var events = eventStore.eventsMatchingPredicate(calPredicate)
             if (events == nil) {
                 println("No events in calendar, returning")
                 return
             }
-            //println("found \(countElements(events)) calendar entries")
+            println("found \(countElements(events)) calendar entries")
             
-            var timeslots = Array<Timeslot>() //Array<Dictionary<String, String>>()
+            var timeslots = Array<Timeslot>()
             for (index, eventObj) in enumerate(events) {
                 let event: EKEvent = eventObj as EKEvent
                 let title = event.title
@@ -135,7 +135,7 @@ class CalendarManager : HTTPControllerProtocol {
                 let eventStart = event.startDate
                 let eventEnd = event.endDate
                 let allDay = event.allDay
-                //println("Calendar entry: \(title) \(eventStart) \(eventEnd) \(sapristiAvailability) \(allDay) \(NSDate.ISOStringFromDate(eventStart))")
+                println("Calendar entry: \(title) \(eventStart) \(eventEnd) \(sapristiAvailability) \(allDay) \(NSDate.ISOStringFromDate(eventStart))")
                 var timeslot = Timeslot(startTime: eventStart, endTime: eventEnd, availability: sapristiAvailability, recurrence: "", source: "CALENDAR")
                 timeslots.append(timeslot)
             }
