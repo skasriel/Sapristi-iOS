@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AF7B5390-00A4-4B34-9B35-79C03E09B843</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Sapristi</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>32D62399197F343E04C42FB0B1991E2334547D2B</key>
+		<string>https://github.com/skasriel/Sapristi-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Sapristi.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>32D62399197F343E04C42FB0B1991E2334547D2B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/skasriel/Sapristi-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>32D62399197F343E04C42FB0B1991E2334547D2B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>32D62399197F343E04C42FB0B1991E2334547D2B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Sapristi</string>
+		</dict>
+	</array>
+</dict>
+</plist>

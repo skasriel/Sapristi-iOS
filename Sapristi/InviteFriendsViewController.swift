@@ -13,7 +13,7 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
 
     @IBOutlet weak var allFriendsTableView: UITableView!
     
-    var friendLocalDatabase: FriendLocalDatabase = FriendLocalDatabase(delegate: nil)
+    var friendLocalDatabase: FriendLocalDatabase?
     var selectedFriends = Dictionary<FriendModel, Bool>()
     var selectedNumbers = Dictionary<String, Bool>()
     
@@ -22,7 +22,7 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
-        friendLocalDatabase.fetchFromAllDatabase();
+        friendLocalDatabase!.fetchFromAllDatabase();
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -85,11 +85,11 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
     * UITableViewDataSource implementation
     */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendLocalDatabase.numberOfRowsInSection(section)
+        return friendLocalDatabase!.numberOfRowsInSection(section)
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: InviteTableViewCell = allFriendsTableView.dequeueReusableCellWithIdentifier("inviteCell") as InviteTableViewCell
-        var friend: FriendModel = friendLocalDatabase.objectAtIndexPath(indexPath)
+        var friend: FriendModel = friendLocalDatabase!.objectAtIndexPath(indexPath)
         cell.delegate = self
         cell.friend = friend
         cell.setStatus(selectedFriends[friend] == true)

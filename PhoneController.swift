@@ -11,7 +11,7 @@ import Foundation
 class PhoneController {
     class func makePhoneCall(phoneNumber: String) {
         let cleanNumber = cleanPhoneNumber(phoneNumber)
-        let url:NSURL? = NSURL(fileURLWithPath: "tel://"+cleanNumber);
+        let url:NSURL? = NSURL(string: "tel://"+cleanNumber);
         if (url != nil) {
             println("Calling \(url!)")
             UIApplication.sharedApplication().openURL(url!);

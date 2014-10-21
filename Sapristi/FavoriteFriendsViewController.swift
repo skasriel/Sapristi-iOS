@@ -42,7 +42,7 @@ class FavoriteFriendsViewController: AllFriendsViewController {
     }
     
     override func fetchFromDatabase() {
-        friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
+        friendLocalDatabase = FriendLocalDatabase(delegate:allFriendsTableView)
         friendLocalDatabase!.fetchFavoritesFromDatabase();
     }
     

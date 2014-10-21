@@ -13,7 +13,7 @@ import UIKit
 class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
-    let delegate: UITableView?
+    var delegate: UITableView?
     var localFriends = [FriendModel]()
     var needsRefresh: Bool = false
 
