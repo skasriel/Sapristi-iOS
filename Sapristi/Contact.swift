@@ -33,11 +33,15 @@ class Contact : NSObject {
         friend.hasAccount = false // TBD
         friend.availability = Availability.UNKNOWN // TBD
         friend.desiredCallFrequency = desiredCallFrequency
-        // friend.updatedAt =
+        if thumbnail != nil {
+            friend.thumbnail = UIImagePNGRepresentation(thumbnail!)
+        }
+        
+        // separate all phone numbers with a special character... (a small hack)
         var allPhoneNumbers = "";
         for (i, number) in enumerate(phoneNumbers) {
             if (i>0) {
-                allPhoneNumbers += ">" // separate all phone numbers with a special character... (a small hack)
+                allPhoneNumbers += ">"
             }
             allPhoneNumbers += number as String
         }

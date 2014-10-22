@@ -27,7 +27,7 @@ class AddressBookManager: HTTPControllerProtocol {
 
     func syncAdressBook(delegate: AddressBookManagerCallbackProtocol) {
         
-        addressBook.fieldsMask = APContactField.Default | APContactField.Thumbnail
+        addressBook.fieldsMask = APContactField.All //APContactField.Default | APContactField.Thumbnail
         addressBook.sortDescriptors = [NSSortDescriptor(key: "firstName", ascending: true),
             NSSortDescriptor(key: "lastName", ascending: true)]
         addressBook.filterBlock = {(contact: APContact!) -> Bool in
@@ -45,27 +45,6 @@ class AddressBookManager: HTTPControllerProtocol {
             var contacts: [Contact] = self.processContacts(nativeContacts as [APContact])
             delegate.contactManagerCallback(contacts)
         })
-
-        
-        /*let authorizationStatus = ABAddressBookGetAuthorizationStatus()
-        if (authorizationStatus == ABAuthorizationStatus.NotDetermined) {
-            NSLog("requesting access...")
-            var emptyDictionary: CFDictionaryRef?
-            var addressBook = !(ABAddressBookCreateWithOptions(emptyDictionary, nil) != nil)
-            ABAddressBookRequestAccessWithCompletion(addressBook, {success, error in
-                if success {
-                    self.processContacts();
-                } else {
-                    NSLog("unable to request access")
-                }
-            })
-        } else if (authorizationStatus == ABAuthorizationStatus.Denied || authorizationStatus == ABAuthorizationStatus.Restricted) {
-            NSLog("access denied")
-            HTTPController.sendUserToSettings()
-        } else if (authorizationStatus == ABAuthorizationStatus.Authorized) {
-            return processContacts()
-        }
-        return []*/
     }
     
     
@@ -77,7 +56,7 @@ class AddressBookManager: HTTPControllerProtocol {
     func processContacts(nativeContacts: [APContact]) -> [Contact] {
         var allContacts: [Contact] = []
         for (index, nativeContact: APContact) in enumerate(nativeContacts) {
-            var contact: Contact = getContact(nativeContact) //getAddressbookRecord(record)
+            var contact: Contact = getContact(nativeContact)
             //println("#\(index) \(contact.displayName) \(contact.phoneNumbers)")
             allContacts.append(contact)
         }
@@ -93,13 +72,15 @@ class AddressBookManager: HTTPControllerProtocol {
    
 
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
-        println("TBD")
-        // TODO: handle server errors
+        if let error = err {
+            // TODO: handle server errors
+            println("Error sending contacts to server: \(error.localizedDescription)")
+        }
     }
     
     func sendToServer(allContacts: [Contact]) {
         println("sendToServer: start")
-        var params: [Dictionary<String, AnyObject>] = [];
+        var params: [Dictionary<String, AnyObject>] = []
         
         for (i, contact) in enumerate(allContacts) {
             if contact.phoneNumbers.count == 0 {
@@ -128,16 +109,29 @@ class AddressBookManager: HTTPControllerProtocol {
         let contactID: NSNumber! = nativeContact.recordID
         let fullPhoto: UIImage! = nativeContact.photo
         let thumbnail: UIImage! = nativeContact.thumbnail
+        
+        if thumbnail != nil {
+            contact.thumbnail = thumbnail!
+        }
+        
         let phonesWithLabels : [AnyObject]! = nativeContact.phonesWithLabels
         if (phonesWithLabels != nil) {
             for (index, phoneWithLabel) in enumerate(phonesWithLabels) {
-                println("phone: \(index) \(phoneWithLabel)")
+                let number: String? = phoneWithLabel.phone
+                let label: String? = phoneWithLabel.label!
+                //println("phone: \(index) \(label) \(number)")
             }
         }
         let socialProfiles: [AnyObject]! = nativeContact.socialProfiles
         if (socialProfiles != nil) {
-            for (index, socialProfile) in enumerate(socialProfiles) {
-                println("social: \(index) \(socialProfile)")
+            for (index, socialProfileObj) in enumerate(socialProfiles) {
+                let socialProfile: APSocialProfile = socialProfileObj as APSocialProfile
+                let socialNetwork: APSocialNetworkType = socialProfile.socialNetwork
+                let username: String? = socialProfile.username
+                let userIdentifier: String? = socialProfile.userIdentifier
+                let url: NSURL? = socialProfile.url
+
+                println("social: \(index) \(socialNetwork) \(username) \(userIdentifier) \(url)")
             }
         }
 

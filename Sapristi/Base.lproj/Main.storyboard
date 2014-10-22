@@ -63,6 +63,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5se-IL-VcF" id="eId-1g-l5E">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-0P-1aG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="6" y="0.0" width="40" height="40"/>
+                                                    </variation>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-CM-0c4">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -81,12 +87,6 @@
                                                         <rect key="frame" x="54" y="15" width="224" height="21"/>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-ZT-4eK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="7" width="16" height="16"/>
-                                                    </variation>
-                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="737-uc-j3n">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Button" image="phone">
@@ -99,21 +99,29 @@
                                                         <action selector="callButtonPressed:" destination="5se-IL-VcF" eventType="touchUpInside" id="jXZ-Ji-GwB"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-ZT-4eK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="8" y="4" width="16" height="16"/>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <variation key="default">
                                                 <mask key="subviews">
+                                                    <exclude reference="pIZ-0P-1aG"/>
                                                     <exclude reference="WbY-CM-0c4"/>
                                                     <exclude reference="pPT-OK-STk"/>
-                                                    <exclude reference="Kdl-ZT-4eK"/>
                                                     <exclude reference="737-uc-j3n"/>
+                                                    <exclude reference="Kdl-ZT-4eK"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
+                                                    <include reference="pIZ-0P-1aG"/>
                                                     <include reference="WbY-CM-0c4"/>
                                                     <include reference="pPT-OK-STk"/>
-                                                    <include reference="Kdl-ZT-4eK"/>
                                                     <include reference="737-uc-j3n"/>
+                                                    <include reference="Kdl-ZT-4eK"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -122,6 +130,7 @@
                                             <outlet property="friendNameLabel" destination="WbY-CM-0c4" id="bz3-XH-Lao"/>
                                             <outlet property="friendPhoneButton" destination="737-uc-j3n" id="bNT-nP-XEy"/>
                                             <outlet property="friendStatusLabel" destination="pPT-OK-STk" id="BlX-ha-6Ls"/>
+                                            <outlet property="thumbnailImageView" destination="pIZ-0P-1aG" id="qgf-9j-bvA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -163,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNl-Q9-y6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4263" y="1536"/>
+            <point key="canvasLocation" x="4263" y="1533"/>
         </scene>
         <!--Friend Detail View Controller-->
         <scene sceneID="nFb-sP-Ojm">
@@ -305,13 +314,19 @@
                                     <rect key="frame" x="175" y="449" width="129" height="21"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="6" y="72" width="70" height="70"/>
+                                </variation>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-J3-Nyv">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="72" y="77" width="280" height="21"/>
+                                    <rect key="frame" x="79" y="77" width="280" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated x mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-JY-Uj9">
@@ -320,7 +335,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="72" y="100" width="280" height="21"/>
+                                    <rect key="frame" x="79" y="100" width="280" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -339,6 +354,7 @@
                                 <exclude reference="4j2-Xa-alv"/>
                                 <exclude reference="c81-bD-mJh"/>
                                 <exclude reference="veh-XB-FfS"/>
+                                <exclude reference="13r-aZ-J9e"/>
                                 <exclude reference="y6f-J3-Nyv"/>
                                 <exclude reference="Ocs-JY-Uj9"/>
                             </mask>
@@ -357,6 +373,7 @@
                                 <include reference="4j2-Xa-alv"/>
                                 <include reference="c81-bD-mJh"/>
                                 <include reference="veh-XB-FfS"/>
+                                <include reference="13r-aZ-J9e"/>
                                 <include reference="y6f-J3-Nyv"/>
                                 <include reference="Ocs-JY-Uj9"/>
                             </mask>
@@ -373,6 +390,7 @@
                         <outlet property="friendNameLabel" destination="y6f-J3-Nyv" id="CoI-li-E3C"/>
                         <outlet property="friendPhoneTableView" destination="Y5i-C0-oxg" id="pQ3-dh-kc9"/>
                         <outlet property="friendUpdateLabel" destination="Ocs-JY-Uj9" id="d9C-xu-tmB"/>
+                        <outlet property="thumbnailImageView" destination="13r-aZ-J9e" id="Erm-nx-xmL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptd-DO-ToW" userLabel="First Responder" sceneMemberID="firstResponder"/>

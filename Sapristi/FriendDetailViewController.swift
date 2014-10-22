@@ -19,6 +19,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var friendImageView: UIImageView!
     @IBOutlet weak var addToFavoritesButton: UIButton!
     @IBOutlet weak var currentFrequencyLabel: UILabel!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
     
     var defaultPhoneNumber: String?
     var allPhoneNumbers: [String]?
@@ -39,6 +40,13 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
 
         defaultPhoneNumber = friend.phoneNumber
         allPhoneNumbers = FriendLocalDatabase.getPhoneNumbers(friend)
+        
+        if friend.thumbnail != nil {
+            thumbnailImageView.image = UIImage(data: friend.thumbnail)
+        } else {
+            thumbnailImageView.image = nil
+        }
+
         //friendImageView.image = UIImage(named:friend.imageName)
     }
 

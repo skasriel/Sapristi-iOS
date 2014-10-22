@@ -158,6 +158,12 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.friendNameLabel.text = friend.displayName
         
+        if friend.thumbnail != nil {
+            cell.thumbnailImageView.image = UIImage(data: friend.thumbnail)
+        } else {
+            cell.thumbnailImageView.image = nil
+        }
+        
         var status: String = ""
         var imageName: String
         var image: UIImage?

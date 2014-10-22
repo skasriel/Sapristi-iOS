@@ -15,6 +15,7 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var friendStatusLabel: UILabel!
     @IBOutlet weak var friendPhoneButton: UIButton!
     @IBOutlet weak var availabilityImageView: UIImageView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
     
     var phoneNumber : String = ""
     
