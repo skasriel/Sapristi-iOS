@@ -238,6 +238,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             changeAvailabilityButton.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1.0)
         }
         
+        // TODO: show reason why I'm marked as a specific availability...
         let reason = availabilityManager.currentReason
         if reason == nil {
             
@@ -246,7 +247,9 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    /** HTTPControllerProtocol implementation */
+    /** 
+    * HTTPControllerProtocol implementation 
+    */
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
         if (queryID == Availability.SET_AVAILABILITY) {
             return callbackChangeAvailability(err, results: results);
@@ -259,14 +262,15 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     func callbackChangeAvailability(err: NSError?, results: AnyObject?) {
-        if err != nil {
-            println("Unable to set availability \(err!.localizedDescription)")
+        if let error = err {
+            println("Unable to set availability \(error.localizedDescription)")
             return
         }
     }
+    
     func callbackMyAvailability(err: NSError?, results: AnyObject?) {
-        if err != nil {
-            println("Unable to retrieve availability \(err!.localizedDescription)")
+        if let error = err {
+            println("Unable to retrieve availability \(error.localizedDescription)")
             return
         }
         let json = results! as Dictionary<String, AnyObject>
@@ -276,8 +280,8 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func callbackFriendAvailability(err: NSError?, results: AnyObject?) {
-        if err != nil {
-            println("Unable to get friends' availability \(err!.localizedDescription)")
+        if let error = err {
+            println("Unable to get friends' availability \(error.localizedDescription)")
             return
         }
         // Got an array from server, that contains the availability of my friends who are Sapristi users
@@ -307,6 +311,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             if (friendLocalData == nil) {
                 println("Unable to find local friend for \(username)");
             } else {
+                friendLocalData!.phoneNumber = username // set the primary phone number as the one used by that user on Sapristi - this way I'll always call the "correct" number, and not the one that's stored first in the list of numbers in my local address book
                 friendLocalData!.availability = availability
                 if let updatedAtDate = NSDate.dateFromISOString(updatedAt) {
                     friendLocalData!.updatedAt = updatedAtDate
