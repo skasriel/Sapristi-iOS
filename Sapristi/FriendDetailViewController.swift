@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FriendDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class FriendDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, HTTPControllerProtocol
 {
     var friend: FriendModel!
     var friendLocalDatabase: FriendLocalDatabase!
@@ -116,6 +116,8 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
             newFrequency = change
         }
         friend.desiredCallFrequency = newFrequency
+        
+        // save new desired call frequency to CoreData
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         var err: NSError? = nil
@@ -126,7 +128,21 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
             updateFrequencyLabel()
             friendLocalDatabase.needsRefresh = true
         }
+        
+        // And to the server (which may use it e.g. to send more / fewer push notifications about that user)
+        var url = "/api/me/desired-frequency/" + defaultPhoneNumber!
+        var formData: [String: AnyObject] = [
+            "newFrequency":  friend.desiredCallFrequency
+        ]
+        HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self, queryID: nil)
     }
+    
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
+        if let error = err {
+            println("Error sending Desired Frequency to server: \(error.localizedDescription)")
+        }
+    }
+
     func updateFrequencyLabel() {
         var frequencyName: String;
         let frequency: Int = friend.desiredCallFrequency as Int

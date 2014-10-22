@@ -178,7 +178,8 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         }
         cell.availabilityImageView.image = image // UIImage(named: imageName)
             
-        if (friend.availability != Availability.UNKNOWN) {
+        if (friend.updatedAt != nil) {
+            println("updated: \(friend.updatedAt) - now = \(NSDate())")
             status += " Updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate())
         }
         cell.friendStatusLabel.text = status

@@ -32,6 +32,18 @@
                                     <action selector="changeAvailabilityButtonPressed:" destination="Gah-wd-4nk" eventType="touchUpInside" id="azD-vm-Cjb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-VK-0Dc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Invite Contacts to Sapristi &gt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="65" y="489" width="191" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="MyD-BK-oO4" kind="show" id="RRe-D9-SUM"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRD-Oj-ENa">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -41,7 +53,7 @@
                                     <rect key="frame" x="16" y="81" width="83" height="21"/>
                                 </variation>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zn7-wn-Aid">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="362" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zn7-wn-Aid">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -114,41 +126,29 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="133" width="320" height="348"/>
+                                    <rect key="frame" x="0.0" y="119" width="320" height="362"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="Gah-wd-4nk" id="YMD-LK-FMl"/>
                                     <outlet property="delegate" destination="Gah-wd-4nk" id="riQ-ol-z2g"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-VK-0Dc">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Invite Contacts to Sapristi &gt;">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="65" y="489" width="191" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="MyD-BK-oO4" kind="show" id="RRe-D9-SUM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="NEm-6I-AMV"/>
+                                <exclude reference="kTt-VK-0Dc"/>
                                 <exclude reference="vRD-Oj-ENa"/>
                                 <exclude reference="Zn7-wn-Aid"/>
-                                <exclude reference="kTt-VK-0Dc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="NEm-6I-AMV"/>
+                                <include reference="kTt-VK-0Dc"/>
                                 <include reference="vRD-Oj-ENa"/>
                                 <include reference="Zn7-wn-Aid"/>
-                                <include reference="kTt-VK-0Dc"/>
                             </mask>
                         </variation>
                     </view>
@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNl-Q9-y6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3834" y="-450"/>
+            <point key="canvasLocation" x="4263" y="1536"/>
         </scene>
         <!--Friend Detail View Controller-->
         <scene sceneID="nFb-sP-Ojm">
@@ -183,25 +183,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-J3-Nyv">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="104" y="74" width="280" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated x mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-JY-Uj9">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="104" y="97" width="280" height="21"/>
-                                </variation>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-C0-oxg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="213" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-C0-oxg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -234,7 +216,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="166" width="320" height="213"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="frj-8W-lGs" id="vGE-nB-ooy"/>
@@ -247,7 +229,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="399" width="288" height="30"/>
+                                    <rect key="frame" x="16" y="394" width="288" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="addToFavoritesButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="jHX-gd-KXx"/>
@@ -259,7 +241,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="427" width="273" height="30"/>
+                                    <rect key="frame" x="16" y="422" width="273" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="callMoreOftenButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="9sM-MQ-oSt"/>
@@ -271,7 +253,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="459" width="288" height="30"/>
+                                    <rect key="frame" x="16" y="454" width="288" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="callLessOftenButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="ycH-vi-cBg"/>
@@ -283,7 +265,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="489" width="288" height="30"/>
+                                    <rect key="frame" x="16" y="484" width="288" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="unfriendButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="xhd-Ni-2P6"/>
@@ -323,6 +305,24 @@
                                     <rect key="frame" x="175" y="449" width="129" height="21"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-J3-Nyv">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="72" y="77" width="280" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated x mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-JY-Uj9">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="72" y="100" width="280" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -332,8 +332,6 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="HxT-aQ-xNK"/>
-                                <exclude reference="y6f-J3-Nyv"/>
-                                <exclude reference="Ocs-JY-Uj9"/>
                                 <exclude reference="Y5i-C0-oxg"/>
                                 <exclude reference="WOB-XP-l2E"/>
                                 <exclude reference="1R7-ZR-Z4c"/>
@@ -341,6 +339,8 @@
                                 <exclude reference="4j2-Xa-alv"/>
                                 <exclude reference="c81-bD-mJh"/>
                                 <exclude reference="veh-XB-FfS"/>
+                                <exclude reference="y6f-J3-Nyv"/>
+                                <exclude reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="uij-72-FEE"/>
@@ -350,8 +350,6 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="HxT-aQ-xNK"/>
-                                <include reference="y6f-J3-Nyv"/>
-                                <include reference="Ocs-JY-Uj9"/>
                                 <include reference="Y5i-C0-oxg"/>
                                 <include reference="WOB-XP-l2E"/>
                                 <include reference="1R7-ZR-Z4c"/>
@@ -359,6 +357,8 @@
                                 <include reference="4j2-Xa-alv"/>
                                 <include reference="c81-bD-mJh"/>
                                 <include reference="veh-XB-FfS"/>
+                                <include reference="y6f-J3-Nyv"/>
+                                <include reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="uij-72-FEE"/>
@@ -377,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptd-DO-ToW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4552.5" y="-1119"/>
+            <point key="canvasLocation" x="4263" y="2312"/>
         </scene>
         <!--Invite to Sapristi-->
         <scene sceneID="TEj-bD-4xr">
@@ -509,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Omv-ZU-9BR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4542" y="-445"/>
+            <point key="canvasLocation" x="2640" y="2312"/>
         </scene>
         <!--My Available Times-->
         <scene sceneID="UGu-HL-yhl">
@@ -615,7 +615,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oq5-uf-KDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4488" y="432"/>
+            <point key="canvasLocation" x="-147" y="2312"/>
         </scene>
         <!--Updating Calendar-->
         <scene sceneID="NtW-z4-1u4">
@@ -678,7 +678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8M-6e-Oor" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5607" y="440"/>
+            <point key="canvasLocation" x="1176" y="2318"/>
         </scene>
         <!--Updating Contacts-->
         <scene sceneID="i7D-Xv-iBb">
@@ -730,7 +730,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wQ-Fg-zNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6177" y="452"/>
+            <point key="canvasLocation" x="1797" y="2312"/>
         </scene>
         <!--About Sapristi-->
         <scene sceneID="CFa-qj-aXD">
@@ -815,7 +815,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dR7-rw-VyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6729" y="452"/>
+            <point key="canvasLocation" x="-783" y="2312"/>
         </scene>
         <!--MobileNumber-->
         <scene sceneID="E3q-5z-I7P">
@@ -1146,7 +1146,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jK-9s-Hvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="-453"/>
+            <point key="canvasLocation" x="4263" y="628"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hyo-4A-6gA">
@@ -1165,7 +1165,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGh-a9-UdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3123" y="1329"/>
+            <point key="canvasLocation" x="2808" y="628"/>
         </scene>
         <!--Settings-->
         <scene sceneID="aV4-ze-dsG">
@@ -1184,7 +1184,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tk5-0R-P1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="652"/>
+            <point key="canvasLocation" x="1176" y="628"/>
         </scene>
         <!--Sapristi Settings-->
         <scene sceneID="vdb-Jl-JRX">
@@ -1571,7 +1571,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkI-RS-jMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3708" y="644"/>
+            <point key="canvasLocation" x="1176" y="1576"/>
         </scene>
         <!--Car Motion Detection-->
         <scene sceneID="yJa-3Y-aOC">
@@ -1623,7 +1623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="38U-rj-36d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5058" y="440"/>
+            <point key="canvasLocation" x="561" y="2312"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="uxR-mW-aCo">
@@ -1781,7 +1781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cd3-KY-HJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3717" y="1312"/>
+            <point key="canvasLocation" x="2808" y="1550"/>
         </scene>
     </scenes>
     <resources>
