@@ -177,7 +177,7 @@
         <!--Friend Detail View Controller-->
         <scene sceneID="nFb-sP-Ojm">
             <objects>
-                <viewController id="frj-8W-lGs" customClass="FriendDetailViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="friendDetail" id="frj-8W-lGs" customClass="FriendDetailViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dpA-IQ-Jo1"/>
                         <viewControllerLayoutGuide type="bottom" id="jUB-Ec-mBZ"/>
@@ -490,7 +490,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="101" width="320" height="423"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="MyD-BK-oO4" id="6FO-gf-2Rf"/>
@@ -1129,7 +1129,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="b7k-jj-ZHy"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -1150,7 +1150,7 @@
         <!--Navigation Controller-->
         <scene sceneID="RdZ-9m-8eS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="upL-Hu-Gmr" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationAll" automaticallyAdjustsScrollViewInsets="NO" id="upL-Hu-Gmr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HeN-KA-ZMl">
@@ -1678,23 +1678,29 @@
                                     <action selector="changeAvailabilityButtonPressed:" destination="NSd-vh-luX" eventType="touchUpInside" id="qXw-pz-EvM"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="79I-rH-lgf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="381" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="79I-rH-lgf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="ikC-Id-N5M" customClass="FriendCell" customModule="Sapristi" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="50" id="ikC-Id-N5M" customClass="FriendCell" customModule="Sapristi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ikC-Id-N5M" id="WiK-M9-wFB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2f-uf-oUB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="8" y="-3" width="45" height="45"/>
+                                                    </variation>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXc-9f-9nh">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="54" y="0.0" width="200" height="21"/>
+                                                        <rect key="frame" x="59" y="0.0" width="200" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmG-oy-Xzm">
@@ -1703,7 +1709,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="54" y="14" width="200" height="21"/>
+                                                        <rect key="frame" x="59" y="14" width="200" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO2-4I-9aT">
@@ -1721,12 +1727,13 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="qFj-uH-bEG">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="9" width="16" height="16"/>
+                                                        <rect key="frame" x="8" y="1" width="16" height="16"/>
                                                     </variation>
                                                 </imageView>
                                             </subviews>
                                             <variation key="default">
                                                 <mask key="subviews">
+                                                    <exclude reference="E2f-uf-oUB"/>
                                                     <exclude reference="CXc-9f-9nh"/>
                                                     <exclude reference="VmG-oy-Xzm"/>
                                                     <exclude reference="XO2-4I-9aT"/>
@@ -1735,6 +1742,7 @@
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
+                                                    <include reference="E2f-uf-oUB"/>
                                                     <include reference="CXc-9f-9nh"/>
                                                     <include reference="VmG-oy-Xzm"/>
                                                     <include reference="XO2-4I-9aT"/>
@@ -1747,6 +1755,7 @@
                                             <outlet property="friendNameLabel" destination="CXc-9f-9nh" id="ih8-3v-Qga"/>
                                             <outlet property="friendPhoneButton" destination="XO2-4I-9aT" id="ykU-b3-fki"/>
                                             <outlet property="friendStatusLabel" destination="VmG-oy-Xzm" id="48Y-XN-7Ru"/>
+                                            <outlet property="thumbnailImageView" destination="E2f-uf-oUB" id="T17-ja-RWZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1811,8 +1820,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="YjS-tp-gbM"/>
         <segue reference="M9j-Pq-NF7"/>
-        <segue reference="ald-Dd-xmD"/>
-        <segue reference="IPS-9k-2ic"/>
+        <segue reference="u7Y-xg-7CH"/>
         <segue reference="RRe-D9-SUM"/>
+        <segue reference="MSC-Ar-62q"/>
     </inferredMetricsTieBreakers>
 </document>

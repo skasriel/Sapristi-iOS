@@ -15,6 +15,7 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     var delegate: UITableView?
     var localFriends = [FriendModel]()
+    //var localFriendMap = Dictionary<String, FriendModel>()
     var needsRefresh: Bool = false
 
     init(delegate: UITableView?) {
@@ -26,10 +27,12 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
         localFriends = []
+        //localFriendMap = Dictionary<String, FriendModel>()
         for var i=0; i < fetchedResultsController.sections![0].numberOfObjects; i++ {
             var indexPath = NSIndexPath(forRow: i, inSection: 0)
             let friend = fetchedResultsController.objectAtIndexPath(indexPath) as FriendModel
             localFriends.append(friend)
+            //localFriendMap[friend.phonenumber] = friend // incorrect: phonenumber may not be the user's actual username...
         }
     }
     
@@ -52,6 +55,19 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         favoritesFetchRequest.predicate = predicate
         favoritesFetchRequest.sortDescriptors = [sortDescriptorAvail, sortDescriptorName]
         fetch(favoritesFetchRequest)
+    }
+    
+    // Super inefficient way of finding a friend by username...
+    func getFriendByUsername(username: String) -> FriendModel? {
+        if countElements(localFriends) == 0 {
+            fetchFromAllDatabase()
+        }
+        for (i, friend) in enumerate(localFriends) {
+            if friend.phoneNumber == username {
+                return friend
+            }
+        }
+        return nil
     }
     
     func objectAtIndexPath(indexPath: NSIndexPath) -> FriendModel {

@@ -46,8 +46,6 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             thumbnailImageView.image = nil
         }
-
-        //friendImageView.image = UIImage(named:friend.imageName)
     }
 
     

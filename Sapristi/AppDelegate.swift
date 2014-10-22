@@ -14,21 +14,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
                             
     var window: UIWindow?
 
-    /*
-    //http://stackoverflow.com/questions/5099483/how-to-respond-to-push-notification-view-if-app-is-already-running-in-the-backgr
- - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
- {
- if ( application.applicationState == UIApplicationStateActive )
- // app was already in the foreground
- else
- // app was just brought from background to foreground
- ...
- }*/
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
-        
+        if launchOptions == nil {
+            return true
+        }
+        var notification: [NSObject : AnyObject]? = launchOptions.objectForKey(UIApplicationLaunchOptionsRemoteNotificationKey) as [NSObject : AnyObject]?
+        if notification != nil {
+            NSLog("app recieved notification from remote \(notification)")
+            handleRemoteNotification(notification!)
+            return true
+        }
+        NSLog("app did not recieve notification")
         return true
+    }
+    
+    // Open the app and show the friend details page for the correct friend
+    // TODO: right now this works if the app was running in the background but not if it's terminated. Not sure why and hard to debug since Xcode is no longer attached at that point...
+    func handleRemoteNotification(userInfo: [NSObject: AnyObject]) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabbedViewController = mainStoryboard.instantiateViewControllerWithIdentifier("tabController") as UITabBarController
+        tabbedViewController.selectedIndex = 1 // All Contacts
+        self.window!.rootViewController = tabbedViewController
+        
+        let friendDetailsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("friendDetail") as FriendDetailViewController
+        let username = userInfo["username"] as String
+        let friendLocalDatabase = FriendLocalDatabase(delegate: nil)
+        let friend: FriendModel? = friendLocalDatabase.getFriendByUsername(username)
+        if (friend == nil) {
+            println("Cannot find friend mentioned in push notification \(username)")
+            return
+        }
+        friendDetailsViewController.friendLocalDatabase = friendLocalDatabase
+        friendDetailsViewController.friend = friend
+
+        let navigationController = tabbedViewController.navigationController
+        let nav = tabbedViewController.viewControllers![1]
+        nav.pushViewController(friendDetailsViewController, animated: true)
     }
 
     func applicationWillResignActive(application: UIApplication!) {
@@ -94,7 +117,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
     
     // called both in foreground and background mode
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler handler: (UIBackgroundFetchResult) -> Void) {
-        println("didReceiveRemoteNotification \(userInfo)")
+        
+        if application.applicationState == UIApplicationState.Active {
+            println("didReceiveRemoteNotification while app is active: \(userInfo)")
+            // app was already in the foreground
+        } else {
+            // app was just brought from background to foreground
+            println("didReceiveRemoteNotification while app is in background \(userInfo)")
+            handleRemoteNotification(userInfo)
+        }
         handler(UIBackgroundFetchResult.NoData) // TBD
     }
     
@@ -141,6 +172,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
+            let alert = UIAlertView(title: "Old CoreData Schema", message: error!.localizedDescription,
+                delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
             abort()
         }
         
