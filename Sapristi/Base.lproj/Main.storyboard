@@ -142,7 +142,7 @@
                                     <outlet property="delegate" destination="Gah-wd-4nk" id="riQ-ol-z2g"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79F-Qj-aCI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79F-Qj-aCI">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -244,54 +244,6 @@
                                     <outlet property="delegate" destination="frj-8W-lGs" id="Vd7-yz-UKc"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOB-XP-l2E">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Add to Favorites">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="394" width="288" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="addToFavoritesButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="jHX-gd-KXx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-ZR-Z4c">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Call More Often">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="422" width="273" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="callMoreOftenButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="9sM-MQ-oSt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-ob-UNz">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Call Less Often">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="454" width="288" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="callLessOftenButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="ycH-vi-cBg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4j2-Xa-alv">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Unfriend">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="484" width="288" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="unfriendButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="xhd-Ni-2P6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c81-bD-mJh">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
@@ -326,12 +278,6 @@
                                     <rect key="frame" x="175" y="449" width="129" height="21"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-J3-Nyv">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -350,6 +296,48 @@
                                     <rect key="frame" x="79" y="100" width="280" height="21"/>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="6" y="72" width="65" height="65"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOB-XP-l2E">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Add to Favorites">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="414" width="288" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="addToFavoritesButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="jHX-gd-KXx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-ZR-Z4c">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Call More Often">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="442" width="273" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="callMoreOftenButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="9sM-MQ-oSt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-ob-UNz">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Call Less Often">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="474" width="288" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="callLessOftenButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="ycH-vi-cBg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -360,15 +348,14 @@
                             <mask key="subviews">
                                 <exclude reference="HxT-aQ-xNK"/>
                                 <exclude reference="Y5i-C0-oxg"/>
+                                <exclude reference="c81-bD-mJh"/>
+                                <exclude reference="veh-XB-FfS"/>
+                                <exclude reference="y6f-J3-Nyv"/>
+                                <exclude reference="Ocs-JY-Uj9"/>
+                                <exclude reference="13r-aZ-J9e"/>
                                 <exclude reference="WOB-XP-l2E"/>
                                 <exclude reference="1R7-ZR-Z4c"/>
                                 <exclude reference="ZO5-ob-UNz"/>
-                                <exclude reference="4j2-Xa-alv"/>
-                                <exclude reference="c81-bD-mJh"/>
-                                <exclude reference="veh-XB-FfS"/>
-                                <exclude reference="13r-aZ-J9e"/>
-                                <exclude reference="y6f-J3-Nyv"/>
-                                <exclude reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="uij-72-FEE"/>
@@ -379,15 +366,14 @@
                             <mask key="subviews">
                                 <include reference="HxT-aQ-xNK"/>
                                 <include reference="Y5i-C0-oxg"/>
+                                <include reference="c81-bD-mJh"/>
+                                <include reference="veh-XB-FfS"/>
+                                <include reference="y6f-J3-Nyv"/>
+                                <include reference="Ocs-JY-Uj9"/>
+                                <include reference="13r-aZ-J9e"/>
                                 <include reference="WOB-XP-l2E"/>
                                 <include reference="1R7-ZR-Z4c"/>
                                 <include reference="ZO5-ob-UNz"/>
-                                <include reference="4j2-Xa-alv"/>
-                                <include reference="c81-bD-mJh"/>
-                                <include reference="veh-XB-FfS"/>
-                                <include reference="13r-aZ-J9e"/>
-                                <include reference="y6f-J3-Nyv"/>
-                                <include reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="uij-72-FEE"/>

@@ -13,7 +13,6 @@ class NotificationViewController: UIViewController {
     
     @IBAction func enableButtonPressed(sender: AnyObject) {
         // Register for push notifications
-        //TODO: This isn't the right place to do this, need to rethink the UI here
         let application = UIApplication.sharedApplication()
         
         var notificationActionOk: UIMutableUserNotificationAction = UIMutableUserNotificationAction()

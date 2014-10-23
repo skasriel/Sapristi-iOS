@@ -12,6 +12,7 @@ class AccessCalendarViewController: UIViewController {
 
     @IBAction func enableButtonPressed(sender: AnyObject) {
         CalendarManager.start(true)
+        ConfigManager.setBoolConfigValue(CONFIG_CALENDAR, newValue: true)
         //calendarManager = CalendarManager(requestPermissions: true)
         //self.navigationController!.popViewControllerAnimated(true)
         self.performSegueWithIdentifier("fromSetupToMain", sender: self)

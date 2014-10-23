@@ -14,6 +14,7 @@ class CarMotionViewController: UIViewController {
     @IBAction func enableButtonPressed(sender: AnyObject) {
         CarManager.start(true)
         //self.navigationController!.popViewControllerAnimated(true)
+        ConfigManager.setBoolConfigValue(CONFIG_CAR_MOTION, newValue: true)
         self.performSegueWithIdentifier("fromCarMotionToCalendar", sender: self)
     }
     

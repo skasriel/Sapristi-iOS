@@ -8,6 +8,8 @@
 
 import UIKit
 
+let refreshQueue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
+
 class AllFriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HTTPControllerProtocol {
     
     let FRIEND_AVAILABILITY : String = "FRIEND_AVAILABILITY"
@@ -22,6 +24,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     var friendLocalDatabase: FriendLocalDatabase?
     var refreshTimer: NSTimer?
     
+
     let availabilityManager = AvailabilityManager.getInstance()
     
     override init() {
@@ -53,9 +56,9 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchFromDatabase()
+        fetchFromDatabase() // load address book from Core Data
         
-        refresh()
+        refresh() // get friends' availability from server
         
         // allow user to pull to refresh
         refreshControl = UIRefreshControl()
@@ -85,12 +88,14 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func refresh(viaPullToRefresh: Bool = false) {
-        println("Do Refresh")
-        getFriendAvailability()
-        if (viaPullToRefresh) {
-            self.refreshControl!.endRefreshing()
+        dispatch_async(refreshQueue) {
+            println("Do Refresh")
+            self.getFriendAvailability()
+            if (viaPullToRefresh) {
+                self.refreshControl!.endRefreshing()
+            }
+            println("Done refreshing")
         }
-        println("Done refreshing")
     }
 
     override func didReceiveMemoryWarning() {
@@ -121,6 +126,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     let imageBusy = UIImage(named: "busy_dot_icon")
     let imageAvailable = UIImage(named: "available_dot_icon")
     let imageUnknown = UIImage(named: "icon_unknown")
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: FriendCell = allFriendsTableView.dequeueReusableCellWithIdentifier("myCell") as FriendCell
         var friend: FriendModel = friendLocalDatabase!.objectAtIndexPath(indexPath)
@@ -272,15 +278,18 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
                 println("Error: no updatedAt for "+username);
                 continue;
             }
-            println("availability: \(availabilityOpt) for user \(username) @ \(index)")
-            let availability: String = availabilityOpt as String!
-            let updatedAt: String = updatedAtOpt as String!
+            let availability: String = availabilityOpt as String
+            let updatedAt: String = updatedAtOpt as String
+            println("availability: \(availability) for user \(username) @ \(index)")
             
             let friendLocalData: FriendModel? = map[username]
             if (friendLocalData == nil) {
                 println("Unable to find local friend for \(username)");
             } else {
-                friendLocalData!.phoneNumber = username // set the primary phone number as the one used by that user on Sapristi - this way I'll always call the "correct" number, and not the one that's stored first in the list of numbers in my local address book
+                if friendLocalData!.phoneNumber != username {
+                    friendLocalData!.phoneNumber = username // set the primary phone number as the one used by that user on Sapristi - this way I'll always call the "correct" number, and not the one that's stored first in the list of numbers in my local address book
+                    FriendLocalDatabase.saveToCoreData()
+                }
                 friendLocalData!.availability = availability
                 if let updatedAtDate = NSDate.dateFromISOString(updatedAt) {
                     friendLocalData!.updatedAt = updatedAtDate

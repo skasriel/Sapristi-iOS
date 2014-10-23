@@ -122,6 +122,19 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         return phoneNumbers
     }
     
+    /**
+    * Call this function after making a change to a FriendModel to save it back to Core Data
+    */
+    class func saveToCoreData() {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        var err: NSError? = nil
+        managedObjectContext?.save(&err)
+        if let error = err {
+            println("Error saving to core data: \(error)")
+        }
+    }
+    
     
     func storeToCoreData(allContacts: [Contact]) {
         println("storeToCoreData: start")

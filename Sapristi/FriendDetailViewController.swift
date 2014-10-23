@@ -83,7 +83,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = friendPhoneTableView.dequeueReusableCellWithIdentifier("phoneNumberCell") as UITableViewCell
         let row = indexPath.row
-        cell.textLabel.text = "mobile"
+        cell.textLabel.text = "mobile" // TODO: replace with the phoneWithLabels construct
         cell.detailTextLabel!.text = allPhoneNumbers![row]
         return cell
     }
@@ -104,13 +104,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
             friend.isFavorite = false
         }
         showFavoriteButton()
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedObjectContext = appDelegate.managedObjectContext
-        var err: NSError? = nil
-        managedObjectContext?.save(&err)
-        if let error = err {
-            println("Error saving favorite: \(error)")
-        }
+        FriendLocalDatabase.saveToCoreData()
         friendLocalDatabase.needsRefresh = true
     }
 
@@ -124,16 +118,9 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
         friend.desiredCallFrequency = newFrequency
         
         // save new desired call frequency to CoreData
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedObjectContext = appDelegate.managedObjectContext
-        var err: NSError? = nil
-        managedObjectContext?.save(&err)
-        if let error = err {
-            println("Error saving frequency: \(error)")
-        } else {
-            updateFrequencyLabel()
-            friendLocalDatabase.needsRefresh = true
-        }
+        FriendLocalDatabase.saveToCoreData()
+        updateFrequencyLabel()
+        friendLocalDatabase.needsRefresh = true
         
         // And to the server (which may use it e.g. to send more / fewer push notifications about that user)
         var url = "/api/me/desired-frequency/" + defaultPhoneNumber!

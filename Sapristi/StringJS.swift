@@ -192,6 +192,7 @@ public extension NSDate {
     
     public class func formatElapsedTime(start: NSDate, end: NSDate) -> String {
         let elapsed: Double = end.timeIntervalSinceDate(start) // in seconds
+        println("Elapsed: \(elapsed) vs \(3600*24) \(elapsed < 3600*24) ")
         if (elapsed < 60) {
             return "\(Int(elapsed))secs ago"
         } else if (elapsed < 3600) {
