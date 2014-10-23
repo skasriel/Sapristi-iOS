@@ -39,6 +39,8 @@
 		02B3B27319D53880006ED6EE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26819D53880006ED6EE /* SwiftyJSON.swift */; };
 		02B4EA1019F5E16C0048A2B6 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4EA0A19F5CF430048A2B6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02B4EA1219F769990048A2B6 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1119F769990048A2B6 /* FriendModel.swift */; };
+		02B4EA1419F85A510048A2B6 /* AvailabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */; };
+		02B4EA1719F88DF60048A2B6 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */; };
 		02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762619D664FC007E6A04 /* DatePickerCell.swift */; };
 		02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */; };
 		02BF762B19DB07AC007E6A04 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762A19DB07AC007E6A04 /* CalendarManager.swift */; };
@@ -141,6 +143,8 @@
 		02B3B26819D53880006ED6EE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Sapristi/SwiftyJSON.swift; sourceTree = "<group>"; };
 		02B4EA0419F5CF430048A2B6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		02B4EA1119F769990048A2B6 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityManager.swift; sourceTree = "<group>"; };
+		02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		02BF762619D664FC007E6A04 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSettingsViewController.swift; path = Sapristi/DateSettingsViewController.swift; sourceTree = "<group>"; };
 		02BF762A19DB07AC007E6A04 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				02B3B26119D53880006ED6EE /* SettingsViewController.swift */,
 				02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */,
 				0237179819DD05E700A44A2B /* SyncContactsViewController.swift */,
+				02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				0252A25719ED75AC00450126 /* Availability.swift */,
+				02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */,
 				02CFCB5D19E5128900EDA122 /* ConfigManager.swift */,
 				02B3B23E19D53865006ED6EE /* FriendLocalDatabase.swift */,
 				02B3B24019D53865006ED6EE /* HTTPController.swift */,
@@ -504,6 +510,7 @@
 				02B3B26A19D53880006ED6EE /* InitialViewController.swift in Sources */,
 				021D7F0819E6D6C400555E0B /* AddressBookManager.swift in Sources */,
 				02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */,
+				02B4EA1419F85A510048A2B6 /* AvailabilityManager.swift in Sources */,
 				02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */,
 				02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */,
 				02D048B019E9A1630040720F /* SKMotionDetector.swift in Sources */,
@@ -516,6 +523,7 @@
 				0237179C19DD0D2F00A44A2B /* AccessCalendarViewController.swift in Sources */,
 				02B3B25019D53865006ED6EE /* FriendsCell.swift in Sources */,
 				02B3B24F19D53865006ED6EE /* FriendLocalDatabase.swift in Sources */,
+				02B4EA1719F88DF60048A2B6 /* NotificationViewController.swift in Sources */,
 				02B3B24719D53865006ED6EE /* AppDelegate.swift in Sources */,
 				02B3B26E19D53880006ED6EE /* SapristiModel.xcdatamodeld in Sources */,
 				02B4EA1219F769990048A2B6 /* FriendModel.swift in Sources */,

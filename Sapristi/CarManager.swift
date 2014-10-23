@@ -48,7 +48,7 @@ class CarManager : NSObject, SKMotionDetectorDelegate, HTTPControllerProtocol { 
         if motionType == MotionTypeDriving {
             availabilityManager.setAvailability(Availability.AVAILABLE, updateServer: true, reason: Availability.CAR_MOTION, delegate: self)
         } else if oldMotionType == MotionTypeDriving && currentMotionType != MotionTypeDriving {
-            // tell server to figure out new availability - user is not in a car anymore, so need to figure out what availability to revert to
+            //TODO: tell server to figure out new availability - user is not in a car anymore, so need to figure out what availability to revert to
             availabilityManager.setAvailability(Availability.UNKNOWN, updateServer: true, reason: Availability.CAR_MOTION, delegate: self)
         }
     }

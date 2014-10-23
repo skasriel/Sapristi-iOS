@@ -23,35 +23,3 @@ struct Availability {
     
     static let SET_AVAILABILITY = "SET_AVAILABILITY"
 }
-
-let sharedAvailabilityInstance = AvailabilityManager()
-
-class AvailabilityManager {
-    var currentAvailability: String = Availability.UNKNOWN
-    var currentReason: String?
-    
-    class func getInstance() -> AvailabilityManager {
-        return sharedAvailabilityInstance
-    }
-    
-    init() {
-    }
-    
-    func setAvailability(newAvailability: String, updateServer: Bool = false, reason: String? = nil, delegate: HTTPControllerProtocol? = nil) {
-        currentAvailability = newAvailability
-        currentReason = reason
-        
-        if updateServer {
-            sendAvailabilityUpdateToServer(reason!, delegate: delegate!)
-        }
-    }
-    
-    func sendAvailabilityUpdateToServer(reason: String, delegate: HTTPControllerProtocol) {
-        var params = [
-            "availability": currentAvailability,
-            "reason": reason
-        ]
-        HTTPController.getInstance().doPOST("/api/me/availability", parameters: params, delegate: delegate, queryID: Availability.SET_AVAILABILITY)
-    }
-
-}

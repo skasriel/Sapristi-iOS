@@ -16,7 +16,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var changeAvailabilityButton: UIButton!
     @IBOutlet weak var allFriendsTableView: UITableView!
     @IBOutlet weak var inviteFriendsButton: UIButton!
-    
+    @IBOutlet weak var reasonLabel: UILabel!
     
     var refreshControl:UIRefreshControl?
     var friendLocalDatabase: FriendLocalDatabase?
@@ -64,35 +64,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         allFriendsTableView.addSubview(refreshControl!)
         
         // Also refresh periodically (at least until I build push notifications)
-        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("doRefresh"), userInfo: nil, repeats: true)
-        
-        // Register for push notifications
-        //TODO: This isn't the right place to do this, need to rethink the UI here
-        let application = UIApplication.sharedApplication()
-        
-        var notificationActionOk: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionOk.identifier = "ACCEPT_IDENTIFIER"
-        notificationActionOk.title = "Call"
-        notificationActionOk.destructive = false
-        notificationActionOk.authenticationRequired = false
-        notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
-        
-        var notificationActionCancel: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionCancel.identifier = "NOT_NOW_IDENTIFIER"
-        notificationActionCancel.title = "Not Now"
-        notificationActionCancel.destructive = true
-        notificationActionCancel.authenticationRequired = false
-        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
-        
-        var notificationCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        notificationCategory.identifier = "AVAILABILITY_CATEGORY"
-        notificationCategory.setActions([notificationActionOk,notificationActionCancel], forContext: UIUserNotificationActionContext.Default)
-        notificationCategory.setActions([notificationActionOk,notificationActionCancel], forContext: UIUserNotificationActionContext.Minimal)
-        
-        var types: UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
-        var settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: types, categories: NSSet(array:[notificationCategory]) )
-        application.registerUserNotificationSettings( settings )
-        application.registerForRemoteNotifications()
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("doRefresh"), userInfo: nil, repeats: true)        
     }
     
     func fetchFromDatabase() {
@@ -238,12 +210,9 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             changeAvailabilityButton.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1.0)
         }
         
-        // TODO: show reason why I'm marked as a specific availability...
-        let reason = availabilityManager.currentReason
-        if reason == nil {
-            
-        } else {
-            
+        let reason: String? = availabilityManager.getReason()
+        if reason != nil && reasonLabel != nil {
+            reasonLabel.text = reason
         }
     }
     

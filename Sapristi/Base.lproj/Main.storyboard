@@ -135,13 +135,22 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="119" width="320" height="362"/>
+                                    <rect key="frame" x="0.0" y="139" width="320" height="342"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="Gah-wd-4nk" id="YMD-LK-FMl"/>
                                     <outlet property="delegate" destination="Gah-wd-4nk" id="riQ-ol-z2g"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79F-Qj-aCI">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="110" width="297" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -150,6 +159,7 @@
                                 <exclude reference="kTt-VK-0Dc"/>
                                 <exclude reference="vRD-Oj-ENa"/>
                                 <exclude reference="Zn7-wn-Aid"/>
+                                <exclude reference="79F-Qj-aCI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -158,6 +168,7 @@
                                 <include reference="kTt-VK-0Dc"/>
                                 <include reference="vRD-Oj-ENa"/>
                                 <include reference="Zn7-wn-Aid"/>
+                                <include reference="79F-Qj-aCI"/>
                             </mask>
                         </variation>
                     </view>
@@ -167,6 +178,7 @@
                         <outlet property="allFriendsTableView" destination="Zn7-wn-Aid" id="VX6-V4-v8r"/>
                         <outlet property="changeAvailabilityButton" destination="NEm-6I-AMV" id="859-7N-a8l"/>
                         <outlet property="inviteFriendsButton" destination="kTt-VK-0Dc" id="7Vx-FW-5L9"/>
+                        <outlet property="reasonLabel" destination="79F-Qj-aCI" id="3mY-CR-Rdx"/>
                         <segue destination="frj-8W-lGs" kind="show" identifier="showFriendDetail" id="IPS-9k-2ic"/>
                     </connections>
                 </viewController>
@@ -317,7 +329,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="6" y="72" width="70" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-J3-Nyv">
@@ -490,7 +502,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    <rect key="frame" x="4" y="101" width="309" height="415"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="MyD-BK-oO4" id="6FO-gf-2Rf"/>
@@ -633,9 +645,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oq5-uf-KDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-147" y="2312"/>
+            <point key="canvasLocation" x="417" y="2312"/>
         </scene>
-        <!--Updating Calendar-->
+        <!--Sync Calendar-->
         <scene sceneID="NtW-z4-1u4">
             <objects>
                 <viewController id="lUz-2S-iOZ" customClass="AccessCalendarViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
@@ -647,56 +659,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading your calendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQB-TE-dn5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-nx-hZF">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="185" width="173" height="21"/>
+                                    <rect key="frame" x="87" y="121" width="146" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updating your availability" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmY-TC-Fbf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your calendar says it all!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndI-Yt-Mm3">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="214" width="194" height="21"/>
+                                    <rect key="frame" x="13" y="298" width="295" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Am-s5-8MH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kke-Ej-H4s">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <string key="text">Give Sapristi access to your calendar.  We'll show you as Available during calendar events named "Sapristi" and as busy during other calendar events.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="156" width="102" height="21"/>
+                                    <rect key="frame" x="13" y="333" width="295" height="119"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLm-Vb-Z2p">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Sync calendar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="480" width="288" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="enableButtonPressed:" destination="lUz-2S-iOZ" eventType="touchUpInside" id="ZBN-lL-XKV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xb-u1-o8D">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Skip for now">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="518" width="291" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="y0A-gE-El3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="WQB-TE-dn5"/>
-                                <exclude reference="kmY-TC-Fbf"/>
-                                <exclude reference="0Am-s5-8MH"/>
+                                <exclude reference="gso-nx-hZF"/>
+                                <exclude reference="ndI-Yt-Mm3"/>
+                                <exclude reference="kke-Ej-H4s"/>
+                                <exclude reference="kLm-Vb-Z2p"/>
+                                <exclude reference="8xb-u1-o8D"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="WQB-TE-dn5"/>
-                                <include reference="kmY-TC-Fbf"/>
-                                <include reference="0Am-s5-8MH"/>
+                                <include reference="gso-nx-hZF"/>
+                                <include reference="ndI-Yt-Mm3"/>
+                                <include reference="kke-Ej-H4s"/>
+                                <include reference="kLm-Vb-Z2p"/>
+                                <include reference="8xb-u1-o8D"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Updating Calendar" id="FyK-Il-Eyb"/>
+                    <navigationItem key="navigationItem" title="Sync Calendar" id="FyK-Il-Eyb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="fromSetupToMain" id="Ugj-ol-kWI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8M-6e-Oor" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176" y="2318"/>
+            <point key="canvasLocation" x="5766" y="-880"/>
         </scene>
         <!--Updating Contacts-->
         <scene sceneID="i7D-Xv-iBb">
@@ -748,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wQ-Fg-zNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797" y="2312"/>
+            <point key="canvasLocation" x="2073" y="2312"/>
         </scene>
         <!--About Sapristi-->
         <scene sceneID="CFa-qj-aXD">
@@ -833,7 +882,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dR7-rw-VyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-783" y="2312"/>
+            <point key="canvasLocation" x="1749" y="2980"/>
         </scene>
         <!--MobileNumber-->
         <scene sceneID="E3q-5z-I7P">
@@ -915,22 +964,23 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="79M-Jj-4Lg"/>
                     <connections>
                         <outlet property="countryCodeField" destination="h0T-0h-IOP" id="Dzj-Zl-Nir"/>
                         <outlet property="errorMessageLabel" destination="gsl-zM-wYU" id="wRI-XF-a8g"/>
                         <outlet property="mobileNumberField" destination="3tP-EI-KCX" id="HPa-ty-tZJ"/>
                         <outlet property="nextButton" destination="YQ8-JF-REp" id="tlK-f9-f5q"/>
-                        <segue destination="J9z-5Q-kRr" kind="showDetail" identifier="fromNumberToConfirmation" id="XpN-eM-354"/>
+                        <segue destination="J9z-5Q-kRr" kind="show" identifier="fromNumberToConfirmation" id="LYR-M5-BIk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7I-Pn-t1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1041" y="-71"/>
+            <point key="canvasLocation" x="2700" y="-880"/>
         </scene>
-        <!--Confirmation Code View Controller-->
+        <!--Confirmation Code-->
         <scene sceneID="GU0-8d-DIE">
             <objects>
-                <viewController id="J9z-5Q-kRr" customClass="ConfirmationCodeViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="J9z-5Q-kRr" userLabel="Confirmation Code" customClass="ConfirmationCodeViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lWS-OC-her"/>
                         <viewControllerLayoutGuide type="bottom" id="HY0-cX-1bP"/>
@@ -1003,17 +1053,17 @@
                     <connections>
                         <outlet property="confirmationCodeTextField" destination="njt-aj-mld" id="oTe-3E-xfR"/>
                         <outlet property="errorMessageLabel" destination="KF1-UB-qWh" id="vqB-x0-far"/>
-                        <segue destination="pOA-tr-24D" kind="showDetail" identifier="fromConfirmToContacts" id="uGc-To-47b"/>
+                        <segue destination="pOA-tr-24D" kind="show" identifier="fromConfirmToContacts" id="5Vs-X3-Rze"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mr6-km-3LP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-297" y="-71"/>
+            <point key="canvasLocation" x="3318" y="-880"/>
         </scene>
-        <!--Access Contacts View Controller-->
+        <!--Access Contacts-->
         <scene sceneID="wXc-V2-cxn">
             <objects>
-                <viewController id="pOA-tr-24D" customClass="AccessContactsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pOA-tr-24D" userLabel="Access Contacts" customClass="AccessContactsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fNd-pf-PIl"/>
                         <viewControllerLayoutGuide type="bottom" id="lPF-R6-XcK"/>
@@ -1022,25 +1072,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Sapristi to access your contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqx-xm-OMl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stay in touch with close ones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqx-xm-OMl">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="300" width="295" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give Sapristi access to your contacts and it will show you who is available for a call right now" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNX-wD-ywf">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="312" width="288" height="119"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYa-9I-qk4">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="104" width="293" height="21"/>
+                                    <rect key="frame" x="87" y="120" width="146" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eo4-3G-VQx">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Skip for now">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="523" width="291" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="jlD-bM-hD6" kind="show" id="3NM-Iu-XTN"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Ha-Br-GnO">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="148" y="236" width="20" height="20"/>
+                                </variation>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ac-xL-OVg">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="ACCESS MY CONTACTS &gt;">
+                                <state key="normal" title="Sync my contacts">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="75" y="264" width="229" height="40"/>
+                                    <rect key="frame" x="16" y="478" width="288" height="33"/>
                                 </variation>
                                 <connections>
                                     <action selector="accessContactsButtonPressed:" destination="pOA-tr-24D" eventType="touchUpInside" id="squ-2x-Jby"/>
@@ -1051,23 +1139,133 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="qqx-xm-OMl"/>
+                                <exclude reference="XNX-wD-ywf"/>
+                                <exclude reference="FYa-9I-qk4"/>
+                                <exclude reference="eo4-3G-VQx"/>
+                                <exclude reference="5Ha-Br-GnO"/>
                                 <exclude reference="7ac-xL-OVg"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="qqx-xm-OMl"/>
+                                <include reference="XNX-wD-ywf"/>
+                                <include reference="FYa-9I-qk4"/>
+                                <include reference="eo4-3G-VQx"/>
+                                <include reference="5Ha-Br-GnO"/>
                                 <include reference="7ac-xL-OVg"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Sync Contacts" id="BPR-Ry-bHE"/>
                     <connections>
-                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="fromContactsToMain" modalTransitionStyle="crossDissolve" id="YjS-tp-gbM"/>
+                        <outlet property="accessContactsButton" destination="7ac-xL-OVg" id="4PV-sd-DNH"/>
+                        <outlet property="activityIndicator" destination="5Ha-Br-GnO" id="f1c-KD-yXQ"/>
+                        <segue destination="jlD-bM-hD6" kind="show" identifier="fromContactsToNotifications" id="5TL-Vb-3rp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cl1-lS-9vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367.5" y="-71"/>
+            <point key="canvasLocation" x="3924" y="-880"/>
+        </scene>
+        <!--Enable Notifications-->
+        <scene sceneID="4c0-ZA-Bmx">
+            <objects>
+                <viewController id="jlD-bM-hD6" userLabel="Enable Notifications" customClass="NotificationViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WV8-84-cUu"/>
+                        <viewControllerLayoutGuide type="bottom" id="d4O-F5-013"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TFp-DC-63D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tJ-ru-WIf">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="87" y="121" width="146" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be notified instantly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zaa-zl-7g4">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="298" width="295" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYA-J1-VHJ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Enable notifications">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="480" width="288" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="enableButtonPressed:" destination="jlD-bM-hD6" eventType="touchUpInside" id="Az7-27-EOZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyB-mF-m7h">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Skip for now">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="518" width="291" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="aiH-hz-2g6" kind="show" id="FGJ-Gs-d9r"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable notifications to get notified when your contacts become available for a call" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="im1-lb-8aH">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="327" width="288" height="119"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="1tJ-ru-WIf"/>
+                                <exclude reference="Zaa-zl-7g4"/>
+                                <exclude reference="TYA-J1-VHJ"/>
+                                <exclude reference="PyB-mF-m7h"/>
+                                <exclude reference="im1-lb-8aH"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="1tJ-ru-WIf"/>
+                                <include reference="Zaa-zl-7g4"/>
+                                <include reference="TYA-J1-VHJ"/>
+                                <include reference="PyB-mF-m7h"/>
+                                <include reference="im1-lb-8aH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enable Notifications" id="h3W-tc-Mmq"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="aiH-hz-2g6" kind="show" identifier="fromNotificationsToCarMotion" id="gf3-jD-vkP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPK-PY-ZSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4554" y="-880"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="G7g-YF-fIY">
@@ -1119,7 +1317,7 @@
                     <connections>
                         <outlet property="label" destination="8ue-rD-buc" id="l15-qV-UAJ"/>
                         <segue destination="49e-Tb-3d3" kind="showDetail" identifier="fromLoadingToMain" id="lfN-kQ-F7n"/>
-                        <segue destination="Edy-Dv-coJ" kind="showDetail" identifier="fromLoadingToRegistration" id="tyf-Go-cty"/>
+                        <segue destination="nBk-yl-RRm" kind="showDetail" identifier="fromLoadingToRegistration" id="tyf-Go-cty"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ew9-vP-XCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1145,7 +1343,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="-126"/>
+            <point key="canvasLocation" x="2952" y="-126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RdZ-9m-8eS">
@@ -1392,7 +1590,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Edy-Dv-coJ" kind="showDetail" identifier="logoutSegue" id="M9j-Pq-NF7"/>
+                                            <segue destination="nBk-yl-RRm" kind="showDetail" identifier="logoutSegue" id="M9j-Pq-NF7"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1603,45 +1801,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCM-Vi-0Ka">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoD-Wp-hfJ">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="113" y="190" width="102" height="21"/>
+                                    <rect key="frame" x="87" y="121" width="146" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enabling Car Motion Detection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpg-6G-654">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do Talk and Drive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-Zt-LkS">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="43" y="161" width="235" height="21"/>
+                                    <rect key="frame" x="13" y="298" width="295" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-QZ-ecS">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Enable motion detection">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="480" width="288" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="enableButtonPressed:" destination="aiH-hz-2g6" eventType="touchUpInside" id="f9F-Qv-hCD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLX-K8-rsT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Skip for now">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="518" width="291" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="lUz-2S-iOZ" kind="show" id="RH7-n8-YT6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow Sapristi to detect when you're driving and automatically mark you as Available so your friends know to call you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-bp-XW5">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="333" width="295" height="119"/>
                                 </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="oCM-Vi-0Ka"/>
-                                <exclude reference="tpg-6G-654"/>
+                                <exclude reference="QoD-Wp-hfJ"/>
+                                <exclude reference="fja-Zt-LkS"/>
+                                <exclude reference="1NZ-QZ-ecS"/>
+                                <exclude reference="qLX-K8-rsT"/>
+                                <exclude reference="6Nz-bp-XW5"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="oCM-Vi-0Ka"/>
-                                <include reference="tpg-6G-654"/>
+                                <include reference="QoD-Wp-hfJ"/>
+                                <include reference="fja-Zt-LkS"/>
+                                <include reference="1NZ-QZ-ecS"/>
+                                <include reference="qLX-K8-rsT"/>
+                                <include reference="6Nz-bp-XW5"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Car Motion Detection" id="If2-aS-gtg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="lUz-2S-iOZ" kind="show" identifier="fromCarMotionToCalendar" id="p9a-jJ-xYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="38U-rj-36d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="561" y="2312"/>
+            <point key="canvasLocation" x="5169" y="-880"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="uxR-mW-aCo">
@@ -1810,6 +2055,24 @@
             </objects>
             <point key="canvasLocation" x="2808" y="1550"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Zx-fU-Cjr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nBk-yl-RRm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Mp-jG-23K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Edy-Dv-coJ" kind="relationship" relationship="rootViewController" id="6oS-iS-vcA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dhO-9R-3dN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2058" y="-880"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Checkbox_unchecked" width="128" height="128"/>
@@ -1818,10 +2081,13 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YjS-tp-gbM"/>
-        <segue reference="M9j-Pq-NF7"/>
-        <segue reference="u7Y-xg-7CH"/>
+        <segue reference="tyf-Go-cty"/>
+        <segue reference="5TL-Vb-3rp"/>
+        <segue reference="gf3-jD-vkP"/>
+        <segue reference="p9a-jJ-xYU"/>
+        <segue reference="Ugj-ol-kWI"/>
+        <segue reference="ald-Dd-xmD"/>
         <segue reference="RRe-D9-SUM"/>
-        <segue reference="MSC-Ar-62q"/>
+        <segue reference="IPS-9k-2ic"/>
     </inferredMetricsTieBreakers>
 </document>
