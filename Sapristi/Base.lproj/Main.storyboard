@@ -713,7 +713,7 @@
                                     <rect key="frame" x="13" y="518" width="291" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="y0A-gE-El3"/>
+                                    <segue destination="49e-Tb-3d3" kind="showDetail" id="y0A-gE-El3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -740,7 +740,7 @@
                     <navigationItem key="navigationItem" title="Sync Calendar" id="FyK-Il-Eyb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="fromSetupToMain" id="Ugj-ol-kWI"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="fromSetupToMain" id="Ugj-ol-kWI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8M-6e-Oor" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2081,13 +2081,13 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tyf-Go-cty"/>
-        <segue reference="5TL-Vb-3rp"/>
-        <segue reference="gf3-jD-vkP"/>
+        <segue reference="y0A-gE-El3"/>
         <segue reference="p9a-jJ-xYU"/>
-        <segue reference="Ugj-ol-kWI"/>
+        <segue reference="gf3-jD-vkP"/>
+        <segue reference="5TL-Vb-3rp"/>
+        <segue reference="tyf-Go-cty"/>
         <segue reference="ald-Dd-xmD"/>
-        <segue reference="RRe-D9-SUM"/>
         <segue reference="IPS-9k-2ic"/>
+        <segue reference="RRe-D9-SUM"/>
     </inferredMetricsTieBreakers>
 </document>

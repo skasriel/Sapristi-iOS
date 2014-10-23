@@ -178,12 +178,15 @@
 		0237179A19DD0B7500A44A2B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				02B3B25C19D53880006ED6EE /* MobileNumberViewController.swift */,
+				02B3B23A19D53865006ED6EE /* ConfirmationCodeViewController.swift */,
+				02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */,
+				02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */,
 				02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */,
 				0237179B19DD0D2F00A44A2B /* AccessCalendarViewController.swift */,
-				02B3B26119D53880006ED6EE /* SettingsViewController.swift */,
 				02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */,
+				02B3B26119D53880006ED6EE /* SettingsViewController.swift */,
 				0237179819DD05E700A44A2B /* SyncContactsViewController.swift */,
-				02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -298,11 +301,8 @@
 			children = (
 				0237179A19DD0B7500A44A2B /* Settings */,
 				02B3B25919D53880006ED6EE /* InitialViewController.swift */,
-				02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */,
-				02B3B23A19D53865006ED6EE /* ConfirmationCodeViewController.swift */,
 				02B3B23219D53865006ED6EE /* AllFriendsViewController.swift */,
 				021D7EFD19E69ED300555E0B /* FavoriteFriendsViewController.swift */,
-				02B3B25C19D53880006ED6EE /* MobileNumberViewController.swift */,
 				02B3B23D19D53865006ED6EE /* FriendDetailViewController.swift */,
 				02B3B25A19D53880006ED6EE /* InviteFriendsViewController.swift */,
 			);
