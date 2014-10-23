@@ -46,6 +46,20 @@ class AddressBookManager: HTTPControllerProtocol {
         })
     }
     
+    func mergePhoneNumbers(array1: [String], array2: [String]) -> [String] {
+        var set = Dictionary<String, Bool>()
+        for a1 in array1 {
+            set[a1] = true
+        }
+        for a2 in array2 {
+            set[a2] = true
+        }
+        var array = [String]()
+        for (number, dummy) in set {
+            array.append(number)
+        }
+        return array
+    }
     
     /**
     * Pulls the list of contacts from native address book
@@ -54,10 +68,25 @@ class AddressBookManager: HTTPControllerProtocol {
     */
     func processContacts(nativeContacts: [APContact]) -> [Contact] {
         var allContacts: [Contact] = []
+        var allPhoneNumbers = Dictionary<String, Contact>()
         for (index, nativeContact: APContact) in enumerate(nativeContacts) {
             var contact: Contact = getContact(nativeContact)
-            //println("#\(index) \(contact.displayName) \(contact.phoneNumbers)")
-            allContacts.append(contact)
+            var shouldAddContact = true
+            for (i, phoneNumberObj) in enumerate(contact.phoneNumbers) {
+                let phoneNumber = phoneNumberObj as String
+                let key = contact.displayName+"|"+PhoneController.cleanPhoneNumber(phoneNumber)
+                if let existingContact: Contact = allPhoneNumbers[key] {
+                    // "contact" is a likely duplicate of "existingContact" (same name and a shared phone number...)
+                    shouldAddContact = false
+                    existingContact.phoneNumbers = mergePhoneNumbers(existingContact.phoneNumbers, array2: contact.phoneNumbers)
+                } else {
+                    allPhoneNumbers[key] = contact
+                }
+            }
+            if shouldAddContact {
+                //println("#\(index) \(contact.displayName) \(contact.phoneNumbers)")
+                allContacts.append(contact)
+            }
         }
         
         // store contacts to CoreData (sync)

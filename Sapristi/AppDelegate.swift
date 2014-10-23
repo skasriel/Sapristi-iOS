@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
         friendDetailsViewController.friend = friend
 
         let navigationController = tabbedViewController.navigationController
-        let nav = tabbedViewController.viewControllers![1]
+        let nav: UINavigationController = tabbedViewController.viewControllers![1] as UINavigationController
         nav.pushViewController(friendDetailsViewController, animated: true)
     }
 
@@ -116,8 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
     }
     
     // called both in foreground and background mode
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler handler: (UIBackgroundFetchResult) -> Void) {
-        
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         if application.applicationState == UIApplicationState.Active {
             println("didReceiveRemoteNotification while app is active: \(userInfo)")
             // app was already in the foreground
@@ -126,7 +125,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
             println("didReceiveRemoteNotification while app is in background \(userInfo)")
             handleRemoteNotification(userInfo)
         }
-        handler(UIBackgroundFetchResult.NoData) // TBD
     }
     
     // user requested a specific action from the push notification message
@@ -135,18 +133,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
         completionHandler()
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        println("didReceiveRemoteNotification \(userInfo)")
-    }
-
-    /** 
+    /**
      * CoreData code below
     */
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.johnnichols.Testing" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1] as NSURL
-        }()
+    }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.

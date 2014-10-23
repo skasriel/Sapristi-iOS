@@ -10,10 +10,9 @@ import Foundation
 import CoreData
 
 class Contact : NSObject {
-    var displayName: NSString = ""
-    var phoneNumbers: NSArray = NSArray()
+    var displayName: String = ""
+    var phoneNumbers = [String]()
     var desiredCallFrequency: Int = 0
-    //var emailAddresses: NSArray = NSArray()
     var thumbnail: UIImage?
     
     
@@ -22,7 +21,6 @@ class Contact : NSObject {
         dictionary["displayName"] = displayName
         dictionary["phoneNumbers"] = phoneNumbers
         dictionary["desiredCallFrequency"] = desiredCallFrequency
-        //dictionary["emailAddresses"] = contact.emailAddresses
         return dictionary
     }
     
