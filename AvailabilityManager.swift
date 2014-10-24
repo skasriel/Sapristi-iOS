@@ -12,8 +12,8 @@ import Foundation
 let sharedAvailabilityInstance = AvailabilityManager()
 
 class AvailabilityManager {
-    var currentAvailability: String = Availability.UNKNOWN
-    var currentReason: String?
+    var currentAvailability: Availability = Availability.Unknown
+    var currentReason: Reason?
     
     class func getInstance() -> AvailabilityManager {
         return sharedAvailabilityInstance
@@ -22,7 +22,7 @@ class AvailabilityManager {
     init() {
     }
     
-    func setAvailability(newAvailability: String, updateServer: Bool = false, reason: String? = nil, delegate: HTTPControllerProtocol? = nil) {
+    func setAvailability(newAvailability: Availability, reason: Reason? = nil, updateServer: Bool = false, delegate: HTTPControllerProtocol? = nil) {
         currentAvailability = newAvailability
         currentReason = reason
         
@@ -31,30 +31,40 @@ class AvailabilityManager {
         }
     }
     
-    func sendAvailabilityUpdateToServer(reason: String, delegate: HTTPControllerProtocol) {
+    func sendAvailabilityUpdateToServer(reason: Reason, delegate: HTTPControllerProtocol) {
         var params = [
-            "availability": currentAvailability,
-            "reason": reason
+            "availability": currentAvailability.rawValue,
+            "reason": reason.rawValue
         ]
-        HTTPController.getInstance().doPOST("/api/me/availability", parameters: params, delegate: delegate, queryID: Availability.SET_AVAILABILITY)
+        HTTPController.getInstance().doPOST("/api/me/availability", parameters: params, delegate: delegate, queryID: SET_AVAILABILITY)
     }
     
-    func getReason() -> String? {
+    class func getAvailabilityFromString(string: String) -> Availability? {
+        return Availability.allValues[string]
+    }
+    
+    class func getReasonFromString(string: String?) -> Reason? {
+        if string == nil {
+            return nil
+        }
+        return Reason.allValues[string!]
+    }
+    
+    func getReasonMessage() -> String? {
         if currentReason == nil {
             return nil
         }
         switch currentReason! {
-        case Availability.USER:
+        case Reason.User:
             return "Set by you"
-        case Availability.CAR_MOTION:
+        case Reason.CarMotion:
             return "Because you're driving"
-        case Availability.TIMESLOT:
+        case Reason.Timeslot:
             return "During your defined time slots"
-        case Availability.CALENDAR:
+        case Reason.Calendar:
             return "Based on the entry in your calendar"
         default:
             return nil
         }
     }
-    
 }

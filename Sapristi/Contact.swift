@@ -9,9 +9,27 @@
 import Foundation
 import CoreData
 
+class PhoneNumberWithLabel {
+    var phoneNumber: String = ""
+    var label: String?
+    
+    init(phoneNumber: String, label: String?) {
+        self.phoneNumber = phoneNumber
+        self.label = label
+    }
+    
+    class func getArrayWithoutLabels(phoneNumbers: [PhoneNumberWithLabel]) -> [String] {
+        var array = [String]()
+        for phoneNumber in phoneNumbers {
+            array.append(phoneNumber.phoneNumber)
+        }
+        return array
+    }
+}
+
 class Contact : NSObject {
     var displayName: String = ""
-    var phoneNumbers = [String]()
+    var phoneNumbers = [PhoneNumberWithLabel]() // [String]()
     var desiredCallFrequency: Int = 0
     var thumbnail: UIImage?
     
@@ -19,7 +37,7 @@ class Contact : NSObject {
     func serializeForHTTP() -> Dictionary<String, AnyObject> {
         var dictionary = Dictionary<String, AnyObject>()
         dictionary["displayName"] = displayName
-        dictionary["phoneNumbers"] = phoneNumbers
+        dictionary["phoneNumbers"] = PhoneNumberWithLabel.getArrayWithoutLabels(phoneNumbers) as NSArray // because Swift's json serializer is too dumb to serialize the full object...
         dictionary["desiredCallFrequency"] = desiredCallFrequency
         return dictionary
     }
@@ -27,9 +45,9 @@ class Contact : NSObject {
     func serializeForCoreData(entityDescription: NSEntityDescription?, managedObjectContext: NSManagedObjectContext?) -> FriendModel {
         let friend = FriendModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
         friend.displayName = displayName
-        friend.phoneNumber = phoneNumbers[0] as String
+        friend.phoneNumber = phoneNumbers[0].phoneNumber
         friend.hasAccount = false // TBD
-        friend.availability = Availability.UNKNOWN // TBD
+        friend.availability = Availability.Unknown.rawValue // TBD
         friend.desiredCallFrequency = desiredCallFrequency
         if thumbnail != nil {
             friend.thumbnail = UIImagePNGRepresentation(thumbnail!)
@@ -41,9 +59,17 @@ class Contact : NSObject {
             if (i>0) {
                 allPhoneNumbers += ">"
             }
-            allPhoneNumbers += number as String
+            var label = number.label
+            if label == nil {
+                label = ""
+            }
+            allPhoneNumbers += label! + ":" + number.phoneNumber
         }
         friend.allPhoneNumbers = allPhoneNumbers
         return friend
+    }
+    
+    class func getPhoneNumbersWithLabelFromString(string: String) -> [PhoneNumberWithLabel] {
+        return [PhoneNumberWithLabel]() // TODO
     }
 }

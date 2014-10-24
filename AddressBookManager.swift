@@ -46,17 +46,17 @@ class AddressBookManager: HTTPControllerProtocol {
         })
     }
     
-    func mergePhoneNumbers(array1: [String], array2: [String]) -> [String] {
-        var set = Dictionary<String, Bool>()
+    func mergePhoneNumbers(array1: [PhoneNumberWithLabel], array2: [PhoneNumberWithLabel]) -> [PhoneNumberWithLabel] {
+        var set = Dictionary<String, PhoneNumberWithLabel>()
         for a1 in array1 {
-            set[a1] = true
+            set[a1.phoneNumber] = a1
         }
         for a2 in array2 {
-            set[a2] = true
+            set[a2.phoneNumber] = a2
         }
-        var array = [String]()
-        for (number, dummy) in set {
-            array.append(number)
+        var array = [PhoneNumberWithLabel]()
+        for (number, phoneNumberWithLabel) in set {
+            array.append(phoneNumberWithLabel)
         }
         return array
     }
@@ -72,8 +72,9 @@ class AddressBookManager: HTTPControllerProtocol {
         for (index, nativeContact: APContact) in enumerate(nativeContacts) {
             var contact: Contact = getContact(nativeContact)
             var shouldAddContact = true
-            for (i, phoneNumberObj) in enumerate(contact.phoneNumbers) {
-                let phoneNumber = phoneNumberObj as String
+            for (i, phoneNumberWithLabel) in enumerate(contact.phoneNumbers) {
+                //let phoneNumber = phoneNumberObj as String
+                let phoneNumber = phoneNumberWithLabel.phoneNumber
                 let key = contact.displayName+"|"+PhoneController.cleanPhoneNumber(phoneNumber)
                 if let existingContact: Contact = allPhoneNumbers[key] {
                     // "contact" is a likely duplicate of "existingContact" (same name and a shared phone number...)
@@ -133,7 +134,7 @@ class AddressBookManager: HTTPControllerProtocol {
     func getContact(nativeContact: APContact) -> Contact {
         var contact = Contact()
         contact.displayName = contactName(nativeContact)
-        contact.phoneNumbers = nativeContact.phones as [String]
+        //contact.phoneNumbers = nativeContact.phones as [String]
         let contactID: NSNumber! = nativeContact.recordID
         let fullPhoto: UIImage! = nativeContact.photo
         let thumbnail: UIImage! = nativeContact.thumbnail
@@ -142,14 +143,17 @@ class AddressBookManager: HTTPControllerProtocol {
             contact.thumbnail = thumbnail!
         }
         
+        contact.phoneNumbers = [PhoneNumberWithLabel]()
         let phonesWithLabels: [AnyObject]! = nativeContact.phonesWithLabels
         if (phonesWithLabels != nil) {
             for (index, phoneWithLabel) in enumerate(phonesWithLabels) {
                 let number: String? = phoneWithLabel.phone
                 let label: String? = phoneWithLabel.label!
+                contact.phoneNumbers.append(PhoneNumberWithLabel(phoneNumber: number!, label: label))
                 //println("phone: \(index) \(label) \(number)")
             }
         }
+        /* doesn't seem to be working... Idea here would be to bump up the default desiredCallFrequency of users I'm friends with on Facebook  
         let socialProfiles: [AnyObject]! = nativeContact.socialProfiles
         if (socialProfiles != nil) {
             for (index, socialProfileObj) in enumerate(socialProfiles) {
@@ -161,7 +165,7 @@ class AddressBookManager: HTTPControllerProtocol {
 
                 println("social: \(index) \(socialNetwork) \(username) \(userIdentifier) \(url)")
             }
-        }
+        }*/
 
         //nativeContact.emails
         return contact

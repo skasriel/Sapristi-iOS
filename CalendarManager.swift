@@ -12,11 +12,11 @@ import EventKitUI
 class Timeslot : NSObject {
     var startTime:      NSDate
     var endTime:        NSDate
-    var availability:   String
+    var availability:   Availability
     var recurrence:     String
     var source:         String
     
-    init(startTime: NSDate, endTime: NSDate, availability: String, recurrence: String, source: String) {
+    init(startTime: NSDate, endTime: NSDate, availability: Availability, recurrence: String, source: String) {
         self.startTime = startTime
         self.endTime = endTime
         self.availability = availability
@@ -33,7 +33,7 @@ class Timeslot : NSObject {
         var formattedEndTime = NSDate.ISOStringFromDate(endTime)
         attributes["startTime"] = formattedStartTime
         attributes["endTime"] = formattedEndTime
-        attributes["availability"] = availability
+        attributes["availability"] = availability.rawValue
         attributes["recurrence"] = recurrence
         attributes["source"] = source
         //println("Timeslot: \(formattedStartTime) - \(formattedEndTime)")
@@ -124,11 +124,11 @@ class CalendarManager : HTTPControllerProtocol {
             for (index, eventObj) in enumerate(events) {
                 let event: EKEvent = eventObj as EKEvent
                 let title = event.title
-                var sapristiAvailability: String
+                var sapristiAvailability: Availability
                 if (title.toLowerCase().indexOf("sapristi") >= 0) {
-                    sapristiAvailability = Availability.AVAILABLE
+                    sapristiAvailability = Availability.Available
                 } else if (event.availability.value != EKEventAvailabilityFree.value) {
-                    sapristiAvailability = Availability.BUSY
+                    sapristiAvailability = Availability.Busy
                 } else {
                     continue // a "free" event in your calendar is like not having an event at all - we mark the user neither as busy nor as available, we just don't know
                 }

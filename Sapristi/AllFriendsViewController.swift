@@ -89,12 +89,10 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     
     func refresh(viaPullToRefresh: Bool = false) {
         dispatch_async(refreshQueue) {
-            println("Do Refresh")
             self.getFriendAvailability()
             if (viaPullToRefresh) {
                 self.refreshControl!.endRefreshing()
             }
-            println("Done refreshing")
         }
     }
 
@@ -143,33 +141,25 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         var status: String = ""
-        var imageName: String
         var image: UIImage?
         
-        switch friend.availability {
-        case Availability.BUSY:
-            imageName = "busy_dot_icon"
+        switch AvailabilityManager.getAvailabilityFromString(friend.availability)! {
+        case Availability.Busy:
             image = imageBusy
-        case Availability.UNKNOWN:
-            imageName = "icon_unknown" // TODO: another icon
+        case Availability.Unknown:
             image = imageUnknown
-        case Availability.AVAILABLE:
-            imageName = "available_dot_icon"
+        case Availability.Available:
             image = imageAvailable
         default:
-            imageName = "icon_unknown" // shouldn't happen...
-            image = imageUnknown
+            image = imageUnknown // shouldn't happen
         }
-        cell.availabilityImageView.image = image // UIImage(named: imageName)
+        cell.availabilityImageView.image = image
             
         if (friend.updatedAt != nil) {
             println("updated: \(friend.updatedAt) - now = \(NSDate())")
             status += " Updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate())
         }
         cell.friendStatusLabel.text = status
-        /*if friend.imageName {
-            cell.friendImageView.image = UIImage(named:friend.imageName)
-        }*/
         cell.phoneNumber = friend.phoneNumber
         return cell
     }
@@ -187,17 +177,17 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     @IBAction func changeAvailabilityButtonPressed(sender: UIButton) {
-        var newAvailability : String;
+        var newAvailability : Availability
         
         switch(availabilityManager.currentAvailability) {
-        case Availability.AVAILABLE:
-            newAvailability = Availability.UNKNOWN
-        case Availability.UNKNOWN:
-            newAvailability = Availability.BUSY
+        case Availability.Available:
+            newAvailability = Availability.Unknown
+        case Availability.Unknown:
+            newAvailability = Availability.Busy
         default:
-            newAvailability = Availability.AVAILABLE
+            newAvailability = Availability.Available
         }
-        availabilityManager.setAvailability(newAvailability, updateServer: true, reason: Availability.USER, delegate: self)
+        availabilityManager.setAvailability(newAvailability, reason: Reason.User, updateServer: true, delegate: self)
         updateAvailabilityUI()
     }
     
@@ -205,10 +195,10 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         let availability = availabilityManager.currentAvailability
         
         switch(availability) {
-        case Availability.AVAILABLE:
+        case Availability.Available:
             changeAvailabilityButton.setTitle("AVAILABLE", forState: UIControlState.Normal)
             changeAvailabilityButton.backgroundColor = UIColor(red: 0.1, green: 0.8, blue: 0.1, alpha: 1.0)
-        case Availability.UNKNOWN:
+        case Availability.Unknown:
             changeAvailabilityButton.setTitle("UNKNOWN", forState: UIControlState.Normal)
             changeAvailabilityButton.backgroundColor = UIColor(red: 0.5, green: 0.3, blue: 0.3, alpha: 1.0)
         default:
@@ -216,7 +206,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             changeAvailabilityButton.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1.0)
         }
         
-        let reason: String? = availabilityManager.getReason()
+        let reason: String? = availabilityManager.getReasonMessage()
         if reason != nil && reasonLabel != nil {
             reasonLabel.text = reason
         }
@@ -226,7 +216,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     * HTTPControllerProtocol implementation 
     */
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
-        if (queryID == Availability.SET_AVAILABILITY) {
+        if (queryID == SET_AVAILABILITY) {
             return callbackChangeAvailability(err, results: results);
         } else if (queryID == FRIEND_AVAILABILITY) {
             return callbackFriendAvailability(err, results: results);
@@ -249,8 +239,11 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             return
         }
         let json = results! as Dictionary<String, AnyObject>
-        let availability = json["availability"]! as String
-        availabilityManager.setAvailability(availability)
+        let availabilityString = json["availability"]! as String
+        let reasonString = json["reason"] as String?
+        let availability = AvailabilityManager.getAvailabilityFromString(availabilityString)!
+        let reason = AvailabilityManager.getReasonFromString(reasonString)
+        availabilityManager.setAvailability(availability, reason: reason, updateServer: false, delegate: nil)
         updateAvailabilityUI();
     }
     

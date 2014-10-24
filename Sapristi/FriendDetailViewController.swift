@@ -22,7 +22,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
     var defaultPhoneNumber: String?
-    var allPhoneNumbers: [String]?
+    var allPhoneNumbers: [PhoneNumberWithLabel]?
     
     
     @IBOutlet weak var friendPhoneTableView: UITableView!
@@ -83,8 +83,8 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = friendPhoneTableView.dequeueReusableCellWithIdentifier("phoneNumberCell") as UITableViewCell
         let row = indexPath.row
-        cell.textLabel.text = "mobile" // TODO: replace with the phoneWithLabels construct
-        cell.detailTextLabel!.text = allPhoneNumbers![row]
+        cell.textLabel.text = allPhoneNumbers![row].label // "mobile" // TODO: replace with the phoneWithLabels construct
+        cell.detailTextLabel!.text = allPhoneNumbers![row].phoneNumber
         return cell
     }
     
@@ -93,8 +93,8 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
         let row = indexPath.row
         let phoneNumber = allPhoneNumbers![row]
         
-        println("Calling: "+phoneNumber)
-        PhoneController.makePhoneCall(phoneNumber)
+        println("Calling: \(phoneNumber.phoneNumber)")
+        PhoneController.makePhoneCall(phoneNumber.phoneNumber)
     }
     
     @IBAction func addToFavoritesButtonPressed(sender: AnyObject) {

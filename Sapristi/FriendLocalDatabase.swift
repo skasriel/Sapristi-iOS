@@ -110,15 +110,25 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         for (index, friend) in enumerate(fetchedArray) {
             let phoneNumbers = FriendLocalDatabase.getPhoneNumbers(friend)
             for phoneNumber in phoneNumbers {
-                var normalizedFriendPhoneNumber = PhoneController.cleanPhoneNumber(phoneNumber) // the server returns e164 phone numbers, so need to clean up my local numbers in order to use them as keys for the dictionary
+                var normalizedFriendPhoneNumber = PhoneController.cleanPhoneNumber(phoneNumber.phoneNumber) // the server returns e164 phone numbers, so need to clean up my local numbers in order to use them as keys for the dictionary
                 map[normalizedFriendPhoneNumber] = friend
             }
         }
         return map
     }
     
-    class func getPhoneNumbers(friend: FriendModel) -> [String] {
-        let phoneNumbers: [String] = friend.allPhoneNumbers.split(">") as [String]
+    /** 
+    * FriendModel contains as a string the list of all phone numbers
+    * The string looks like label1:number1>label2:number2>...
+    */
+    class func getPhoneNumbers(friend: FriendModel) -> [PhoneNumberWithLabel] {
+        let phoneNumbersStringArray = friend.allPhoneNumbers.split(">") as [String]
+        var phoneNumbers = [PhoneNumberWithLabel]()
+        for phoneString in phoneNumbersStringArray {
+            let split = phoneString.split(":") as [String]
+            let phoneNumberWithLabel = PhoneNumberWithLabel(phoneNumber: split[1], label: split[0])
+            phoneNumbers.append(phoneNumberWithLabel)
+        }
         return phoneNumbers
     }
     

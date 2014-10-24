@@ -139,7 +139,7 @@ class DateSettingsViewController: UITableViewController, UITableViewDataSource, 
                 let startTime = sectionData[i*2]
                 let endTime = sectionData[i*2+1]
                 var timeslot = Timeslot(startTime: startTime, endTime: endTime,
-                    availability: Availability.AVAILABLE, recurrence: recurrence, source: "USER_TIMESLOTS")
+                    availability: Availability.Available, recurrence: recurrence, source: "USER_TIMESLOTS")
                 timeslots.append(timeslot)
             }
         }
