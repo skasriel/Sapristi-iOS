@@ -13,15 +13,12 @@
 		0237179919DD05E700A44A2B /* SyncContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237179819DD05E700A44A2B /* SyncContactsViewController.swift */; };
 		0237179C19DD0D2F00A44A2B /* AccessCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237179B19DD0D2F00A44A2B /* AccessCalendarViewController.swift */; };
 		024565AE19C34A1D006F34D3 /* SapristiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565AD19C34A1D006F34D3 /* SapristiTests.swift */; };
-		0252A25219EC18A100450126 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0252A25019EC18A100450126 /* Info.plist */; };
 		0252A25819ED75AC00450126 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252A25719ED75AC00450126 /* Availability.swift */; };
 		025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025EF8C119C6A188008D30C6 /* Media.xcassets */; };
 		02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */; };
 		02B3B24119D53865006ED6EE /* AccessContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */; };
 		02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23219D53865006ED6EE /* AllFriendsViewController.swift */; };
 		02B3B24719D53865006ED6EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23319D53865006ED6EE /* AppDelegate.swift */; };
-		02B3B24819D53865006ED6EE /* #Main.storyboard# in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B23519D53865006ED6EE /* #Main.storyboard# */; };
-		02B3B24919D53865006ED6EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B23719D53865006ED6EE /* Main.storyboard */; };
 		02B3B24A19D53865006ED6EE /* CarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23919D53865006ED6EE /* CarManager.swift */; };
 		02B3B24B19D53865006ED6EE /* ConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23A19D53865006ED6EE /* ConfirmationCodeViewController.swift */; };
 		02B3B24C19D53865006ED6EE /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23B19D53865006ED6EE /* Contact.swift */; };
@@ -445,10 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0252A25219EC18A100450126 /* Info.plist in Resources */,
-				02B3B24919D53865006ED6EE /* Main.storyboard in Resources */,
 				02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */,
-				02B3B24819D53865006ED6EE /* #Main.storyboard# in Resources */,
 				025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +470,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
 		D420B0ADDFD2B9BF53EB183E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -491,7 +484,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
