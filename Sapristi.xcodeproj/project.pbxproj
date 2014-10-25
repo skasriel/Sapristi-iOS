@@ -13,7 +13,14 @@
 		0237179919DD05E700A44A2B /* SyncContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237179819DD05E700A44A2B /* SyncContactsViewController.swift */; };
 		0237179C19DD0D2F00A44A2B /* AccessCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237179B19DD0D2F00A44A2B /* AccessCalendarViewController.swift */; };
 		024565AE19C34A1D006F34D3 /* SapristiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024565AD19C34A1D006F34D3 /* SapristiTests.swift */; };
+		024D9EFF19FB1A32008F6525 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B23719D53865006ED6EE /* Main.storyboard */; };
 		0252A25819ED75AC00450126 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252A25719ED75AC00450126 /* Availability.swift */; };
+		0255DFC419FADD3E008C80BB /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFC319FADD3E008C80BB /* Alamofire.swift */; };
+		0255DFD119FADD7E008C80BB /* APAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFC619FADD7E008C80BB /* APAddress.m */; };
+		0255DFD219FADD7E008C80BB /* APAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFC819FADD7E008C80BB /* APAddressBook.m */; };
+		0255DFD319FADD7E008C80BB /* APContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFCA19FADD7E008C80BB /* APContact.m */; };
+		0255DFD419FADD7E008C80BB /* APPhoneWithLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFCC19FADD7E008C80BB /* APPhoneWithLabel.m */; };
+		0255DFD519FADD7E008C80BB /* APSocialProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFCE19FADD7E008C80BB /* APSocialProfile.m */; };
 		025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025EF8C119C6A188008D30C6 /* Media.xcassets */; };
 		02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */; };
 		02B3B24119D53865006ED6EE /* AccessContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */; };
@@ -34,7 +41,6 @@
 		02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26119D53880006ED6EE /* SettingsViewController.swift */; };
 		02B3B27219D53880006ED6EE /* StringJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26719D53880006ED6EE /* StringJS.swift */; };
 		02B3B27319D53880006ED6EE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B26819D53880006ED6EE /* SwiftyJSON.swift */; };
-		02B4EA1019F5E16C0048A2B6 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4EA0A19F5CF430048A2B6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02B4EA1219F769990048A2B6 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1119F769990048A2B6 /* FriendModel.swift */; };
 		02B4EA1419F85A510048A2B6 /* AvailabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */; };
 		02B4EA1719F88DF60048A2B6 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */; };
@@ -44,7 +50,6 @@
 		02CFCB5E19E5128900EDA122 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFCB5D19E5128900EDA122 /* ConfigManager.swift */; };
 		02CFCB6019E5174000EDA122 /* CarMotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */; };
 		02D048B019E9A1630040720F /* SKMotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D048AF19E9A1630040720F /* SKMotionDetector.swift */; };
-		687CB4E64E1ADD30E6BBA6C7 /* libPods-Sapristi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4031534EE81FD16E0B22B313 /* libPods-Sapristi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,27 +59,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0245659219C34A1D006F34D3;
 			remoteInfo = Sapristi;
-		};
-		02B4EA0919F5CF430048A2B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02B4EA0419F5CF430048A2B6 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = Alamofire;
-		};
-		02B4EA0B19F5CF430048A2B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02B4EA0419F5CF430048A2B6 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = AlamofireTests;
-		};
-		02B4EA0D19F5CFB20048A2B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02B4EA0419F5CF430048A2B6 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = Alamofire;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -95,7 +79,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				02B4EA1019F5E16C0048A2B6 /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +97,20 @@
 		024565AD19C34A1D006F34D3 /* SapristiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SapristiTests.swift; sourceTree = "<group>"; };
 		0252A25119EC18A100450126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Info.plist; sourceTree = "<group>"; };
 		0252A25719ED75AC00450126 /* Availability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
+		0255DFC219FADD3E008C80BB /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alamofire.h; path = Alamofire/Source/Alamofire.h; sourceTree = "<group>"; };
+		0255DFC319FADD3E008C80BB /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Alamofire/Source/Alamofire.swift; sourceTree = "<group>"; };
+		0255DFC519FADD7E008C80BB /* APAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APAddress.h; path = Pod/Core/APAddress.h; sourceTree = "<group>"; };
+		0255DFC619FADD7E008C80BB /* APAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APAddress.m; path = Pod/Core/APAddress.m; sourceTree = "<group>"; };
+		0255DFC719FADD7E008C80BB /* APAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APAddressBook.h; path = Pod/Core/APAddressBook.h; sourceTree = "<group>"; };
+		0255DFC819FADD7E008C80BB /* APAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APAddressBook.m; path = Pod/Core/APAddressBook.m; sourceTree = "<group>"; };
+		0255DFC919FADD7E008C80BB /* APContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APContact.h; path = Pod/Core/APContact.h; sourceTree = "<group>"; };
+		0255DFCA19FADD7E008C80BB /* APContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APContact.m; path = Pod/Core/APContact.m; sourceTree = "<group>"; };
+		0255DFCB19FADD7E008C80BB /* APPhoneWithLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APPhoneWithLabel.h; path = Pod/Core/APPhoneWithLabel.h; sourceTree = "<group>"; };
+		0255DFCC19FADD7E008C80BB /* APPhoneWithLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APPhoneWithLabel.m; path = Pod/Core/APPhoneWithLabel.m; sourceTree = "<group>"; };
+		0255DFCD19FADD7E008C80BB /* APSocialProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APSocialProfile.h; path = Pod/Core/APSocialProfile.h; sourceTree = "<group>"; };
+		0255DFCE19FADD7E008C80BB /* APSocialProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APSocialProfile.m; path = Pod/Core/APSocialProfile.m; sourceTree = "<group>"; };
+		0255DFCF19FADD7E008C80BB /* APTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APTypes.h; path = Pod/Core/APTypes.h; sourceTree = "<group>"; };
+		0255DFD619FADD99008C80BB /* APAddressBook-Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APAddressBook-Bridging.h"; path = "Pod/Swift/APAddressBook-Bridging.h"; sourceTree = "<group>"; };
 		025EF8C119C6A188008D30C6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessContactsViewController.swift; path = Sapristi/AccessContactsViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +135,6 @@
 		02B3B26119D53880006ED6EE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Sapristi/SettingsViewController.swift; sourceTree = "<group>"; };
 		02B3B26719D53880006ED6EE /* StringJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringJS.swift; path = Sapristi/StringJS.swift; sourceTree = "<group>"; };
 		02B3B26819D53880006ED6EE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Sapristi/SwiftyJSON.swift; sourceTree = "<group>"; };
-		02B4EA0419F5CF430048A2B6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		02B4EA1119F769990048A2B6 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityManager.swift; sourceTree = "<group>"; };
 		02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -148,9 +144,6 @@
 		02CFCB5D19E5128900EDA122 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarMotionViewController.swift; sourceTree = "<group>"; };
 		02D048AF19E9A1630040720F /* SKMotionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMotionDetector.swift; sourceTree = "<group>"; };
-		4031534EE81FD16E0B22B313 /* libPods-Sapristi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sapristi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B237C6FE832BDA730AB9E537 /* Pods-Sapristi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapristi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi.release.xcconfig"; sourceTree = "<group>"; };
-		DAD9676581BA39CB97FDFA05 /* Pods-Sapristi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapristi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +151,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				687CB4E64E1ADD30E6BBA6C7 /* libPods-Sapristi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,9 +187,6 @@
 				025EF8C119C6A188008D30C6 /* Media.xcassets */,
 				024565AA19C34A1D006F34D3 /* SapristiTests */,
 				0245659419C34A1D006F34D3 /* Products */,
-				0255CBC119CA44F100FD8D71 /* Alamofire */,
-				A608FB50F8115038EFDAAA91 /* Pods */,
-				3C70DE6E23D53436FDA7D7B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,18 +216,48 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0255CBC119CA44F100FD8D71 /* Alamofire */ = {
+		0255DFC119FADD01008C80BB /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				02B4EA0419F5CF430048A2B6 /* Alamofire.xcodeproj */,
+				0255DFD719FADDAC008C80BB /* Alamofire */,
+				0255DFD019FADD7E008C80BB /* AddressBook */,
+			);
+			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		0255DFD019FADD7E008C80BB /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				0255DFD619FADD99008C80BB /* APAddressBook-Bridging.h */,
+				0255DFC519FADD7E008C80BB /* APAddress.h */,
+				0255DFC619FADD7E008C80BB /* APAddress.m */,
+				0255DFC719FADD7E008C80BB /* APAddressBook.h */,
+				0255DFC819FADD7E008C80BB /* APAddressBook.m */,
+				0255DFC919FADD7E008C80BB /* APContact.h */,
+				0255DFCA19FADD7E008C80BB /* APContact.m */,
+				0255DFCB19FADD7E008C80BB /* APPhoneWithLabel.h */,
+				0255DFCC19FADD7E008C80BB /* APPhoneWithLabel.m */,
+				0255DFCD19FADD7E008C80BB /* APSocialProfile.h */,
+				0255DFCE19FADD7E008C80BB /* APSocialProfile.m */,
+				0255DFCF19FADD7E008C80BB /* APTypes.h */,
+			);
+			name = AddressBook;
+			path = Pods/APAddressBook;
+			sourceTree = "<group>";
+		};
+		0255DFD719FADDAC008C80BB /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				0255DFC219FADD3E008C80BB /* Alamofire.h */,
+				0255DFC319FADD3E008C80BB /* Alamofire.swift */,
 			);
 			name = Alamofire;
-			path = Sapristi/Alamofire;
 			sourceTree = "<group>";
 		};
 		02B3B22319D5383E006ED6EE /* Sapristi */ = {
 			isa = PBXGroup;
 			children = (
+				0255DFC119FADD01008C80BB /* Third Party */,
 				02B3B27619D5390F006ED6EE /* Controllers */,
 				02B3B27519D53905006ED6EE /* Models */,
 				02B3B23419D53865006ED6EE /* Base.lproj */,
@@ -306,32 +325,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		02B4EA0519F5CF430048A2B6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02B4EA0A19F5CF430048A2B6 /* Alamofire.framework */,
-				02B4EA0C19F5CF430048A2B6 /* AlamofireTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3C70DE6E23D53436FDA7D7B1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4031534EE81FD16E0B22B313 /* libPods-Sapristi.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A608FB50F8115038EFDAAA91 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DAD9676581BA39CB97FDFA05 /* Pods-Sapristi.debug.xcconfig */,
-				B237C6FE832BDA730AB9E537 /* Pods-Sapristi.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,18 +332,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 024565B119C34A1D006F34D3 /* Build configuration list for PBXNativeTarget "Sapristi" */;
 			buildPhases = (
-				2E4651DB4122587C6827B0B1 /* Check Pods Manifest.lock */,
 				0245658F19C34A1D006F34D3 /* Sources */,
 				0245659019C34A1D006F34D3 /* Frameworks */,
 				0245659119C34A1D006F34D3 /* Resources */,
 				022C139919CA4A7F00A9DB55 /* Embed Frameworks */,
-				D420B0ADDFD2B9BF53EB183E /* Copy Pods Resources */,
 				02B4EA0F19F5E1490048A2B6 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				02B4EA0E19F5CFB20048A2B6 /* PBXTargetDependency */,
 			);
 			name = Sapristi;
 			productName = Sapristi;
@@ -382,7 +372,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = "Stephane Kasriel";
+				ORGANIZATIONNAME = Sapristi;
 				TargetAttributes = {
 					0245659219C34A1D006F34D3 = {
 						CreatedOnToolsVersion = 6.0;
@@ -406,12 +396,6 @@
 			mainGroup = 0245658A19C34A1D006F34D3;
 			productRefGroup = 0245659419C34A1D006F34D3 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 02B4EA0519F5CF430048A2B6 /* Products */;
-					ProjectRef = 02B4EA0419F5CF430048A2B6 /* Alamofire.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0245659219C34A1D006F34D3 /* Sapristi */,
@@ -420,28 +404,12 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		02B4EA0A19F5CF430048A2B6 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 02B4EA0919F5CF430048A2B6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02B4EA0C19F5CF430048A2B6 /* AlamofireTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AlamofireTests.xctest;
-			remoteRef = 02B4EA0B19F5CF430048A2B6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		0245659119C34A1D006F34D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024D9EFF19FB1A32008F6525 /* Main.storyboard in Resources */,
 				02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */,
 				025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */,
 			);
@@ -456,37 +424,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2E4651DB4122587C6827B0B1 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		};
-		D420B0ADDFD2B9BF53EB183E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi-resources.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		0245658F19C34A1D006F34D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -498,20 +435,26 @@
 				0237179919DD05E700A44A2B /* SyncContactsViewController.swift in Sources */,
 				02B3B26B19D53880006ED6EE /* InviteFriendsViewController.swift in Sources */,
 				02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */,
+				0255DFD519FADD7E008C80BB /* APSocialProfile.m in Sources */,
 				02CFCB5E19E5128900EDA122 /* ConfigManager.swift in Sources */,
 				02B3B26A19D53880006ED6EE /* InitialViewController.swift in Sources */,
 				021D7F0819E6D6C400555E0B /* AddressBookManager.swift in Sources */,
 				02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */,
 				02B4EA1419F85A510048A2B6 /* AvailabilityManager.swift in Sources */,
 				02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */,
+				0255DFD419FADD7E008C80BB /* APPhoneWithLabel.m in Sources */,
 				02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */,
 				02D048B019E9A1630040720F /* SKMotionDetector.swift in Sources */,
+				0255DFC419FADD3E008C80BB /* Alamofire.swift in Sources */,
 				02B3B24B19D53865006ED6EE /* ConfirmationCodeViewController.swift in Sources */,
+				0255DFD219FADD7E008C80BB /* APAddressBook.m in Sources */,
 				02B3B27319D53880006ED6EE /* SwiftyJSON.swift in Sources */,
 				021D7F0619E6CF9C00555E0B /* PhoneController.swift in Sources */,
 				02B3B26C19D53880006ED6EE /* InviteTableViewCell.swift in Sources */,
+				0255DFD319FADD7E008C80BB /* APContact.m in Sources */,
 				02B3B24C19D53865006ED6EE /* Contact.swift in Sources */,
 				02B3B24119D53865006ED6EE /* AccessContactsViewController.swift in Sources */,
+				0255DFD119FADD7E008C80BB /* APAddress.m in Sources */,
 				0237179C19DD0D2F00A44A2B /* AccessCalendarViewController.swift in Sources */,
 				02B3B25019D53865006ED6EE /* FriendsCell.swift in Sources */,
 				02B3B24F19D53865006ED6EE /* FriendLocalDatabase.swift in Sources */,
@@ -543,11 +486,6 @@
 			isa = PBXTargetDependency;
 			target = 0245659219C34A1D006F34D3 /* Sapristi */;
 			targetProxy = 024565A819C34A1D006F34D3 /* PBXContainerItemProxy */;
-		};
-		02B4EA0E19F5CFB20048A2B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			targetProxy = 02B4EA0D19F5CFB20048A2B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -658,15 +596,14 @@
 		};
 		024565B219C34A1D006F34D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAD9676581BA39CB97FDFA05 /* Pods-Sapristi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: stephane Kasriel (WX83LXYZ99)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: stephane Kasriel (WX83LXYZ99)";
 				INFOPLIST_FILE = Sapristi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -678,19 +615,19 @@
 		};
 		024565B319C34A1D006F34D3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B237C6FE832BDA730AB9E537 /* Pods-Sapristi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: stephane Kasriel (95Y84YC59A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: stephane Kasriel (95Y84YC59A)";
 				INFOPLIST_FILE = Sapristi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sapristi/Sapristi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

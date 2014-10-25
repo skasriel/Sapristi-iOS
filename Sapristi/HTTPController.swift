@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
 protocol HTTPControllerProtocol {
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/)
@@ -48,9 +48,9 @@ class HTTPController {
     /*
     * @queryID is a way for the delegate to know which response it's receiving (useful when a class is a delegate for multiple different HTTP requests
     */
-    private func doRequest(urlPath: String, method: Alamofire.Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol? = nil, queryID: String? = nil) {
+    private func doRequest(urlPath: String, method: /*Alamofire.*/Method, parameters: [String: AnyObject]? = nil, delegate: HTTPControllerProtocol? = nil, queryID: String? = nil) {
         let absoluteURL = BASE_URL + urlPath
-        Alamofire.request(method, absoluteURL, parameters: parameters)
+        /*Alamofire.*/request(method, absoluteURL, parameters: parameters)
             .responseJSON { (request, response, json, error) in
                 //println("doRequest: url=\(urlPath) params=\(parameters)")
                 //println("doRequest: res=\(response) json=\(json) err=\(error)")
