@@ -11,11 +11,10 @@ import UIKit
 class AccessCalendarViewController: UIViewController {
 
     @IBAction func enableButtonPressed(sender: AnyObject) {
-        CalendarManager.start(true)
-        ConfigManager.setBoolConfigValue(CONFIG_CALENDAR, newValue: true)
-        //calendarManager = CalendarManager(requestPermissions: true)
-        //self.navigationController!.popViewControllerAnimated(true)
+        //CalendarManager.start(true)
+        //ConfigManager.setBoolConfigValue(CONFIG_CALENDAR, newValue: true)
         self.performSegueWithIdentifier("fromSetupToMain", sender: self)
+        //self.navigationController!.popViewControllerAnimated(true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -24,6 +23,8 @@ class AccessCalendarViewController: UIViewController {
             let selectedTab = ConfigManager.getIntConfigValue(CONFIG_SELECTED_TAB, defaultValue: 1)
             tabVC.selectedIndex = selectedTab
         }
+        
+        super.prepareForSegue(segue, sender: sender)
     }
     
     
