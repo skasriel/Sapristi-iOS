@@ -14,7 +14,7 @@ class NotificationViewController: UIViewController {
     @IBAction func enableButtonPressed(sender: AnyObject) {
         // Register for push notifications
         let application = UIApplication.sharedApplication()
-        
+                
         var notificationActionOk: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
         notificationActionOk.identifier = "ACCEPT_IDENTIFIER"
         notificationActionOk.title = "Call"

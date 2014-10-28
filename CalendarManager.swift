@@ -1,3 +1,4 @@
+
 //
 //  CalendarManager.swift
 //  Sapristi
@@ -9,58 +10,19 @@
 import Foundation
 import EventKitUI
 
-class Timeslot : NSObject {
-    var startTime:      NSDate
-    var endTime:        NSDate
-    var availability:   Availability
-    var recurrence:     String
-    var source:         String
-    
-    init(startTime: NSDate, endTime: NSDate, availability: Availability, recurrence: String, source: String) {
-        self.startTime = startTime
-        self.endTime = endTime
-        self.availability = availability
-        self.recurrence = recurrence
-        self.source = source
-    }
-    
-    /**
-     * Call this prior to converting to JSON because Swift doesn't have a way to serialize custom classes (lame)
-    */
-    func serialize() -> Dictionary<String, String> {
-        var attributes: Dictionary<String, String>  = Dictionary()
-        var formattedStartTime = NSDate.ISOStringFromDate(startTime)
-        var formattedEndTime = NSDate.ISOStringFromDate(endTime)
-        attributes["startTime"] = formattedStartTime
-        attributes["endTime"] = formattedEndTime
-        attributes["availability"] = availability.rawValue
-        attributes["recurrence"] = recurrence
-        attributes["source"] = source
-        //println("Timeslot: \(formattedStartTime) - \(formattedEndTime)")
-        return attributes
-    }
-    
-    class func serialize(array: [Timeslot]) -> Array<Dictionary<String, String>> {
-        var attributes: Array<Dictionary<String, String>> = []
-        for (index, timeslot) in enumerate(array) {
-            attributes.append(timeslot.serialize())
-        }
-        return attributes
-    }
+func cm_alert(msg: String) {
+    /*let alert = UIAlertView(title: "Debug", message: msg,
+    delegate: nil, cancelButtonTitle: "OK")
+    alert.show()*/
+    println(msg)
 }
 
-let RECURRENCE_WEEKDAYS = "12345"
-let RECURRENCE_WEEKENDS = "60"
+
 
 var calendarManagerInstance: CalendarManager?
 
 class CalendarManager : HTTPControllerProtocol {
     var eventStore: EKEventStore!
-    
-    init(requestPermissions: Bool) {
-        loadFromCalendar(requestPermissions)
-    }
-    
     
     class func start(requestPermissions: Bool) -> CalendarManager {
         if calendarManagerInstance == nil {
@@ -72,6 +34,12 @@ class CalendarManager : HTTPControllerProtocol {
     class func stop() {
         // TBD
     }
+
+    init(requestPermissions: Bool) {
+        loadFromCalendar(requestPermissions)
+    }
+    
+    
     
     func getEventStore(requestPermissions: Bool, completed: (EKEventStore) -> ()) {
         if eventStore != nil {
@@ -106,19 +74,18 @@ class CalendarManager : HTTPControllerProtocol {
         }
     }
     
-    
     func loadFromCalendar(requestPermissions: Bool) {
         getEventStore(requestPermissions) { eventStore in // horrible swift closure syntax...
             var startDate = NSDate().dateByAddingTimeInterval(60*60*24*(-1))
             var endDate = NSDate().dateByAddingTimeInterval(60*60*24*7) // 7 days in the future
             var calPredicate: NSPredicate = eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
-            println("Searching for calendar events with dates between \(startDate) and \(endDate)")
+            cm_alert("Searching for calendar events with dates between \(startDate) and \(endDate)")
             var events = eventStore.eventsMatchingPredicate(calPredicate)
             if (events == nil) {
-                println("No events in calendar, returning")
+                cm_alert("No events in calendar, returning")
                 return
             }
-            println("found \(countElements(events)) calendar entries")
+            cm_alert("found \(countElements(events)) calendar entries")
             
             var timeslots = Array<Timeslot>()
             for (index, eventObj) in enumerate(events) {
@@ -135,7 +102,7 @@ class CalendarManager : HTTPControllerProtocol {
                 let eventStart = event.startDate
                 let eventEnd = event.endDate
                 let allDay = event.allDay
-                println("Calendar entry: \(title) \(eventStart) \(eventEnd) \(sapristiAvailability) \(allDay) \(NSDate.ISOStringFromDate(eventStart))")
+                cm_alert("Calendar entry: \(title) \(eventStart) \(eventEnd) \(sapristiAvailability) \(allDay) \(NSDate.ISOStringFromDate(eventStart))")
                 var timeslot = Timeslot(startTime: eventStart, endTime: eventEnd, availability: sapristiAvailability, recurrence: "", source: "CALENDAR")
                 timeslots.append(timeslot)
             }
@@ -147,7 +114,7 @@ class CalendarManager : HTTPControllerProtocol {
     class func submitTimeSlotsToServer(timeslots: [Timeslot], delegate: HTTPControllerProtocol) {
         let json = HTTPController.JSONStringify(Timeslot.serialize(timeslots))
         if (json == "") {
-            println("Unable to JSON timeslots")
+            cm_alert("Unable to JSON timeslots")
             return
         }
         let httpParams = ["json": json]
@@ -157,7 +124,7 @@ class CalendarManager : HTTPControllerProtocol {
     }
     
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/) {
-        println("TBD")
+        cm_alert("TBD")
     }
 
 }

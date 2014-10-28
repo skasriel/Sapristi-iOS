@@ -10,24 +10,34 @@ import Foundation
 //import Alamofire
 
 protocol HTTPControllerProtocol {
-    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject? /*NSDictionary?*/)
+    func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?)
 }
 
-let httpControllerInstance = HTTPController()
+var httpControllerInstance: HTTPController?
 
 class HTTPController {
-    let BASE_URL = "http://lit-woodland-6706.herokuapp.com"// "http://169.254.244.85:5000"  //  "http://localhost:5000" //
+    var BASE_URL: String  // = "https://hidden-badlands-4711.herokuapp.com/" // "http://lit-woodland-6706.herokuapp.com" // "http://169.254.244.85:5000"  //  "http://localhost:5000" // https://blooming-mountain-4885.herokuapp.com/
     
     class func getInstance() -> HTTPController {
-        return httpControllerInstance
+        if httpControllerInstance == nil {
+            httpControllerInstance = HTTPController()
+        }
+        return httpControllerInstance!
     }
     
     private init() {
         /*
         let path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist")
-        let config:NSDictionary = NSDictionary(contentsOfFile:path)
-        host = config.objectForKey("host") as String
-        */
+        let config:NSDictionary = NSDictionary(contentsOfFile:path!)!
+        BASE_URL = config.objectForKey("baseURL") as String*/
+        let env = NSProcessInfo.processInfo().environment
+        let base = env["baseURL"] as String?
+        if base != nil {
+            BASE_URL = base!
+        } else {
+            BASE_URL = "https://hidden-badlands-4711.herokuapp.com" // production heroku server
+        }
+        println("Base URL: \(BASE_URL)")
     }
     
     class func JSONStringify(jsonObj: AnyObject) -> String {

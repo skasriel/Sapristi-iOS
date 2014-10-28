@@ -198,10 +198,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HxT-aQ-xNK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    <rect key="frame" x="7" y="72" width="70" height="70"/>
                                 </variation>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="213" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-C0-oxg">
@@ -284,7 +284,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="79" y="77" width="280" height="21"/>
+                                    <rect key="frame" x="85" y="77" width="310" height="23"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated x mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-JY-Uj9">
@@ -293,15 +293,9 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="79" y="100" width="280" height="21"/>
+                                    <rect key="frame" x="85" y="100" width="310" height="21"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                </variation>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOB-XP-l2E">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Add to Favorites">
@@ -338,6 +332,9 @@
                                     <action selector="callLessOftenButtonPressed:" destination="frj-8W-lGs" eventType="touchUpInside" id="ycH-vi-cBg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="HxT-aQ-xNK">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -346,16 +343,16 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="HxT-aQ-xNK"/>
+                                <exclude reference="13r-aZ-J9e"/>
                                 <exclude reference="Y5i-C0-oxg"/>
                                 <exclude reference="c81-bD-mJh"/>
                                 <exclude reference="veh-XB-FfS"/>
                                 <exclude reference="y6f-J3-Nyv"/>
                                 <exclude reference="Ocs-JY-Uj9"/>
-                                <exclude reference="13r-aZ-J9e"/>
                                 <exclude reference="WOB-XP-l2E"/>
                                 <exclude reference="1R7-ZR-Z4c"/>
                                 <exclude reference="ZO5-ob-UNz"/>
+                                <exclude reference="HxT-aQ-xNK"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="uij-72-FEE"/>
@@ -364,16 +361,16 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="HxT-aQ-xNK"/>
+                                <include reference="13r-aZ-J9e"/>
                                 <include reference="Y5i-C0-oxg"/>
                                 <include reference="c81-bD-mJh"/>
                                 <include reference="veh-XB-FfS"/>
                                 <include reference="y6f-J3-Nyv"/>
                                 <include reference="Ocs-JY-Uj9"/>
-                                <include reference="13r-aZ-J9e"/>
                                 <include reference="WOB-XP-l2E"/>
                                 <include reference="1R7-ZR-Z4c"/>
                                 <include reference="ZO5-ob-UNz"/>
+                                <exclude reference="HxT-aQ-xNK"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="uij-72-FEE"/>

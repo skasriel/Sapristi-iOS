@@ -9,13 +9,24 @@
 import UIKit
 import CoreData
 
+ func nv_alert(msg: String) {
+    let alert = UIAlertView(title: "Debug", message: msg,
+        delegate: nil, cancelButtonTitle: "OK")
+    alert.show()
+    println(msg)
+ }
+ 
+ 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
                             
     var window: UIWindow?
 
-
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+        // Splunk MINT
+        Mint.sharedInstance().initAndStartSession("969315a2")
+
         // Override point for customization after application launch.
         if launchOptions == nil {
             return true
@@ -94,10 +105,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
             .stringByTrimmingCharactersInSet( characterSet )
             .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
         println( deviceTokenString )
+        
+        /*var isProduction: Bool = false
+        if DEBUG == 1 {
+            nv_alert("DEBUG mode -> sending to sandbox APN server")
+        } else {
+            isProduction = true
+            nv_alert("PRODUCTION mode -> sending to production APN server")
+        }*/
+        
+
 
         var url = "/api/me/apn-token"
         var formData: [String: AnyObject] = [
-            "apnToken":  deviceTokenString
+            "apnToken":  deviceTokenString//,
+            //"isProduction": isProduction
         ]
         
         HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self, queryID: nil)

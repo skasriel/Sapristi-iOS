@@ -50,6 +50,11 @@
 		02CFCB5E19E5128900EDA122 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFCB5D19E5128900EDA122 /* ConfigManager.swift */; };
 		02CFCB6019E5174000EDA122 /* CarMotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */; };
 		02D048B019E9A1630040720F /* SKMotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D048AF19E9A1630040720F /* SKMotionDetector.swift */; };
+		02D496F919FE009200E0B938 /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D496F819FE009200E0B938 /* Timeslot.swift */; };
+		02D496FB19FF561000E0B938 /* SplunkMint-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D496FA19FF561000E0B938 /* SplunkMint-iOS.framework */; };
+		02D496FD19FF563000E0B938 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D496FC19FF563000E0B938 /* SystemConfiguration.framework */; };
+		02D496FF19FF563900E0B938 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D496FE19FF563900E0B938 /* CoreTelephony.framework */; };
+		02D4970119FF564000E0B938 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D4970019FF564000E0B938 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +149,12 @@
 		02CFCB5D19E5128900EDA122 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarMotionViewController.swift; sourceTree = "<group>"; };
 		02D048AF19E9A1630040720F /* SKMotionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMotionDetector.swift; sourceTree = "<group>"; };
+		02D496F819FE009200E0B938 /* Timeslot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeslot.swift; sourceTree = "<group>"; };
+		02D496FA19FF561000E0B938 /* SplunkMint-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SplunkMint-iOS.framework"; path = "../SplunkMint-iOS.framework"; sourceTree = "<group>"; };
+		02D496FC19FF563000E0B938 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		02D496FE19FF563900E0B938 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		02D4970019FF564000E0B938 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		02D4970219FF59B400E0B938 /* SplunkMint-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SplunkMint-iOS-Bridging-Header.h"; path = "../SplunkMint-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +162,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02D4970119FF564000E0B938 /* libz.dylib in Frameworks */,
+				02D496FF19FF563900E0B938 /* CoreTelephony.framework in Frameworks */,
+				02D496FD19FF563000E0B938 /* SystemConfiguration.framework in Frameworks */,
+				02D496FB19FF561000E0B938 /* SplunkMint-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +234,11 @@
 		0255DFC119FADD01008C80BB /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				02D4970219FF59B400E0B938 /* SplunkMint-iOS-Bridging-Header.h */,
+				02D4970019FF564000E0B938 /* libz.dylib */,
+				02D496FE19FF563900E0B938 /* CoreTelephony.framework */,
+				02D496FC19FF563000E0B938 /* SystemConfiguration.framework */,
+				02D496FA19FF561000E0B938 /* SplunkMint-iOS.framework */,
 				0255DFD719FADDAC008C80BB /* Alamofire */,
 				0255DFD019FADD7E008C80BB /* AddressBook */,
 			);
@@ -283,6 +303,7 @@
 		02B3B27419D538A6006ED6EE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				02D496F819FE009200E0B938 /* Timeslot.swift */,
 				0252A25719ED75AC00450126 /* Availability.swift */,
 				02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */,
 				02CFCB5D19E5128900EDA122 /* ConfigManager.swift */,
@@ -377,6 +398,11 @@
 					0245659219C34A1D006F34D3 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 95Y84YC59A;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					024565A619C34A1D006F34D3 = {
 						CreatedOnToolsVersion = 6.0;
@@ -447,6 +473,7 @@
 				02D048B019E9A1630040720F /* SKMotionDetector.swift in Sources */,
 				0255DFC419FADD3E008C80BB /* Alamofire.swift in Sources */,
 				02B3B24B19D53865006ED6EE /* ConfirmationCodeViewController.swift in Sources */,
+				02D496F919FE009200E0B938 /* Timeslot.swift in Sources */,
 				0255DFD219FADD7E008C80BB /* APAddressBook.m in Sources */,
 				02B3B27319D53880006ED6EE /* SwiftyJSON.swift in Sources */,
 				021D7F0619E6CF9C00555E0B /* PhoneController.swift in Sources */,
@@ -602,9 +629,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: stephane Kasriel (WX83LXYZ99)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: stephane Kasriel (WX83LXYZ99)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/skasriel/Dropbox/Sapristi/iOS,
+				);
 				INFOPLIST_FILE = Sapristi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sapristi/Sapristi-Bridging-Header.h";
@@ -621,9 +656,20 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: stephane Kasriel (95Y84YC59A)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: stephane Kasriel (95Y84YC59A)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/skasriel/Dropbox/Sapristi/iOS,
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Sapristi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sapristi/Sapristi-Bridging-Header.h";

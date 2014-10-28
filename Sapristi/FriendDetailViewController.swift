@@ -123,7 +123,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
         friendLocalDatabase.needsRefresh = true
         
         // And to the server (which may use it e.g. to send more / fewer push notifications about that user)
-        var url = "/api/me/desired-frequency/" + defaultPhoneNumber!
+        var url = "/api/me/desired-frequency/" + PhoneController.cleanPhoneNumber(defaultPhoneNumber!)
         var formData: [String: AnyObject] = [
             "newFrequency":  friend.desiredCallFrequency
         ]

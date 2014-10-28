@@ -81,6 +81,23 @@
             ReferencedContainer = "container:Sapristi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "url-stage"
+            value = "https://blooming-mountain-4885.herokuapp.com"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "url-prod"
+            value = "https://hidden-badlands-4711.herokuapp.com"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "baseURL"
+            value = "https://blooming-mountain-4885.herokuapp.com"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
