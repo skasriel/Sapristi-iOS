@@ -73,19 +73,27 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
 
         shakeDetectingTimer = NSTimer(timeInterval: 0.01, target: self, selector: Selector("detectShaking:"), userInfo: nil, repeats: true)
         
+        println("Creating new NSOperationQueue for startAccelerometerUpdatesToQueue")
+        motionManager!.accelerometerUpdateInterval = 2 // check only every few secs, no need to use tons of battery...
         motionManager!.startAccelerometerUpdatesToQueue(NSOperationQueue()) { (accelerometerData: CMAccelerometerData!, error: NSError!) -> Void in
-            self.acceleration = accelerometerData.acceleration;
-            self.calculateMotionType()
+            dispatch_async(dispatch_get_main_queue()) {
+                if error != nil {
+                    println("Error in startAccelerometerUpdatesToQueue \(error!.localizedDescription)")
+                }
+                println("Acceleration: \(accelerometerData.acceleration)")
+                self.acceleration = accelerometerData.acceleration;
+                self.calculateMotionType()
+            }
         }
         
-        println("CMM? \(CMMotionActivityManager.isActivityAvailable())") // am I requesting permissions correctly here?
+        println("CMM isActivityAvailable? \(CMMotionActivityManager.isActivityAvailable())") // am I requesting permissions correctly here?
         if (useM7IfAvailable && CMMotionActivityManager.isActivityAvailable()) {
             if (motionActivityManager==nil) {
                 println("create motion activity manager")
                 motionActivityManager = CMMotionActivityManager()
             }
-            println("here")
             
+            println("Creating new NSOperationQueue for startActivityUpdatesToQueue")
             motionActivityManager!.startActivityUpdatesToQueue(NSOperationQueue()) { (activity: CMMotionActivity!) -> Void in
                 dispatch_async(dispatch_get_main_queue(), {
                     if activity.walking {
