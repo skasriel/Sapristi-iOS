@@ -13,32 +13,7 @@ class NotificationViewController: UIViewController {
     
     @IBAction func enableButtonPressed(sender: AnyObject) {
         // Register for push notifications
-        let application = UIApplication.sharedApplication()
-                
-        var notificationActionOk: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionOk.identifier = "ACCEPT_IDENTIFIER"
-        notificationActionOk.title = "Call"
-        notificationActionOk.destructive = false
-        notificationActionOk.authenticationRequired = false
-        notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
-        
-        var notificationActionCancel: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionCancel.identifier = "NOT_NOW_IDENTIFIER"
-        notificationActionCancel.title = "Not Now"
-        notificationActionCancel.destructive = true
-        notificationActionCancel.authenticationRequired = false
-        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
-        
-        var notificationCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        notificationCategory.identifier = "AVAILABILITY_CATEGORY"
-        notificationCategory.setActions([notificationActionOk,notificationActionCancel], forContext: UIUserNotificationActionContext.Default)
-        notificationCategory.setActions([notificationActionOk,notificationActionCancel], forContext: UIUserNotificationActionContext.Minimal)
-        
-        var types: UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
-        var settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: types, categories: NSSet(array:[notificationCategory]) )
-        application.registerUserNotificationSettings( settings )
-        application.registerForRemoteNotifications()
-        
+        PushNotificationManager.registerForPushNotifications()
         self.performSegueWithIdentifier("fromNotificationsToCarMotion", sender: self)
     }
     

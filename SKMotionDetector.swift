@@ -74,7 +74,7 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
         shakeDetectingTimer = NSTimer(timeInterval: 0.01, target: self, selector: Selector("detectShaking:"), userInfo: nil, repeats: true)
         
         println("Creating new NSOperationQueue for startAccelerometerUpdatesToQueue")
-        motionManager!.accelerometerUpdateInterval = 2 // check only every few secs, no need to use tons of battery...
+        motionManager!.accelerometerUpdateInterval = 30 // check only every few secs, no need to use tons of battery...
         motionManager!.startAccelerometerUpdatesToQueue(NSOperationQueue()) { (accelerometerData: CMAccelerometerData!, error: NSError!) -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 if error != nil {

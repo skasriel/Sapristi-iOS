@@ -156,7 +156,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         cell.availabilityImageView.image = image
             
         if (friend.updatedAt != nil) {
-            println("updated: \(friend.updatedAt) - now = \(NSDate())")
+            //println("updated: \(friend.updatedAt) - now = \(NSDate())")
             status += " Updated " + NSDate.formatElapsedTime(friend.updatedAt, end: NSDate())
         }
         cell.friendStatusLabel.text = status
@@ -284,6 +284,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
                     FriendLocalDatabase.saveToCoreData()
                 }
                 friendLocalData!.availability = availability
+                println("for user \(username) Server updatedAt=\(updatedAt) converts to \(NSDate.dateFromISOString(updatedAt)) compare to now=\(NSDate())")
                 if let updatedAtDate = NSDate.dateFromISOString(updatedAt) {
                     friendLocalData!.updatedAt = updatedAtDate
                 }

@@ -102,7 +102,7 @@ class CalendarManager : HTTPControllerProtocol {
                 let eventStart = event.startDate
                 let eventEnd = event.endDate
                 let allDay = event.allDay
-                cm_alert("Calendar entry: \(title) \(eventStart) \(eventEnd) \(sapristiAvailability) \(allDay) \(NSDate.ISOStringFromDate(eventStart))")
+                //cm_alert("Calendar entry: \(title) \(eventStart) \(eventEnd) \(sapristiAvailability) \(allDay) \(NSDate.ISOStringFromDate(eventStart))")
                 var timeslot = Timeslot(startTime: eventStart, endTime: eventEnd, availability: sapristiAvailability, recurrence: "", source: "CALENDAR")
                 timeslots.append(timeslot)
             }

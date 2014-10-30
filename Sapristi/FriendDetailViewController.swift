@@ -27,6 +27,31 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var friendPhoneTableView: UITableView!
     
+    /**
+     * Displays this view for a specific user. Called from push notification handlers
+    */
+    class func showFriend(username: String) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabbedViewController = mainStoryboard.instantiateViewControllerWithIdentifier("tabController") as UITabBarController
+        tabbedViewController.selectedIndex = 1 // All Contacts
+        UIApplication.sharedApplication().keyWindow!.rootViewController = tabbedViewController
+        
+        let friendDetailsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("friendDetail") as FriendDetailViewController
+        let friendLocalDatabase = FriendLocalDatabase(delegate: nil)
+        let friend: FriendModel? = friendLocalDatabase.getFriendByUsername(username)
+        if (friend == nil) {
+            println("Cannot find friend mentioned in push notification \(username)")
+            return
+        }
+        friendDetailsViewController.friendLocalDatabase = friendLocalDatabase
+        friendDetailsViewController.friend = friend
+        
+        let navigationController = tabbedViewController.navigationController
+        let nav: UINavigationController = tabbedViewController.viewControllers![1] as UINavigationController
+        nav.pushViewController(friendDetailsViewController, animated: true)
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         friendNameLabel.text = friend.displayName

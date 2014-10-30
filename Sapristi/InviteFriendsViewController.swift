@@ -81,6 +81,7 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
         cell.toggleSelected()*/
     }
     
+    // Need to replace this with an ActionSheet controller... Or see: http://nshipster.com/uialertcontroller/
     /**
     * UITableViewDataSource implementation
     */

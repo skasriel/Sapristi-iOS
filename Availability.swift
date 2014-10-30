@@ -11,7 +11,7 @@ import Foundation
 /**
  * Reason codes indicating why the user is shown with a specific availability
  */
-enum Reason : String {
+enum Reason : String { // see user.js
     case User = "USER",
     CarMotion = "CAR_MOTION",
     Timeslot = "TIMESLOT",
@@ -20,7 +20,7 @@ enum Reason : String {
     static let allValues = [User.rawValue: User, CarMotion.rawValue: CarMotion, Timeslot.rawValue: Timeslot, Calendar.rawValue: Calendar]
 }
 
-enum Availability : String {
+enum Availability : String { // see user.js
     case Available = "AVAILABLE",
     Busy = "BUSY",
     Unknown = "UNKNOWN"
@@ -28,21 +28,3 @@ enum Availability : String {
 }
 
 let SET_AVAILABILITY = "SET_AVAILABILITY"
-
-//typealias ReasonType = String
-//typealias AvailabilityType = String
-
-/*struct Availability {
-    // Availabilty values (should change to enum?)
-    static let AVAILABLE = "AVAILABLE"
-    static let BUSY = "BUSY"
-    static let UNKNOWN = "UNKNOWN"
-    
-    // Availability reasons (keep track of why the availability was set to a specific value
-    static let USER = "USER"
-    static let CAR_MOTION = "CAR_MOTION"
-    static let TIMESLOT = "TIMESLOT"
-    static let CALENDAR = "CALENDAR"
-    
-    static let SET_AVAILABILITY = "SET_AVAILABILITY"
-}*/

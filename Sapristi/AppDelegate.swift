@@ -9,19 +9,13 @@
 import UIKit
 import CoreData
 
- func nv_alert(msg: String) {
-    let alert = UIAlertView(title: "Debug", message: msg,
-        delegate: nil, cancelButtonTitle: "OK")
-    alert.show()
-    println(msg)
- }
- 
  
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
                             
     var window: UIWindow?
+    let pushNotificationManager = PushNotificationManager()
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Splunk MINT
@@ -31,40 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
         if launchOptions == nil {
             return true
         }
-        var notification: [NSObject : AnyObject]? = launchOptions.objectForKey(UIApplicationLaunchOptionsRemoteNotificationKey) as [NSObject : AnyObject]?
-        if notification != nil {
-            NSLog("app recieved notification from remote \(notification)")
-            handleRemoteNotification(notification!)
-            return true
-        }
-        NSLog("app did not recieve notification")
+        
+        pushNotificationManager.checkWhetherStartingFromPushNotification(launchOptions)
         return true
     }
     
-    // Open the app and show the friend details page for the correct friend
-    // TODO: right now this works if the app was running in the background but not if it's terminated. Not sure why and hard to debug since Xcode is no longer attached at that point...
-    func handleRemoteNotification(userInfo: [NSObject: AnyObject]) {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabbedViewController = mainStoryboard.instantiateViewControllerWithIdentifier("tabController") as UITabBarController
-        tabbedViewController.selectedIndex = 1 // All Contacts
-        self.window!.rootViewController = tabbedViewController
-        
-        let friendDetailsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("friendDetail") as FriendDetailViewController
-        let username = userInfo["username"] as String
-        let friendLocalDatabase = FriendLocalDatabase(delegate: nil)
-        let friend: FriendModel? = friendLocalDatabase.getFriendByUsername(username)
-        if (friend == nil) {
-            println("Cannot find friend mentioned in push notification \(username)")
-            return
-        }
-        friendDetailsViewController.friendLocalDatabase = friendLocalDatabase
-        friendDetailsViewController.friend = friend
-
-        let navigationController = tabbedViewController.navigationController
-        let nav: UINavigationController = tabbedViewController.viewControllers![1] as UINavigationController
-        nav.pushViewController(friendDetailsViewController, animated: true)
-    }
-
     func applicationWillResignActive(application: UIApplication!) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -98,28 +63,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
         */
         
         // send token to server
-        println("Push token = \(deviceToken)")
         var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
         
         var deviceTokenString: String = ( deviceToken.description as NSString )
             .stringByTrimmingCharactersInSet( characterSet )
             .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
         println( deviceTokenString )
-        
-        /*var isProduction: Bool = false
-        if DEBUG == 1 {
-            nv_alert("DEBUG mode -> sending to sandbox APN server")
-        } else {
-            isProduction = true
-            nv_alert("PRODUCTION mode -> sending to production APN server")
-        }*/
-        
-
 
         var url = "/api/me/apn-token"
         var formData: [String: AnyObject] = [
-            "apnToken":  deviceTokenString//,
-            //"isProduction": isProduction
+            "apnToken":  deviceTokenString
         ]
         
         HTTPController.getInstance().doPOST(url, parameters: formData, delegate: self, queryID: nil)
@@ -139,18 +92,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HTTPControllerProtocol {
     
     // called both in foreground and background mode
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        if application.applicationState == UIApplicationState.Active {
-            println("didReceiveRemoteNotification while app is active: \(userInfo)")
-            // app was already in the foreground
-        } else {
-            // app was just brought from background to foreground
-            println("didReceiveRemoteNotification while app is in background \(userInfo)")
-            handleRemoteNotification(userInfo)
-        }
+        pushNotificationManager.didReceiveRemoteNotification(application, userInfo: userInfo)
     }
     
     // user requested a specific action from the push notification message
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        pushNotificationManager.handleActionWithIdentifier(application, handleActionWithIdentifier: identifier, userInfo: userInfo, completionHandler: completionHandler)
         println("handleActionWithIdentifier \(identifier) \(userInfo)")
         completionHandler()
     }
