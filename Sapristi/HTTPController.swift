@@ -96,9 +96,6 @@ class HTTPController {
         
         if username != nil && authToken != nil {
             var url = "/api/auth/login"
-            /*if ((username! as String).indexOf("+")==0) { // hack until I upgrade to latest version of Alamofire, which properly encodes POST bodies
-                username = "%2B" + username!.substringFromIndex(1)
-            }*/
             var formData: [String: AnyObject] = [
                 "username": username!,
                 "password": authToken!

@@ -60,9 +60,9 @@ class AvailabilityManager {
         case Reason.CarMotion:
             return "Because you're driving"
         case Reason.Timeslot:
-            return "During your defined time slots"
+            return "Because of your defined time slots"
         case Reason.Calendar:
-            return "Based on the entry in your calendar"
+            return "Based on an entry in your calendar"
         default:
             return nil
         }

@@ -23,7 +23,6 @@ class CarManager : NSObject, SKMotionDetectorDelegate, HTTPControllerProtocol {
         super.init()
         println("Init CarManager requestPermissions = \(requestPermissions)")
         motionDetector.delegate = self
-        motionDetector.useM7IfAvailable = true
         motionDetector.startDetection()
     }
     

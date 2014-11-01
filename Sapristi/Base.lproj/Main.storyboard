@@ -53,11 +53,11 @@
                                     <rect key="frame" x="16" y="81" width="83" height="21"/>
                                 </variation>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="362" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zn7-wn-Aid">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="362" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zn7-wn-Aid">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="5se-IL-VcF" customClass="FriendCell" customModule="Sapristi" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="54" id="5se-IL-VcF" customClass="FriendCell" customModule="Sapristi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5se-IL-VcF" id="eId-1g-l5E">
@@ -66,34 +66,16 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-0P-1aG">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="6" y="0.0" width="40" height="40"/>
+                                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-CM-0c4">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="54" y="1" width="240" height="21"/>
-                                                    </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPT-OK-STk">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="54" y="15" width="224" height="21"/>
-                                                    </variation>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="737-uc-j3n">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Button" image="phone">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="280" y="7" width="30" height="30"/>
+                                                        <rect key="frame" x="282" y="10" width="30" height="30"/>
                                                     </variation>
                                                     <connections>
                                                         <action selector="callButtonPressed:" destination="5se-IL-VcF" eventType="touchUpInside" id="jXZ-Ji-GwB"/>
@@ -102,26 +84,44 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-ZT-4eK">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="4" width="16" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                     </variation>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-CM-0c4">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="60" y="13" width="224" height="21"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPT-OK-STk">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="60" y="26" width="224" height="21"/>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="pIZ-0P-1aG"/>
-                                                    <exclude reference="WbY-CM-0c4"/>
-                                                    <exclude reference="pPT-OK-STk"/>
                                                     <exclude reference="737-uc-j3n"/>
                                                     <exclude reference="Kdl-ZT-4eK"/>
+                                                    <exclude reference="WbY-CM-0c4"/>
+                                                    <exclude reference="pPT-OK-STk"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="pIZ-0P-1aG"/>
-                                                    <include reference="WbY-CM-0c4"/>
-                                                    <include reference="pPT-OK-STk"/>
                                                     <include reference="737-uc-j3n"/>
                                                     <include reference="Kdl-ZT-4eK"/>
+                                                    <include reference="WbY-CM-0c4"/>
+                                                    <include reference="pPT-OK-STk"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNl-Q9-y6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4263" y="1533"/>
+            <point key="canvasLocation" x="4263" y="1532"/>
         </scene>
         <!--Friend Detail View Controller-->
         <scene sceneID="nFb-sP-Ojm">
@@ -200,11 +200,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="72" width="70" height="70"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="6" y="72" width="78" height="78"/>
                                 </variation>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="213" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-C0-oxg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="213" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-C0-oxg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -237,7 +237,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="166" width="320" height="213"/>
+                                    <rect key="frame" x="0.0" y="193" width="320" height="213"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="frj-8W-lGs" id="vGE-nB-ooy"/>
@@ -259,7 +259,8 @@
                                         <exclude reference="QEB-bO-lcg"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="263" y="72" width="52" height="52"/>
                                     <mask key="constraints">
                                         <include reference="M6f-1g-ywQ"/>
                                         <include reference="QEB-bO-lcg"/>
@@ -276,24 +277,6 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="175" y="449" width="129" height="21"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-J3-Nyv">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="85" y="77" width="310" height="23"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated x mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-JY-Uj9">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="85" y="100" width="310" height="21"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOB-XP-l2E">
@@ -335,9 +318,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" translatesAutoresizingMaskIntoConstraints="NO" id="HxT-aQ-xNK">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-J3-Nyv">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="92" y="89" width="310" height="23"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated x mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-JY-Uj9">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="92" y="112" width="310" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="13r-aZ-J9e" firstAttribute="leading" secondItem="u7E-Bf-ftY" secondAttribute="leadingMargin" constant="-10" id="GbS-QQ-kMD"/>
+                            <constraint firstItem="13r-aZ-J9e" firstAttribute="top" secondItem="dpA-IQ-Jo1" secondAttribute="bottom" constant="8" id="t4D-Bq-1v9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c81-bD-mJh" secondAttribute="trailing" constant="-8" id="uij-72-FEE"/>
                             <constraint firstItem="c81-bD-mJh" firstAttribute="top" secondItem="dpA-IQ-Jo1" secondAttribute="bottom" constant="10" id="wYF-24-yNZ"/>
                         </constraints>
@@ -347,14 +350,16 @@
                                 <exclude reference="Y5i-C0-oxg"/>
                                 <exclude reference="c81-bD-mJh"/>
                                 <exclude reference="veh-XB-FfS"/>
-                                <exclude reference="y6f-J3-Nyv"/>
-                                <exclude reference="Ocs-JY-Uj9"/>
                                 <exclude reference="WOB-XP-l2E"/>
                                 <exclude reference="1R7-ZR-Z4c"/>
                                 <exclude reference="ZO5-ob-UNz"/>
                                 <exclude reference="HxT-aQ-xNK"/>
+                                <exclude reference="y6f-J3-Nyv"/>
+                                <exclude reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="GbS-QQ-kMD"/>
+                                <exclude reference="t4D-Bq-1v9"/>
                                 <exclude reference="uij-72-FEE"/>
                                 <exclude reference="wYF-24-yNZ"/>
                             </mask>
@@ -365,14 +370,16 @@
                                 <include reference="Y5i-C0-oxg"/>
                                 <include reference="c81-bD-mJh"/>
                                 <include reference="veh-XB-FfS"/>
-                                <include reference="y6f-J3-Nyv"/>
-                                <include reference="Ocs-JY-Uj9"/>
                                 <include reference="WOB-XP-l2E"/>
                                 <include reference="1R7-ZR-Z4c"/>
                                 <include reference="ZO5-ob-UNz"/>
                                 <exclude reference="HxT-aQ-xNK"/>
+                                <include reference="y6f-J3-Nyv"/>
+                                <include reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="GbS-QQ-kMD"/>
+                                <include reference="t4D-Bq-1v9"/>
                                 <include reference="uij-72-FEE"/>
                                 <include reference="wYF-24-yNZ"/>
                             </mask>
@@ -485,7 +492,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="4" y="101" width="309" height="415"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="MyD-BK-oO4" id="6FO-gf-2Rf"/>
@@ -1370,7 +1377,7 @@
         <scene sceneID="aV4-ze-dsG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="twU-c7-f95" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="second" id="0Z8-Ys-SdN"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_selected" id="0Z8-Ys-SdN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oqC-0P-kIe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1906,29 +1913,23 @@
                                     <action selector="changeAvailabilityButtonPressed:" destination="NSd-vh-luX" eventType="touchUpInside" id="qXw-pz-EvM"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="381" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="79I-rH-lgf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="381" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="79I-rH-lgf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="50" id="ikC-Id-N5M" customClass="FriendCell" customModule="Sapristi" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="64" id="ikC-Id-N5M" customClass="FriendCell" customModule="Sapristi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ikC-Id-N5M" id="WiK-M9-wFB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2f-uf-oUB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="-3" width="45" height="45"/>
-                                                    </variation>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXc-9f-9nh">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="59" y="0.0" width="200" height="21"/>
+                                                        <rect key="frame" x="63" y="18" width="212" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmG-oy-Xzm">
@@ -1937,7 +1938,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="59" y="14" width="200" height="21"/>
+                                                        <rect key="frame" x="63" y="34" width="200" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO2-4I-9aT">
@@ -1946,7 +1947,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="277" y="7" width="30" height="30"/>
+                                                        <rect key="frame" x="273" y="8" width="40" height="40"/>
                                                     </variation>
                                                     <connections>
                                                         <action selector="callButtonPressed:" destination="ikC-Id-N5M" eventType="touchUpInside" id="SBQ-23-bDx"/>
@@ -1955,26 +1956,32 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="qFj-uH-bEG">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="1" width="16" height="16"/>
+                                                        <rect key="frame" x="2" y="1" width="16" height="16"/>
+                                                    </variation>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2f-uf-oUB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                     </variation>
                                                 </imageView>
                                             </subviews>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="E2f-uf-oUB"/>
                                                     <exclude reference="CXc-9f-9nh"/>
                                                     <exclude reference="VmG-oy-Xzm"/>
                                                     <exclude reference="XO2-4I-9aT"/>
                                                     <exclude reference="qFj-uH-bEG"/>
+                                                    <exclude reference="E2f-uf-oUB"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="E2f-uf-oUB"/>
                                                     <include reference="CXc-9f-9nh"/>
                                                     <include reference="VmG-oy-Xzm"/>
                                                     <include reference="XO2-4I-9aT"/>
                                                     <include reference="qFj-uH-bEG"/>
+                                                    <include reference="E2f-uf-oUB"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -2036,7 +2043,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cd3-KY-HJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2808" y="1550"/>
+            <point key="canvasLocation" x="2808" y="1549"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Zx-fU-Cjr">
@@ -2059,18 +2066,18 @@
     </scenes>
     <resources>
         <image name="Checkbox_unchecked" width="128" height="128"/>
-        <image name="available_dot_icon" width="31" height="28"/>
+        <image name="available_dot_icon" width="40" height="40"/>
         <image name="phone" width="204" height="204"/>
-        <image name="second" width="30" height="30"/>
+        <image name="settings_selected" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="y0A-gE-El3"/>
         <segue reference="p9a-jJ-xYU"/>
         <segue reference="gf3-jD-vkP"/>
         <segue reference="5TL-Vb-3rp"/>
-        <segue reference="tyf-Go-cty"/>
+        <segue reference="M9j-Pq-NF7"/>
+        <segue reference="MSC-Ar-62q"/>
         <segue reference="ald-Dd-xmD"/>
-        <segue reference="IPS-9k-2ic"/>
         <segue reference="RRe-D9-SUM"/>
     </inferredMetricsTieBreakers>
 </document>

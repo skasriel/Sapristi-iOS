@@ -21,7 +21,6 @@
 		0255DFD319FADD7E008C80BB /* APContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFCA19FADD7E008C80BB /* APContact.m */; };
 		0255DFD419FADD7E008C80BB /* APPhoneWithLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFCC19FADD7E008C80BB /* APPhoneWithLabel.m */; };
 		0255DFD519FADD7E008C80BB /* APSocialProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0255DFCE19FADD7E008C80BB /* APSocialProfile.m */; };
-		025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025EF8C119C6A188008D30C6 /* Media.xcassets */; };
 		02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */; };
 		02B3B24119D53865006ED6EE /* AccessContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */; };
 		02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3B23219D53865006ED6EE /* AllFriendsViewController.swift */; };
@@ -56,6 +55,8 @@
 		02D496FF19FF563900E0B938 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D496FE19FF563900E0B938 /* CoreTelephony.framework */; };
 		02D4970119FF564000E0B938 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D4970019FF564000E0B938 /* libz.dylib */; };
 		02D497041A018A2F00E0B938 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D497031A018A2F00E0B938 /* PushNotificationManager.swift */; };
+		02D497061A0217E500E0B938 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D497051A0217E500E0B938 /* NotificationCenterManager.swift */; };
+		02D497081A04A1C700E0B938 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D497071A04A1C700E0B938 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +118,6 @@
 		0255DFCE19FADD7E008C80BB /* APSocialProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APSocialProfile.m; path = Pod/Core/APSocialProfile.m; sourceTree = "<group>"; };
 		0255DFCF19FADD7E008C80BB /* APTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APTypes.h; path = Pod/Core/APTypes.h; sourceTree = "<group>"; };
 		0255DFD619FADD99008C80BB /* APAddressBook-Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APAddressBook-Bridging.h"; path = "Pod/Swift/APAddressBook-Bridging.h"; sourceTree = "<group>"; };
-		025EF8C119C6A188008D30C6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02B3B22719D53865006ED6EE /* AccessContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessContactsViewController.swift; path = Sapristi/AccessContactsViewController.swift; sourceTree = "<group>"; };
 		02B3B23219D53865006ED6EE /* AllFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllFriendsViewController.swift; path = Sapristi/AllFriendsViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +157,8 @@
 		02D4970019FF564000E0B938 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02D4970219FF59B400E0B938 /* SplunkMint-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SplunkMint-iOS-Bridging-Header.h"; path = "../SplunkMint-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		02D497031A018A2F00E0B938 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		02D497051A0217E500E0B938 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		02D497071A04A1C700E0B938 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				02B3B22319D5383E006ED6EE /* Sapristi */,
-				025EF8C119C6A188008D30C6 /* Media.xcassets */,
 				024565AA19C34A1D006F34D3 /* SapristiTests */,
 				0245659419C34A1D006F34D3 /* Products */,
 			);
@@ -292,6 +293,7 @@
 		02B3B23419D53865006ED6EE /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				02D497071A04A1C700E0B938 /* Media.xcassets */,
 				0252A25019EC18A100450126 /* Info.plist */,
 				02B3B25D19D53880006ED6EE /* Sapristi-Bridging-Header.h */,
 				02B3B23519D53865006ED6EE /* #Main.storyboard# */,
@@ -305,6 +307,7 @@
 		02B3B27419D538A6006ED6EE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				02D497051A0217E500E0B938 /* NotificationCenterManager.swift */,
 				02D497031A018A2F00E0B938 /* PushNotificationManager.swift */,
 				02D496F819FE009200E0B938 /* Timeslot.swift */,
 				0252A25719ED75AC00450126 /* Availability.swift */,
@@ -439,8 +442,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				024D9EFF19FB1A32008F6525 /* Main.storyboard in Resources */,
+				02D497081A04A1C700E0B938 /* Media.xcassets in Resources */,
 				02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */,
-				025EF8C219C6A188008D30C6 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +472,7 @@
 				02B3B26A19D53880006ED6EE /* InitialViewController.swift in Sources */,
 				021D7F0819E6D6C400555E0B /* AddressBookManager.swift in Sources */,
 				02B3B24619D53865006ED6EE /* AllFriendsViewController.swift in Sources */,
+				02D497061A0217E500E0B938 /* NotificationCenterManager.swift in Sources */,
 				02B4EA1419F85A510048A2B6 /* AvailabilityManager.swift in Sources */,
 				02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */,
 				0255DFD419FADD7E008C80BB /* APPhoneWithLabel.m in Sources */,

@@ -69,12 +69,12 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
     }
     
     func startDetection() {
-        locationManager!.startUpdatingLocation() //         locationManager!.startMonitoringSignificantLocationChanges()
+        locationManager!.startUpdatingLocation()
 
         shakeDetectingTimer = NSTimer(timeInterval: 0.01, target: self, selector: Selector("detectShaking:"), userInfo: nil, repeats: true)
         
         println("Creating new NSOperationQueue for startAccelerometerUpdatesToQueue")
-        motionManager!.accelerometerUpdateInterval = 30 // check only every few secs, no need to use tons of battery...
+        motionManager!.accelerometerUpdateInterval = 120 // check only every few secs, no need to use tons of battery...
         motionManager!.startAccelerometerUpdatesToQueue(NSOperationQueue()) { (accelerometerData: CMAccelerometerData!, error: NSError!) -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 if error != nil {
@@ -86,8 +86,7 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
             }
         }
         
-        println("CMM isActivityAvailable? \(CMMotionActivityManager.isActivityAvailable())") // am I requesting permissions correctly here?
-        if (useM7IfAvailable && CMMotionActivityManager.isActivityAvailable()) {
+        if (CMMotionActivityManager.isActivityAvailable()) {
             if (motionActivityManager==nil) {
                 println("create motion activity manager")
                 motionActivityManager = CMMotionActivityManager()
@@ -130,7 +129,7 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
     }
     
     func calculateMotionType() {
-        if (useM7IfAvailable && CMMotionActivityManager.isActivityAvailable()) {
+        if (CMMotionActivityManager.isActivityAvailable()) {
             return
         }
     
@@ -219,16 +218,7 @@ class SKMotionDetector: NSObject, CLLocationManagerDelegate {
     }
 
     
-    
-    /**
-    * Set this parameter to YES if you want to use M7 chip to detect more exact motion type.
-    * Set this parameter before calling startDetection method.
-    * Available only on devices that have M7 chip. At this time only the iPhone 5S, the iPad Air and iPad mini with retina display have the M7 coprocessor.
-    */
-    var useM7IfAvailable = true // NS_AVAILABLE_IOS(7_0);
-    
-    
-    /**
+        /**
     *@param speed  The minimum speed value less than which will be considered as not moving state
     */
     func setMinimumSpeed(speed: Double) {

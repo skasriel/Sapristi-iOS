@@ -74,6 +74,7 @@ class PushNotificationManager {
         category.setActions([action1, action2], forContext: UIUserNotificationActionContext.Default)
         return category
     }
+    
     private class func registerRegistrationPushNotifications(application: UIApplication) -> UIMutableUserNotificationCategory {
         return registerFriendAvailabilityPushNotifications(application)
     }
@@ -205,6 +206,15 @@ class PushNotificationManager {
 
                 let OKAction = UIAlertAction(title: "Yep!", style: .Default) { (action) in
                     println("Alert OK pressed")
+                    
+                    NotificationCenterManager.postNotificationName(NotificationCenterAvailability, object: self, userInfo: ["availability": availability, "reason": reason])
+                    /*var topController = PushNotificationManager.getTopController()
+                    topController = topController.visibleViewController
+                    println("topController \(topController)")
+                    if topController.isKindOfClass(AllFriendsViewController) {
+                        let allFriendsVC = topController as AllFriendsViewController
+                        allFriendsVC.getMyAvailability()
+                    }*/
                 }
                 dismissibleAlert!.addAction(OKAction)
                 let CancelAction = UIAlertAction(title: "Nope :(", style: .Cancel) { (action) in

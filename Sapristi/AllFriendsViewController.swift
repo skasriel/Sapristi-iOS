@@ -24,6 +24,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     var friendLocalDatabase: FriendLocalDatabase?
     var refreshTimer: NSTimer?
     
+    let notificationCenterManager = NotificationCenterManager()
 
     let availabilityManager = AvailabilityManager.getInstance()
     
@@ -67,7 +68,11 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         allFriendsTableView.addSubview(refreshControl!)
         
         // Also refresh periodically (at least until I build push notifications)
-        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("doRefresh"), userInfo: nil, repeats: true)        
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("doRefresh"), userInfo: nil, repeats: true)
+        
+        notificationCenterManager.registerObserver(NotificationCenterAvailability) { userInfo in
+            self.getMyAvailability() // not optimal, I already have the availability in userInfo...
+        }
     }
     
     func fetchFromDatabase() {
@@ -84,7 +89,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         refresh()
         
         // refresh the button value periodically, a bit of a hack - server will change my availability automatically and this needs to be reflected in UI
-        updateAvailabilityUI();
+        getMyAvailability()
     }
     
     func refresh(viaPullToRefresh: Bool = false) {
