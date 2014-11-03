@@ -66,7 +66,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-0P-1aG">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                                        <rect key="frame" x="8" y="8" width="0.0" height="0.0"/>
                                                     </variation>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="737-uc-j3n">
@@ -81,19 +81,13 @@
                                                         <action selector="callButtonPressed:" destination="5se-IL-VcF" eventType="touchUpInside" id="jXZ-Ji-GwB"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-ZT-4eK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                                                    </variation>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-CM-0c4">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="60" y="13" width="224" height="21"/>
+                                                        <rect key="frame" x="60" y="11" width="224" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPT-OK-STk">
@@ -102,26 +96,32 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="60" y="26" width="224" height="21"/>
+                                                        <rect key="frame" x="60" y="28" width="224" height="21"/>
                                                     </variation>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="available_dot_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-ZT-4eK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="14" y="19" width="16" height="16"/>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="pIZ-0P-1aG"/>
                                                     <exclude reference="737-uc-j3n"/>
-                                                    <exclude reference="Kdl-ZT-4eK"/>
                                                     <exclude reference="WbY-CM-0c4"/>
                                                     <exclude reference="pPT-OK-STk"/>
+                                                    <exclude reference="Kdl-ZT-4eK"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="pIZ-0P-1aG"/>
                                                     <include reference="737-uc-j3n"/>
-                                                    <include reference="Kdl-ZT-4eK"/>
                                                     <include reference="WbY-CM-0c4"/>
                                                     <include reference="pPT-OK-STk"/>
+                                                    <include reference="Kdl-ZT-4eK"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -201,7 +201,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="6" y="72" width="78" height="78"/>
+                                    <rect key="frame" x="6" y="72" width="69" height="69"/>
                                 </variation>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="213" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-C0-oxg">
@@ -259,8 +259,7 @@
                                         <exclude reference="QEB-bO-lcg"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="263" y="72" width="52" height="52"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="M6f-1g-ywQ"/>
                                         <include reference="QEB-bO-lcg"/>
@@ -324,7 +323,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="92" y="89" width="310" height="23"/>
+                                    <rect key="frame" x="106" y="89" width="310" height="23"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated x mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-JY-Uj9">
@@ -333,7 +332,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="92" y="112" width="310" height="21"/>
+                                    <rect key="frame" x="106" y="112" width="310" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -358,10 +357,10 @@
                                 <exclude reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GbS-QQ-kMD"/>
-                                <exclude reference="t4D-Bq-1v9"/>
                                 <exclude reference="uij-72-FEE"/>
                                 <exclude reference="wYF-24-yNZ"/>
+                                <exclude reference="GbS-QQ-kMD"/>
+                                <exclude reference="t4D-Bq-1v9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -378,10 +377,10 @@
                                 <include reference="Ocs-JY-Uj9"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GbS-QQ-kMD"/>
-                                <include reference="t4D-Bq-1v9"/>
                                 <include reference="uij-72-FEE"/>
                                 <include reference="wYF-24-yNZ"/>
+                                <include reference="GbS-QQ-kMD"/>
+                                <include reference="t4D-Bq-1v9"/>
                             </mask>
                         </variation>
                     </view>
@@ -1392,7 +1391,7 @@
             </objects>
             <point key="canvasLocation" x="1176" y="628"/>
         </scene>
-        <!--Sapristi Settings-->
+        <!--Settings-->
         <scene sceneID="vdb-Jl-JRX">
             <objects>
                 <tableViewController id="erw-CT-wD5" customClass="SettingsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
@@ -1763,7 +1762,7 @@
                             <outlet property="delegate" destination="erw-CT-wD5" id="mKu-sY-Meq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sapristi Settings" id="unS-ik-WlW"/>
+                    <navigationItem key="navigationItem" title="Settings" id="unS-ik-WlW"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="calendarButton" destination="ZDp-hf-bKz" id="IGZ-Hm-JGm"/>
@@ -2071,13 +2070,13 @@
         <image name="settings_selected" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iBs-BH-Yci"/>
         <segue reference="y0A-gE-El3"/>
-        <segue reference="p9a-jJ-xYU"/>
-        <segue reference="gf3-jD-vkP"/>
-        <segue reference="5TL-Vb-3rp"/>
-        <segue reference="M9j-Pq-NF7"/>
-        <segue reference="MSC-Ar-62q"/>
         <segue reference="ald-Dd-xmD"/>
+        <segue reference="IPS-9k-2ic"/>
         <segue reference="RRe-D9-SUM"/>
+        <segue reference="RrU-bw-hWw"/>
+        <segue reference="M9j-Pq-NF7"/>
+        <segue reference="5TL-Vb-3rp"/>
     </inferredMetricsTieBreakers>
 </document>

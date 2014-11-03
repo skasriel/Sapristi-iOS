@@ -44,19 +44,25 @@ class CarManager : NSObject, SKMotionDetectorDelegate, HTTPControllerProtocol {
         println("New motion type: \(motionType)")
         let oldMotionType = currentMotionType
         currentMotionType = motionType
-        if motionType == MotionTypeDriving {
+        if currentMotionType != oldMotionType && (currentMotionType == MotionTypeDriving || oldMotionType == MotionTypeDriving) {
+            let httpParams = ["oldMotionType": oldMotionType, "newMotionType": currentMotionType]
+            let url = "/api/me/motion"
+            HTTPController.getInstance().doPOST(url, parameters: httpParams, delegate: self, queryID: "UPDATE_MOTION")
+        }
+        /*if motionType == MotionTypeDriving {
             availabilityManager.setAvailability(Availability.Available, updateServer: true, reason: Reason.CarMotion, delegate: self)
         } else if oldMotionType == MotionTypeDriving && currentMotionType != MotionTypeDriving {
             //TODO: tell server to figure out new availability - user is not in a car anymore, so need to figure out what availability to revert to
             availabilityManager.setAvailability(Availability.Unknown, updateServer: true, reason: Reason.CarMotion, delegate: self)
-        }
+        }*/
     }
     
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
         if let error = err {
-            println("Unable to update availability from Car Detector \(error.localizedDescription)")
+            println("Unable to update availability from CarManager \(error.localizedDescription)")
             return
         }
+        
         let json = results! as Dictionary<String, AnyObject>
         let availability = json["availability"]! as String
         let availabilityCode: Availability? = AvailabilityManager.getAvailabilityFromString(availability)
@@ -64,6 +70,8 @@ class CarManager : NSObject, SKMotionDetectorDelegate, HTTPControllerProtocol {
             println("Invalid availability code from server: \(availability)")
             return
         }
-        availabilityManager.setAvailability(availabilityCode!)
+        let reason = json["reason"]! as String
+        let reasonCode: Reason? = AvailabilityManager.getReasonFromString(reason)
+        availabilityManager.setAvailability(availabilityCode!, reason: reasonCode, updateServer: false, delegate: nil)
     }
 }

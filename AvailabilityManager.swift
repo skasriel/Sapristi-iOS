@@ -58,7 +58,11 @@ class AvailabilityManager {
         case Reason.User:
             return "Set by you"
         case Reason.CarMotion:
-            return "Because you're driving"
+            if currentAvailability == Availability.Unknown {
+                return "Because you're no longer driving"
+            } else {
+                return "Because you're driving"
+            }
         case Reason.Timeslot:
             return "Because of your defined time slots"
         case Reason.Calendar:

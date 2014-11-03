@@ -289,7 +289,6 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
                     FriendLocalDatabase.saveToCoreData()
                 }
                 friendLocalData!.availability = availability
-                println("for user \(username) Server updatedAt=\(updatedAt) converts to \(NSDate.dateFromISOString(updatedAt)) compare to now=\(NSDate())")
                 if let updatedAtDate = NSDate.dateFromISOString(updatedAt) {
                     friendLocalData!.updatedAt = updatedAtDate
                 }
