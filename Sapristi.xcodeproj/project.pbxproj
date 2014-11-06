@@ -43,6 +43,7 @@
 		02B4EA1219F769990048A2B6 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1119F769990048A2B6 /* FriendModel.swift */; };
 		02B4EA1419F85A510048A2B6 /* AvailabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */; };
 		02B4EA1719F88DF60048A2B6 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */; };
+		02BDE6B21A09B83900478F7C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BDE6B11A09B83900478F7C /* FacebookSDK.framework */; };
 		02BF762719D664FC007E6A04 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762619D664FC007E6A04 /* DatePickerCell.swift */; };
 		02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */; };
 		02BF762B19DB07AC007E6A04 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF762A19DB07AC007E6A04 /* CalendarManager.swift */; };
@@ -144,6 +145,7 @@
 		02B4EA1119F769990048A2B6 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		02B4EA1319F85A510048A2B6 /* AvailabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailabilityManager.swift; sourceTree = "<group>"; };
 		02B4EA1619F88DF60048A2B6 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		02BDE6B11A09B83900478F7C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		02BF762619D664FC007E6A04 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSettingsViewController.swift; path = Sapristi/DateSettingsViewController.swift; sourceTree = "<group>"; };
 		02BF762A19DB07AC007E6A04 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D4970119FF564000E0B938 /* libz.dylib in Frameworks */,
+				02BDE6B21A09B83900478F7C /* FacebookSDK.framework in Frameworks */,
 				02D496FF19FF563900E0B938 /* CoreTelephony.framework in Frameworks */,
 				02D496FD19FF563000E0B938 /* SystemConfiguration.framework in Frameworks */,
 				02D496FB19FF561000E0B938 /* SplunkMint-iOS.framework in Frameworks */,
@@ -238,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				02D4970219FF59B400E0B938 /* SplunkMint-iOS-Bridging-Header.h */,
+				02BDE6B11A09B83900478F7C /* FacebookSDK.framework */,
 				02D4970019FF564000E0B938 /* libz.dylib */,
 				02D496FE19FF563900E0B938 /* CoreTelephony.framework */,
 				02D496FC19FF563000E0B938 /* SystemConfiguration.framework */,
@@ -640,6 +644,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/skasriel/Dropbox/Sapristi/iOS,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Sapristi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -668,6 +673,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/skasriel/Dropbox/Sapristi/iOS,
+					"$(PROJECT_DIR)",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

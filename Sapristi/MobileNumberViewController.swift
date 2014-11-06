@@ -11,7 +11,12 @@ class MobileNumberViewController: UIViewController, HTTPControllerProtocol {
         super.viewDidLoad()
         mobileNumberField.becomeFirstResponder()
         print("Loaded MobileNumberController")
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        nextButton.enabled = true
+        nextButton.backgroundColor = colorWithHexString("#00E85F") // green = enabled
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,6 +56,7 @@ class MobileNumberViewController: UIViewController, HTTPControllerProtocol {
     @IBAction func submitButtonPressed(sender: UIButton) {
         errorMessageLabel.hidden = true
         nextButton.enabled = false
+        nextButton.backgroundColor = colorWithHexString("#8E8D93") // dark gray = disabled
         let mobileNumber = countryCodeField.text + " " + mobileNumberField.text
         let username = mobileNumber
         let password = Int(arc4random_uniform(99999999))

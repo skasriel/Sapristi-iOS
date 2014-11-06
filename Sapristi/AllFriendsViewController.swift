@@ -202,13 +202,13 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         switch(availability) {
         case Availability.Available:
             changeAvailabilityButton.setTitle("AVAILABLE", forState: UIControlState.Normal)
-            changeAvailabilityButton.backgroundColor = UIColor(red: 0.1, green: 0.8, blue: 0.1, alpha: 1.0)
+            changeAvailabilityButton.backgroundColor = colorWithHexString("#00E85F") // UIColor(red: 0.1, green: 0.8, blue: 0.1, alpha: 1.0)
         case Availability.Unknown:
             changeAvailabilityButton.setTitle("UNKNOWN", forState: UIControlState.Normal)
-            changeAvailabilityButton.backgroundColor = UIColor(red: 0.5, green: 0.3, blue: 0.3, alpha: 1.0)
+            changeAvailabilityButton.backgroundColor = colorWithHexString("#8E8D93") // UIColor(red: 0.5, green: 0.3, blue: 0.3, alpha: 1.0)
         default:
             changeAvailabilityButton.setTitle("BUSY", forState: UIControlState.Normal)
-            changeAvailabilityButton.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1.0)
+            changeAvailabilityButton.backgroundColor =  colorWithHexString("#FF023F") // UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1.0)
         }
         
         let reason: String? = availabilityManager.getReasonMessage()
@@ -257,11 +257,12 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             println("Unable to get friends' availability \(error.localizedDescription)")
             return
         }
+        
         // Got an array from server, that contains the availability of my friends who are Sapristi users
         let jsonArray: Array<Dictionary<String, AnyObject>> = results! as Array<Dictionary<String, AnyObject>>
         
         // to be able to properly locate the results from server in the list of FriendModels stored locally, create a dictionary
-        let map: Dictionary<String, FriendModel> = friendLocalDatabase!.getDictionary()
+        let map: Dictionary<String, FriendModel> = self.friendLocalDatabase!.getDictionary()
         
         // now update the availability of my friends
         for (index, friendServerData: Dictionary<String, AnyObject>) in enumerate(jsonArray) {
@@ -294,8 +295,8 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
         }
-        friendLocalDatabase!.sort() // Show available friends, then busy friends, then unknown friends
-        allFriendsTableView.reloadData() // refresh the view
+        self.friendLocalDatabase!.sort() // Show available friends, then busy friends, then unknown friends
+        self.allFriendsTableView.reloadData() // refresh the view
     }
     
     

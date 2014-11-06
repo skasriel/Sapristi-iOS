@@ -118,6 +118,7 @@ class CalendarManager : HTTPControllerProtocol {
             return
         }
         let httpParams = ["json": json]
+        println("Sending timeslots: \(httpParams)")
         let url = "/api/settings/timeslots"
         //let url = "/api/settings/calendar"
         HTTPController.getInstance().doPOST(url, parameters: httpParams, delegate: delegate, queryID: "UPLOAD_CALENDAR")

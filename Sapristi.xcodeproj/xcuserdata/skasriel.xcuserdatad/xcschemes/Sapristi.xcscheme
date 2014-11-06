@@ -88,13 +88,18 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "url-local"
+            value = "http://localhost:5000"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "url-prod"
             value = "https://hidden-badlands-4711.herokuapp.com"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "baseURL"
-            value = "https://blooming-mountain-4885.herokuapp.com"
+            value = "http://localhost:5000"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
