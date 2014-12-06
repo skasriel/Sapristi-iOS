@@ -57,7 +57,10 @@ class MobileNumberViewController: UIViewController, HTTPControllerProtocol {
         errorMessageLabel.hidden = true
         nextButton.enabled = false
         nextButton.backgroundColor = colorWithHexString("#8E8D93") // dark gray = disabled
-        let mobileNumber = countryCodeField.text + " " + mobileNumberField.text
+        //Country Code doesn't seem to link to anything...
+        //STEPH:NOT SURE WHAT TO DO WITH THAT????
+        //let mobileNumber = countryCodeField.text + " " + mobileNumberField.text
+        let mobileNumber = mobileNumberField.text
         let username = mobileNumber
         let password = Int(arc4random_uniform(99999999))
         var url = "/api/auth/register"

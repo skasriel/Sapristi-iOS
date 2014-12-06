@@ -58,6 +58,11 @@
 		02D497041A018A2F00E0B938 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D497031A018A2F00E0B938 /* PushNotificationManager.swift */; };
 		02D497061A0217E500E0B938 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D497051A0217E500E0B938 /* NotificationCenterManager.swift */; };
 		02D497081A04A1C700E0B938 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D497071A04A1C700E0B938 /* Media.xcassets */; };
+		36742AF61A2B8B040001ECAD /* SplunkMint-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36742AF51A2B8B040001ECAD /* SplunkMint-iOS.framework */; };
+		36F33B781A2EA24E00FDC08A /* AllFriendsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F33B771A2EA24E00FDC08A /* AllFriendsHeader.xib */; };
+		36FF986D1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF986C1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift */; };
+		36FF98701A2FF9FA004DD9C3 /* AllFriendsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FF986E1A2FF9FA004DD9C3 /* AllFriendsFooterView.xib */; };
+		36FF98721A2FFA3C004DD9C3 /* AllFriendsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF98711A2FFA3C004DD9C3 /* AllFriendsFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +166,12 @@
 		02D497031A018A2F00E0B938 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		02D497051A0217E500E0B938 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		02D497071A04A1C700E0B938 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../Media.xcassets; sourceTree = "<group>"; };
+		36742AF31A2B8ADF0001ECAD /* SplunkMint-iOS 2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SplunkMint-iOS 2.framework"; path = "../../../Downloads/SplunkMint-iOS 2.framework"; sourceTree = "<group>"; };
+		36742AF51A2B8B040001ECAD /* SplunkMint-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SplunkMint-iOS.framework"; path = "../../../Downloads/SplunkMint-iOS.framework"; sourceTree = "<group>"; };
+		36F33B771A2EA24E00FDC08A /* AllFriendsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AllFriendsHeader.xib; path = ../../AllFriendsHeader.xib; sourceTree = "<group>"; };
+		36FF986C1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllFriendsHeaderView.swift; sourceTree = "<group>"; };
+		36FF986F1A2FF9FA004DD9C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = AllFriendsFooterView.xib; sourceTree = "<group>"; };
+		36FF98711A2FFA3C004DD9C3 /* AllFriendsFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllFriendsFooterView.swift; path = Sapristi/AllFriendsFooterView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +182,7 @@
 				02D4970119FF564000E0B938 /* libz.dylib in Frameworks */,
 				02BDE6B21A09B83900478F7C /* FacebookSDK.framework in Frameworks */,
 				02D496FF19FF563900E0B938 /* CoreTelephony.framework in Frameworks */,
+				36742AF61A2B8B040001ECAD /* SplunkMint-iOS.framework in Frameworks */,
 				02D496FD19FF563000E0B938 /* SystemConfiguration.framework in Frameworks */,
 				02D496FB19FF561000E0B938 /* SplunkMint-iOS.framework in Frameworks */,
 			);
@@ -205,6 +217,8 @@
 		0245658A19C34A1D006F34D3 = {
 			isa = PBXGroup;
 			children = (
+				36742AF51A2B8B040001ECAD /* SplunkMint-iOS.framework */,
+				36742AF31A2B8ADF0001ECAD /* SplunkMint-iOS 2.framework */,
 				02B3B22319D5383E006ED6EE /* Sapristi */,
 				024565AA19C34A1D006F34D3 /* SapristiTests */,
 				0245659419C34A1D006F34D3 /* Products */,
@@ -297,6 +311,8 @@
 		02B3B23419D53865006ED6EE /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				36F33B771A2EA24E00FDC08A /* AllFriendsHeader.xib */,
+				36FF986E1A2FF9FA004DD9C3 /* AllFriendsFooterView.xib */,
 				02D497071A04A1C700E0B938 /* Media.xcassets */,
 				0252A25019EC18A100450126 /* Info.plist */,
 				02B3B25D19D53880006ED6EE /* Sapristi-Bridging-Header.h */,
@@ -352,6 +368,8 @@
 				021D7EFD19E69ED300555E0B /* FavoriteFriendsViewController.swift */,
 				02B3B23D19D53865006ED6EE /* FriendDetailViewController.swift */,
 				02B3B25A19D53880006ED6EE /* InviteFriendsViewController.swift */,
+				36FF98711A2FFA3C004DD9C3 /* AllFriendsFooterView.swift */,
+				36FF986C1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -407,7 +425,7 @@
 				TargetAttributes = {
 					0245659219C34A1D006F34D3 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 95Y84YC59A;
+						DevelopmentTeam = T7Y4H862DJ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -416,7 +434,7 @@
 					};
 					024565A619C34A1D006F34D3 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 95Y84YC59A;
+						DevelopmentTeam = T7Y4H862DJ;
 						TestTargetID = 0245659219C34A1D006F34D3;
 					};
 				};
@@ -447,6 +465,8 @@
 			files = (
 				024D9EFF19FB1A32008F6525 /* Main.storyboard in Resources */,
 				02D497081A04A1C700E0B938 /* Media.xcassets in Resources */,
+				36FF98701A2FF9FA004DD9C3 /* AllFriendsFooterView.xib in Resources */,
+				36F33B781A2EA24E00FDC08A /* AllFriendsHeader.xib in Resources */,
 				02B3B22619D53855006ED6EE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +501,7 @@
 				02B3B26F19D53880006ED6EE /* SettingsViewController.swift in Sources */,
 				0255DFD419FADD7E008C80BB /* APPhoneWithLabel.m in Sources */,
 				02BF762919D918FC007E6A04 /* DateSettingsViewController.swift in Sources */,
+				36FF986D1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift in Sources */,
 				02D048B019E9A1630040720F /* SKMotionDetector.swift in Sources */,
 				0255DFC419FADD3E008C80BB /* Alamofire.swift in Sources */,
 				02D497041A018A2F00E0B938 /* PushNotificationManager.swift in Sources */,
@@ -495,6 +516,7 @@
 				02B3B24119D53865006ED6EE /* AccessContactsViewController.swift in Sources */,
 				0255DFD119FADD7E008C80BB /* APAddress.m in Sources */,
 				0237179C19DD0D2F00A44A2B /* AccessCalendarViewController.swift in Sources */,
+				36FF98721A2FFA3C004DD9C3 /* AllFriendsFooterView.swift in Sources */,
 				02B3B25019D53865006ED6EE /* FriendsCell.swift in Sources */,
 				02B3B24F19D53865006ED6EE /* FriendLocalDatabase.swift in Sources */,
 				02B4EA1719F88DF60048A2B6 /* NotificationViewController.swift in Sources */,
@@ -551,6 +573,14 @@
 				02B3B23819D53865006ED6EE /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		36FF986E1A2FF9FA004DD9C3 /* AllFriendsFooterView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36FF986F1A2FF9FA004DD9C3 /* Base */,
+			);
+			name = AllFriendsFooterView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -645,6 +675,7 @@
 					"$(inherited)",
 					/Users/skasriel/Dropbox/Sapristi/iOS,
 					"$(PROJECT_DIR)",
+					/Users/csellin/Downloads,
 				);
 				INFOPLIST_FILE = Sapristi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -674,6 +705,7 @@
 					"$(inherited)",
 					/Users/skasriel/Dropbox/Sapristi/iOS,
 					"$(PROJECT_DIR)",
+					/Users/csellin/Downloads,
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

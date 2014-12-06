@@ -10,17 +10,17 @@ import UIKit
 
 let refreshQueue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
 
-class AllFriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HTTPControllerProtocol {
+class AllFriendsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, HTTPControllerProtocol {
     
     let FRIEND_AVAILABILITY : String = "FRIEND_AVAILABILITY"
     let MY_AVAILABILITY: String = "GET_AVAILABILITY"
     
     @IBOutlet weak var changeAvailabilityButton: UIButton!
-    @IBOutlet weak var allFriendsTableView: UITableView!
     @IBOutlet weak var inviteFriendsButton: UIButton!
     @IBOutlet weak var reasonLabel: UILabel!
+    var headerView: AllFriendsHeaderView!
+    var footerView: AllFriendsFooterView!
     
-    var refreshControl:UIRefreshControl?
     var friendLocalDatabase: FriendLocalDatabase?
     var refreshTimer: NSTimer?
     
@@ -57,15 +57,15 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchFromDatabase() // load address book from Core Data
         
-        refresh() // get friends' availability from server
+        var nib: UINib = UINib(nibName: "AllFriendsHeader", bundle:nil)
+        self.tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier:"Header");
+        headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header") as AllFriendsHeaderView;
+        headerView.allFriendsController = self
         
-        // allow user to pull to refresh
-        refreshControl = UIRefreshControl()
-        refreshControl!.attributedTitle = NSAttributedString(string: "Pull To Refresh...")
-        refreshControl!.addTarget(self, action: Selector("refreshInvoked"), forControlEvents: UIControlEvents.ValueChanged)
-        allFriendsTableView.addSubview(refreshControl!)
+        let nib2:NSArray = NSBundle.mainBundle().loadNibNamed("AllFriendsFooterView", owner: nil, options: nil)
+        footerView = nib2[0] as AllFriendsFooterView
+        footerView.allFriendsController = self
         
         // Also refresh periodically (at least until I build push notifications)
         refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("doRefresh"), userInfo: nil, repeats: true)
@@ -73,15 +73,17 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         notificationCenterManager.registerObserver(NotificationCenterAvailability) { userInfo in
             self.getMyAvailability() // not optimal, I already have the availability in userInfo...
         }
+        
+        fetchFromDatabase() // load address book from Core Data
+        refresh() // get friends' availability from server
     }
     
     func fetchFromDatabase() {
-        friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
+        friendLocalDatabase = FriendLocalDatabase(delegate: tableView)
         friendLocalDatabase!.fetchFromAllDatabase();
     }
 
-    @objc func refreshInvoked()
-    {
+    @IBAction func refreshInvoked(sender: AnyObject) {
         refresh(viaPullToRefresh: true)
     }
     
@@ -112,7 +114,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         }
         if "showFriendDetail" == segue.identifier  {
             let detailVC:FriendDetailViewController = segue.destinationViewController as FriendDetailViewController
-            let indexPath = self.allFriendsTableView.indexPathForSelectedRow()
+            let indexPath = tableView.indexPathForSelectedRow()
             let selectedFriend = friendLocalDatabase!.objectAtIndexPath(indexPath!)
             detailVC.friend = selectedFriend
             detailVC.friendLocalDatabase = friendLocalDatabase!
@@ -122,7 +124,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     /**
     * UITableViewDataSource implementation
     */
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendLocalDatabase!.numberOfRowsInSection(section)
     }
 
@@ -130,15 +132,15 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     let imageAvailable = UIImage(named: "available_dot_icon")
     let imageUnknown = UIImage(named: "icon_unknown")
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: FriendCell = allFriendsTableView.dequeueReusableCellWithIdentifier("myCell") as FriendCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        var cell: FriendCell = tableView.dequeueReusableCellWithIdentifier("friendCell") as FriendCell
         var friend: FriendModel = friendLocalDatabase!.objectAtIndexPath(indexPath)
         //print("row: \(indexPath)")
         //print(" friend: \(friend.availability)")
         //print(" cell: \(cell.friendStatusLabel)")
         
         cell.friendNameLabel.text = friend.displayName
-        
         if friend.thumbnail != nil {
             cell.thumbnailImageView.image = UIImage(data: friend.thumbnail)
         } else {
@@ -169,9 +171,44 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    // Need to implement this function to get the viewForHeaderInSection call back...
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if headerView == nil {
+            return 0
+        }
+        var height = headerView.frame.height
+        return height
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return headerView
+    }
+    
+    // Need to implement this function to get the viewForHeaderInSection call back...
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        var height = footerView.frame.height
+        
+        //For the FavoriteFriendsVC we don't want a footer
+       if self is FavoriteFriendsViewController {
+            height = 0;
+        }
+        
+        return height
+    }
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        return footerView
+    }
+    
     /* UITableViewDelegate implementation */
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showFriendDetail", sender: self)        
+    }
+    
+    func clickedOnInviteFriends() {
+        self.performSegueWithIdentifier("InviteFriend", sender: self)
     }
     
     func getFriendAvailability() {
@@ -179,42 +216,6 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
     }
     func getMyAvailability() {
         HTTPController.getInstance().doGET("/api/me/availability", delegate: self, queryID: MY_AVAILABILITY)
-    }
-
-    @IBAction func changeAvailabilityButtonPressed(sender: UIButton) {
-        var newAvailability : Availability
-        
-        switch(availabilityManager.currentAvailability) {
-        case Availability.Available:
-            newAvailability = Availability.Unknown
-        case Availability.Unknown:
-            newAvailability = Availability.Busy
-        default:
-            newAvailability = Availability.Available
-        }
-        availabilityManager.setAvailability(newAvailability, reason: Reason.User, updateServer: true, delegate: self)
-        updateAvailabilityUI()
-    }
-    
-    func updateAvailabilityUI() {
-        let availability = availabilityManager.currentAvailability
-        
-        switch(availability) {
-        case Availability.Available:
-            changeAvailabilityButton.setTitle("AVAILABLE", forState: UIControlState.Normal)
-            changeAvailabilityButton.backgroundColor = colorWithHexString("#00E85F") // UIColor(red: 0.1, green: 0.8, blue: 0.1, alpha: 1.0)
-        case Availability.Unknown:
-            changeAvailabilityButton.setTitle("UNKNOWN", forState: UIControlState.Normal)
-            changeAvailabilityButton.backgroundColor = colorWithHexString("#8E8D93") // UIColor(red: 0.5, green: 0.3, blue: 0.3, alpha: 1.0)
-        default:
-            changeAvailabilityButton.setTitle("BUSY", forState: UIControlState.Normal)
-            changeAvailabilityButton.backgroundColor =  colorWithHexString("#FF023F") // UIColor(red: 0.8, green: 0.1, blue: 0.1, alpha: 1.0)
-        }
-        
-        let reason: String? = availabilityManager.getReasonMessage()
-        if reason != nil && reasonLabel != nil {
-            reasonLabel.text = reason
-        }
     }
     
     /** 
@@ -249,7 +250,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
         let availability = AvailabilityManager.getAvailabilityFromString(availabilityString)!
         let reason = AvailabilityManager.getReasonFromString(reasonString)
         availabilityManager.setAvailability(availability, reason: reason, updateServer: false, delegate: nil)
-        updateAvailabilityUI();
+        headerView.updateAvailabilityUI();
     }
     
     func callbackFriendAvailability(err: NSError?, results: AnyObject?) {
@@ -296,7 +297,7 @@ class AllFriendsViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         self.friendLocalDatabase!.sort() // Show available friends, then busy friends, then unknown friends
-        self.allFriendsTableView.reloadData() // refresh the view
+        self.tableView.reloadData() // refresh the view
     }
     
     

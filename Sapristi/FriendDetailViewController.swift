@@ -108,7 +108,7 @@ class FriendDetailViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = friendPhoneTableView.dequeueReusableCellWithIdentifier("phoneNumberCell") as UITableViewCell
         let row = indexPath.row
-        cell.textLabel.text = allPhoneNumbers![row].label // "mobile" // TODO: replace with the phoneWithLabels construct
+        cell.textLabel!.text = allPhoneNumbers![row].label // "mobile" // TODO: replace with the phoneWithLabels construct
         cell.detailTextLabel!.text = allPhoneNumbers![row].phoneNumber
         return cell
     }

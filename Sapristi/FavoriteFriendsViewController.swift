@@ -26,13 +26,15 @@ class FavoriteFriendsViewController: AllFriendsViewController {
         
         if countElements(friendLocalDatabase!.localFriends) == 0 {
             // No favorites (yet).
-            nullStateLabel.hidden = false
-            allFriendsTableView.hidden = true
+            //TODO: ADD THE MESSAGE BACK!!!
+            // Should probably create another table cell with the message and instantiate that cell in case the data is empty
+            //nullStateLabel.hidden = false
+            //tableView.hidden = true
             
             //self.parentViewController!.performSegueWithIdentifier("fromFavoritesToAll", sender: self)
         } else {
-            nullStateLabel.hidden = true
-            allFriendsTableView.hidden = false
+            //nullStateLabel.hidden = true
+            //tableView.hidden = false
         }
     }
 
@@ -42,7 +44,7 @@ class FavoriteFriendsViewController: AllFriendsViewController {
     }
     
     override func fetchFromDatabase() {
-        friendLocalDatabase = FriendLocalDatabase(delegate:allFriendsTableView)
+        friendLocalDatabase = FriendLocalDatabase(delegate:tableView)
         friendLocalDatabase!.fetchFavoritesFromDatabase();
     }
     
