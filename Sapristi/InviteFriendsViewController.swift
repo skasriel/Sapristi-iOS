@@ -54,12 +54,17 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
                 continue
             }
             recipients.append(recipient)
+            println("sending to "+recipient)
         }
         sms!.messageComposeDelegate = self
         sms!.recipients = recipients
         sms!.subject = "Join sapristi"
         sms!.body = "I'd like to use Sapristi with you. It's the best way for us to share our availability for a quick phone call. https://sapristi.me/d/"
-        presentViewController(sms!, animated:true, completion: nil)
+        presentViewController(sms!, animated: true, completion: presentViewControllerCompleted)
+    }
+    
+    func presentViewControllerCompleted () {
+        println("The SMS VC has been presented")
         self.navigationController!.popViewControllerAnimated(true)
     }
     
