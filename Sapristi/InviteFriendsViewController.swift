@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate {
+class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate,MFMessageComposeViewControllerDelegate {
 
     @IBOutlet weak var allFriendsTableView: UITableView!
     
@@ -112,7 +112,24 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
         //print(" cell: \(cell.friendStatusLabel)")
         return cell
     }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+       var searchText = searchBar.text
 
+        println("Started Search for " + searchText)
+        //reset the friendLocalDatabase
+        friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
+        friendLocalDatabase!.fetchFromAllDatabaseWithSearchString(searchText)
+        
+        allFriendsTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        println("Canceled search")
+        friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)
+        friendLocalDatabase!.fetchFromAllDatabase()
+        allFriendsTableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation

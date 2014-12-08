@@ -57,6 +57,18 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         fetch(favoritesFetchRequest)
     }
     
+    func fetchFromAllDatabaseWithSearchString(searchText: String) {
+        println("fetchFromAllDatabase with String "+searchText)
+        let searchFetchRequest = NSFetchRequest(entityName: "FriendModel")
+        let predicate = NSPredicate(format:"displayName contains %@", searchText)
+        let sortDescriptorName = NSSortDescriptor(key: "displayName", ascending: true)
+        
+        searchFetchRequest.predicate = predicate
+        searchFetchRequest.sortDescriptors = [sortDescriptorName]
+
+        fetch(searchFetchRequest)
+    }
+    
     // Super inefficient way of finding a friend by username...
     func getFriendByUsername(username: String) -> FriendModel? {
         if countElements(localFriends) == 0 {

@@ -135,6 +135,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-3K-OQk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="100" width="288" height="44"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="MyD-BK-oO4" id="ffC-4W-WAO"/>
+                                </connections>
+                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7L-Bb-HA1">
                                 <rect key="frame" x="16" y="72" width="98" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,6 +194,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="144" width="288" height="372"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="MyD-BK-oO4" id="6FO-gf-2Rf"/>
                                     <outlet property="delegate" destination="MyD-BK-oO4" id="qk0-Dw-51t"/>
@@ -191,6 +204,16 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="XsB-3K-OQk"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="XsB-3K-OQk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Invite to Sapristi" id="zmv-Q3-JC1">
@@ -203,9 +226,18 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="allFriendsTableView" destination="gpI-ns-4S4" id="WT8-1v-nD8"/>
+                        <outlet property="searchDisplayController" destination="1ww-2r-oEc" id="KH1-Vj-mZP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Omv-ZU-9BR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="1ww-2r-oEc">
+                    <connections>
+                        <outlet property="delegate" destination="MyD-BK-oO4" id="IQs-XX-mOd"/>
+                        <outlet property="searchContentsController" destination="MyD-BK-oO4" id="h3f-DK-XO0"/>
+                        <outlet property="searchResultsDataSource" destination="MyD-BK-oO4" id="G96-Vw-4g3"/>
+                        <outlet property="searchResultsDelegate" destination="MyD-BK-oO4" id="VZS-HQ-GOH"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3706.5" y="2006.25"/>
         </scene>
@@ -1344,13 +1376,13 @@
         <image name="settings_selected" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iBs-BH-Yci"/>
         <segue reference="lfN-kQ-F7n"/>
         <segue reference="S4p-i4-AGz"/>
-        <segue reference="Bk7-gl-T7b"/>
-        <segue reference="iBs-BH-Yci"/>
+        <segue reference="bcT-1d-I4a"/>
+        <segue reference="ipB-rE-2BV"/>
         <segue reference="M9j-Pq-NF7"/>
         <segue reference="RrU-bw-hWw"/>
-        <segue reference="pK7-04-Rws"/>
         <segue reference="5TL-Vb-3rp"/>
     </inferredMetricsTieBreakers>
 </document>
