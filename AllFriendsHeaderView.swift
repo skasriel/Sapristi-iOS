@@ -12,6 +12,7 @@ import UIKit
 class AllFriendsHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var reasonLabel: UILabel!
+    @IBOutlet var searchBar: UISearchBar!
     
     var allFriendsController : AllFriendsViewController?
     let availabilityManager = AvailabilityManager.getInstance()

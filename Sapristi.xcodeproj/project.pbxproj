@@ -51,18 +51,17 @@
 		02CFCB6019E5174000EDA122 /* CarMotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFCB5F19E5174000EDA122 /* CarMotionViewController.swift */; };
 		02D048B019E9A1630040720F /* SKMotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D048AF19E9A1630040720F /* SKMotionDetector.swift */; };
 		02D496F919FE009200E0B938 /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D496F819FE009200E0B938 /* Timeslot.swift */; };
-		02D496FB19FF561000E0B938 /* SplunkMint-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D496FA19FF561000E0B938 /* SplunkMint-iOS.framework */; };
 		02D496FD19FF563000E0B938 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D496FC19FF563000E0B938 /* SystemConfiguration.framework */; };
 		02D496FF19FF563900E0B938 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D496FE19FF563900E0B938 /* CoreTelephony.framework */; };
 		02D4970119FF564000E0B938 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D4970019FF564000E0B938 /* libz.dylib */; };
 		02D497041A018A2F00E0B938 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D497031A018A2F00E0B938 /* PushNotificationManager.swift */; };
 		02D497061A0217E500E0B938 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D497051A0217E500E0B938 /* NotificationCenterManager.swift */; };
 		02D497081A04A1C700E0B938 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D497071A04A1C700E0B938 /* Media.xcassets */; };
-		36742AF61A2B8B040001ECAD /* SplunkMint-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36742AF51A2B8B040001ECAD /* SplunkMint-iOS.framework */; };
 		36F33B781A2EA24E00FDC08A /* AllFriendsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F33B771A2EA24E00FDC08A /* AllFriendsHeader.xib */; };
 		36FF986D1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF986C1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift */; };
 		36FF98701A2FF9FA004DD9C3 /* AllFriendsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FF986E1A2FF9FA004DD9C3 /* AllFriendsFooterView.xib */; };
 		36FF98721A2FFA3C004DD9C3 /* AllFriendsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF98711A2FFA3C004DD9C3 /* AllFriendsFooterView.swift */; };
+		E92246F31A3764A7002988D4 /* SplunkMint-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92246F21A3764A7002988D4 /* SplunkMint-iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,12 +165,13 @@
 		02D497031A018A2F00E0B938 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		02D497051A0217E500E0B938 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		02D497071A04A1C700E0B938 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../Media.xcassets; sourceTree = "<group>"; };
-		36742AF31A2B8ADF0001ECAD /* SplunkMint-iOS 2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SplunkMint-iOS 2.framework"; path = "../../../Downloads/SplunkMint-iOS 2.framework"; sourceTree = "<group>"; };
-		36742AF51A2B8B040001ECAD /* SplunkMint-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SplunkMint-iOS.framework"; path = "../../../Downloads/SplunkMint-iOS.framework"; sourceTree = "<group>"; };
 		36F33B771A2EA24E00FDC08A /* AllFriendsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AllFriendsHeader.xib; path = ../../AllFriendsHeader.xib; sourceTree = "<group>"; };
 		36FF986C1A2FBE10004DD9C3 /* AllFriendsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllFriendsHeaderView.swift; sourceTree = "<group>"; };
 		36FF986F1A2FF9FA004DD9C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = AllFriendsFooterView.xib; sourceTree = "<group>"; };
 		36FF98711A2FFA3C004DD9C3 /* AllFriendsFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllFriendsFooterView.swift; path = Sapristi/AllFriendsFooterView.swift; sourceTree = SOURCE_ROOT; };
+		9943CD2992E2847192A84E84 /* Pods-Sapristi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapristi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi.release.xcconfig"; sourceTree = "<group>"; };
+		CB6EEF69EED2D835FE8C7040 /* Pods-Sapristi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapristi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi.debug.xcconfig"; sourceTree = "<group>"; };
+		E92246F21A3764A7002988D4 /* SplunkMint-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "SplunkMint-iOS.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,12 +179,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92246F31A3764A7002988D4 /* SplunkMint-iOS.framework in Frameworks */,
 				02D4970119FF564000E0B938 /* libz.dylib in Frameworks */,
 				02BDE6B21A09B83900478F7C /* FacebookSDK.framework in Frameworks */,
 				02D496FF19FF563900E0B938 /* CoreTelephony.framework in Frameworks */,
-				36742AF61A2B8B040001ECAD /* SplunkMint-iOS.framework in Frameworks */,
 				02D496FD19FF563000E0B938 /* SystemConfiguration.framework in Frameworks */,
-				02D496FB19FF561000E0B938 /* SplunkMint-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,11 +216,11 @@
 		0245658A19C34A1D006F34D3 = {
 			isa = PBXGroup;
 			children = (
-				36742AF51A2B8B040001ECAD /* SplunkMint-iOS.framework */,
-				36742AF31A2B8ADF0001ECAD /* SplunkMint-iOS 2.framework */,
 				02B3B22319D5383E006ED6EE /* Sapristi */,
 				024565AA19C34A1D006F34D3 /* SapristiTests */,
 				0245659419C34A1D006F34D3 /* Products */,
+				CBB413BC3C5C2C0157F30E2B /* Pods */,
+				DF75F69BC83D2FCB27F195D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -374,6 +373,23 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		CBB413BC3C5C2C0157F30E2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB6EEF69EED2D835FE8C7040 /* Pods-Sapristi.debug.xcconfig */,
+				9943CD2992E2847192A84E84 /* Pods-Sapristi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF75F69BC83D2FCB27F195D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E92246F21A3764A7002988D4 /* SplunkMint-iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -381,11 +397,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 024565B119C34A1D006F34D3 /* Build configuration list for PBXNativeTarget "Sapristi" */;
 			buildPhases = (
+				937B8FBF21B266923AF26339 /* Check Pods Manifest.lock */,
 				0245658F19C34A1D006F34D3 /* Sources */,
 				0245659019C34A1D006F34D3 /* Frameworks */,
 				0245659119C34A1D006F34D3 /* Resources */,
 				022C139919CA4A7F00A9DB55 /* Embed Frameworks */,
 				02B4EA0F19F5E1490048A2B6 /* Copy Frameworks */,
+				4E346DEBE42A5823549338B6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -479,6 +497,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E346DEBE42A5823549338B6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		937B8FBF21B266923AF26339 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0245658F19C34A1D006F34D3 /* Sources */ = {
@@ -665,6 +716,7 @@
 		};
 		024565B219C34A1D006F34D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB6EEF69EED2D835FE8C7040 /* Pods-Sapristi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -676,6 +728,7 @@
 					/Users/skasriel/Dropbox/Sapristi/iOS,
 					"$(PROJECT_DIR)",
 					/Users/csellin/Downloads,
+					/Users/mbibiche/Downloads,
 				);
 				INFOPLIST_FILE = Sapristi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -694,6 +747,7 @@
 		};
 		024565B319C34A1D006F34D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9943CD2992E2847192A84E84 /* Pods-Sapristi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -706,6 +760,7 @@
 					/Users/skasriel/Dropbox/Sapristi/iOS,
 					"$(PROJECT_DIR)",
 					/Users/csellin/Downloads,
+					/Users/mbibiche/Downloads,
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

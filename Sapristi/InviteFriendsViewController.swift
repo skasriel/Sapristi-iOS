@@ -116,6 +116,7 @@ class InviteFriendsViewController: UIViewController, UITableViewDataSource, UITa
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
        var searchText = searchBar.text
 
+        searchBar.resignFirstResponder()
         println("Started Search for " + searchText)
         //reset the friendLocalDatabase
         friendLocalDatabase = FriendLocalDatabase(delegate: allFriendsTableView)

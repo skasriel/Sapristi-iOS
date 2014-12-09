@@ -10,7 +10,7 @@ import UIKit
 
 let refreshQueue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
 
-class AllFriendsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, HTTPControllerProtocol {
+class AllFriendsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, HTTPControllerProtocol {
     
     let FRIEND_AVAILABILITY : String = "FRIEND_AVAILABILITY"
     let MY_AVAILABILITY: String = "GET_AVAILABILITY"
@@ -62,6 +62,7 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
         self.tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier:"Header");
         headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header") as AllFriendsHeaderView;
         headerView.allFriendsController = self
+        headerView.searchBar.delegate = self
         
         let nib2:NSArray = NSBundle.mainBundle().loadNibNamed("AllFriendsFooterView", owner: nil, options: nil)
         footerView = nib2[0] as AllFriendsFooterView
@@ -173,6 +174,7 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
     
     // Need to implement this function to get the viewForHeaderInSection call back...
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 111;
         if headerView == nil {
             return 0
         }
@@ -300,9 +302,26 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
         self.tableView.reloadData() // refresh the view
     }
     
-    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        friendLocalDatabase = FriendLocalDatabase(delegate: tableView)
+        friendLocalDatabase!.fetchFromAllDatabaseWithSearchString(headerView.searchBar.text);
+        footerView.hidden = false;
 
+        tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+            println("Canceled search")
+            footerView.hidden = false;
+            friendLocalDatabase = FriendLocalDatabase(delegate: tableView)
+            friendLocalDatabase!.fetchFromAllDatabase()
+            tableView.reloadData()
+    }
     
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        footerView.hidden = true;
+    }
     /**
     * Utility Methods
     */
