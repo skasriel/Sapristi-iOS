@@ -314,9 +314,9 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
                 }
                 friendLocalData!.availability = availability
                 if (availability == "BUSY") {
-                    friendLocalData!.availabilityNum = 2
-                } else if availability == "AVAILABLE" {
                     friendLocalData!.availabilityNum = 1
+                } else if availability == "AVAILABLE" {
+                    friendLocalData!.availabilityNum = 2
                 } else {
                     friendLocalData!.availabilityNum = 0
                 }

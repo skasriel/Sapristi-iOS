@@ -97,10 +97,12 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         localFriends.sort({ (friend0: FriendModel, friend1: FriendModel) -> Bool in
             // Sort by availability first, then by DesiredFrequency and then by name
             var retval : Bool;
-            var avail0:String = friend0.availability
-            var avail1:String = friend1.availability
+//            var avail0:String = friend0.availability
+//            var avail1:String = friend1.availability
             if friend0.availabilityNum != friend1.availabilityNum {
-                retval = avail0 < avail1 // low availability (by alphabetical order...) at top
+                // low availability (by alphabetical order...) at top
+                retval = friend0.availabilityNum.compare(friend1.availabilityNum) == NSComparisonResult.OrderedDescending
+//                retval = (result == NSComparisonResult.OrderedDescending)
             } else if self.getCallFrequency(friend0) != self.getCallFrequency(friend1) {
                 retval = self.getCallFrequency(friend0) > self.getCallFrequency(friend1) // high frequency at top
             } else {
