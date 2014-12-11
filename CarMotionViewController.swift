@@ -8,13 +8,22 @@
 
 import UIKit
 
-class CarMotionViewController: UIViewController {
+class CarMotionViewController: SetupScreenViewController {
     
     
     @IBAction func enableButtonPressed(sender: AnyObject) {
         CarManager.start(true)
         //self.navigationController!.popViewControllerAnimated(true)
         ConfigManager.setBoolConfigValue(CONFIG_CAR_MOTION, newValue: true)
+        
+        // If we came from the settings screen we simply pop back to that screen instead of continuing 
+        // in the setup flow.
+        var childControllers : [UIViewController] = self.navigationController?.childViewControllers as [UIViewController];
+        if ((childControllers.count > 1) &&
+            childControllers[0].isKindOfClass(SettingsViewController)) {
+                self.navigationController?.popViewControllerAnimated(true)
+                return
+        }
         self.performSegueWithIdentifier("fromCarMotionToCalendar", sender: self)
     }
     

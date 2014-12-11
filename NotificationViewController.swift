@@ -8,12 +8,14 @@
 
 import UIKit
 
-class NotificationViewController: UIViewController {
+class NotificationViewController: SetupScreenViewController {
 
     
     @IBAction func enableButtonPressed(sender: AnyObject) {
         // Register for push notifications
+        #if !(TARGET_IPHONE_SIMULATOR)
         PushNotificationManager.registerForPushNotifications()
+        #endif
         self.performSegueWithIdentifier("fromNotificationsToCarMotion", sender: self)
     }
     

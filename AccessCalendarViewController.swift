@@ -8,13 +8,23 @@
 
 import UIKit
 
-class AccessCalendarViewController: UIViewController {
+class AccessCalendarViewController: SetupScreenViewController {
 
     @IBAction func enableButtonPressed(sender: AnyObject) {
         CalendarManager.start(true)
         ConfigManager.setBoolConfigValue(CONFIG_CALENDAR, newValue: true)
-        self.performSegueWithIdentifier("fromSetupToMain", sender: self)
-        //self.navigationController!.popViewControllerAnimated(true)
+        // If we came from the settings screen we simply pop back to that screen instead of continuing
+        // in the setup flow.
+        var childControllers : [UIViewController] = self.navigationController?.childViewControllers as [UIViewController];
+        if ((childControllers.count > 1) &&
+            childControllers[0].isKindOfClass(SettingsViewController)) {
+                self.navigationController?.popViewControllerAnimated(true)
+                return
+        }
+        
+        var mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var nextVC:UITabBarController = mainStoryboard.instantiateInitialViewController() as UITabBarController
+        self.navigationController?.presentViewController(nextVC, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

@@ -1,6 +1,6 @@
 import UIKit
 
-class MobileNumberViewController: UIViewController, HTTPControllerProtocol {
+class MobileNumberViewController: SetupScreenViewController, HTTPControllerProtocol {
     
     @IBOutlet weak var countryCodeField: UITextField!
     @IBOutlet weak var mobileNumberField: UITextField!

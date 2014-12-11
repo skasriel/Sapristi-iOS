@@ -33,24 +33,21 @@ class InitialViewController: UIViewController, HTTPControllerProtocol {
     func didReceiveAPIResults(err: NSError?, queryID: String?, results: AnyObject?) {
         if let desc = err?.localizedDescription {
             println("Server error: \(desc)")
-            self.performSegueWithIdentifier("fromLoadingToRegistration", sender: self)
+            var mainStoryboard:UIStoryboard = UIStoryboard(name: "Setup", bundle: nil)
+            var nextVC:UINavigationController = mainStoryboard.instantiateInitialViewController() as UINavigationController
+            self.presentViewController(nextVC, animated: true, completion: nil)
             return
         }
         
         dispatch_async(dispatch_get_main_queue(), {
-            self.performSegueWithIdentifier("fromLoadingToMain", sender: self)
+            var mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            var nextVC:UITabBarController = mainStoryboard.instantiateInitialViewController() as UITabBarController
+            let selectedTab = ConfigManager.getIntConfigValue(CONFIG_SELECTED_TAB, defaultValue: 1)
+            nextVC.selectedIndex = selectedTab
+            self.presentViewController(nextVC, animated: true, completion: nil)
         })
     }
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if "fromLoadingToMain" == segue.identifier  {
-            let tabVC = segue.destinationViewController as UITabBarController
-            let selectedTab = ConfigManager.getIntConfigValue(CONFIG_SELECTED_TAB, defaultValue: 1)
-            tabVC.selectedIndex = selectedTab
-        }
-    }
-
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)        

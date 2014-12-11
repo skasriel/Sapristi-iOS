@@ -62,6 +62,8 @@
 		36FF98701A2FF9FA004DD9C3 /* AllFriendsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FF986E1A2FF9FA004DD9C3 /* AllFriendsFooterView.xib */; };
 		36FF98721A2FFA3C004DD9C3 /* AllFriendsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FF98711A2FFA3C004DD9C3 /* AllFriendsFooterView.swift */; };
 		E92246F31A3764A7002988D4 /* SplunkMint-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92246F21A3764A7002988D4 /* SplunkMint-iOS.framework */; };
+		E92246F81A38D92E002988D4 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E92246F61A38D92E002988D4 /* Setup.storyboard */; };
+		E92246FA1A38F960002988D4 /* SetupScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92246F91A38F960002988D4 /* SetupScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +174,8 @@
 		9943CD2992E2847192A84E84 /* Pods-Sapristi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapristi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi.release.xcconfig"; sourceTree = "<group>"; };
 		CB6EEF69EED2D835FE8C7040 /* Pods-Sapristi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sapristi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sapristi/Pods-Sapristi.debug.xcconfig"; sourceTree = "<group>"; };
 		E92246F21A3764A7002988D4 /* SplunkMint-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "SplunkMint-iOS.framework"; sourceTree = "<group>"; };
+		E92246F71A38D92E002988D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Setup.storyboard; sourceTree = "<group>"; };
+		E92246F91A38F960002988D4 /* SetupScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 				02BF762819D918FC007E6A04 /* DateSettingsViewController.swift */,
 				02B3B26119D53880006ED6EE /* SettingsViewController.swift */,
 				0237179819DD05E700A44A2B /* SyncContactsViewController.swift */,
+				E92246F91A38F960002988D4 /* SetupScreenViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				02B3B23519D53865006ED6EE /* #Main.storyboard# */,
 				02B3B22519D53855006ED6EE /* LaunchScreen.storyboard */,
 				02B3B23719D53865006ED6EE /* Main.storyboard */,
+				E92246F61A38D92E002988D4 /* Setup.storyboard */,
 			);
 			name = Base.lproj;
 			path = Sapristi/Base.lproj;
@@ -481,6 +487,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92246F81A38D92E002988D4 /* Setup.storyboard in Resources */,
 				024D9EFF19FB1A32008F6525 /* Main.storyboard in Resources */,
 				02D497081A04A1C700E0B938 /* Media.xcassets in Resources */,
 				36FF98701A2FF9FA004DD9C3 /* AllFriendsFooterView.xib in Resources */,
@@ -537,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B3B26D19D53880006ED6EE /* MobileNumberViewController.swift in Sources */,
+				E92246FA1A38F960002988D4 /* SetupScreenViewController.swift in Sources */,
 				021D7EFE19E69ED300555E0B /* FavoriteFriendsViewController.swift in Sources */,
 				02B3B24A19D53865006ED6EE /* CarManager.swift in Sources */,
 				0237179919DD05E700A44A2B /* SyncContactsViewController.swift in Sources */,
@@ -632,6 +640,14 @@
 				36FF986F1A2FF9FA004DD9C3 /* Base */,
 			);
 			name = AllFriendsFooterView.xib;
+			sourceTree = "<group>";
+		};
+		E92246F61A38D92E002988D4 /* Setup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E92246F71A38D92E002988D4 /* Base */,
+			);
+			name = Setup.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

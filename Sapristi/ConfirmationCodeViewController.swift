@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ConfirmationCodeViewController: UIViewController, HTTPControllerProtocol {
+class ConfirmationCodeViewController: SetupScreenViewController, HTTPControllerProtocol {
     
     @IBOutlet weak var confirmationCodeTextField: UITextField!
     

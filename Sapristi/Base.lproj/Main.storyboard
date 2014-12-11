@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2k9-d2-laD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="I0F-ZO-xSk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u7E-Bf-ftY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13r-aZ-J9e">
@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptd-DO-ToW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4618.5" y="2010"/>
+            <point key="canvasLocation" x="4194" y="2402"/>
         </scene>
         <!--Invite to Sapristi-->
         <scene sceneID="TEj-bD-4xr">
@@ -132,7 +132,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zVD-dg-dPG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VNA-d6-Xi4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-3K-OQk">
@@ -239,7 +239,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3706.5" y="2006.25"/>
+            <point key="canvasLocation" x="3424" y="2210"/>
         </scene>
         <!--My Available Times-->
         <scene sceneID="UGu-HL-yhl">
@@ -311,74 +311,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oq5-uf-KDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1851" y="2006.25"/>
-        </scene>
-        <!--Sync Calendar-->
-        <scene sceneID="NtW-z4-1u4">
-            <objects>
-                <viewController id="lUz-2S-iOZ" customClass="AccessCalendarViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8Q2-I7-xhi"/>
-                        <viewControllerLayoutGuide type="bottom" id="zYA-mK-nKn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1NN-Y8-tif">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-nx-hZF">
-                                <rect key="frame" x="87" y="121" width="146" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your calendar says it all!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndI-Yt-Mm3">
-                                <rect key="frame" x="13" y="298" width="295" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kke-Ej-H4s">
-                                <rect key="frame" x="13" y="333" width="295" height="119"/>
-                                <string key="text">Give Sapristi access to your calendar.  We'll show you as Available during calendar events named "Sapristi" and as busy during other calendar events.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLm-Vb-Z2p">
-                                <rect key="frame" x="16" y="480" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.90980392156862744" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Sync calendar">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="enableButtonPressed:" destination="lUz-2S-iOZ" eventType="touchUpInside" id="ZBN-lL-XKV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xb-u1-o8D">
-                                <rect key="frame" x="13" y="518" width="291" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Skip for now">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="y0A-gE-El3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sync Calendar" id="FyK-Il-Eyb"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="fromSetupToMain" id="Ugj-ol-kWI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f8M-6e-Oor" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5824.5" y="-880.5"/>
+            <point key="canvasLocation" x="2159" y="2194"/>
         </scene>
         <!--Updating Contacts-->
         <scene sceneID="i7D-Xv-iBb">
@@ -412,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wQ-Fg-zNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3087" y="2006.25"/>
+            <point key="canvasLocation" x="2934" y="2194"/>
         </scene>
         <!--About Sapristi-->
         <scene sceneID="CFa-qj-aXD">
@@ -464,300 +397,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dR7-rw-VyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="2006.25"/>
-        </scene>
-        <!--MobileNumber-->
-        <scene sceneID="E3q-5z-I7P">
-            <objects>
-                <viewController id="Edy-Dv-coJ" userLabel="MobileNumber" customClass="MobileNumberViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YeV-QI-9tF"/>
-                        <viewControllerLayoutGuide type="bottom" id="S0o-y3-Epf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hDP-BB-e9Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-JF-REp">
-                                <rect key="frame" x="16" y="267" width="288" height="33"/>
-                                <color key="backgroundColor" red="0.0" green="0.90980392156862744" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Next >">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitButtonPressed:" destination="Edy-Dv-coJ" eventType="touchUpInside" id="YcE-Se-BgE"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Number" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="3tP-EI-KCX">
-                                <rect key="frame" x="16" y="213" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                            </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error Message" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsl-zM-wYU">
-                                <rect key="frame" x="20" y="137" width="281" height="68"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please confirm your mobile number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYy-Ug-sSx">
-                                <rect key="frame" x="16" y="97" width="368" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="79M-Jj-4Lg"/>
-                    <connections>
-                        <outlet property="errorMessageLabel" destination="gsl-zM-wYU" id="wRI-XF-a8g"/>
-                        <outlet property="mobileNumberField" destination="3tP-EI-KCX" id="HPa-ty-tZJ"/>
-                        <outlet property="nextButton" destination="YQ8-JF-REp" id="tlK-f9-f5q"/>
-                        <segue destination="J9z-5Q-kRr" kind="show" identifier="fromNumberToConfirmation" id="LYR-M5-BIk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7I-Pn-t1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2700" y="-879.99999999999989"/>
-        </scene>
-        <!--Confirmation Code-->
-        <scene sceneID="GU0-8d-DIE">
-            <objects>
-                <viewController id="J9z-5Q-kRr" userLabel="Confirmation Code" customClass="ConfirmationCodeViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tml-Di-8DQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Thk-6j-qho"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ywk-5v-Vru">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmation Code" textAlignment="center" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="njt-aj-mld">
-                                <rect key="frame" x="18" y="211" width="285" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error Message" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF1-UB-qWh">
-                                <rect key="frame" x="18" y="135" width="288" height="68"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdJ-jH-h6k">
-                                <rect key="frame" x="18" y="267" width="288" height="33"/>
-                                <color key="backgroundColor" red="0.0" green="0.90980392156862744" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Next >">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmButtonPressed:" destination="J9z-5Q-kRr" eventType="touchUpInside" id="c6z-5h-cyZ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter the confirmation code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KL-Le-fTF">
-                                <rect key="frame" x="16" y="100" width="268" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="JRu-to-FEv"/>
-                    <connections>
-                        <outlet property="confirmationCodeTextField" destination="njt-aj-mld" id="oTe-3E-xfR"/>
-                        <outlet property="errorMessageLabel" destination="KF1-UB-qWh" id="vqB-x0-far"/>
-                        <segue destination="pOA-tr-24D" kind="show" identifier="fromConfirmToContacts" id="5Vs-X3-Rze"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mr6-km-3LP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3318" y="-879.99999999999989"/>
-        </scene>
-        <!--Access Contacts-->
-        <scene sceneID="wXc-V2-cxn">
-            <objects>
-                <viewController id="pOA-tr-24D" userLabel="Access Contacts" customClass="AccessContactsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jit-Yv-wsE"/>
-                        <viewControllerLayoutGuide type="bottom" id="f4Z-AS-2Mo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TmY-fL-0NL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stay in touch with close ones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqx-xm-OMl">
-                                <rect key="frame" x="13" y="300" width="295" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Give Sapristi access to your contacts and it will show you who is available for a call right now" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNX-wD-ywf">
-                                <rect key="frame" x="16" y="312" width="288" height="119"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYa-9I-qk4">
-                                <rect key="frame" x="87" y="120" width="146" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eo4-3G-VQx">
-                                <rect key="frame" x="13" y="523" width="291" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Skip for now">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="jlD-bM-hD6" kind="show" id="3NM-Iu-XTN"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Ha-Br-GnO">
-                                <rect key="frame" x="148" y="236" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ac-xL-OVg">
-                                <rect key="frame" x="16" y="478" width="288" height="33"/>
-                                <color key="backgroundColor" red="0.0" green="0.90980392156862744" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Sync my contacts">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="accessContactsButtonPressed:" destination="pOA-tr-24D" eventType="touchUpInside" id="squ-2x-Jby"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sync Contacts" id="BPR-Ry-bHE"/>
-                    <connections>
-                        <outlet property="accessContactsButton" destination="7ac-xL-OVg" id="4PV-sd-DNH"/>
-                        <outlet property="activityIndicator" destination="5Ha-Br-GnO" id="f1c-KD-yXQ"/>
-                        <segue destination="jlD-bM-hD6" kind="show" identifier="fromContactsToNotifications" id="5TL-Vb-3rp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cl1-lS-9vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3924.0000000000005" y="-879.99999999999989"/>
-        </scene>
-        <!--Enable Notifications-->
-        <scene sceneID="4c0-ZA-Bmx">
-            <objects>
-                <viewController id="jlD-bM-hD6" userLabel="Enable Notifications" customClass="NotificationViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Ow-vp-yQM"/>
-                        <viewControllerLayoutGuide type="bottom" id="YxQ-ap-QPv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TFp-DC-63D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tJ-ru-WIf">
-                                <rect key="frame" x="87" y="121" width="146" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Be notified instantly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zaa-zl-7g4">
-                                <rect key="frame" x="13" y="298" width="295" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYA-J1-VHJ">
-                                <rect key="frame" x="16" y="480" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.90980392156862744" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Enable notifications">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="enableButtonPressed:" destination="jlD-bM-hD6" eventType="touchUpInside" id="Az7-27-EOZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyB-mF-m7h">
-                                <rect key="frame" x="13" y="518" width="291" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Skip for now">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="aiH-hz-2g6" kind="show" id="FGJ-Gs-d9r"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable notifications to get notified when your contacts become available for a call" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="im1-lb-8aH">
-                                <rect key="frame" x="14" y="327" width="288" height="119"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Enable Notifications" id="h3W-tc-Mmq"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="aiH-hz-2g6" kind="show" identifier="fromNotificationsToCarMotion" id="gf3-jD-vkP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kPK-PY-ZSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4554" y="-879.99999999999989"/>
-        </scene>
-        <!--Initial View Controller-->
-        <scene sceneID="G7g-YF-fIY">
-            <objects>
-                <viewController id="2k9-d2-laD" customClass="InitialViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gam-pA-2bM"/>
-                        <viewControllerLayoutGuide type="bottom" id="6bl-fF-Npk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qu7-iP-WFg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sapristi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExY-2Z-cUB">
-                                <rect key="frame" x="83" y="136" width="154" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ue-rD-buc">
-                                <rect key="frame" x="122" y="186" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="label" destination="8ue-rD-buc" id="l15-qV-UAJ"/>
-                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="fromLoadingToMain" id="lfN-kQ-F7n"/>
-                        <segue destination="nBk-yl-RRm" kind="presentation" identifier="fromLoadingToRegistration" id="tyf-Go-cty"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ew9-vP-XCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1504.5" y="-880.5"/>
+            <point key="canvasLocation" x="2544" y="2194"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="tabController" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="b7k-jj-ZHy"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -773,7 +418,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3804" y="-264"/>
+            <point key="canvasLocation" x="3795" y="-367"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RdZ-9m-8eS">
@@ -792,7 +437,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jK-9s-Hvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4902" y="477.75"/>
+            <point key="canvasLocation" x="4494" y="477"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hyo-4A-6gA">
@@ -811,7 +456,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGh-a9-UdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3804" y="477.75"/>
+            <point key="canvasLocation" x="3795" y="477"/>
         </scene>
         <!--Settings-->
         <scene sceneID="aV4-ze-dsG">
@@ -843,7 +488,7 @@
                         <sections>
                             <tableViewSection id="Cs8-rN-7nL">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="qel-SU-v0j">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="aboutSapristiCell" id="qel-SU-v0j">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qel-SU-v0j" id="3y3-WI-M4H">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -860,7 +505,7 @@
                                             <segue destination="LYc-Yr-dPc" kind="show" id="xrd-tC-qoX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="3A7-Df-15T">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="inviteFriendCell" id="3A7-Df-15T">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3A7-Df-15T" id="vkH-9f-kSZ">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -877,7 +522,7 @@
                                             <segue destination="MyD-BK-oO4" kind="show" id="pK7-04-Rws"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="86r-cY-GfV">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="syncContactsCell" id="86r-cY-GfV">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="86r-cY-GfV" id="uny-Tw-uUB">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -894,7 +539,7 @@
                                             <segue destination="SjG-8G-Dgk" kind="show" id="4J9-ge-w5i"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="jho-Ve-1Zr">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="logoutCell" id="jho-Ve-1Zr">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jho-Ve-1Zr" id="jeQ-KW-tZ9">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -907,9 +552,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Edy-Dv-coJ" kind="show" identifier="logoutSegue" id="M9j-Pq-NF7"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -938,7 +580,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="db8-Qd-7fB">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="carMotionDetectionCell" id="db8-Qd-7fB">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="db8-Qd-7fB" id="Iwb-C4-wNP">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -961,7 +603,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="3wg-RD-hXe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="syncWithCalendarCell" id="3wg-RD-hXe">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3wg-RD-hXe" id="kwO-K4-PgZ">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -999,8 +641,6 @@
                         <outlet property="carMotionButton" destination="aS4-No-eOq" id="7nr-kP-KOZ"/>
                         <outlet property="logoutTableViewCell" destination="jho-Ve-1Zr" id="O12-2N-S3D"/>
                         <outlet property="timeslotButton" destination="eVv-hj-bXy" id="QMf-KU-PBl"/>
-                        <segue destination="lUz-2S-iOZ" kind="show" identifier="fromSettingsToCalendar" id="iBs-BH-Yci"/>
-                        <segue destination="aiH-hz-2g6" kind="show" identifier="fromSettingsToCarMotion" id="RrU-bw-hWw"/>
                         <segue destination="Sdq-K2-4Bx" kind="show" identifier="fromSettingsToTimeslot" id="I3o-me-P7U"/>
                     </connections>
                 </tableViewController>
@@ -1008,78 +648,12 @@
             </objects>
             <point key="canvasLocation" x="2724" y="1391.25"/>
         </scene>
-        <!--Car Motion Detection-->
-        <scene sceneID="yJa-3Y-aOC">
-            <objects>
-                <viewController id="aiH-hz-2g6" customClass="CarMotionViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="I8w-yT-gtb"/>
-                        <viewControllerLayoutGuide type="bottom" id="b8c-Vt-bD9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6U3-Hd-Duz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fancy Picture Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoD-Wp-hfJ">
-                                <rect key="frame" x="87" y="121" width="146" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do Talk and Drive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-Zt-LkS">
-                                <rect key="frame" x="13" y="298" width="295" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-QZ-ecS">
-                                <rect key="frame" x="16" y="480" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.90980392156862744" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Enable motion detection">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="enableButtonPressed:" destination="aiH-hz-2g6" eventType="touchUpInside" id="f9F-Qv-hCD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLX-K8-rsT">
-                                <rect key="frame" x="13" y="518" width="291" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Skip for now">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="lUz-2S-iOZ" kind="show" id="RH7-n8-YT6"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Allow Sapristi to detect when you're driving and automatically mark you as Available so your friends know to call you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-bp-XW5">
-                                <rect key="frame" x="13" y="333" width="295" height="119"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Car Motion Detection" id="If2-aS-gtg"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="lUz-2S-iOZ" kind="show" identifier="fromCarMotionToCalendar" id="p9a-jJ-xYU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="38U-rj-36d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5169" y="-879.99999999999989"/>
-        </scene>
         <!--Favorites-->
         <scene sceneID="DhZ-o2-BCC">
             <objects>
                 <tableViewController id="lUT-Lx-YcK" customClass="FavoriteFriendsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="afJ-dI-9qt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1153,14 +727,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msj-1G-A5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3828" y="1391.25"/>
+            <point key="canvasLocation" x="3795" y="1363"/>
         </scene>
         <!--All Friends-->
         <scene sceneID="Se2-ip-wpR">
             <objects>
                 <tableViewController title="All Friends" id="1zn-4E-eKX" customClass="AllFriendsViewController" customModule="Sapristi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="73" sectionFooterHeight="40" id="nWP-re-4iX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1348,25 +922,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1F-cn-BAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4618.5" y="1391.25"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6Zx-fU-Cjr">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nBk-yl-RRm" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Mp-jG-23K">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Edy-Dv-coJ" kind="relationship" relationship="rootViewController" id="6oS-iS-vcA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dhO-9R-3dN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2058" y="-879.99999999999989"/>
+            <point key="canvasLocation" x="4494" y="1363"/>
         </scene>
     </scenes>
     <resources>
@@ -1376,13 +932,8 @@
         <image name="settings_selected" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iBs-BH-Yci"/>
-        <segue reference="lfN-kQ-F7n"/>
         <segue reference="S4p-i4-AGz"/>
-        <segue reference="bcT-1d-I4a"/>
         <segue reference="ipB-rE-2BV"/>
-        <segue reference="M9j-Pq-NF7"/>
-        <segue reference="RrU-bw-hWw"/>
-        <segue reference="5TL-Vb-3rp"/>
+        <segue reference="Bk7-gl-T7b"/>
     </inferredMetricsTieBreakers>
 </document>

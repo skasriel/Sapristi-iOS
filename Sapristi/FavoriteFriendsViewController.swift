@@ -14,8 +14,11 @@ class FavoriteFriendsViewController: AllFriendsViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        var children = navigationController?.childViewControllers
+//        children?.removeAll(keepCapacity: false)
     }
     
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         ConfigManager.setIntConfigValue(CONFIG_SELECTED_TAB, newValue: 0)

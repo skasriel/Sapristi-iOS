@@ -26,6 +26,9 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        var children = navigationController?.childViewControllers
+//        children?.removeAll(keepCapacity: false)
+
         timeslotEnabled = ConfigManager.getBoolConfigValue(CONFIG_TIMESLOT)
         ConfigManager.showButton(timeslotButton, isChecked: timeslotEnabled)
 
@@ -75,7 +78,7 @@ class SettingsViewController: UITableViewController {
         ConfigManager.setBoolConfigValue(CONFIG_CAR_MOTION, newValue: carMotionEnabled)
         ConfigManager.showButton(carMotionButton, isChecked: carMotionEnabled)
         if carMotionEnabled {
-            self.performSegueWithIdentifier("fromSettingsToCarMotion", sender: self)
+            pushSetupContoller("motionDetectionController")
         }
 
     }
@@ -85,9 +88,31 @@ class SettingsViewController: UITableViewController {
         ConfigManager.setBoolConfigValue(CONFIG_CALENDAR, newValue: calendarEnabled)
         ConfigManager.showButton(calendarButton, isChecked: calendarEnabled)
         if calendarEnabled {
-            self.performSegueWithIdentifier("fromSettingsToCalendar", sender: self)
+            pushSetupContoller("syncWithCalendarController")
         }
     }
 
+    func pushSetupContoller(controllerIdentifier: NSString) {
+        var setupStoryboard:UIStoryboard = UIStoryboard(name: "Setup", bundle: nil)
+        var nextVC:UIViewController = setupStoryboard.instantiateViewControllerWithIdentifier(controllerIdentifier) as UIViewController
+        self.tabBarController?.navigationItem.hidesBackButton = false
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier == "logoutCell" {
+            ConfigManager.doLogout()
+            HTTPController.getInstance().doGET("/api/auth/logout", delegate: nil, queryID: nil)
+
+            var setupStoryboard:UIStoryboard = UIStoryboard(name: "Setup", bundle: nil)
+            var nextVC:UINavigationController = setupStoryboard.instantiateInitialViewController() as UINavigationController
+            self.navigationController?.presentViewController(nextVC, animated: true, completion: nil)
+        } else if tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier == "syncWithCalendarCell" {
+            calendarButoonPressed(calendarButton)
+        } else if tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier == "carMotionDetectionCell" {
+            carMotionButtonPressed(carMotionButton)
+        }
+        
+    }
 }
 

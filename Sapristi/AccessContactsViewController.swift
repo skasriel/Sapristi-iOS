@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AccessContactsViewController: UIViewController, AddressBookManagerCallbackProtocol {
+class AccessContactsViewController: SetupScreenViewController, AddressBookManagerCallbackProtocol {
     
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!

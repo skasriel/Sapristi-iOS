@@ -57,7 +57,6 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         var nib: UINib = UINib(nibName: "AllFriendsHeader", bundle:nil)
         self.tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier:"Header");
         headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header") as AllFriendsHeaderView;
