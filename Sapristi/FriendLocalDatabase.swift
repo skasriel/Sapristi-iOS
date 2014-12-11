@@ -96,15 +96,19 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         println("Sorting local friend database by availability \(countElements(localFriends))")
         localFriends.sort({ (friend0: FriendModel, friend1: FriendModel) -> Bool in
             // Sort by availability first, then by DesiredFrequency and then by name
+            var retval : Bool;
             var avail0:String = friend0.availability
             var avail1:String = friend1.availability
             if friend0.availabilityNum != friend1.availabilityNum {
-                return avail0 < avail1 // low availability (by alphabetical order...) at top
+                retval = avail0 < avail1 // low availability (by alphabetical order...) at top
             } else if self.getCallFrequency(friend0) != self.getCallFrequency(friend1) {
-                return self.getCallFrequency(friend0) > self.getCallFrequency(friend1) // high frequency at top
+                retval = self.getCallFrequency(friend0) > self.getCallFrequency(friend1) // high frequency at top
             } else {
-                return friend0.displayName < friend1.displayName
+                retval = friend0.displayName < friend1.displayName
             }
+//            println("val: \(retval)\tfriend 1 \(friend1.availability) (\(friend1.availabilityNum))\(friend1.displayName) \tfriend 0 \(friend0.availability) (\(friend0.availabilityNum))\(friend0.displayName)")
+
+            return retval
         })
     }
     
