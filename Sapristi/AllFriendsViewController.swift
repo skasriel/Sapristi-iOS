@@ -8,6 +8,8 @@
 
 import UIKit
 
+let TIME_SORT = 1
+
 let refreshQueue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
 
 class AllFriendsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, HTTPControllerProtocol {
@@ -88,30 +90,18 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
     }
     
     @objc func doRefresh() {
-        #if TIME_SORT
-        var starttime = NSDate.timeIntervalSinceReferenceDate()
-        #endif
         refresh()
         
         // refresh the button value periodically, a bit of a hack - server will change my availability automatically and this needs to be reflected in UI
         getMyAvailability()
-        #if TIME_SORT
-        println("Refresh Totaltime: \(NSDate.timeIntervalSinceReferenceDate()-starttime)")
-        #endif
     }
     
     func refresh(viaPullToRefresh: Bool = false) {
         dispatch_async(refreshQueue) {
-            #if TIME_SORT
-            var starttime = NSDate.timeIntervalSinceReferenceDate()
-            #endif
             self.getFriendAvailability()
             if (viaPullToRefresh) {
                 self.refreshControl!.endRefreshing()
             }
-            #if TIME_SORT
-            println("GET Totaltime: \(NSDate.timeIntervalSinceReferenceDate()-starttime)")
-            #endif
         }
     }
 
@@ -225,13 +215,7 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
     }
     
     func getFriendAvailability() {
-        #if TIME_SORT
-        var starttime = NSDate.timeIntervalSinceReferenceDate()
-        #endif
         HTTPController.getInstance().doGET("/api/me/friend-availability", delegate: self, queryID: FRIEND_AVAILABILITY)
-        #if TIME_SORT
-        println("GET Totaltime: \(NSDate.timeIntervalSinceReferenceDate()-starttime)")
-        #endif
     }
     func getMyAvailability() {
         HTTPController.getInstance().doGET("/api/me/availability", delegate: self, queryID: MY_AVAILABILITY)
@@ -284,9 +268,6 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
         // to be able to properly locate the results from server in the list of FriendModels stored locally, create a dictionary
         let map: Dictionary<String, FriendModel> = self.friendLocalDatabase!.getDictionary()
         
-        #if TIME_SORT
-        var starttime = NSDate.timeIntervalSinceReferenceDate()
-        #endif
         // now update the availability of my friends
         for (index, friendServerData: Dictionary<String, AnyObject>) in enumerate(jsonArray) {
             let username: String = friendServerData["username"]! as String
@@ -326,20 +307,13 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
                 }
             }
         }
-        #if TIME_SORT
-        println("Totaltime: \(NSDate.timeIntervalSinceReferenceDate()-starttime)")
-        starttime = NSDate.timeIntervalSinceReferenceDate()
-        #endif
+        var starttime = NSDate.timeIntervalSinceReferenceDate()
+
         self.friendLocalDatabase!.sort() // Show available friends, then busy friends, then unknown friends
-        #if TIME_SORT
-        println("Totaltime: \(NSDate.timeIntervalSinceReferenceDate()-starttime)")
-        starttime = NSDate.timeIntervalSinceReferenceDate()
-        #endif
+        if TIME_SORT == 1 {
+            println("Totaltime: \(NSDate.timeIntervalSinceReferenceDate()-starttime)")
+        }
         self.tableView.reloadData() // refresh the view
-        #if TIME_SORT
-        println("Totaltime: \(NSDate.timeIntervalSinceReferenceDate()-starttime)")
-        starttime = NSDate.timeIntervalSinceReferenceDate()
-        #endif
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
