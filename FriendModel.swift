@@ -14,6 +14,7 @@ class FriendModel: NSManagedObject {
 
     @NSManaged var allPhoneNumbers: String!
     @NSManaged var availability: String!
+    @NSManaged var availabilityNum: NSNumber!
     @NSManaged var desiredCallFrequency: NSNumber!
     @NSManaged var displayName: String!
     @NSManaged var hasAccount: NSNumber!

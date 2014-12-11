@@ -95,10 +95,11 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     func sort() {
         println("Sorting local friend database by availability \(countElements(localFriends))")
         localFriends.sort({ (friend0: FriendModel, friend1: FriendModel) -> Bool in
-            //$0.availability < $1.availability 
             // Sort by availability first, then by DesiredFrequency and then by name
-            if friend0.availability != friend1.availability {
-                return friend0.availability < friend1.availability // low availability (by alphabetical order...) at top
+            var avail0:String = friend0.availability
+            var avail1:String = friend1.availability
+            if friend0.availabilityNum != friend1.availabilityNum {
+                return avail0 < avail1 // low availability (by alphabetical order...) at top
             } else if self.getCallFrequency(friend0) != self.getCallFrequency(friend1) {
                 return self.getCallFrequency(friend0) > self.getCallFrequency(friend1) // high frequency at top
             } else {
@@ -108,12 +109,14 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
     }
     
     func getCallFrequency(friend: FriendModel) -> Int {
-        if let frequenty = friend.desiredCallFrequency {
-            return friend.desiredCallFrequency as Int
+        var frequency:Int = friend.desiredCallFrequency as Int
+        return frequency
+/*        if frequency {
+            return frequency//friend.desiredCallFrequency as Int
         } else {
             return 0
         }
-    }
+  */  }
 
     func getDictionary() -> Dictionary<String, FriendModel> {
         //let fetchedArray: [FriendModel] = fetchedResultsController.fetchedObjects as [FriendModel]

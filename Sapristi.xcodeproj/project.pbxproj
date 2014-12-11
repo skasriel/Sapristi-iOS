@@ -176,6 +176,7 @@
 		E92246F21A3764A7002988D4 /* SplunkMint-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "SplunkMint-iOS.framework"; sourceTree = "<group>"; };
 		E92246F71A38D92E002988D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Setup.storyboard; sourceTree = "<group>"; };
 		E92246F91A38F960002988D4 /* SetupScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupScreenViewController.swift; sourceTree = "<group>"; };
+		E9AA50CA1A3A1DAA00AAA199 /* SapristiModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SapristiModel 3.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -871,10 +872,11 @@
 		02B3B25E19D53880006ED6EE /* SapristiModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E9AA50CA1A3A1DAA00AAA199 /* SapristiModel 3.xcdatamodel */,
 				02B3B25F19D53880006ED6EE /* SapristiModel 2.xcdatamodel */,
 				02B3B26019D53880006ED6EE /* SapristiModel.xcdatamodel */,
 			);
-			currentVersion = 02B3B25F19D53880006ED6EE /* SapristiModel 2.xcdatamodel */;
+			currentVersion = E9AA50CA1A3A1DAA00AAA199 /* SapristiModel 3.xcdatamodel */;
 			name = SapristiModel.xcdatamodeld;
 			path = Sapristi/SapristiModel.xcdatamodeld;
 			sourceTree = "<group>";
