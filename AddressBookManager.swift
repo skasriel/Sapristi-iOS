@@ -80,14 +80,20 @@ class AddressBookManager: HTTPControllerProtocol {
                     // "contact" is a likely duplicate of "existingContact" (same name and a shared phone number...)
                     shouldAddContact = false
                     existingContact.phoneNumbers = mergePhoneNumbers(existingContact.phoneNumbers, array2: contact.phoneNumbers)
+                    //println("Going to ignore: \(key)")
                 } else {
+                    //println("Adding: \(key) for contact: \(contact.displayName)")
                     allPhoneNumbers[key] = contact
                 }
             }
             if shouldAddContact {
                 //println("#\(index) \(contact.displayName) \(contact.phoneNumbers)")
+                //print("Adding\t")
                 allContacts.append(contact)
+            } else {
+                //print("Ignoring\t")
             }
+            //println("Contact number: \(contact.phoneNumbers[0].phoneNumber) with name: \(contact.displayName)")
         }
         
         // store contacts to CoreData (sync)

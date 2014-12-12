@@ -23,6 +23,8 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
     var headerView: AllFriendsHeaderView!
     var footerView: AllFriendsFooterView!
     
+    var requestPerformSegue = false
+    
     var friendLocalDatabase: FriendLocalDatabase?
     var refreshTimer: NSTimer?
     
@@ -36,6 +38,12 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        requestPerformSegue = false
+        fetchFromDatabase() // load address book from Core Data
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -137,6 +145,7 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         var cell: FriendCell = tableView.dequeueReusableCellWithIdentifier("friendCell") as FriendCell
+       // println("Loading row: \(indexPath.row)")
         var friend: FriendModel = friendLocalDatabase!.objectAtIndexPath(indexPath)
         //print("row: \(indexPath)")
         //print(" friend: \(friend.availability)")
@@ -207,11 +216,17 @@ class AllFriendsViewController: UITableViewController, UITableViewDataSource, UI
     
     /* UITableViewDelegate implementation */
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showFriendDetail", sender: self)        
+        if requestPerformSegue == false {
+            requestPerformSegue = true
+            self.performSegueWithIdentifier("showFriendDetail", sender: self)
+        }
     }
     
     func clickedOnInviteFriends() {
-        self.performSegueWithIdentifier("InviteFriend", sender: self)
+        if requestPerformSegue == false {
+            requestPerformSegue = true
+            self.performSegueWithIdentifier("InviteFriend", sender: self)
+        }
     }
     
     func getFriendAvailability() {

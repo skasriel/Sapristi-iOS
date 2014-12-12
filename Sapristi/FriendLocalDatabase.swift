@@ -188,6 +188,7 @@ class FriendLocalDatabase: NSFetchedResultsControllerDelegate {
         // Now store all new contacts
         let entityDescription = NSEntityDescription.entityForName("FriendModel", inManagedObjectContext: managedObjectContext!)
         for (index, contact) in enumerate(allContacts) {
+            //println("Adding contact: \(contact.displayName)")
             let friend: FriendModel = contact.serializeForCoreData(entityDescription, managedObjectContext: managedObjectContext)
         }
         appDelegate.saveContext()

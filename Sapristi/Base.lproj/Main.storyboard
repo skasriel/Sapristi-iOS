@@ -135,25 +135,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-3K-OQk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="100" width="288" height="44"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="MyD-BK-oO4" id="ffC-4W-WAO"/>
-                                </connections>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7L-Bb-HA1">
                                 <rect key="frame" x="16" y="72" width="98" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gpI-ns-4S4">
-                                <rect key="frame" x="16" y="109" width="288" height="415"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gpI-ns-4S4">
+                                <rect key="frame" x="16" y="109" width="568" height="439"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="e9A-LB-L0s">
+                                    <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="MyD-BK-oO4" id="Nfy-QE-u95"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteCell" id="RZU-GB-yNg" customClass="InviteTableViewCell" customModule="Sapristi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -161,31 +158,77 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RZU-GB-yNg" id="JxN-uH-RsP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dI-O9-FvI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dI-O9-FvI">
                                                     <rect key="frame" x="46" y="24" width="273" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSg-Hr-YRD">
-                                                    <rect key="frame" x="358" y="14" width="25" height="22"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TSg-Hr-YRD">
+                                                    <rect key="frame" x="535" y="11" width="25" height="22"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.90980392160000001" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="0XE-Dw-Fst"/>
+                                                        <constraint firstAttribute="width" constant="25" id="reQ-jc-2II"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-hJ-xRz">
-                                                    <rect key="frame" x="8" y="7" width="30" height="30"/>
-                                                    <state key="normal" title="Button" image="Checkbox_unchecked">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="contactInviteButtonPressed:" destination="RZU-GB-yNg" eventType="touchUpInside" id="si5-m8-Wwb"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-in-jlb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-in-jlb">
                                                     <rect key="frame" x="46" y="8" width="273" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="273" id="eAR-qt-JpN"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-hJ-xRz">
+                                                    <rect key="frame" x="8" y="7" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Kgu-P7-JAg"/>
+                                                        <constraint firstAttribute="height" constant="30" id="bKg-jw-Mqh"/>
+                                                        <constraint firstAttribute="width" constant="30" id="cWr-gD-6QF"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="Checkbox_unchecked">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Kgu-P7-JAg"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="contactInviteButtonPressed:" destination="RZU-GB-yNg" eventType="touchUpInside" id="si5-m8-Wwb"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0dI-O9-FvI" firstAttribute="leading" secondItem="rW1-in-jlb" secondAttribute="leading" id="1zw-Re-quj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="CRb-hJ-xRz" secondAttribute="bottom" constant="-2" id="4g3-lY-Gkq"/>
+                                                <constraint firstItem="TSg-Hr-YRD" firstAttribute="trailing" secondItem="JxN-uH-RsP" secondAttribute="trailingMargin" id="69j-ZG-Ali"/>
+                                                <constraint firstItem="rW1-in-jlb" firstAttribute="leading" secondItem="CRb-hJ-xRz" secondAttribute="trailing" constant="8" symbolic="YES" id="Gb4-P5-Owq"/>
+                                                <constraint firstAttribute="centerX" secondItem="TSg-Hr-YRD" secondAttribute="centerX" id="H6y-Pv-k7z"/>
+                                                <constraint firstItem="CRb-hJ-xRz" firstAttribute="top" secondItem="JxN-uH-RsP" secondAttribute="topMargin" constant="-1" id="MHV-4X-0VB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0dI-O9-FvI" secondAttribute="bottom" constant="-10" id="NmD-ul-N36"/>
+                                                <constraint firstItem="CRb-hJ-xRz" firstAttribute="leading" secondItem="JxN-uH-RsP" secondAttribute="leadingMargin" id="Qsf-xB-Bzx"/>
+                                                <constraint firstAttribute="centerY" secondItem="TSg-Hr-YRD" secondAttribute="centerY" id="SOA-u0-HKc"/>
+                                                <constraint firstAttribute="centerY" secondItem="CRb-hJ-xRz" secondAttribute="centerY" id="SYX-R6-4sb"/>
+                                                <constraint firstItem="rW1-in-jlb" firstAttribute="top" secondItem="JxN-uH-RsP" secondAttribute="topMargin" id="UYW-4K-Ynd"/>
+                                                <constraint firstItem="CRb-hJ-xRz" firstAttribute="centerY" secondItem="TSg-Hr-YRD" secondAttribute="centerY" id="WbQ-DP-7rE"/>
+                                                <constraint firstItem="rW1-in-jlb" firstAttribute="leading" secondItem="CRb-hJ-xRz" secondAttribute="trailing" constant="8" symbolic="YES" id="cjo-H1-L4Y"/>
+                                                <constraint firstItem="CRb-hJ-xRz" firstAttribute="leading" secondItem="JxN-uH-RsP" secondAttribute="leadingMargin" id="diV-MH-P39"/>
+                                                <constraint firstItem="0dI-O9-FvI" firstAttribute="trailing" secondItem="rW1-in-jlb" secondAttribute="trailing" id="q0X-Kz-5oq"/>
+                                                <constraint firstItem="0dI-O9-FvI" firstAttribute="top" secondItem="JxN-uH-RsP" secondAttribute="topMargin" constant="16" id="uRJ-1T-DrE"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="4g3-lY-Gkq"/>
+                                                    <exclude reference="MHV-4X-0VB"/>
+                                                    <exclude reference="Qsf-xB-Bzx"/>
+                                                    <exclude reference="WbQ-DP-7rE"/>
+                                                    <exclude reference="Gb4-P5-Owq"/>
+                                                    <exclude reference="H6y-Pv-k7z"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contactAddress" destination="0dI-O9-FvI" id="reW-bL-imH"/>
@@ -194,6 +237,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.91865305656934293" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="144" width="288" height="372"/>
                                 </variation>
@@ -204,16 +252,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="XsB-3K-OQk"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="XsB-3K-OQk"/>
-                            </mask>
-                        </variation>
+                        <constraints>
+                            <constraint firstItem="gpI-ns-4S4" firstAttribute="trailing" secondItem="VNA-d6-Xi4" secondAttribute="trailingMargin" id="8dQ-P5-1Vh"/>
+                            <constraint firstItem="gpI-ns-4S4" firstAttribute="top" secondItem="xLL-ui-erA" secondAttribute="bottom" constant="45" id="P4h-Rg-vmT"/>
+                            <constraint firstItem="gpI-ns-4S4" firstAttribute="leading" secondItem="VNA-d6-Xi4" secondAttribute="leadingMargin" id="UwA-5Q-dyD"/>
+                            <constraint firstItem="zVD-dg-dPG" firstAttribute="top" secondItem="gpI-ns-4S4" secondAttribute="bottom" constant="3" id="e3M-ky-JWv"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Invite to Sapristi" id="zmv-Q3-JC1">
@@ -223,7 +267,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="allFriendsTableView" destination="gpI-ns-4S4" id="WT8-1v-nD8"/>
                         <outlet property="searchDisplayController" destination="1ww-2r-oEc" id="KH1-Vj-mZP"/>
@@ -933,7 +976,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="S4p-i4-AGz"/>
+        <segue reference="bcT-1d-I4a"/>
         <segue reference="ipB-rE-2BV"/>
-        <segue reference="Bk7-gl-T7b"/>
     </inferredMetricsTieBreakers>
 </document>
